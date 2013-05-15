@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Sample namespace-based configuration
+  -
+  - $Id: applicationContext-security.xml 3019 2008-05-01 17:51:48Z luke_t $
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.4.xsd">
+
+    <security:global-method-security secured-annotations="enabled">
+    </security:global-method-security>
+
+    <security:http auto-config="true">
+       <security:remember-me key="myAppKey"/>
+       <!-- pages without login -->
+       <security:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="http" />
+    </security:http>
+
+    <security:authentication-manager>
+      <security:authentication-provider user-service-ref='neuro4jUserDetailsService' />
+    </security:authentication-manager>
+     
+    <bean id="neuro4jUserDetailsService" class="org.neuro4j.web.console.springsecurity.UserDetailsServiceImpl">
+    </bean>
+    
+</beans>

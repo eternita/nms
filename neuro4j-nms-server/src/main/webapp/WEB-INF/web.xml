@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>n4j</display-name>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>webapp.root.n4jconsole</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+      /WEB-INF/spring-security-context.xml
+  </param-value>
+  </context-param>
+  
+  <!-- start spring security -->
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>  
+   <!-- end spring security -->
+
+
+
+
+   <!-- start spring encoding filter --> 
+     <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+     </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+   <!-- end spring encoding filter --> 
+
+
+  <!-- start spring -->    
+  <servlet>
+    <servlet-name>n4j</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>n4j</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <!-- end spring -->    
+
+  <!-- start representation loader -->
+  <servlet>
+    <servlet-name>reploader</servlet-name>
+    <servlet-class>org.neuro4j.web.console.RepresentationLoaderServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>reploader</servlet-name>
+    <url-pattern>/rl</url-pattern>
+  </servlet-mapping>
+  <!-- end representation loader -->
+  
+  <!-- start N4J query servlet -->
+  <servlet>
+    <servlet-name>NeuroServerServlet</servlet-name>
+    <servlet-class>org.neuro4j.nms.server.NMSQueryServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>NeuroServerServlet</servlet-name>
+    <url-pattern>/api/query</url-pattern>
+  </servlet-mapping>
+  <!-- end N4J query servlet -->
+
+  <!-- start N4J update servlet -->
+  <servlet>
+    <servlet-name>NMSUpdateBinServlet</servlet-name>
+    <servlet-class>org.neuro4j.nms.server.NMSUpdateBinServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>NMSUpdateBinServlet</servlet-name>
+    <url-pattern>/api/update/bin</url-pattern>
+  </servlet-mapping>
+  <!-- end N4J update servlet -->
+  
+  <!-- start N4J update servlet -->
+  <servlet>
+    <servlet-name>NMSUpdateXMLServlet</servlet-name>
+    <servlet-class>org.neuro4j.nms.server.NMSUpdateXMLServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>NMSUpdateXMLServlet</servlet-name>
+    <url-pattern>/api/update/xml</url-pattern>
+  </servlet-mapping>
+  <!-- end N4J update servlet -->
+  
+  <!-- start URLRewrite filter -->
+  <filter>
+    <filter-name>UrlRewriteFilter</filter-name>
+    <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    <init-param>
+      <param-name>logLevel</param-name>
+      <param-value>ERROR</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>UrlRewriteFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- end URLRewrite filter -->
+    
+  
+  <error-page> 
+      <error-code>404</error-code>
+      <location>/error-404.jsp</location> 
+  </error-page>
+  
+
+    <error-page> 
+        <exception-type>java.lang.Exception</exception-type> 
+        <location>/error.jsp</location> 
+    </error-page>
+
+        
+  <jsp-config>
+    <taglib>
+      <taglib-uri>/vlh</taglib-uri>
+      <taglib-location>/WEB-INF/tld/valuelist.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+    
+</web-app>

@@ -1,0 +1,159 @@
+#demo {
+	margin-top: 5em;
+}
+
+.w {
+	width: 15em;
+	height: 2em;
+	padding: 1em;
+	position: absolute;
+	border: 1px solid black;
+	z-index: 4;
+	border-radius: 1em;
+	border: 1px solid #346789;
+	box-shadow: 2px 2px 19px #e0e0e0;
+	-o-box-shadow: 2px 2px 19px #e0e0e0;
+	-webkit-box-shadow: 2px 2px 19px #e0e0e0;
+	-moz-box-shadow: 2px 2px 19px #e0e0e0;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+	cursor: move;
+}
+
+.aLabel {
+	background-color: white;
+	opacity: 0.8;
+	padding: 0.3em;
+}
+
+.ep {
+	float: right;
+	width: 0em;
+	height: 0em;
+	background-color: #fff;
+	cursor: pointer;
+}
+.info {
+	float: right;
+	width: 1em;
+	height: 1em;
+	background-color: #cecece;
+	cursor: pointer;
+}
+._jsPlumb_endpoint {
+	z-index: 3;
+}
+/*	._jsPlumb_connector { border:1px solid red; }*/
+#opened {
+	left: 10em;
+	top: 5em;
+}
+
+#olga {
+	left: 10em;
+	top: 12em;
+	width: 7em;
+}
+
+#nicola {
+	left: 13em;
+	top: 25em;
+}
+
+#inperson {
+	left: 27em;
+	top: 22em;
+}
+
+#rejected {
+	left: 10em;
+	top: 35em;
+}
+
+.dragHover {
+	border: 1px dotted red;
+}
+
+path {
+	cursor: pointer;
+}
+
+.rhombus1{
+	width: 2em;
+	height: 2em;
+    transform: skew(-35deg);
+    -webkit-transform: skew(-35deg);
+    -moz-transform: skew(-35deg);
+    -ms-transform: skew(-35deg);
+    -o-transform: skew(-35deg);
+}
+.rhombus{	
+	background-image: url("/n4j-nms/console/images/rhombus.png") ;
+	
+	border: 0;
+	border-color: white;
+	box-shadow: 0;
+	-webkit-box-shadow:  #fff 0px 0px 0px 0px;
+	padding: 2em;
+	width: 72px;
+	height: 72px;
+}
+
+.triangle{	
+	background-image: url("/n4j-nms/console/images/triangle.png") ;
+	
+	border: 0;
+	border-color: white;
+	box-shadow: 0;
+	-webkit-box-shadow:  #fff 0px 0px 0px 0px;
+	padding: 2em;
+	width: 72px;
+	height: 72px;
+}
+
+.pentagon{	
+	background-image: url("/n4j-nms/console/images/pentagon.png") ;
+	
+	border: 0;
+	border-color: white;
+	box-shadow: 0;
+	-webkit-box-shadow:  #fff 0px 0px 0px 0px;
+	padding: 2em;
+	width: 72px;
+	height: 72px;
+}
+.rectangle{	
+	background-image: url("/n4j-nms/console/images/rectangle.png") ;
+	
+	border: 0;
+	border-color: white;
+	box-shadow: 0;
+	-webkit-box-shadow:  #fff 0px 0px 0px 0px;
+	padding: 1em;
+	width: 98px;
+	height: 80px;
+}
+
+.circle-sm {
+	background-image: url("/n4j-nms/console/images/circle-small.png");
+	border: 0;
+	border-color: white;
+	box-shadow: 0;
+	-webkit-box-shadow: #fff 0px 0px 0px 0px;
+	width: 18px;
+	height: 18px;
+}
+
+.rhombus .ep, .rectangle .ep, .pentagon .ep, .circle-sm .ep, .triangle .ep{	
+width: 0em;
+height: 0em;
+background-color: #fff;
+}
+
+.rhombus a, .triangle a, .pentagon a, .rectangle a, .circle-sm a{	
+background-color: #fff;
+white-space:nowrap;
+border: 1px dotted red;
+}

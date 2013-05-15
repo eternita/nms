@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlrewrite decode-using="header,utf8">
+
+<!-- start NMS remote API URLs -->
+    <rule>
+        <from>/(.*)/api/query(.*)$</from>
+        <to>/api/query?storage=$1&amp;$2</to>
+    </rule>
+
+    <rule>
+        <from>/(.*)/api/update/bin(.*)$</from>
+        <to>/api/update/bin?storage=$1&amp;$2</to>
+    </rule>
+
+    <rule>
+        <from>/(.*)/api/update/xml(.*)$</from>
+        <to>/api/update/xml?storage=$1&amp;$2</to>
+    </rule>
+
+<!-- 
+    <rule>
+        <from>api/(.*)/query(.*)$</from>
+        <to>api/query?storage=$1&amp;$2</to>
+    </rule>
+
+    <rule>
+        <from>api/(.*)/update/bin(.*)$</from>
+        <to>api/update/bin?storage=$1&amp;$2</to>
+    </rule>
+
+    <rule>
+        <from>api/(.*)/update/xml(.*)$</from>
+        <to>api/update/xml?storage=$1&amp;$2</to>
+    </rule>
+ -->
+<!-- end NMS remote API URLs -->
+
+</urlrewrite>

@@ -1,0 +1,207 @@
+.PagingTag .sprite-firstoff {
+    background-position: -31px 0;
+    width: 16px;
+    height: 16px;
+}
+
+.PagingTag .sprite-firston {
+    background-position: -67px 0;
+    width: 16px;
+    height: 16px;
+}
+
+.PagingTag .sprite-forwardoff {
+    background-position: -103px 0;
+    width: 16px;
+    height: 16px;
+}
+
+.PagingTag .sprite-forwardon {
+    background-position: -139px 0;
+    width: 16px;
+    height: 16px;
+}
+
+.PagingTag .sprite-lastoff {
+    background-position: -175px 0;
+    width: 16px;
+    height: 16px;
+}
+
+.PagingTag .sprite-laston {
+    background-position: -211px 0;
+    width: 16px;
+    height: 16px;
+}
+
+.PagingTag .sprite-previousoff {
+    background-position: -247px 0;
+    width: 16px;
+    height: 16px;
+}
+
+.PagingTag .sprite-previouson {
+    background-position: -283px 0;
+    width: 16px;
+    height: 16px;
+}
+
+.PagingTag span {
+    display: block;
+    background: url(../images/csg-paging.png) no-repeat;
+    overflow:hidden;
+}
+
+.PagingTag a {
+	height: 16px;
+}
+
+.PagingTag {
+	height: 16px;
+}
+.t {
+    border-top: 1px solid #99bbe8;
+}
+
+.b {
+    border-bottom: 1px solid #99bbe8;
+}
+
+.r {
+    border-right: 1px solid #99bbe8;
+}
+
+.l {
+    border-left: 1px solid #99bbe8;
+}
+
+.vhl_tr0 {
+    border-top: 1px solid #deecfd;
+    border-bottom: 1px solid #deecfd;
+    padding: 1px;
+}
+
+.pd3 {
+    padding: 3px 3px 3px 3px;
+}
+
+.m-button {
+    margin: .0833em 0;
+    font-size: .92308em;
+    vertical-align: top;
+    zoom: 1;
+}
+
+.m-button {
+    padding: 0 .5333em;
+    margin: 0 .25em;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #000;
+    background: #fed81c url(../images/button/button.png) repeat-x;
+    border: 1px solid #999;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: -moz-inline-box;
+    display: inline-block;
+    *display: inline;
+}
+
+.m-button-ur {
+    font-weight: bold;
+    color: #994800;
+    background: #fed81c url(/console/images/button/button.png) repeat-x;
+    border-color: #ecc101;
+}
+
+.m-button-tab {
+	font-weight: bold;
+    background: #fff;
+    border-color: #fff;
+    -moz-border-radius: 3px;
+    padding: 4px;
+}
+.hp .m-button-tab {
+    background: #E3ECF5;
+    border-color: #E3ECF5;
+}
+.m-button,tt:-moz-any-link,tt:default {
+    -moz-border-radius: 3px;
+}
+
+.m-button span {
+    white-space: normal;
+    line-height: 1.9166em;
+    height: 1.9166em;
+    *display: inline-block;
+}
+
+.m-button span,tt:-moz-any-link {
+    padding-top: .3333em;
+    line-height: 1.75em;
+}
+
+.m-button span,tt:-moz-any-link,tt:default {
+    padding-top: 0;
+    line-height: 1.9166em;
+}
+
+.acc {
+    width: 100%;
+    list-style: none;
+    color: #033;
+    margin: 0;
+    padding: 0;
+}
+
+.acc1 h3 {
+    width: 170px;
+    text-align: center;
+    text-decoration: underline;
+    border: 0 solid #9ac1c9;
+    padding: 5px 5px 4px;
+    font-weight: normal;
+    cursor: pointer;
+    background: rgb(242, 242, 242);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    
+}
+.acc h3 {
+    text-decoration: underline;
+    border: 0 solid #9ac1c9;
+    margin: 0px;
+    padding: 3px 3px 4px;
+    font-weight: bold;
+    font-size: small;
+    cursor: pointer;
+    background: url(/n4j-nms/console/images/header.gif);
+    text-align: left;
+}
+ul, li{
+
+    padding: 0px;
+    margin: 0px;
+
+}
+.acc h3:hover {
+    background: url(/n4j-nms/console/images/header_over.gif);
+}
+
+.acc .acc-section {
+    overflow: hidden;
+    background: #fff;
+}
+
+.acc .acc-content {
+    padding: 10px;
+    border: 0 solid #9ac1c9;
+    border-top: none;
+    background: #fff;
+}
