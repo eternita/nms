@@ -20,6 +20,7 @@ public class InMemoryNeuroStorage extends StorageBase {
 	protected Network instance = new Network();
 	
 	public void init(Properties properties) throws StorageException {
+		super.init(properties);
 	}
 
 	public boolean save(Network network) throws StorageException {

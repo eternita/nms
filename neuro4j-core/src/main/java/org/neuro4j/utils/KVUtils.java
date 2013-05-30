@@ -216,6 +216,10 @@ public class KVUtils {
 	public static Properties loadProperties(File file)
 	{
 		Properties config = new Properties();
+		
+		if (!file.exists() || !file.isFile() )
+			return config;
+			
 		InputStream is = null;
 		try 
 		{

@@ -47,7 +47,7 @@ public class XMLNeuroStorage extends InMemoryNeuroStorage {
 	}
 	
 
-	
+/*	
 	private void test() throws StorageException
 	{
 		//TODO: test
@@ -66,6 +66,7 @@ public class XMLNeuroStorage extends InMemoryNeuroStorage {
 		return;
 	}
 	
+*/	
     @Override
 	public boolean save(Network network) throws StorageException {
 

@@ -20,16 +20,16 @@ public class SolrNeuroStorage extends StorageBase {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private SolrIndexMgr siMgr = null; 
 
-	private Properties properties;
 	
 	public SolrNeuroStorage()   
 	{
 		super();
 	}
 
-	public void init(Properties properties) {
+	public void init(Properties properties) throws StorageException {
+		super.init(properties);
+		
 		siMgr = new SolrIndexMgr(properties);
-		this.properties = properties;
 		return;
 	}
 

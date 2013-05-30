@@ -2,6 +2,7 @@ package org.neuro4j.storage;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.Properties;
 
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
@@ -9,6 +10,18 @@ import org.neuro4j.core.Relation;
 import org.neuro4j.utils.ClassloaderUtil;
 
 public abstract class StorageBase implements NeuroStorage {
+
+	protected Properties properties;
+
+	public Properties getConfig() 
+	{
+		return properties;
+	}
+	
+	public void init(Properties properties) throws StorageException {
+		this.properties = properties;
+		return;
+	}
 
 	/**
 	 * 

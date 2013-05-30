@@ -14,6 +14,7 @@ import org.neuro4j.utils.KVUtils;
 public class NMSServerConfig {
 	
 	public static final String STORAGE_PREFIX = "org.neuro4j.nms.server.storage.";
+	public static final String STORAGE_CONFIG_FILE = "storage.properties";
 	
 	private static File homeConfigDir; 
 	
@@ -60,13 +61,13 @@ public class NMSServerConfig {
 			if (!core.startsWith(STORAGE_PREFIX))
 				continue;
 			
-			String coreConfigFile = config.getProperty(core);
+			String coreConfigFile = config.getProperty(core); // core dir
 			if (null != homeConfigDir)
 			{
 				if (homeConfigDir.getAbsolutePath().endsWith("/"))
-					coreConfigFile = homeConfigDir.getAbsolutePath() + coreConfigFile; 
+					coreConfigFile = homeConfigDir.getAbsolutePath() + coreConfigFile + "/" + STORAGE_CONFIG_FILE; 
 				else
-					coreConfigFile = homeConfigDir.getAbsolutePath() + "/" + coreConfigFile; 
+					coreConfigFile = homeConfigDir.getAbsolutePath() + "/" + coreConfigFile + "/" + STORAGE_CONFIG_FILE; 
 			}
 			
 			NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(new File(coreConfigFile));

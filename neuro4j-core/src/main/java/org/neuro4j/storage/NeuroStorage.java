@@ -9,6 +9,8 @@ import org.neuro4j.core.Relation;
 
 public interface NeuroStorage {
 	
+	public Properties getConfig();
+	
 	public void init(Properties properties) throws StorageException;
 
 	public boolean save(Network network) throws StorageException;

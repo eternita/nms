@@ -16,15 +16,4 @@ public class WelcomeController {
 		return "welcome";
 	}
 
-	@RequestMapping("/settings")
-	public String settings(HttpServletRequest request) {
-		
-		NMSServerConfig nmsConfig = NMSServerConfig.getInstance();
-		
-		request.setAttribute("nmsConfig", nmsConfig);
-		Set<String> storageNames = nmsConfig.getStorageNames();
-		request.setAttribute("storageNames", storageNames);
-		return "console/settings";
-	}
-
 }

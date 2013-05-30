@@ -80,15 +80,16 @@
   
     <div id="xHeader">
         <div>
-            <a id="uLogo" target="_blank" href="http://www.neuro4j.org/"> NEURO 4J - Network Management System Console</a>
+            <a id="uLogo" target="_blank" href="http://www.neuro4j.org/"> NEURO 4J</a>
+            <a id="uLogo" href="settings"> - Network Management System Console</a>
             <nav> 
                 <ul>
-                    <li><a href="settings">Cores</a></li>
                     
                     <li><a href="settings">Settings</a></li>
                     
                     <c:if test="${null != storage}">
-                        <li><a href="query?vt=graph&storage=${storage}">Storage: ${storage}</a></li>
+                        <li><a href="storage-settings?name=${storage}">${storage}</a></li>
+                        <li><a href="query?vt=graph&storage=${storage}">Query</a></li>
                     </c:if>
                 </ul>
             </nav>

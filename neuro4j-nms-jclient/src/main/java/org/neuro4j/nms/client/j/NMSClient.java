@@ -27,6 +27,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.StorageBase;
+import org.neuro4j.storage.StorageException;
 import org.neuro4j.xml.NetworkConverter;
 
 /**
@@ -56,7 +57,10 @@ public class NMSClient extends StorageBase {
 		super();
 	}
 
-	public void init(Properties properties) {
+	public void init(Properties properties) throws StorageException {
+		
+		super.init(properties);
+		
 		this.serverBaseURL = properties.getProperty("org.neuro4j.nms.client.server_url");
 		
 		try {
