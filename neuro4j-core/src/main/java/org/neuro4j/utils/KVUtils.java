@@ -213,6 +213,23 @@ public class KVUtils {
 		return idx;
 	}	
 	
+	public static Properties loadProperties(InputStream is)
+	{
+		Properties config = new Properties();
+		
+		if (null == is)
+			return config;
+			
+		try 
+		{
+			config.load(is);
+		} catch (Exception e) {
+			logger.severe("can't read app_config properties from stream " + e);
+			throw new RuntimeException("can't read app_config properties from stream ", e);
+		}
+		return config;
+	}
+	
 	public static Properties loadProperties(File file)
 	{
 		Properties config = new Properties();

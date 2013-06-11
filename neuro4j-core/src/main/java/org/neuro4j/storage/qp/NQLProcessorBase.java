@@ -474,7 +474,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 
 		logger.info("-- DO BEHAVE() " + params);
 		
-		String flow = (String) params.get("flow");// "org.neuro4j.data.mining.demo.WebMining-Start"; // "org.neuro4j.logic.swf.demo.lesson1.Hello-Start"
+		String flow = (String) params.get("flow");// "org.neuro4j.data.mining.demo.WebMining-Start"; 
 		if (null == flow)
 		{
 			//TODO: log ?
@@ -487,7 +487,9 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 
 		Map<String, Object> ctxParams = new HashMap<String, Object>();
 		ctxParams.putAll(params);
-		ctxParams.put("input_network", pipeNet);
+		ctxParams.put("INPUT_NETWORK", pipeNet);
+		ctxParams.put("CURRENT_STORAGE", baseStorage);
+		
 		
 		try {
 			LogicContext logicContext = SimpleWorkflowEngine.run(flow, ctxParams);

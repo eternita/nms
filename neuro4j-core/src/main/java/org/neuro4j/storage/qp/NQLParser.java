@@ -233,7 +233,7 @@ public class NQLParser implements NQLParserConstants {
     {if (true) return;}
   }
 
-/** * Reads parameters String like following:   a='b' c="d" * */
+/** * Reads parameters String like following:   a='b' c="d" * Parameter's name and value are case sensitive (because block parameters are case sensitive) */
   final public void getParams(Map<String, String> params) throws ParseException {
 //  System.out.println(" getParams() ");  Token tKey, tValue;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -252,7 +252,7 @@ public class NQLParser implements NQLParserConstants {
     tValue = jj_consume_token(QUOTED_STRING);
     String key = tKey.image;
     String value = tValue.image.substring(1, tValue.image.length() - 1);
-    params.put(key.toLowerCase(), value);
+    params.put(key, value);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case LIMIT:
     case STRING:

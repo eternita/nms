@@ -40,9 +40,6 @@ public class XMLNeuroStorage extends InMemoryNeuroStorage {
 		if (null == instance)
 			throw new StorageException("Can't load network from file " + filePath);
 		
-		String directoryWithJarExtensions = KVUtils.getStringProperty(properties, "n4j.storage.xml.jar_extension_dir");
-		extendClassLoader(directoryWithJarExtensions);
-		
 //		test();
 	}
 	

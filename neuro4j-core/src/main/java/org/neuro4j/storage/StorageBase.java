@@ -8,6 +8,7 @@ import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Relation;
 import org.neuro4j.utils.ClassloaderUtil;
+import org.neuro4j.utils.KVUtils;
 
 public abstract class StorageBase implements NeuroStorage {
 
@@ -20,6 +21,12 @@ public abstract class StorageBase implements NeuroStorage {
 	
 	public void init(Properties properties) throws StorageException {
 		this.properties = properties;
+		
+		
+		String directoryWithJarExtensions = KVUtils.getStringProperty(properties, "n4j.storage.lib_dir");
+		if (null != directoryWithJarExtensions && directoryWithJarExtensions.trim().length() > 0)
+			extendClassLoader(directoryWithJarExtensions);
+		
 		return;
 	}
 

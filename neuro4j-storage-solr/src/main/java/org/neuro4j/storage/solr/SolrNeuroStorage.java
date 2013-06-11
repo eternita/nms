@@ -98,52 +98,5 @@ public class SolrNeuroStorage extends StorageBase {
 	}
 	
 
-	
-	/**
-	 * load all network 
-	 * 
-	 * @param network
-	 */
-	private void load(Network network, int maxEntities) 
-	{
-		
-/*		Set<String> relationIdSet = new HashSet<String>(); // to handle max count
-		
-		String[] eIds = eMgr.getEntityList();
-		for (int i = 0; i < eIds.length; i++)
-		{
-			if (i > maxEntities)
-				break;
-				
-			String id = eIds[i];
-			Entity e = eMgr.getById(id);
-			
-			network.add(e);
-		}
-		
-		eIds = network.getEntities();
-		
-//		String[] rIds = rMgr.getRelationList();
-		String[] rIds = relationIdSet.toArray(new String[]{});
-		for (String id : rIds)
-		{
-			Relation r = rMgr.getById(id, network);
-			network.add(r);
-		}
-		
-		for (String id : eIds)
-		{
-			Entity e = network.getEntityByUUID(id);
-			e.setModified(false);
-		}
-		
-		for (String id : rIds)
-		{
-			Relation r = network.getRelationByUUID(id);
-			r.setModified(false);
-		}
-		*/
-		return;
-	}
 
 }

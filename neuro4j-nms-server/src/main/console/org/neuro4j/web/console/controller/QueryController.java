@@ -68,6 +68,9 @@ public class QueryController {
 			try {
 				long start = System.currentTimeMillis();
 				net = neuroStorage.query(q);
+				if (null == net) // can be in case of behave queries.  behave(flow="n4j_site.flows.ExpsysPostHook-TestQuery") 
+					net = new Network();
+				
 				long end = System.currentTimeMillis();
 				request.setAttribute("qtime", end - start);				
 			} catch (Exception e) {

@@ -1,6 +1,7 @@
 package org.neuro4j;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -49,6 +50,14 @@ public class NeuroManager  {
 	public NeuroStorage getNeuroStorage(File configFile)
 	{
 		Properties props = KVUtils.loadProperties(configFile);
+		String storageImpl = props.getProperty("n4j.manager.storage");
+		
+		return getNeuroStorage(storageImpl, props);
+	}
+	
+	public NeuroStorage getNeuroStorage(InputStream inputStream)
+	{
+		Properties props = KVUtils.loadProperties(inputStream);
 		String storageImpl = props.getProperty("n4j.manager.storage");
 		
 		return getNeuroStorage(storageImpl, props);
