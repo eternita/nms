@@ -60,7 +60,6 @@ public class EntitiesController {
 		if (null == e)
 			return "redirect:/query";
 
-		NetworkUtils.loadConnected(e, neuroStorage);
 		request.setAttribute("entity", e);
 		int depth = 1;
 		try

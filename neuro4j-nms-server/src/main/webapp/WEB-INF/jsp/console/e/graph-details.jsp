@@ -65,10 +65,6 @@ for (String groupName : groupedRelationMap.keySet())
                      <td width="50%" class="r" ><span title="id">id</span></td>
                      <td width="50%"><span title="<%=entity.getUuid()%>"><%=StringUtils.getShortStr(entity.getUuid(), 15) %></span></td>
                    </tr>
-                   <tr>
-                     <td width="50%" class="r" ><span title="name">name</span></td>
-                     <td width="50%"><span title="<%=entity.getName()%>"><%=StringUtils.getShortStr(entity.getName(), 15) %></span></td>
-                   </tr>
                   <%
                   	for (String key : entity.getPropertyKeys())
                     {
