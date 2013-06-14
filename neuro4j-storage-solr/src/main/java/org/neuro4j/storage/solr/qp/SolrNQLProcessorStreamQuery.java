@@ -34,6 +34,9 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		{
 			// very first decorator
 			this.queryType = queryType;
+			
+			this.solrQuery = siMgr.addERFilterToQuery(solrQuery, queryType);
+			
 		} else {
 			// not first decorator
 			previousQueryType = inputStream.getERQueryType();
@@ -70,7 +73,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		{
 			// very first decorator - no parent ids
 			if (null == iter)
-		    	iter = siMgr.query(solrQuery);
+		    	iter = siMgr.query(solrQuery); 
 
 			return iter.hasNext();
 		}

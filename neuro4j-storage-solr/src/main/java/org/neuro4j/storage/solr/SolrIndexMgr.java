@@ -18,6 +18,7 @@ import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Relation;
 import org.neuro4j.storage.StorageException;
+import org.neuro4j.storage.qp.ERType;
 import org.neuro4j.storage.qp.NQLProcessor;
 import org.neuro4j.utils.KVUtils;
 import org.slf4j.Logger;
@@ -278,6 +279,21 @@ public class SolrIndexMgr {
     	SearchIndexHandler.docs2net(net, iter);
 
 		return net;
+	}
+	
+	public String addERFilterToQuery(String query, ERType queryType)
+	{
+		StringBuffer sqSB = new StringBuffer(); 
+		
+		sqSB.append(SearchIndexConfiguration.FIELD_ER_TYPE)
+		.append(":")
+		.append(queryType)
+		.append(" AND ")
+		.append("(")
+		.append(query)
+		.append(")");
+		
+		return sqSB.toString();
 	}
 
 	public Iterator<SolrDocument> query(String solrQuery)
