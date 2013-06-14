@@ -41,7 +41,7 @@ for (String groupName : groupedRelationMap.keySet())
 	String groupNameStr = groupName + " (" + groupedRelationMap.get(groupName).size() + ")";
     %>
     <li class="l r t" > 
-        <h3 title="<%= groupNameStr %>"><%= StringUtils.getShortStr(groupNameStr, 30) %>
+        <h3 title="<%= groupNameStr %>"><%= StringUtils.getShortStr(groupNameStr, 29) %>
          </h3> 
         <div class="acc-section"> 
             <div class="acc-content">   
