@@ -467,6 +467,20 @@ public class Network implements Serializable {
 		
 		return entities;
 	}
+	
+	public Set<Entity> getEntitiesWithProperty(String key)
+	{
+		Set<Entity> entities = new HashSet<Entity>();
+		
+		for (Entity e : ideMap.values())
+		{
+			if (e.properties.containsKey(key))
+				entities.add(e);
+		}
+		
+		return entities;
+	}
+
 	/**
 	 * get entities by uuid, name, other property
 	 * 

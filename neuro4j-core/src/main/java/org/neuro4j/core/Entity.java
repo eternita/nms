@@ -166,6 +166,11 @@ public class Entity extends ERBase implements Serializable {
 		return (Entity) super.cloneBase();
 	}	
 	
+	public Entity copyBase()
+	{
+		return (Entity) super.copyBase();
+	}	
+	
 //	public Entity cloneWithConnectedKeys()
 //	{
 //		return (Entity) super.cloneWithConnectedKeys();

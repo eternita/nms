@@ -246,6 +246,11 @@ public class Relation extends ERBase implements Serializable {
 	{
 		return (Relation) super.cloneBase();
 	}
+	
+	public Relation copyBase()
+	{
+		return (Relation) super.copyBase();
+	}
 
 //	public Relation cloneWithConnectedKeys()
 //	{

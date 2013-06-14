@@ -1,18 +1,29 @@
 package org.neuro4j.utils;
 
 import java.util.Set;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringUtils {
 
+	private static Logger logger = Logger.getLogger(StringUtils.class.getName());
+
 	public static boolean match(String str, String regexp) {
 		if (null == str)
 			return false;
 
-		Pattern p = Pattern.compile(regexp);
-		Matcher m = p.matcher(str);
-		return m.matches();
+		boolean match = false;
+		try
+		{
+			Pattern p = Pattern.compile(regexp);
+			Matcher m = p.matcher(str);
+			match = m.matches();
+		} catch (Exception ex) {
+			logger.warning(ex.getMessage());
+		}
+		
+		return match;
 	}
 	
 	public static String getShortStr(String str, int maxLenth)

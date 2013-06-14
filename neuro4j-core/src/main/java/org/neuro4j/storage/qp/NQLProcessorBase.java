@@ -472,7 +472,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (FIRST_CYCLE == parseCycle)
 			return;
 
-		logger.info("-- DO BEHAVE() " + params);
+//		logger.info("-- DO BEHAVE() " + params);
 		
 		String flow = (String) params.get("flow");// "org.neuro4j.data.mining.demo.WebMining-Start"; 
 		if (null == flow)
@@ -483,7 +483,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		params.remove("flow");
 
 		
-		logger.info("Running flow " + flow);
+		logger.fine("Running flow " + flow);
 
 		Map<String, Object> ctxParams = new HashMap<String, Object>();
 		ctxParams.putAll(params);
@@ -494,14 +494,23 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		try {
 			LogicContext logicContext = SimpleWorkflowEngine.run(flow, ctxParams);
 
-			logger.info("Flow output " + logicContext);
+//			logger.info("Flow output " + logicContext);
 		} catch (FlowExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.warning("Error during execution flow " + flow);
+			throw new StorageException("Error during execution flow " + flow, e);
+		} catch (Exception e) {
+			logger.warning("Error during execution flow " + flow);
+			throw new StorageException("Error during execution flow " + flow, e);
 		}
 				
 		// move input net to output
 		this.outputNet = this.pipeNet;
+		
+		// if behave in the first pipe - outputNet and pipeNet is Null
+		if (null == this.outputNet)
+			this.outputNet = new Network();
+		
+		return;
 	}
 
 	/**

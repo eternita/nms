@@ -7,6 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.neuro4j.mgr.uuid.UUIDMgr;
 import org.neuro4j.utils.KVUtils;
 
 
@@ -235,6 +236,21 @@ public class ERBase extends KVBase implements Serializable {
 			this.properties.remove(Representation.REPRESENTATION_PREFIX + arrayIdx + "." + key);
 		}
 		return;
+	}
+	
+	/**
+	 * copy object but create new UUID 
+	 * 
+	 * @return
+	 */
+	protected ERBase copyBase()
+	{
+		ERBase clone = cloneBase();
+		
+		clone.setUuid(UUIDMgr.getInstance().createUUIDString());
+		
+		return clone;
+		
 	}
 	
 	protected ERBase cloneBase()
