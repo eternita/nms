@@ -56,7 +56,7 @@ public class InMemoryNeuroStorage extends StorageBase {
 				Relation r = network.getRelationByUUID(rid);
 				if (r.isModified())
 				{
-					InMemoryUtils.saveOrUpdate(network, r);
+					InMemoryUtils.saveOrUpdate(instance, r);
 				} // if (r.isModified())
 			}
 			

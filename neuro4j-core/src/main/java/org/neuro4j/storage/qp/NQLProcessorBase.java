@@ -125,6 +125,13 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 	protected NQLProcessorStream qpStream = null;
 
 	public Network getNetwork() {
+		
+		if (null != outputNet)
+		{
+			for (ERBase er : outputNet.getERBases())
+				er.setModified(false);
+		}
+			
 		return outputNet;
 	}
 
