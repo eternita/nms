@@ -25,7 +25,6 @@ import org.neuro4j.core.Relation;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.SimpleWorkflowEngine;
-import org.neuro4j.logic.swf.SimpleWorkflowException;
 import org.neuro4j.storage.NeuroStorage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.storage.inmemory.qp.InMemoryNQLProcessorStreamQuery;
@@ -57,7 +56,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 	protected static final String STORAGE = "storage";
 	protected static final String CURRENT_ER_NETWORK = "CURRENT_ER_NETWORK"; 
 
-	protected Logger logger = Logger.getLogger(getClass().getName());
+	protected transient Logger logger = Logger.getLogger(getClass().getName());
 
 	protected static final DateFormat TEMP_TABLE_DF = new SimpleDateFormat("yyyyMMdd_HHmmss");
 
@@ -114,7 +113,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 
 	// is used for path calculation e.g.
 	// SELECT PATH E[first_name='John'] / R[name='brother-system'] / E[name='Marry'] / R[name='work at'] / E[]
-	//
 	protected Network erSubPathPreviousNetwork = null;  
 
 	
@@ -215,22 +213,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (FIRST_CYCLE == parseCycle)
 			return;
 		
-//		if (expandLevel < 0)
-//		{
-//			// set it for all expand levels 
-//			for (int i = 1; i <= this.expandLevel; i++)
-//				addExpandIgnoreAttribute(i, attributeKey, attributeValue);
-//			
-//			return;
-//		}
-		
-//		Map<String, Set<String>> expandAttributes = expandIgnoreAttrMap.get(expandLevel);
-//		if (null == expandAttributes)
-//		{
-//			expandAttributes = new HashMap<String, Set<String>>();
-//			expandIgnoreAttrMap.put(expandLevel, expandAttributes);
-//		}
-		
 		Set<String> values = ignoreAttrMap.get(attributeKey);
 		if (null == values)
 		{
@@ -263,7 +245,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (FIRST_CYCLE == parseCycle)
 			return;
 		
-//		System.out.println("subpath e[]/r[]/..... ");
 		doSubpath = true;
 	}	
 	
@@ -459,8 +440,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		try {
 			LogicContext logicContext = SimpleWorkflowEngine.run(flow, ctxParams);
 		} catch (FlowExecutionException e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
 			throw new StorageException("Exception during call " + flow + "; " + e.getMessage(), e);
 		}
 		
@@ -472,8 +451,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (FIRST_CYCLE == parseCycle)
 			return;
 
-//		logger.info("-- DO BEHAVE() " + params);
-		
 		String flow = (String) params.get("flow");// "org.neuro4j.data.mining.demo.WebMining-Start"; 
 		if (null == flow)
 		{
@@ -494,7 +471,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		try {
 			LogicContext logicContext = SimpleWorkflowEngine.run(flow, ctxParams);
 
-//			logger.info("Flow output " + logicContext);
 		} catch (FlowExecutionException e) {
 			logger.warning("Error during execution flow " + flow);
 			throw new StorageException("Error during execution flow " + flow, e);
@@ -699,7 +675,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		// check / update Paths
 		for (String newERId : newERIds)
 		{
-//			ERBase newSubnetERBase = newNetPiece.next();
 			ERBase newSubnetERBase = storageNet.getById(newERId);
 			for (Path p : matchedPaths)
 			{
@@ -1061,13 +1036,11 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (FIRST_CYCLE == parseCycle)
 			return;
 		
-//		if (READ_ONLY_QUERIES)
-//		throw new StorageException("Storage is run in read only mode");
+		if (READ_ONLY_QUERIES)
+			throw new StorageException("Storage is run in read only mode");
 
 		if (null == updateNet)
 			return;
-		
-		System.out.println(" - update ");
 		
 		// during update connected should be in the same net
 		// after update connected are removed from output net (so user will see list in output)
