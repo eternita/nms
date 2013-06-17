@@ -61,16 +61,12 @@ public class NMSServerConfig {
 			if (!core.startsWith(STORAGE_PREFIX))
 				continue;
 			
-			String coreConfigFile = config.getProperty(core); // core dir
-			if (null != homeConfigDir)
-			{
-				if (homeConfigDir.getAbsolutePath().endsWith("/"))
-					coreConfigFile = homeConfigDir.getAbsolutePath() + coreConfigFile + "/" + STORAGE_CONFIG_FILE; 
-				else
-					coreConfigFile = homeConfigDir.getAbsolutePath() + "/" + coreConfigFile + "/" + STORAGE_CONFIG_FILE; 
-			}
+			String coreHomeDir = config.getProperty(core); // core dir (relative path)
+
+			File coreHome = new File(homeConfigDir, coreHomeDir);
+			coreHomeDir = coreHome.getAbsolutePath(); 
 			
-			NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(new File(coreConfigFile));
+			NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(coreHomeDir, STORAGE_CONFIG_FILE);
 			storageMap.put(core.substring(STORAGE_PREFIX.length()), storage);
 		}
 		return storageMap;

@@ -1,5 +1,6 @@
 package org.neuro4j.storage.xml;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -36,34 +37,23 @@ public class XMLNeuroStorage extends InMemoryNeuroStorage {
 		super.init(properties);		
 		
 		filePath = KVUtils.getStringProperty(properties, "n4j.storage.xml.file_path");
+
+		String storageHomeDirStr = KVUtils.getStringProperty(properties, "n4j.manager.storage.home_dir");
+		if (null != storageHomeDirStr)
+		{
+			File storageHomeDir = new File(storageHomeDirStr);
+			File configFile = new File(storageHomeDir, filePath);
+			filePath = configFile.getAbsolutePath(); 
+		}
+		
+
 		this.instance = loadNetworkFromFile(filePath);
 		if (null == instance)
 			throw new StorageException("Can't load network from file " + filePath);
 		
 //		test();
 	}
-	
-
-/*	
-	private void test() throws StorageException
-	{
-		//TODO: test
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("name", "John");
 		
-		try {
-			LogicContext logicContext = SimpleWorkflowEngine.run("org.neuro4j.data.mining.demo.WebMining-Start", params);
-			String greeting = (String) logicContext.get("hello_message");
-			System.out.println(greeting);			
-		} catch (FlowExecutionException e) {
-
-			e.printStackTrace();
-		}
-
-		return;
-	}
-	
-*/	
     @Override
 	public boolean save(Network network) throws StorageException {
 
@@ -81,10 +71,8 @@ public class XMLNeuroStorage extends InMemoryNeuroStorage {
 	@Override
 	public Network query(String q) throws NQLException {
 		long start = System.currentTimeMillis();
-//    	NQLProcessor nqlProcessor = new NQLProcessorInMemory(this); 
     	NQLProcessor nqlProcessor = new NQLProcessorInMemory2(instance, this); 
 		
-//		NQLParser eqp = new NQLParser(q, nqlProcessor);
 		NQLParser eqp = new NQLParser(q, nqlProcessor);
 
 		Network outNet = null;

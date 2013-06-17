@@ -55,6 +55,19 @@ public class NeuroManager  {
 		return getNeuroStorage(storageImpl, props);
 	}
 	
+	public NeuroStorage getNeuroStorage(String storageHomeDirStr, String configFileStr)
+	{
+		File storageHomeDir = new File(storageHomeDirStr);
+		
+		File configFile = new File(storageHomeDir, configFileStr);
+		
+		Properties props = KVUtils.loadProperties(configFile);
+		String storageImpl = props.getProperty("n4j.manager.storage");
+		props.put("n4j.manager.storage.home_dir", storageHomeDir.getAbsolutePath());
+		
+		return getNeuroStorage(storageImpl, props);
+	}
+	
 	public NeuroStorage getNeuroStorage(InputStream inputStream)
 	{
 		Properties props = KVUtils.loadProperties(inputStream);
