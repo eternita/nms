@@ -52,10 +52,8 @@ public class Network implements Serializable {
 	{
 	
 		long start = System.currentTimeMillis();
-//    	NQLProcessor nqlProcessor = new NQLProcessorInMemory(this); 
     	NQLProcessor nqlProcessor = new NQLProcessorInMemory2(this, null); 
 		
-//		NQLParser eqp = new NQLParser(q, nqlProcessor);
 		NQLParser eqp = new NQLParser(q, nqlProcessor);
 
 		Network outNet = null;
@@ -723,8 +721,6 @@ public class Network implements Serializable {
 	{
 		deletedEntityIds.clear();
 		deletedRelationIds.clear();
-//		ideMap.clear();
-//		idRelationMap.clear();		
 		return;
 	}
 
