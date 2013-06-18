@@ -1,20 +1,14 @@
 package org.neuro4j.storage.xml;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 import org.neuro4j.core.Network;
-import org.neuro4j.logic.LogicContext;
-import org.neuro4j.logic.swf.FlowExecutionException;
-import org.neuro4j.logic.swf.SimpleWorkflowEngine;
 import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.storage.inmemory.InMemoryNeuroStorage;
@@ -28,30 +22,21 @@ import org.neuro4j.xml.NetworkConverter;
 public class XMLNeuroStorage extends InMemoryNeuroStorage {
 
 	private String filePath;
-	
-	
 
 	@Override
 	public void init(Properties properties) throws StorageException {
 
 		super.init(properties);		
 		
-		filePath = KVUtils.getStringProperty(properties, "n4j.storage.xml.file_path");
+		filePath = KVUtils.getStringProperty(properties, XMLStorageConfig.XML_FILE_PATH);
 
-		String storageHomeDirStr = KVUtils.getStringProperty(properties, "n4j.manager.storage.home_dir");
-		if (null != storageHomeDirStr)
-		{
-			File storageHomeDir = new File(storageHomeDirStr);
-			File configFile = new File(storageHomeDir, filePath);
-			filePath = configFile.getAbsolutePath(); 
-		}
+		filePath = checkForRelativeFilePath(filePath);
 		
-
 		this.instance = loadNetworkFromFile(filePath);
 		if (null == instance)
 			throw new StorageException("Can't load network from file " + filePath);
 		
-//		test();
+		return;
 	}
 		
     @Override

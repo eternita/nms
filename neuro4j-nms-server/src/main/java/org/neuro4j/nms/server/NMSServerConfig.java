@@ -13,10 +13,13 @@ import org.neuro4j.utils.KVUtils;
 
 public class NMSServerConfig {
 	
-	public static final String STORAGE_PREFIX = "org.neuro4j.nms.server.storage.";
-	public static final String STORAGE_CONFIG_FILE = "storage.properties";
+	private static final String NMS_CONFIG_FILE = "nms-config.properties";
 	
-	private static File homeConfigDir; 
+	private static final String STORAGE_CONFIG_FILE = "storage.properties";
+	
+	private static final String STORAGE_PREFIX = "org.neuro4j.nms.server.storage.";
+	
+	private static File n4jHomeDir; 
 	
 	static {
 		Map<String, String> env = System.getenv();
@@ -27,7 +30,7 @@ public class NMSServerConfig {
 		if (null == neuro4jHome)
 			throw new RuntimeException("NEURO4J_HOME is not set");
 
-		homeConfigDir = new File(neuro4jHome); 
+		n4jHomeDir = new File(neuro4jHome); 
 	}
 	
 	private static Map<String, NeuroStorage> storageMap = null;
@@ -37,7 +40,7 @@ public class NMSServerConfig {
 	private static NMSServerConfig instance;
 	
 	private NMSServerConfig() {
-		config = loadProperties("nms-config.properties");
+		config = loadProperties(NMS_CONFIG_FILE);
 		storageMap = loadStorages();
 	}
 	
@@ -55,19 +58,19 @@ public class NMSServerConfig {
 	 */
 	private Map<String, NeuroStorage> loadStorages() {
 		Map<String, NeuroStorage> storageMap = new HashMap<String, NeuroStorage>();
-		for (Object coreObj : config.keySet())
+		for (Object storageObj : config.keySet())
 		{
-			String core = (String) coreObj;
-			if (!core.startsWith(STORAGE_PREFIX))
+			String storageStr = (String) storageObj;
+			if (!storageStr.startsWith(STORAGE_PREFIX))
 				continue;
 			
-			String coreHomeDir = config.getProperty(core); // core dir (relative path)
+			String storageHomeDir = config.getProperty(storageStr); // storage dir (relative path)
 
-			File coreHome = new File(homeConfigDir, coreHomeDir);
-			coreHomeDir = coreHome.getAbsolutePath(); 
+			File storageHome = new File(n4jHomeDir, storageHomeDir);
+			storageHomeDir = storageHome.getAbsolutePath(); // storage dir (absolute path)
 			
-			NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(coreHomeDir, STORAGE_CONFIG_FILE);
-			storageMap.put(core.substring(STORAGE_PREFIX.length()), storage);
+			NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(storageHomeDir, STORAGE_CONFIG_FILE);
+			storageMap.put(storageStr.substring(STORAGE_PREFIX.length()), storage);
 		}
 		return storageMap;
 	}
@@ -85,7 +88,7 @@ public class NMSServerConfig {
 	// accessed from setting.jsp
 	public static Properties loadProperties(String fName)
 	{
-		return KVUtils.loadProperties(new File(homeConfigDir, fName));
+		return KVUtils.loadProperties(new File(n4jHomeDir, fName));
 	}
 	
     public String getProperty(String key)

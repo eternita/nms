@@ -12,6 +12,7 @@ import org.neuro4j.logic.LogicProcessorException;
 import org.neuro4j.logic.LogicProcessorFactory;
 import org.neuro4j.logic.LogicProcessorNotFoundException;
 import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.StorageConfig;
 import org.neuro4j.storage.StorageFactory;
 import org.neuro4j.storage.StorageNotFoundException;
 import org.neuro4j.storage.StorageException;
@@ -41,20 +42,29 @@ public class NeuroManager  {
 	 */
 	public NeuroStorage getNeuroStorage(String configFileName)
 	{
-		Properties props = KVUtils.loadProperties(configFileName);
-		String storageImpl = props.getProperty("n4j.manager.storage");
-		
-		return getNeuroStorage(storageImpl, props);
+		return getNeuroStorage(new File(configFileName));
 	}
 	
+	/**
+	 * Creates NeuroStorage using config file
+	 * 
+	 * @param configFileName
+	 * @return
+	 */
 	public NeuroStorage getNeuroStorage(File configFile)
 	{
 		Properties props = KVUtils.loadProperties(configFile);
-		String storageImpl = props.getProperty("n4j.manager.storage");
+		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
 		
 		return getNeuroStorage(storageImpl, props);
 	}
 	
+	/**
+	 * 
+	 * @param storageHomeDirStr
+	 * @param configFileStr
+	 * @return
+	 */
 	public NeuroStorage getNeuroStorage(String storageHomeDirStr, String configFileStr)
 	{
 		File storageHomeDir = new File(storageHomeDirStr);
@@ -62,16 +72,21 @@ public class NeuroManager  {
 		File configFile = new File(storageHomeDir, configFileStr);
 		
 		Properties props = KVUtils.loadProperties(configFile);
-		String storageImpl = props.getProperty("n4j.manager.storage");
-		props.put("n4j.manager.storage.home_dir", storageHomeDir.getAbsolutePath());
+		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
+		props.put(StorageConfig.STORAGE_HOME_DIR, storageHomeDir.getAbsolutePath());
 		
 		return getNeuroStorage(storageImpl, props);
 	}
 	
+	/**
+	 * 
+	 * @param inputStream
+	 * @return
+	 */
 	public NeuroStorage getNeuroStorage(InputStream inputStream)
 	{
 		Properties props = KVUtils.loadProperties(inputStream);
-		String storageImpl = props.getProperty("n4j.manager.storage");
+		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
 		
 		return getNeuroStorage(storageImpl, props);
 	}

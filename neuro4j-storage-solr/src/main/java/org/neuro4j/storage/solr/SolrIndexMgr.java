@@ -60,11 +60,11 @@ public class SolrIndexMgr {
 	
 	public SolrIndexMgr(Properties properties)
 	{
-		solrCoreURL = KVUtils.getStringProperty(properties, "n4j.storage.solr.server_url");
+		solrCoreURL = KVUtils.getStringProperty(properties, SolrStorageConfig.SOLR_SERVER_URL);
 		solrServer = SearchIndexHandler.getSolrServer(solrCoreURL);
 		
 //		MAX_QUERIED_ROWS = KVUtils.getIntProperty(properties, "n4j.storage.solr.max_queried_rows", MAX_QUERIED_ROWS);
-		MAX_QUERIED_CONNECTIONS_LIMIT = KVUtils.getIntProperty(properties, "n4j.storage.max_queried_connections_limit", MAX_QUERIED_CONNECTIONS_LIMIT);
+		MAX_QUERIED_CONNECTIONS_LIMIT = KVUtils.getIntProperty(properties, SolrStorageConfig.MAX_QUERIED_CONNECTIONS_LIMIT, MAX_QUERIED_CONNECTIONS_LIMIT);
 	}
 	
 
@@ -79,30 +79,6 @@ public class SolrIndexMgr {
 	    }
     	SearchIndexHandler.sendData4Index(solrServer, batchDocumentList);		
 	}
-
-//	public void saveOrUpdate(Entity... entities)  throws StorageException
-//	{
-//	    List<SolrInputDocument> batchDocumentList = new ArrayList<SolrInputDocument>();
-//		
-//	    for (Entity entity : entities)
-//	    {
-//	        SolrInputDocument doc = SearchIndexHandler.createSolrInputDocument(entity);
-//	    	batchDocumentList.add(doc);
-//	    }
-//    	SearchIndexHandler.sendData4Index(solrServer, batchDocumentList);		
-//	}
-//
-//	public void saveOrUpdate(Relation... relations) throws StorageException
-//	{
-//	    List<SolrInputDocument> batchDocumentList = new ArrayList<SolrInputDocument>();
-//		
-//	    for (Relation relation : relations)
-//	    {
-//	        SolrInputDocument doc = SearchIndexHandler.createSolrInputDocument(relation);
-//	    	batchDocumentList.add(doc);
-//	    }
-//    	SearchIndexHandler.sendData4Index(solrServer, batchDocumentList);
-//	}
 	
 	public void commit() throws StorageException
 	{

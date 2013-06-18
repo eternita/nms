@@ -19,15 +19,41 @@ public abstract class StorageBase implements NeuroStorage {
 		return properties;
 	}
 	
-	public void init(Properties properties) throws StorageException {
+	public void init(Properties properties) throws StorageException 
+	{
 		this.properties = properties;
 		
+		String directoryWithJarExtensions = KVUtils.getStringProperty(properties, StorageConfig.STORAGE_LIB_DIR);
 		
-		String directoryWithJarExtensions = KVUtils.getStringProperty(properties, "n4j.storage.lib_dir");
 		if (null != directoryWithJarExtensions && directoryWithJarExtensions.trim().length() > 0)
+		{
+			directoryWithJarExtensions = checkForRelativeFilePath(directoryWithJarExtensions);
+			
 			extendClassLoader(directoryWithJarExtensions);
+		}
 		
 		return;
+	}
+	
+	/**
+	 * Check if file path relative (to storage home) or absolute. 
+	 * Check the file under storage_home. If found - return it. If not - return input assuming it's absolute path
+	 * 
+	 * @param path
+	 * @return
+	 */
+	protected String checkForRelativeFilePath(String path)
+	{
+		String storageHomeDirStr = KVUtils.getStringProperty(properties, StorageConfig.STORAGE_HOME_DIR);
+		if (null != storageHomeDirStr)
+		{
+			File storageHomeDir = new File(storageHomeDirStr);
+			File f = new File(storageHomeDir, path);
+			if (f.exists())
+				return f.getAbsolutePath();
+		}
+		
+		return path;
 	}
 
 	/**

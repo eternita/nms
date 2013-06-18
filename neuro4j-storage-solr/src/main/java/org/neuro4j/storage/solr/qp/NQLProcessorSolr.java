@@ -16,12 +16,10 @@ import org.neuro4j.storage.qp.QueryProcessorFilter;
 import org.neuro4j.storage.qp.QueryProcessorFilterFactory;
 import org.neuro4j.storage.solr.SearchIndexConfiguration;
 import org.neuro4j.storage.solr.SolrIndexMgr;
+import org.neuro4j.storage.solr.SolrStorageConfig;
 import org.neuro4j.utils.KVUtils;
 
 public class NQLProcessorSolr extends NQLProcessorBase {
-	
-//	final int CONNECTION_LIMIT_PER_ER_FOR_UNSTRICT = 100;
-
 	
 	private SolrIndexMgr siMgr = null; 
 	
@@ -33,7 +31,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 		this.siMgr = siMgr;
 		this.baseStorage = baseStorage;
 		
-		READ_ONLY_QUERIES = KVUtils.getBooleanProperty(properties, "n4j.storage.read_only", READ_ONLY_QUERIES);
+		READ_ONLY_QUERIES = KVUtils.getBooleanProperty(properties, SolrStorageConfig.STORAGE_READ_ONLY, READ_ONLY_QUERIES);
 //		MAX_BETWEEN_DISTANCE = KVUtils.getIntProperty(properties, "n4j.storage.solr.between_max_distance", MAX_BETWEEN_DISTANCE);
 	}
 
