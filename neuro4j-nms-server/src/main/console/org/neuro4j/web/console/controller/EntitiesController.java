@@ -6,12 +6,10 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.neuro4j.NetworkUtils;
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Relation;
 import org.neuro4j.nms.server.NMSServerConfig;
-import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.NeuroStorage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.web.console.utils.RequestUtils;
@@ -44,7 +42,6 @@ public class EntitiesController {
 		
 		request.setAttribute("entity_view", "true");
 		
-		
 		String eid = (String) request.getParameter("eid");
 		if (null == eid)
 			return "redirect:/entities";
@@ -56,7 +53,8 @@ public class EntitiesController {
 			return "console/settings";
 		}
 
-		Entity e = neuroStorage.getEntityByUUID(eid);
+		Entity e = getEntity(eid, neuroStorage);
+
 		if (null == e)
 			return "redirect:/query";
 
@@ -75,7 +73,6 @@ public class EntitiesController {
 		String queryStr = "select e(id='" + eid + "') / [depth='" + 2*depth + "']";
 		request.setAttribute("q", queryStr);
 		
-		
 		if ("graph".equalsIgnoreCase(view))
 		{
 			request.setAttribute("include_accordion_js", "true");
@@ -90,32 +87,39 @@ public class EntitiesController {
 		String eid = (String) request.getParameter("eid");
 		RequestUtils.params2attributes(request, "q", "storage");
 
-		// for details 1 level of expand is enough
-		String queryStr = "select e(id='" + eid + "') / r() "; 
-		Network net;
-		try {
-			NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-			if (null == neuroStorage)
-			{
-				request.setAttribute("storage_error", "Storage is not specified");
-				return "console/settings";
-			}
-			net = neuroStorage.query(queryStr);
-			Entity e = net.getEntityByUUID(eid);
+		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == neuroStorage)
+		{
+			request.setAttribute("storage_error", "Storage is not specified");
+			return "console/settings";
+		}
+		Entity e = getEntity(eid, neuroStorage);
+		
+		request.setAttribute("entity", e);		
 
-			request.setAttribute("entity", e);		
-
-			Map<String, List<Relation>> groupedRelationMap = e.groupRelationsByName();// NetUtils.groupRelationsByName(e.getRelations()); //  getRelationMapGroupedByType(e);
-			request.setAttribute("grouped_relation_map", groupedRelationMap);
-			
-			response.setCharacterEncoding("UTF-8");
-
-		} catch (NQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} // load
+		Map<String, List<Relation>> groupedRelationMap = e.groupRelationsByName();// NetUtils.groupRelationsByName(e.getRelations()); //  getRelationMapGroupedByType(e);
+		request.setAttribute("grouped_relation_map", groupedRelationMap);
+		
+		response.setCharacterEncoding("UTF-8");
 
 		return "console/e/graph-details";
+	}
+	
+	private Entity getEntity(String eid, NeuroStorage neuroStorage)
+	{
+		// for details 1 level of expand is enough
+		String queryStr = "select e(id='" + eid + "') / [depth='2'] "; 
+		Network net;
+		try {
+			net = neuroStorage.query(queryStr);
+			Entity e = net.getEntityByUUID(eid);
+			return e;
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
+		
+		return null;
 	}
 	
 }
