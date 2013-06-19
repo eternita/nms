@@ -432,7 +432,7 @@
    -->
    <field name="lastUpdate"  type="long"  indexed="true"  multiValued="false" required="false" stored="false"/>   
    
-   <field name="name"  type="text"  indexed="true"  stored="true" multiValued="false" required="false"/>
+   <field name="name"  type="string"  indexed="true"  stored="true" multiValued="false" required="false"/>
 
    <field name="er_type"  type="string"  indexed="true"  stored="true" multiValued="false" required="false"/>
 
