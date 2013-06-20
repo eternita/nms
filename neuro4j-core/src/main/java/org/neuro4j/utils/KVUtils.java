@@ -230,6 +230,12 @@ public class KVUtils {
 		return config;
 	}
 	
+	/**
+	 * Load properties from file
+	 * 
+	 * @param file
+	 * @return
+	 */
 	public static Properties loadProperties(File file)
 	{
 		Properties config = new Properties();
@@ -256,7 +262,13 @@ public class KVUtils {
 		return config;
 	}
 	
-	public static Properties loadProperties(String fName)
+	/**
+	 * Load properties from codebase using .class.getClassLoader().getResourceAsStream(...);
+	 * 
+	 * @param fName
+	 * @return
+	 */
+	public static Properties loadPropertiesFromCodebase(String fName)
 	{
 		Properties config = new Properties();
 

@@ -40,9 +40,12 @@ public class NeuroManager  {
 	 * @param configFileName
 	 * @return
 	 */
-	public NeuroStorage getNeuroStorage(String configFileName)
+	public NeuroStorage getNeuroStorage(String configFile)
 	{
-		return getNeuroStorage(new File(configFileName));
+		Properties props = KVUtils.loadPropertiesFromCodebase(configFile);
+		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
+		
+		return getNeuroStorage(storageImpl, props);
 	}
 	
 	/**
@@ -129,7 +132,7 @@ public class NeuroManager  {
 	 */
 	public LogicProcessor getLogicProcessor(String configFileName)
 	{
-		Properties props = KVUtils.loadProperties(configFileName);
+		Properties props = KVUtils.loadPropertiesFromCodebase(configFileName);
 		String logicProcessorImpl = props.getProperty("n4j.manager.logic-processor");
 		
 		return getLogicProcessor(logicProcessorImpl, props);

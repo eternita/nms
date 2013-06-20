@@ -20,6 +20,8 @@ public class StorageFactory {
 			logger.severe(e.getMessage());
 		} catch (IllegalAccessException e) {
 			logger.severe(e.getMessage());
+		} catch (Exception e) {
+			logger.severe(e.getMessage());
 		}
 		throw new StorageNotFoundException("NeuroStorage " + name + " not found");
 	}

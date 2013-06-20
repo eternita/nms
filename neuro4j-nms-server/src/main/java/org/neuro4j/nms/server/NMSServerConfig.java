@@ -17,7 +17,8 @@ public class NMSServerConfig {
 	
 	private static final String STORAGE_CONFIG_FILE = "storage.properties";
 	
-	private static final String STORAGE_PREFIX = "org.neuro4j.nms.server.storage.";
+	// used in settings.jsp
+	public static final String STORAGE_PREFIX = "org.neuro4j.nms.server.storage.";
 	
 	private static File n4jHomeDir; 
 	
