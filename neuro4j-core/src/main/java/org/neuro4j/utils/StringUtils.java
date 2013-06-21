@@ -1,5 +1,6 @@
 package org.neuro4j.utils;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -66,4 +67,17 @@ public class StringUtils {
 	      return sb.toString();
 	  }  
 	  
+//	  public static Set<String> str2set(String inStr, String separator)
+//	  {
+//		  Set<String> set = new HashSet<String>();
+//	      if (null == inStr)
+//	          return set;
+//	          
+//	      
+//	      StringBuffer sb = new StringBuffer();
+//	      for (String s : inSet)
+//	          sb.append(s).append(separator);
+//	          
+//	      return sb.toString();
+//	  }  
 }

@@ -115,6 +115,14 @@ public class Network implements Serializable {
 		return;
 	}
 	
+	public void add(Network net)
+	{
+		for(ERBase er : net.getERBases())
+			add(er);		
+		
+		return;
+	}
+	
 	public void add(Entity... entities)
 	{
 		add(true, entities);
@@ -602,6 +610,34 @@ public class Network implements Serializable {
 			
 		sb.append("])");
 		
+		return sb.toString();
+	}
+
+	public String toIds() {
+		StringBuffer sb = new StringBuffer();
+		boolean first = true;
+		
+		for (String eid : ideMap.keySet())
+		{
+			if (first)
+				first = false;
+			else
+				sb.append(" ");
+				
+			sb.append(eid);
+		}
+		
+		first = true;
+		for (String rid : idRelationMap.keySet())
+		{
+			if (first)
+				first = false;
+			else
+				sb.append(" ");
+				
+			sb.append(rid);
+		}
+			
 		return sb.toString();
 	}
 

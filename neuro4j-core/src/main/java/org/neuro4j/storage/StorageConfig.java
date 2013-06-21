@@ -18,6 +18,11 @@ public interface StorageConfig {
 	public static final String STORAGE_LIB_DIR = "n4j.storage.lib_dir";
 	
 	/**
+	 * path (can be relative if storage home specified) to directory with representations
+	 */
+	public static final String STORAGE_REPRESENTATIONS_DIR = "n4j.storage.representations_dir";
+	
+	/**
 	 * 
 	 */
 	public static final String STORAGE_READ_ONLY = "n4j.storage.read_only";

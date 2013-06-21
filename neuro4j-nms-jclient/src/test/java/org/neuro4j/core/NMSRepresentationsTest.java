@@ -3,11 +3,14 @@ package org.neuro4j.core;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Set;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.neuro4j.NeuroManager;
+import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.NeuroStorage;
 import org.neuro4j.storage.StorageException;
 
@@ -29,32 +32,33 @@ public class NMSRepresentationsTest {
 	@Test
 	public void testNMSReps() {
 		
-		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage("expsys-client.properties");
-//		ExpsysClient client = new ExpsysClient("expsys-client.properties");
+//		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage("expsys-client.properties");
+//		C:\Develop\src\neuro4j\nms\neuro4j-nms-jclient\test_data\data-demo-xml\storage.properties
+		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
+				"C:/Develop/src/neuro4j/nms/neuro4j-nms-jclient/test_data/data-demo-xml", "storage.properties");
 		
-//		Map<String, String> params = new HashMap<String, String>();
-//		params.put("url", "http://test.com");
 		
 
 		Network net = new Network();
-/*		String proxyImpl = "org.neuro4j.core.rep.proxy.FileSystemByteArrayReprecentationProxy";
-		Representation r1 = new Representation(proxyImpl);
-		r1.setProperty("proxy.base_dir", "c:/data/temp");
+//		String proxyImpl = "org.neuro4j.core.rep.proxy.FileSystemByteArrayReprecentationProxy";
+		Representation r1 = new Representation();
+//		r1.setProperty("proxy.base_dir", "c:/data/temp");
 		byte[] file1 = getFileData("c:/data/temp/slide1.png");
 		try {
-			r1.setData(file1);
-			byte[] data1 = (byte[]) r1.getData();
-			assertEquals(file1.length, data1.length);
-		} catch (RepresentationProxyException e1) {
+			r1.setData(neuroStorage, file1);
+			
+			byte[] data1 = r1.getDataAsBytes(neuroStorage);
+			Assert.assertEquals(file1.length, data1.length);
+		} catch (StorageException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
-*/		
 		Entity entity = new Entity("test entity");
-//		entity.addRepresentation(r1);
+		entity.addRepresentation(r1);
 		net.add(entity);
 
+		String eid = entity.getUuid();
 		try {
 			neuroStorage.save(net);
 		} catch (StorageException e) {
@@ -62,7 +66,99 @@ public class NMSRepresentationsTest {
 			e.printStackTrace();
 		}
 		
+		// read reps from storage
+		
+		try {
+			net = neuroStorage.query("select e(id=?)", new String[]{eid});
+			
+			Entity entity2 = net.getEntityByUUID(eid);
+			
+			Set<Representation> reps = entity2.getRepresentations();
+			
+			Representation rep2 = reps.iterator().next();
+			
+			byte[] ba2 = rep2.getDataAsBytes(neuroStorage);
+			
+			Assert.assertEquals(file1.length, ba2.length);
+			
+			
+		} catch (NQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (StorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+
+	}	
+
+	
+	@Test
+	public void testNMSRepsNetwork() {
+		
+		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
+				"C:/Develop/src/neuro4j/nms/neuro4j-nms-jclient/test_data/data-demo-xml", "storage.properties");
+		
+		
+
+		Network repsNet = null;
+		Network net = new Network();
+		Representation r1 = new Representation();
+		try {
+			repsNet = neuroStorage.query("select e()");
+		} catch (NQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (StorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			r1.setData(neuroStorage, repsNet);
+			
+//			byte[] data1 = r1.getDataAsBytes(neuroStorage);
+//			Assert.assertEquals(file1.length, data1.length);
+		} catch (StorageException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		Entity entity = new Entity("test entity");
+		entity.addRepresentation(r1);
+		net.add(entity);
+
+		String eid = entity.getUuid();
+		try {
+			neuroStorage.save(net);
+		} catch (StorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// read reps from storage
+		try {
+			net = neuroStorage.query("select e(id=?)", new String[]{eid});
+			
+			Entity entity2 = net.getEntityByUUID(eid);
+			
+			Set<Representation> reps = entity2.getRepresentations();
+			
+			Representation rep2 = reps.iterator().next();
+			
+			Network net2 = rep2.getDataAsNetwork(neuroStorage);
+			
+			System.out.println(net2);
+			
+			
+		} catch (NQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (StorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}	
 	

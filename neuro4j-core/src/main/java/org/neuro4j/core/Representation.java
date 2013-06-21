@@ -1,5 +1,9 @@
 package org.neuro4j.core;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -7,7 +11,10 @@ import java.util.Map;
 import java.util.Set;
 
 import org.neuro4j.core.rep.RepresentationProxyException;
-import org.neuro4j.core.rep.RepresentationProxyFactory;
+import org.neuro4j.storage.NQLException;
+import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.StorageException;
+import org.neuro4j.utils.IOUtils;
 import org.neuro4j.utils.KVUtils;
 
 
@@ -29,9 +36,9 @@ public class Representation extends KVBase implements Serializable {
 	public static final String REPRESENTATION_PREFIX = REPRESENTATION + ".";
 	
 	private static final String UUID_KEY = "uuid";
-	private static final String PROXY_IMPL_KEY = "proxy.impl";
-	private static final String DATA_CLASS_KEY = "data.class";
+	private static final String DATA_TYPE_KEY = "type";
 	
+	private Object data = null; // object because it can be byte[] or Network
 	
 	public static Set<Representation> properties2representations(Map<String, String> properties)
 	{
@@ -61,30 +68,208 @@ public class Representation extends KVBase implements Serializable {
 		this.uuid = repProperties.get(UUID_KEY);
 		setProperties(repProperties);
 	}
-
-	public Representation(String proxyImpl) {
+	public Representation() {
 		super();
-		setProperty(UUID_KEY, getUuid());
-		setProperty(PROXY_IMPL_KEY, proxyImpl);
 	}
+
+//	public Representation(RepresentationProxy proxyImpl) {
+//		super();
+//		setProperty(UUID_KEY, getUuid());
+//		setProperty(PROXY_IMPL_KEY, proxyImpl.getClass().getCanonicalName());
+//	}
 	
 	@Override
 	public void setUuid(String uuid) {
 		super.setUuid(uuid);
 		setProperty(UUID_KEY, getUuid());
 	}
+	
 
 	public void setData(Object data) throws RepresentationProxyException {
-		if (null != data)
-			setProperty(DATA_CLASS_KEY, data.getClass().getCanonicalName());
-		RepresentationProxyFactory.put(getProperty(PROXY_IMPL_KEY), data, this);
+		// store data into memory (without persistence)
+		this.data = data;
+		//?? mark rep as not persisted
 	}
-	
 	
 	public Object getData() throws RepresentationProxyException {
-		return RepresentationProxyFactory.get(getProperty(PROXY_IMPL_KEY), this);
+		// read data from memory
+		return data;
+	}
+
+//*/
+	
+	public void setData(NeuroStorage storage, InputStream data) throws StorageException {
+		if (null != data)
+			setProperty(DATA_TYPE_KEY, data.getClass().getCanonicalName());
+		
+		setDataImpl(storage, data);
 	}
 	
+	public void setData(NeuroStorage storage, byte[] data) throws StorageException {
+		
+		if (null == data)
+			throw new StorageException("Can't save data for representation " + getUuid() + ". Input data is NULL");
+		
+		setProperty(DATA_TYPE_KEY, data.getClass().getCanonicalName());
+		
+		ByteArrayInputStream bais = new ByteArrayInputStream(data);
+		setDataImpl(storage, bais);
+		return;
+	}
+	
+	public void setData(NeuroStorage storage, Network data) throws StorageException {
+		if (null == data)
+			throw new StorageException("Can't save data for representation " + getUuid() + ". Input network is NULL");
+			
+		setProperty(DATA_TYPE_KEY, data.getClass().getCanonicalName());
+		
+		String idStr = data.toIds();
+		ByteArrayInputStream bais = new ByteArrayInputStream(idStr.getBytes());
+		
+		setDataImpl(storage, bais);
+		return;
+	}
+	
+	/**
+	 * 
+	 * @param storage
+	 * @param data
+	 * @throws StorageException
+	 */
+	private void setDataImpl(NeuroStorage storage, InputStream data) throws StorageException {
+		if (null == storage)
+			throw new StorageException("Can't save data for representation " + getUuid() + ". Storage is NULL");
+		
+		if (null == data)
+			throw new StorageException("Can't save data for representation " + getUuid() + ". Input stream is NULL");
+
+		setProperty(UUID_KEY, getUuid());
+		
+		OutputStream output = storage.getRepresentationOutputStream(getUuid());
+		if (null == output)
+			throw new StorageException("Can't save data for representation " + getUuid() + ". Output stream is NULL");
+		
+		try {
+			long size = IOUtils.copyLarge(data, output);
+			setProperty("size", "" + size);
+		} catch (IOException e) {
+			throw new StorageException("Can't save data for representation " + getUuid(), e);
+		} catch (NullPointerException e) {
+			throw new StorageException("Can't save data for representation " + getUuid(), e);
+		}
+		return;
+	}
+	
+	public Network getDataAsNetwork(NeuroStorage storage) throws StorageException {
+		String dataClass = getProperty(DATA_TYPE_KEY);
+		if (!"org.neuro4j.core.Network".equals(dataClass))
+			throw new StorageException("Representation's (" + getUuid() + ") type is not org.neuro4j.core.Network. It's '" + dataClass + "'");
+		
+		InputStream input = storage.getRepresentationInputStream(getUuid());
+		if (null == input)
+			throw new StorageException("Can't read data from representation " + getUuid() + ". Input stream is NULL");
+		
+		byte[] ba;
+		try {
+			ba = IOUtils.toByteArray(input);
+		} catch (IOException e) {
+			throw new StorageException("Can't read data from representation " + getUuid(), e);
+		} 
+		String idStr = new String(ba);
+		
+		String[] ids = idStr.split(" ");
+		
+		Network net = getNetworkByIds(storage, ids);
+		
+		
+		return net;
+	}
+	
+	private Network getNetworkByIds(NeuroStorage storage, String[] ids)
+	{
+		Network outNet = new Network();
+		StringBuffer qsb = new StringBuffer("select e("); // select e(id='F53DA3BEC6218003FA9A37EC23B8AAF8' OR id='F53DA3BEC6218003FA9A37EC23B8AAF8')
+
+		boolean first = true;
+		
+		for (String eid : ids)
+		{
+			if (first)
+				first = false;
+			else
+				qsb.append(" OR ");
+				
+			qsb.append("id='").append(eid).append("'");
+		}
+		qsb.append(")");
+		
+		Network eNet = null;
+		try {
+			eNet = storage.query(qsb.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		outNet.add(eNet);
+		
+		qsb = new StringBuffer("select r("); // select r(id='F53DA3BEC6218003FA9A37EC23B8AAF8' OR id='F53DA3BEC6218003FA9A37EC23B8AAF8')
+
+		first = true;
+		
+		for (String eid : ids)
+		{
+			if (first)
+				first = false;
+			else
+				qsb.append(" OR ");
+				
+			qsb.append("id='").append(eid).append("'");
+		}
+		qsb.append(")");
+		
+		Network rNet = null;
+		try {
+			rNet = storage.query(qsb.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		outNet.add(rNet);
+		
+
+		return outNet;
+	}
+	
+	/**
+	 * data type is byte[] 
+	 * 
+	 * @param storage
+	 * @return
+	 * @throws StorageException
+	 */
+	public byte[] getDataAsBytes(NeuroStorage storage) throws StorageException {
+		
+		String dataClass = getProperty(DATA_TYPE_KEY);
+		if (!"byte[]".equals(dataClass))
+			throw new StorageException("Representation's (" + getUuid() + ") type is not byte[]. It's '" + dataClass + "'");
+		
+		InputStream input = storage.getRepresentationInputStream(getUuid());
+		if (null == input)
+			throw new StorageException("Can't read data from representation " + getUuid() + ". Input stream is NULL");
+		
+		byte[] ba;
+		try {
+			ba = IOUtils.toByteArray(input);
+		} catch (IOException e) {
+			throw new StorageException("Can't read data from representation " + getUuid(), e);
+		} 
+		
+		return ba;
+	}
+	
+	public InputStream getData(NeuroStorage storage) throws StorageException {
+		
+		InputStream in = storage.getRepresentationInputStream(getUuid());
+		return in;
+	}
 	
 	@Override
 	public String toString() {

@@ -1,5 +1,6 @@
 package org.neuro4j.storage.xml;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -125,4 +126,51 @@ public class XMLNeuroStorage extends InMemoryNeuroStorage {
 		return;
 	}	
 	
+	public InputStream getRepresentationInputStream(String id) throws StorageException
+	{
+		
+		File dir = new File(representationsDirectory);
+		if (!dir.exists())
+			throw new StorageException("Home directory is not specified for " + this);
+			
+		File repFile = new File(dir, id);
+		if (!repFile.exists())
+			throw new StorageException("Representation " + id + " not found " + repFile.getAbsolutePath());
+		
+		InputStream is;
+		try {
+			is = new FileInputStream(repFile);
+		} catch (FileNotFoundException e) {
+			throw new StorageException("Representation " + id + " not found " + repFile.getAbsolutePath(), e);
+		}
+		
+		return is;
+	}
+	
+	public OutputStream getRepresentationOutputStream(String id) throws StorageException
+	{
+		File dir = new File(representationsDirectory);
+		if (!dir.exists())
+			throw new StorageException("Home directory is not specified for " + this);
+			
+		File repFile = new File(dir, id);
+		if (!repFile.exists())
+		{
+			try {
+				repFile.createNewFile();
+			} catch (IOException e1) {
+				throw new StorageException("Can't create new file for pepresentation " + id + " Path: " + repFile.getAbsolutePath(), e1);
+			}
+		}
+		
+		OutputStream out;
+		try {
+			out = new FileOutputStream(repFile);
+		} catch (FileNotFoundException e) {
+			throw new StorageException("Representation " + id + " not found " + repFile.getAbsolutePath(), e);
+		}
+		
+		return out;
+	}
+		
 }

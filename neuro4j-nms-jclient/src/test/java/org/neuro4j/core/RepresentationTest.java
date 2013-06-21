@@ -1,6 +1,6 @@
 package org.neuro4j.core;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,9 +8,7 @@ import java.io.FileInputStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.neuro4j.core.rep.RepresentationProxy;
 import org.neuro4j.core.rep.RepresentationProxyException;
-import org.neuro4j.core.rep.proxy.FileSystemByteArrayRepresentationProxy;
 import org.neuro4j.xml.NetworkConverter;
 
 public class RepresentationTest {
@@ -36,8 +34,10 @@ public class RepresentationTest {
 	@Test
 	public void testReps() throws RepresentationProxyException {
 //		String proxyImpl = "org.neuro4j.core.rep.proxy.FileSystemByteArrayReprecentationProxy";
-		RepresentationProxy proxyImpl = new FileSystemByteArrayRepresentationProxy();
-		Representation r1 = new Representation(proxyImpl);
+		
+		
+//		RepresentationProxy proxyImpl = new FileSystemByteArrayRepresentationProxy();
+		Representation r1 = new Representation();
 		r1.setProperty("proxy.base_dir", "c:/data/temp");
 		byte[] file1 = getFileData("c:/data/temp/slide1.png");
 		r1.setData(file1);
@@ -47,7 +47,7 @@ public class RepresentationTest {
 		Entity e = new Entity("test entity");
 		e.addRepresentation(r1);
 
-		Representation r2 = new Representation(proxyImpl);
+		Representation r2 = new Representation();
 		r2.setProperty("proxy.base_dir", "c:/data/temp");
 		byte[] file2 = getFileData("c:/data/temp/slide2.png");
 		r2.setData(file2);
@@ -81,6 +81,7 @@ public class RepresentationTest {
 		netXML = NetworkConverter.network2xml(net);
 		System.out.println(netXML);
 
+//*/
 //		fail("Not yet implemented");
 	}
 	

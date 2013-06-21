@@ -1,5 +1,7 @@
 package org.neuro4j.storage;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
 
 import org.neuro4j.core.Entity;
@@ -16,6 +18,23 @@ public interface NeuroStorage {
 	public boolean save(Network network) throws StorageException;
 
 //	public Representation getRepresentationByUUID(String id);
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @throws StorageException
+	 */
+	public InputStream getRepresentationInputStream(String id) throws StorageException;
+	
+	/**
+	 * 
+	 * 
+	 * @param id
+	 * @return
+	 * @throws StorageException
+	 */
+	public OutputStream getRepresentationOutputStream(String id) throws StorageException;
 	
 	public Entity getEntityByUUID(String entityUUID) throws StorageException;	
 

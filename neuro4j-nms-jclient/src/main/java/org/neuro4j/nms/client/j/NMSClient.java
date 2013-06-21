@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class NMSClient extends StorageBase {
 	private static final Log logger = LogFactory.getLog(NMSClient.class);
 	private String serverBaseURL; // http://localhost:8080/n4j-nms                        
 
+	HttpClient httpClient = new DefaultHttpClient();
 	
 	private boolean queryWireXML = false; // true - wire is XML, false - wire is binary 
 	private boolean updateWireXML = true; // true - wire is XML, false - wire is binary 
@@ -82,7 +84,7 @@ public class NMSClient extends StorageBase {
 	public Network query(String q)
 	{
 		logger.info("Query " + q);
-		HttpClient httpClient = new DefaultHttpClient();
+//		HttpClient httpClient = new DefaultHttpClient();
 
 		List<NameValuePair> params = new LinkedList<NameValuePair>();
 		params.add(new BasicNameValuePair("cmd","query"));
@@ -123,7 +125,7 @@ public class NMSClient extends StorageBase {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		} finally {
-			httpClient.getConnectionManager().shutdown();
+//			httpClient.getConnectionManager().shutdown();
 		}
 
 		return null;
@@ -139,7 +141,7 @@ public class NMSClient extends StorageBase {
 
 	private boolean updateBin(Network network) 
 	{
-		HttpClient httpClient = new DefaultHttpClient();
+//		HttpClient httpClient = new DefaultHttpClient();
 
 		HttpPost httpPost = new HttpPost(serverBaseURL + "/api/update/bin");
 
@@ -170,12 +172,12 @@ public class NMSClient extends StorageBase {
 			logger.error(e.getMessage(), e);
 		}
 		
-		httpClient.getConnectionManager().shutdown();
+//		httpClient.getConnectionManager().shutdown();
 		return false;
 	}
 	
 	private boolean updateXML(Network network) {
-		HttpClient httpClient = new DefaultHttpClient();
+//		HttpClient httpClient = new DefaultHttpClient();
 	      // Execute the method.
 		try {
 			String netXml = NetworkConverter.network2xml(network);
@@ -195,10 +197,44 @@ public class NMSClient extends StorageBase {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		} finally {
-			httpClient.getConnectionManager().shutdown();			
+//			httpClient.getConnectionManager().shutdown();			
 		}		
 	    return false;
 	}
 
+	public void close()
+	{
+		httpClient.getConnectionManager().shutdown();					
+	}
+
+	public InputStream getRepresentationInputStream(String id) throws StorageException
+	{
+		List<NameValuePair> params = new LinkedList<NameValuePair>();
+		params.add(new BasicNameValuePair("cmd","query"));
+//		params.add(new BasicNameValuePair("q",q));
+		params.add(new BasicNameValuePair("output","bin"));
+		HttpGet httpGet = new HttpGet(serverBaseURL + "/api/query?" + URLEncodedUtils.format(params, "utf-8"));
+		try 
+		{
+			 HttpResponse response = httpClient.execute(httpGet);
+			// query response in binary mode
+			HttpEntity entity = response.getEntity();
+		   InputStream instream = entity.getContent();
+		   
+		   return instream;
+			   
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		} finally {
+//			httpClient.getConnectionManager().shutdown();
+		}
+		return null;
+	}
 	
+	public OutputStream getRepresentationOutputStream(String id) throws StorageException
+	{
+		return null;
+	}
+	
+		
 }

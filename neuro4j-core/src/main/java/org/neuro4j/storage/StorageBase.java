@@ -2,6 +2,8 @@ package org.neuro4j.storage;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
 
 import org.neuro4j.core.Entity;
@@ -13,6 +15,12 @@ import org.neuro4j.utils.KVUtils;
 public abstract class StorageBase implements NeuroStorage {
 
 	protected Properties properties;
+	protected static final String REPRESENTATIONS_DEFAULT_DIR = "reps";
+	protected static final String LIBS_DEFAULT_DIR = "lib";
+
+	protected String storageHomeDirStr;
+	protected String representationsDirectory;
+	protected String libsDirectory;
 
 	public Properties getConfig() 
 	{
@@ -23,14 +31,25 @@ public abstract class StorageBase implements NeuroStorage {
 	{
 		this.properties = properties;
 		
-		String directoryWithJarExtensions = KVUtils.getStringProperty(properties, StorageConfig.STORAGE_LIB_DIR);
+		storageHomeDirStr = KVUtils.getStringProperty(properties, StorageConfig.STORAGE_HOME_DIR);
 		
-		if (null != directoryWithJarExtensions && directoryWithJarExtensions.trim().length() > 0)
-		{
-			directoryWithJarExtensions = checkForRelativeFilePath(directoryWithJarExtensions);
+		// get representations dir
+		representationsDirectory = KVUtils.getStringProperty(properties, StorageConfig.STORAGE_REPRESENTATIONS_DIR);
+		// if empty -> set default
+		if (null == representationsDirectory || 0 == representationsDirectory.trim().length())
+			representationsDirectory = REPRESENTATIONS_DEFAULT_DIR;
 			
-			extendClassLoader(directoryWithJarExtensions);
-		}
+		representationsDirectory = checkForRelativeFilePath(representationsDirectory);
+		
+		// get libraries directory
+		libsDirectory = KVUtils.getStringProperty(properties, StorageConfig.STORAGE_LIB_DIR);
+		
+		// if empty -> set default
+		if (null == libsDirectory || 0 == libsDirectory.trim().length())
+			libsDirectory = LIBS_DEFAULT_DIR;
+
+		libsDirectory = checkForRelativeFilePath(libsDirectory);
+		extendClassLoader(libsDirectory);
 		
 		return;
 	}
@@ -44,7 +63,6 @@ public abstract class StorageBase implements NeuroStorage {
 	 */
 	protected String checkForRelativeFilePath(String path)
 	{
-		String storageHomeDirStr = KVUtils.getStringProperty(properties, StorageConfig.STORAGE_HOME_DIR);
 		if (null != storageHomeDirStr)
 		{
 			File storageHomeDir = new File(storageHomeDirStr);
@@ -99,7 +117,7 @@ public abstract class StorageBase implements NeuroStorage {
 		Entity e = null;
 		Network net;
 		try {
-			net = query("select e[id=?]", new String[]{entityUUID});
+			net = query("select e(id=?)", new String[]{entityUUID});
 			e = net.getEntityByUUID(entityUUID);
 		} catch (NQLException e1) {
 			// TODO Auto-generated catch block
@@ -113,7 +131,7 @@ public abstract class StorageBase implements NeuroStorage {
 		Relation r = null;
 		Network net;
 		try {
-			net = query("select r[id=?]", new String[]{relationUUID});
+			net = query("select r(id=?)", new String[]{relationUUID});
 			r = net.getRelationByUUID(relationUUID);
 		} catch (NQLException e) {
 			e.printStackTrace();
@@ -132,5 +150,16 @@ public abstract class StorageBase implements NeuroStorage {
 		
 		return query(q);
 	}	
+	
+	public InputStream getRepresentationInputStream(String id) throws StorageException
+	{
+		return null;
+	}
+	
+	public OutputStream getRepresentationOutputStream(String id) throws StorageException
+	{
+		return null;
+	}
+	
 	
 }
