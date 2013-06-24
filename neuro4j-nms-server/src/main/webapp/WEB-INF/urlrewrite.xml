@@ -17,22 +17,16 @@
         <to>/api/update/xml?storage=$1&amp;$2</to>
     </rule>
 
-<!-- 
     <rule>
-        <from>api/(.*)/query(.*)$</from>
-        <to>api/query?storage=$1&amp;$2</to>
+        <from>/(.*)/api/representation/update(.*)$</from>
+        <to>/api/representation/update?storage=$1&amp;$2</to>
     </rule>
 
     <rule>
-        <from>api/(.*)/update/bin(.*)$</from>
-        <to>api/update/bin?storage=$1&amp;$2</to>
+        <from>/(.*)/api/representation/read(.*)$</from>
+        <to>/api/representation/read?storage=$1&amp;$2</to>
     </rule>
 
-    <rule>
-        <from>api/(.*)/update/xml(.*)$</from>
-        <to>api/update/xml?storage=$1&amp;$2</to>
-    </rule>
- -->
 <!-- end NMS remote API URLs -->
 
 </urlrewrite>

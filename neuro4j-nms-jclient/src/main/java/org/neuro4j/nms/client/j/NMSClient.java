@@ -1,6 +1,8 @@
 package org.neuro4j.nms.client.j;
 
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -209,31 +211,18 @@ public class NMSClient extends StorageBase {
 
 	public InputStream getRepresentationInputStream(String id) throws StorageException
 	{
-		List<NameValuePair> params = new LinkedList<NameValuePair>();
-		params.add(new BasicNameValuePair("cmd","query"));
-//		params.add(new BasicNameValuePair("q",q));
-		params.add(new BasicNameValuePair("output","bin"));
-		HttpGet httpGet = new HttpGet(serverBaseURL + "/api/query?" + URLEncodedUtils.format(params, "utf-8"));
-		try 
-		{
-			 HttpResponse response = httpClient.execute(httpGet);
-			// query response in binary mode
-			HttpEntity entity = response.getEntity();
-		   InputStream instream = entity.getContent();
-		   
-		   return instream;
-			   
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		} finally {
-//			httpClient.getConnectionManager().shutdown();
-		}
-		return null;
+		InputStream repInput = new BufferedInputStream(
+									new NMSRepresentationInputStream(
+											serverBaseURL + "/api/representation/read", id));
+		return repInput;
 	}
 	
 	public OutputStream getRepresentationOutputStream(String id) throws StorageException
 	{
-		return null;
+		OutputStream repOutput = new BufferedOutputStream(
+										new NMSRepresentationOutputStream(
+												serverBaseURL + "/api/representation/update", id));
+		return repOutput;
 	}
 	
 		

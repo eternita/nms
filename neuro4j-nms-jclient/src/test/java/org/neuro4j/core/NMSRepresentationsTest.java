@@ -32,6 +32,71 @@ public class NMSRepresentationsTest {
 	@Test
 	public void testNMSReps() {
 		
+		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage("expsys-client.properties");
+
+//		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
+//				"C:/Develop/src/neuro4j/nms/neuro4j-nms-jclient/test_data/data-demo-xml", "storage.properties");
+		
+		
+
+		Network net = new Network();
+//		String proxyImpl = "org.neuro4j.core.rep.proxy.FileSystemByteArrayReprecentationProxy";
+		Representation r1 = new Representation();
+//		r1.setProperty("proxy.base_dir", "c:/data/temp");
+		byte[] file1 = getFileData("c:/data/temp/slide1.png");
+		try {
+			r1.setData(neuroStorage, file1);
+			
+			byte[] data1 = r1.getDataAsBytes(neuroStorage);
+			Assert.assertEquals(file1.length, data1.length);
+		} catch (StorageException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		Entity entity = new Entity("test entity");
+		entity.addRepresentation(r1);
+		net.add(entity);
+
+		String eid = entity.getUuid();
+		try {
+			neuroStorage.save(net);
+		} catch (StorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// read reps from storage
+		
+		try {
+			net = neuroStorage.query("select e(id=?)", new String[]{eid});
+			
+			Entity entity2 = net.getEntityByUUID(eid);
+			
+			Set<Representation> reps = entity2.getRepresentations();
+			
+			Representation rep2 = reps.iterator().next();
+			
+			byte[] ba2 = rep2.getDataAsBytes(neuroStorage);
+			
+			Assert.assertEquals(file1.length, ba2.length);
+			
+			
+		} catch (NQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (StorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+	}	
+
+	
+	@Test
+	public void testXMLReps() {
+		
 //		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage("expsys-client.properties");
 //		C:\Develop\src\neuro4j\nms\neuro4j-nms-jclient\test_data\data-demo-xml\storage.properties
 		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
@@ -95,7 +160,7 @@ public class NMSRepresentationsTest {
 
 	
 	@Test
-	public void testNMSRepsNetwork() {
+	public void testXMLRepsNetwork() {
 		
 		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
 				"C:/Develop/src/neuro4j/nms/neuro4j-nms-jclient/test_data/data-demo-xml", "storage.properties");

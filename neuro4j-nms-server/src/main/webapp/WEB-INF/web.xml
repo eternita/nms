@@ -117,6 +117,30 @@
     <url-pattern>/api/update/xml</url-pattern>
   </servlet-mapping>
   <!-- end N4J update servlet -->
+
+  <!-- start N4J update representation servlet -->
+  <servlet>
+    <servlet-name>NMSUpdateRepServlet</servlet-name>
+    <servlet-class>org.neuro4j.nms.server.NMSUpdateRepresentationServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>NMSUpdateRepServlet</servlet-name>
+    <url-pattern>/api/representation/update</url-pattern>
+  </servlet-mapping>
+  <!-- end N4J update representation servlet -->
+  
+  <!-- start N4J read representation servlet -->
+  <servlet>
+    <servlet-name>NMSReadRepServlet</servlet-name>
+    <servlet-class>org.neuro4j.nms.server.NMSReadRepresentationServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>NMSReadRepServlet</servlet-name>
+    <url-pattern>/api/representation/read</url-pattern>
+  </servlet-mapping>
+  <!-- end N4J read representation servlet -->
   
   <!-- start URLRewrite filter -->
   <filter>
