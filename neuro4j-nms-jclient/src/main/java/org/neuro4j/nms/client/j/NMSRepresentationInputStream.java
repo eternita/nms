@@ -18,8 +18,6 @@ import org.apache.http.message.BasicNameValuePair;
 /**
  * 
  * TODO: this class is prototype only (it never run or tested)
- * 
- * Use this Stream with BufferedInputStream only (because each read() call invoke HTTP call)
  *
  */
 public class NMSRepresentationInputStream extends InputStream {
@@ -31,7 +29,7 @@ public class NMSRepresentationInputStream extends InputStream {
 	private InputStream instream;
 	
 	/**
-	 * Use with BufferedOutputStream
+	 * 
 	 */
 	public NMSRepresentationInputStream(String nmsServerURL, String repId)
 	{
@@ -79,7 +77,10 @@ public class NMSRepresentationInputStream extends InputStream {
 	@Override
 	public void close() throws IOException {
 		if (null != instream)
+		{
 			instream.close();
+			instream = null;
+		}
 	}
 
 	@Override

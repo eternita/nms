@@ -10,8 +10,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.neuro4j.core.rep.RepresentationProxyException;
-import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.NeuroStorage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.utils.IOUtils;
@@ -22,7 +20,6 @@ import org.neuro4j.utils.KVUtils;
  * Is used to represent raw data (e.g. byte arrays of images, video, ...)
  * Those data is stored outside Network (e.g. file system, remote server, etc, ...)
  * 
- * any type of representation (VAK {visual, auditorial, kinesthetic, ...} ) E.g. images or sounds or 
  *
  */
 public class Representation extends KVBase implements Serializable {
@@ -37,8 +34,6 @@ public class Representation extends KVBase implements Serializable {
 	
 	private static final String UUID_KEY = "uuid";
 	private static final String DATA_TYPE_KEY = "type";
-	
-	private Object data = null; // object because it can be byte[] or Network
 	
 	public static Set<Representation> properties2representations(Map<String, String> properties)
 	{
@@ -71,33 +66,13 @@ public class Representation extends KVBase implements Serializable {
 	public Representation() {
 		super();
 	}
-
-//	public Representation(RepresentationProxy proxyImpl) {
-//		super();
-//		setProperty(UUID_KEY, getUuid());
-//		setProperty(PROXY_IMPL_KEY, proxyImpl.getClass().getCanonicalName());
-//	}
 	
 	@Override
 	public void setUuid(String uuid) {
 		super.setUuid(uuid);
 		setProperty(UUID_KEY, getUuid());
 	}
-	
-
-	public void setData(Object data) throws RepresentationProxyException {
-		// store data into memory (without persistence)
-		this.data = data;
-		//?? mark rep as not persisted
-	}
-	
-	public Object getData() throws RepresentationProxyException {
-		// read data from memory
-		return data;
-	}
-
-//*/
-	
+		
 	public void setData(NeuroStorage storage, InputStream data) throws StorageException {
 		if (null != data)
 			setProperty(DATA_TYPE_KEY, data.getClass().getCanonicalName());

@@ -17,8 +17,6 @@ public interface NeuroStorage {
 
 	public boolean save(Network network) throws StorageException;
 
-//	public Representation getRepresentationByUUID(String id);
-	
 	/**
 	 * 
 	 * @param id

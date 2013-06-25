@@ -211,9 +211,8 @@ public class NMSClient extends StorageBase {
 
 	public InputStream getRepresentationInputStream(String id) throws StorageException
 	{
-		InputStream repInput = new BufferedInputStream(
-									new NMSRepresentationInputStream(
-											serverBaseURL + "/api/representation/read", id));
+		InputStream repInput = new NMSRepresentationInputStream(
+											serverBaseURL + "/api/representation/read", id);
 		return repInput;
 	}
 	
