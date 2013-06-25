@@ -20,7 +20,7 @@ import org.neuro4j.storage.StorageException;
  */
 public class RepresentationsXMLStorageTest {
 	
-	private String TEST_DATA_BASE_DIR = "C:/Develop/src/neuro4j/nms/neuro4j-nms-tests/test_data"; 
+	private String TEST_DATA_BASE_DIR = "C:/Develop/src/neuro4j/nms/neuro4j-nms-tests/test_data/"; 
 	
 	@Before
 	public void setUp() throws Exception {
@@ -34,7 +34,7 @@ public class RepresentationsXMLStorageTest {
 	public void testBinaryRepresentationsInXMLStorage() throws Exception {
 		
 		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
-				TEST_DATA_BASE_DIR + "storages/data-demo-xml-rw", "storage.properties");
+				TEST_DATA_BASE_DIR + "storages/demo-xml-rw", "storage.properties");
 		
 		Network net = new Network();
 		Representation r1 = new Representation();
@@ -81,7 +81,7 @@ public class RepresentationsXMLStorageTest {
 	public void testNetworkRepresentationsInXMLStorage() throws Exception {
 		
 		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
-				TEST_DATA_BASE_DIR + "storages/data-demo-xml-rw", "storage.properties");
+				TEST_DATA_BASE_DIR + "storages/demo-xml-rw", "storage.properties");
 		
 		
 
