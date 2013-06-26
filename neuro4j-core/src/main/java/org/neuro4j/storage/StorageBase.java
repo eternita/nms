@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
@@ -19,6 +20,9 @@ import org.neuro4j.utils.KVUtils;
 public abstract class StorageBase implements NeuroStorage {
 
 	protected Properties properties;
+	
+	protected transient Logger logger = Logger.getLogger(getClass().getName());
+	
 	protected static final String REPRESENTATIONS_DEFAULT_DIR = "reps";
 	protected static final String LIBS_DEFAULT_DIR = "lib";
 
@@ -44,6 +48,9 @@ public abstract class StorageBase implements NeuroStorage {
 			representationsDirectory = REPRESENTATIONS_DEFAULT_DIR;
 			
 		representationsDirectory = checkForRelativeFilePath(representationsDirectory);
+		File repsHomeDir = new File(representationsDirectory);
+		if (!repsHomeDir.exists())
+			logger.severe("Representations directory (" + repsHomeDir.getAbsolutePath() + ") does not exist for storage " + storageHomeDirStr);
 		
 		// get libraries directory
 		libsDirectory = KVUtils.getStringProperty(properties, StorageConfig.STORAGE_LIB_DIR);
@@ -53,6 +60,10 @@ public abstract class StorageBase implements NeuroStorage {
 			libsDirectory = LIBS_DEFAULT_DIR;
 
 		libsDirectory = checkForRelativeFilePath(libsDirectory);
+		File libsDir = new File(libsDirectory);
+		if (!libsDir.exists())
+			logger.severe("Libs directory (" + libsDir.getAbsolutePath() + ") does not exist for storage " + storageHomeDirStr);
+
 		extendClassLoader(libsDirectory);
 		
 		return;
@@ -90,6 +101,8 @@ public abstract class StorageBase implements NeuroStorage {
 			return;
 		
 		File jarDir = new File(directoryWithJarExtensions);
+		if (!jarDir.exists())
+			return;
 		
 		FilenameFilter jarFilter = new FilenameFilter() {
 			public boolean accept(File dir, String name) {
@@ -160,7 +173,7 @@ public abstract class StorageBase implements NeuroStorage {
 		
 		File dir = new File(representationsDirectory);
 		if (!dir.exists())
-			throw new StorageException("Home directory is not specified for " + this);
+			throw new StorageException("Representations directory (" + dir.getAbsolutePath() + ") does not exist for " + this);
 			
 		File repFile = new File(dir, id);
 		if (!repFile.exists())
@@ -180,7 +193,7 @@ public abstract class StorageBase implements NeuroStorage {
 	{
 		File dir = new File(representationsDirectory);
 		if (!dir.exists())
-			throw new StorageException("Home directory is not specified for " + this);
+			throw new StorageException("Representations directory (" + dir.getAbsolutePath() + ") does not exist for " + this);
 			
 		File repFile = new File(dir, id);
 		if (!repFile.exists())
