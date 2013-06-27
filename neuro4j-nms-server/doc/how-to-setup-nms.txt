@@ -1,0 +1,9 @@
+
+
+1. Copy directory neuro4j-nms-home somewhere to your hard drive
+
+2. Point system variable NMS_HOME to that directory
+
+3. Put nms.war to ${TOMCAT_HOME}/webapps
+ 
+4. Point your browser to http://localhost:8080/nms 

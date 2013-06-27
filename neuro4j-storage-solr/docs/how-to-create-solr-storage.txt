@@ -1,0 +1,8 @@
+1. setup Solr
+2. create core with configs from ./solr.config.dir/cong
+
+3. create storage from template ./demo-storage-solr
+   update your-storage-dir/storage.properties
+      set n4j.storage.solr.server_url = Solr URL you created in #2
+      
+       
