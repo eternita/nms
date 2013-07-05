@@ -23,7 +23,7 @@ Set<ViewComponent> componentsList = (Set<ViewComponent>)request.getAttribute("co
 			  for ( ViewComponent e: componentsList)  { 			      
 				  
 			  %>
-			       <div class="w <%=e.getCss() %>" style="top:<%=e.getTop()%>px;left:<%=e.getLeft()%>px;" id="<%= e.getId() %>" ><a href="/n4j-nms/query?vt=${vt}&q=${q}&startNodeId=<%= e.getId() %>"><%= e.getName() %></a><div class="ep"></div></div>
+			       <div class="w <%=e.getCss() %>" style="top:<%=e.getTop()%>px;left:<%=e.getLeft()%>px;" id="<%= e.getId() %>" ><a href="query?vt=${vt}&q=${q}&startNodeId=<%= e.getId() %>"><%= e.getName() %></a><div class="ep"></div></div>
 			      
 			  <% } %>
 			 </div>
@@ -34,13 +34,13 @@ Set<ViewComponent> componentsList = (Set<ViewComponent>)request.getAttribute("co
 
 
 
-         <link type="text/css" rel="stylesheet" href="/n4j-nms/console/css/ran4j/jsPlumbDemo.css"/>
-        <link type="text/css" rel="stylesheet" href="/n4j-nms/console/css/ran4j/ran4j.css"/>
+         <link type="text/css" rel="stylesheet" href="../console/css/ran4j/jsPlumbDemo.css"/>
+        <link type="text/css" rel="stylesheet" href="../console/css/ran4j/ran4j.css"/>
         
-        <script language="javascript" type="text/javascript" src="/n4j-nms/console/js/ran4j/jquery_1.7.1.js"></script>
-        <script language="javascript" type="text/javascript" src="/n4j-nms/console/js/ran4j/jquery-ui_1.8.13.js"></script>
-        <script language="javascript" type="text/javascript" src="/n4j-nms/console/js/ran4j/jquery.jsPlumb-1.3.9-all.js"></script>
-        <script language="javascript" type="text/javascript" src="/n4j-nms/console/js/ran4j/ran4jInit.js"></script>
+        <script language="javascript" type="text/javascript" src="../console/js/ran4j/jquery_1.7.1.js"></script>
+        <script language="javascript" type="text/javascript" src="../console/js/ran4j/jquery-ui_1.8.13.js"></script>
+        <script language="javascript" type="text/javascript" src="../console/js/ran4j/jquery.jsPlumb-1.3.9-all.js"></script>
+        <script language="javascript" type="text/javascript" src="../console/js/ran4j/ran4jInit.js"></script>
 
      
 <script type="text/javascript">

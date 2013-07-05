@@ -16,10 +16,10 @@ public class DefaultDecorator implements ViewDecorator {
 		
 		for (Relation r : relations)
 		{
-    		sb.append("<b><a href='/n4j-nms/relation-details?storage=" + request.getParameter("storage") + "&vt=graph&uuid=" + r.getUuid() +"'>" + r.getName() + "</a></b><br/>");
+    		sb.append("<b><a href='relation-details?storage=" + request.getParameter("storage") + "&vt=graph&uuid=" + r.getUuid() +"'>" + r.getName() + "</a></b><br/>");
     		sb.append("<br/>");
 		    for (Entity rp : r.getParticipants()) {
-	    		sb.append("<a href='/n4j-nms/entity-details?storage=" + request.getParameter("storage") + "&vt=graph&eid=" + rp.getUuid() +"'>" + rp.getName() + "</a><br/>");
+	    		sb.append("<a href='entity-details?storage=" + request.getParameter("storage") + "&vt=graph&eid=" + rp.getUuid() +"'>" + rp.getName() + "</a><br/>");
 	    		sb.append("");
 	    		sb.append("");
 	    		sb.append("");
