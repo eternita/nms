@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicProcessor;
@@ -15,6 +14,7 @@ import org.neuro4j.logic.LogicProcessorFactory;
 import org.neuro4j.logic.LogicProcessorNotFoundException;
 import org.neuro4j.logic.def.FlowSet;
 import org.neuro4j.logic.def.StartNodeAdapter;
+import org.neuro4j.xml.ConvertationException;
 import org.neuro4j.xml.NetworkConverter;
 
 /**
@@ -171,7 +171,11 @@ public class SimpleWorkflowEngine {
 		Network net = null;
 		try {
 			if (null != is)
-				net = NetworkConverter.xml2network(is); 
+				try {
+					net = NetworkConverter.xml2network(is);
+				} catch (ConvertationException e) {
+					e.printStackTrace();
+				} 
 		} finally {
 			try {
 				if (null != is)

@@ -17,6 +17,7 @@ import org.neuro4j.storage.qp.NQLParser;
 import org.neuro4j.storage.qp.NQLProcessor;
 import org.neuro4j.storage.qp.ParseException;
 import org.neuro4j.utils.KVUtils;
+import org.neuro4j.xml.ConvertationException;
 import org.neuro4j.xml.NetworkConverter;
 
 public class XMLNeuroStorage extends InMemoryNeuroStorage {
@@ -91,6 +92,9 @@ public class XMLNeuroStorage extends InMemoryNeuroStorage {
 			if (null != fis)
 				net = NetworkConverter.xml2network(fis); 
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ConvertationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {

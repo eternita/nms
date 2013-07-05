@@ -11,6 +11,7 @@ import org.apache.commons.logging.LogFactory;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.NeuroStorage;
 import org.neuro4j.storage.StorageException;
+import org.neuro4j.xml.ConvertationException;
 import org.neuro4j.xml.NetworkConverter;
 
 public class NMSUpdateXMLServlet extends HttpServlet {
@@ -46,9 +47,11 @@ public class NMSUpdateXMLServlet extends HttpServlet {
 			return;
 		}
 
-		Network n = NetworkConverter.xml2network(netXML);
+		Network n;
 		
 		try {
+			n = NetworkConverter.xml2network(netXML);
+			
 			boolean isOK = neuroStorage.save(n);
 			if (isOK)
 			{
@@ -59,6 +62,9 @@ public class NMSUpdateXMLServlet extends HttpServlet {
 		} catch (StorageException e) {
 			logger.error("Can't save network", e);
 			string2outputStream(resp, "<resp>Can't save network. See logs for details</resp>");
+		} catch (ConvertationException e1) {
+			logger.error("Can't convert xml to network", e1);
+			string2outputStream(resp, "<resp>Can't convert xml to network. See logs for details</resp>");
 		}
 		
 		

@@ -61,7 +61,7 @@ public class NetworkConverter {
 	 * @param xml
 	 * @return
 	 */
-	public static org.neuro4j.core.Network xml2network(String xml)
+	public static org.neuro4j.core.Network xml2network(String xml) throws ConvertationException
 	{
 		if (null == xml)
 			return null; //new HashSet<Representation>();
@@ -78,18 +78,18 @@ public class NetworkConverter {
 			return netXML2net(net);
 
 		} catch (JAXBException e) {
-			e.printStackTrace();
-			return null;
+			throw new ConvertationException("Can't convert string to network " + xml, e);
 		}		
 	}
 
 	
 	/**
+	 * In case of exception input stream are closed by JAXB
 	 * 
 	 * @param xml
 	 * @return
 	 */
-	public static org.neuro4j.core.Network xml2network(InputStream xml)
+	public static org.neuro4j.core.Network xml2network(InputStream xml) throws ConvertationException
 	{
 		if (null == xml)
 			return null; //new HashSet<Representation>();
@@ -106,8 +106,7 @@ public class NetworkConverter {
 			return netXML2net(net);
 			
 		} catch (JAXBException e) {
-			e.printStackTrace();
-			return null;
+			throw new ConvertationException("Can't convert stream to network", e);
 		}		
 	}
 	

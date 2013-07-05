@@ -87,11 +87,19 @@ public class NMSQueryServlet extends HttpServlet {
 //			NetworkConverter.network2xmlstream(n, os);
 			
 		} catch (NQLException e) {
-			logger.error("Wrong NQL query " + query, e);
-			resp.getOutputStream().write(("Can't execute query " + query + " " + e.getMessage()).getBytes("UTF-8"));
+			Throwable cause = e.getCause();
+			String msg = "Wrong NQL query " + query;
+			if (null != cause)
+				msg += " cause: " + cause.getMessage();  
+			logger.error(msg);
+			resp.getOutputStream().write(msg.getBytes("UTF-8"));
 		} catch (StorageException e) {
-			logger.error("Can't execute query " + query, e);
-			resp.getOutputStream().write(("Can't execute query " + query + " " + e.getMessage()).getBytes("UTF-8"));
+			Throwable cause = e.getCause();
+			String msg = "Can't execute query " + query;
+			if (null != cause)
+				msg += " cause: " + cause.getMessage();  
+			logger.error(msg);
+			resp.getOutputStream().write(msg.getBytes("UTF-8"));
 		}
 
 		return;
