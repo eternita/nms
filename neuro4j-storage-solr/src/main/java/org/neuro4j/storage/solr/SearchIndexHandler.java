@@ -76,7 +76,7 @@ public class SearchIndexHandler {
 
 	public static void commit(SolrServer solrServer)  throws StorageException {
 		try {
-			UpdateResponse response = solrServer.commit(false, false);
+			UpdateResponse response = solrServer.commit(true, true);
 			logger.info("Commit -> Response" + response);
 		} catch (SolrServerException e) {
             logger.error("Can't commit", e);
