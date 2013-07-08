@@ -91,7 +91,7 @@ public class NMSClient extends StorageBase {
 		HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
 		
 		SchemeRegistry schemeRegistry = new SchemeRegistry();
-	    schemeRegistry.register(new Scheme("http", 18080, PlainSocketFactory.getSocketFactory()));
+	    schemeRegistry.register(new Scheme("http", 80, PlainSocketFactory.getSocketFactory()));
 
 	    PoolingClientConnectionManager cm = new PoolingClientConnectionManager(schemeRegistry);
 	    
