@@ -1,23 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.neuro4j</groupId>
+
+  <parent>
+    <groupId>org.neuro4j</groupId>
+    <artifactId>nms</artifactId>
+    <version>1.2</version>
+  </parent>
+
 	<artifactId>neuro4j-nms-server</artifactId>
-	<version>0.9</version>
 	<packaging>war</packaging>
 
 	<!-- Shared version number properties -->
-	<dependencyManagement>
-		<dependencies>
-		</dependencies>
-	</dependencyManagement>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<org.springframework.version>3.0.5.RELEASE</org.springframework.version>
 
-		<!-- tell the compiler we can use 1.6 -->
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
+	<properties>
+		<org.springframework.version>3.0.5.RELEASE</org.springframework.version>
 	</properties>
 
 	<repositories>
@@ -39,33 +36,13 @@
 	    <dependency>
 	        <groupId>org.neuro4j</groupId>
 	        <artifactId>neuro4j-core</artifactId>
-	        <version>1.2</version>
+	        <version>${project.version}</version>
 	    </dependency>
         <dependency>
             <groupId>org.neuro4j</groupId>
             <artifactId>neuro4j-storage-solr</artifactId>
-            <version>0.8</version>
+            <version>${project.version}</version>
         </dependency>
-
-<!-- 
-        <dependency>
-            <groupId>org.neuro4j</groupId>
-            <artifactId>neuro4j-core</artifactId>
-            <version>1.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.neuro4j</groupId>
-            <artifactId>neuro4j-storage-mysql</artifactId>
-            <version>0.7</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.neuro4j</groupId>
-            <artifactId>neuro4j-storage-solr</artifactId>
-            <version>0.7</version>
-        </dependency>
- -->
  
  
  <!-- TODO: remove me  -->
@@ -82,12 +59,6 @@
 		    <groupId>org.tuckey</groupId>
 		    <artifactId>urlrewritefilter</artifactId>
 		    <version>3.0.4</version>
-		</dependency>
-                   
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
 		</dependency>
 
 		<dependency>
@@ -322,19 +293,6 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.0.2</version>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
-			</plugin>
-
-
-
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<configuration>
 					<buildoutputdirectory>src/main/webapp/WEB-INF/classes</buildoutputdirectory>
@@ -431,19 +389,6 @@
 									</action>
 								</pluginExecution>
 
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.codehaus.mojo</groupId>
-										<artifactId>javacc-maven-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>javacc</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
 
 								<pluginExecution>
 									<pluginExecutionFilter>
