@@ -71,7 +71,7 @@ public class LoopBlock  extends LogicBlock {
 		fctx.removeLoopIterator(this.iteratorKey);
 	}
 
-	public synchronized void  load(Entity entity) throws FlowInitializationException
+	public void load(Entity entity) throws FlowInitializationException
 	{
 		super.load(entity);
 		iteratorKey = getNotEmptyProperty(SWFParametersConstants.LOOP_NODE_ITERATOR);
@@ -88,7 +88,8 @@ public class LoopBlock  extends LogicBlock {
 		 {
 			 loopExit = falseRelations.get(0);
 		 }
-		 setLoaded(true);	
+		 
+		 return;
 	}
 
 	@Override

@@ -45,7 +45,7 @@ public class SetViewTemplate extends LogicBlock {
 
 	
 	
-	public synchronized void load(Entity entity) throws FlowInitializationException
+	public void load(Entity entity) throws FlowInitializationException
 	{
 		super.load(entity);		
 		staticTemplateName = getNotEmptyProperty(SWFParametersConstants.VIEW_NODE_TEMPLATE_NAME);

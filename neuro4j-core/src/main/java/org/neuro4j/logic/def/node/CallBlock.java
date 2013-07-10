@@ -1,15 +1,11 @@
 package org.neuro4j.logic.def.node;
 
-import java.util.Map;
-
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.LogicContext;
-import org.neuro4j.logic.LogicException;
 import org.neuro4j.logic.LogicProcessor;
 import org.neuro4j.logic.LogicProcessorException;
 import org.neuro4j.logic.def.LogicBlock;
-import org.neuro4j.logic.def.LogicBlockInfo;
 import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.FlowInitializationException;
 import org.neuro4j.logic.swf.SWFConstants;
@@ -66,14 +62,6 @@ public class CallBlock extends LogicBlock {
             throw new FlowExecutionException(e1.getCause());
 		}
 		return NEXT;
-	}
-
-
-
-	public synchronized void load(Entity entity) throws FlowInitializationException
-	{
-		super.load(entity);
-		setLoaded(true);
 	}
 	
 }

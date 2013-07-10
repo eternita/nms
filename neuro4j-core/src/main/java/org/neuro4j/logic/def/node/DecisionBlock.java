@@ -4,13 +4,10 @@ import java.util.Collection;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.neuro4j.core.Entity;
 import org.neuro4j.logic.LogicContext;
-import org.neuro4j.logic.LogicException;
 import org.neuro4j.logic.def.LogicBlock;
-import org.neuro4j.logic.def.LogicBlockInfo;
 import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.FlowInitializationException;
 import org.neuro4j.logic.swf.SWFConstants;
@@ -198,7 +195,7 @@ public class DecisionBlock extends LogicBlock {
 	}
 	
 	
-	public synchronized void load(Entity entity) throws FlowInitializationException
+	public void load(Entity entity) throws FlowInitializationException
 	{
 		super.load(entity);
 		
@@ -243,7 +240,7 @@ public class DecisionBlock extends LogicBlock {
 			throw new FlowInitializationException(
 					"Decision node: CompTypes not defined");
 		}
-		setLoaded(true);
+
 	}
 
 	@Override

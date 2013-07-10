@@ -28,8 +28,7 @@ public class JoinBlock extends LogicBlock {
 		if (nextRelations != null && nextRelations.size() == 1) {
 			next = nextRelations.get(0);
 		}
-
-		setLoaded(true);
+		return;
 	}
 	
 	@Override

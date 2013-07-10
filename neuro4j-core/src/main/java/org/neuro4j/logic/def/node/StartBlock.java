@@ -24,9 +24,4 @@ public class StartBlock extends LogicBlock {
 		return NEXT;
 	}
 
-	public synchronized void load(Entity entity) throws FlowInitializationException
-	{
-		super.load(entity);
-		setLoaded(true);
-	}
 }

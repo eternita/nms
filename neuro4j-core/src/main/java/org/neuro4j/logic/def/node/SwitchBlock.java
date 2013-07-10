@@ -80,7 +80,6 @@ public class SwitchBlock extends LogicBlock {
 				 defaultRelation = nextRelations.get(0);
 			 }
 		 }
-		 setLoaded(true);	
 	}
 	
 	

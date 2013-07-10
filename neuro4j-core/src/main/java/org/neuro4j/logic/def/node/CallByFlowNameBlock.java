@@ -147,8 +147,7 @@ public class CallByFlowNameBlock extends LogicBlock {
 		flownName = getNotEmptyProperty(SWFParametersConstants.CAll_NODE_FLOW_NAME);
 		
 		dynamicFlownName = getNotEmptyProperty(SWFParametersConstants.CAll_NODE_DYNAMIC_FLOW_NAME);		
-	
-		setLoaded(true);
+
 	}
 
 

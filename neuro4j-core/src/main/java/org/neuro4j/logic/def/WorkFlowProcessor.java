@@ -68,13 +68,7 @@ public class WorkFlowProcessor implements LogicProcessor
 			
 			LogicBlock logicNode;
 			try {
-				logicNode = LogicBlockLoader.getInstance().lookupBlock(currentStep.getUuid(), className);
-				
-				
-				if(!logicNode.isLoaded())
-				{
-					logicNode.load(currentStep);
-				}
+				logicNode = LogicBlockLoader.getInstance().lookupBlock(currentStep, className);
 				
 				logger.finest("running " + logicNode.getClass().getSimpleName() + " (" +  logicNode.getClass().getCanonicalName() + ")");
 				Set<Entity> stack = getExecutionStack(logicContext);

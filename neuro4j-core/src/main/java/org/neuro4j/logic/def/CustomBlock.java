@@ -1,7 +1,6 @@
 package org.neuro4j.logic.def;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.neuro4j.core.Entity;
@@ -55,7 +54,6 @@ public abstract class CustomBlock extends LogicBlock {
 			 errorExit = falseRelations.get(0);
 		 }
 		
-		setLoaded(true);
 	}
 	
 	public final void process(LogicContext context)

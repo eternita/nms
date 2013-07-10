@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Logger;
 
 import org.neuro4j.core.Entity;
@@ -30,8 +29,6 @@ public abstract class LogicBlock  implements ExecutableEntity {
 	
 	protected LogicBlockAdapter lba = null;
 	
-	private boolean loaded = false;
-	
 	protected static final int NEXT = 1;
 	protected static final int ERROR = 2;
 	
@@ -45,41 +42,6 @@ public abstract class LogicBlock  implements ExecutableEntity {
 		lba = new LogicBlockAdapter();
 		lba.setName(this.getClass().getSimpleName());
 		lba.setProperty(SWFConstants.SWF_BLOCK_CLASS, this.getClass().getCanonicalName());
-		
-		// get info about context parameters and put it to properties
-		LogicBlockInfo lbi = getLogicBlockInfo();
-		if (null != lbi)
-		{
-			String blockDesc = lbi.getDescription();
-			if (null != blockDesc)
-				lba.setProperty(SWFConstants.SWF_BLOCK_DESCRIPTION, blockDesc);
-			
-			Set<String> parametersInfo = lbi.getParametersInfo();
-			if (null != parametersInfo)
-				for(String paramInfo : parametersInfo)
-					lba.setProperty(SWFConstants.SWF_BLOCK_PARAM_INFO, paramInfo);
-		}
-		
-
-	}
-
-
-	protected LogicBlock(String name, String actionClass) {
-		this();
-		lba = new LogicBlockAdapter();
-		lba.setName(this.getClass().getSimpleName());
-		lba.setProperty(SWFConstants.SWF_BLOCK_CLASS, actionClass);
-	}
-	
-	
-	protected LogicBlock(String name, String customBlockClass, String... params)  throws LogicException {
-		this(name, customBlockClass);
-		setParams(params);
-	}
-		
-	protected LogicBlock(String... params) throws LogicException {
-		this();
-		setParams(params);
 	}
 	
 	public void setParams(String... params)  throws LogicException
@@ -111,25 +73,10 @@ public abstract class LogicBlock  implements ExecutableEntity {
 	{
 		return;
 	}
-	
-
-	
-	public LogicBlockInfo getLogicBlockInfo() {
-		LogicBlockInfo lbi = new LogicBlockInfo();
-		return lbi;
-	}
 
 	public void load(Entity entity) throws FlowInitializationException {
 		lba.init(entity);
 	}
-
-	public final boolean isLoaded() {
-		return loaded;
-	}
-
-	public final void setLoaded(boolean loaded) {
-		this.loaded = loaded;
-	}	
 	
 	protected  List<Relation> getOutgoingRelations(String relationName)
 	{

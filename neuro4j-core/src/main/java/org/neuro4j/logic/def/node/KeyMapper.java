@@ -46,12 +46,5 @@ public class KeyMapper extends LogicBlock {
 		return NEXT;
 	}
 
-	public void load(Entity entity) throws FlowInitializationException
-	{
-		super.load(entity);
-		setLoaded(true);
-	}
-
-	
 
 }
