@@ -1,13 +1,16 @@
 package org.neuro4j.storage.solr.qp;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.solr.common.SolrDocument;
 import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Path;
 import org.neuro4j.storage.qp.ERType;
+import org.neuro4j.storage.qp.Filter;
 import org.neuro4j.storage.qp.NQLProcessorStream;
 import org.neuro4j.storage.solr.SearchIndexConfiguration;
 import org.neuro4j.storage.solr.SearchIndexHandler;
@@ -22,13 +25,26 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 	private ERType queryType;
 	
 	private ERType previousQueryType;
+	
+	private SolrDocument nextDoc = null;
+	
+	/**
+	 * for serving filter clause e.g. filter(r[name='coin-belong-to-coin-definition'] 5, r[name='user-contributed-to-coin-definition'] 3)
+	 * 
+	 * <filter, match-count>
+	 */
+	protected Map<Filter, Integer> filterMap = new HashMap<Filter, Integer>();
 
-	public SolrNQLProcessorStreamQuery(String solrQuery, SolrIndexMgr siMgr,
-			ERType queryType, Set<Path> currentMatchedPaths,
+
+	public SolrNQLProcessorStreamQuery(String solrQuery, SolrIndexMgr siMgr, Set<Filter> filterSet,
+			ERType queryType, Set<Path> currentMatchedPaths, 
 			NQLProcessorStream inputStream, boolean optional) // , Map<String, Set<String>> useOnlyAttrMap 
 	{
 		super(siMgr, currentMatchedPaths, inputStream, optional);
 		this.solrQuery = solrQuery;
+		
+		for (Filter filter : filterSet)
+			filterMap.put(filter, 0);
 		
 		if (null == inputStream)
 		{
@@ -52,10 +68,10 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		}
 	}
 	
-	public SolrNQLProcessorStreamQuery(String solrQuery, SolrIndexMgr siMgr,
+	public SolrNQLProcessorStreamQuery(String solrQuery, SolrIndexMgr siMgr, Set<Filter> filterSet,
 			NQLProcessorStream inputStream, boolean optional) { // , Map<String, Set<String>> useOnlyAttrMap
 		
-		this(solrQuery, siMgr, null, new HashSet<Path>(), inputStream, optional); // , useOnlyAttrMap
+		this(solrQuery, siMgr, filterSet, null, new HashSet<Path>(), inputStream, optional); // , useOnlyAttrMap
 
 	}
 	
@@ -69,16 +85,25 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 	 */
 	public boolean hasNext() 
 	{
+		if (null != nextDoc) // next() was not called. probably hasNext() called > 1 time 
+			return true;
+		
+		boolean hasNext = false;
 		if (null == inputStream)
 		{
 			// very first decorator - no parent ids
 			if (null == iter)
 		    	iter = siMgr.query(solrQuery); 
 
-			return iter.hasNext();
+			hasNext = iter.hasNext();
+			if (hasNext) 
+				nextDoc = iter.next(); 
+			return hasNext;
 		}
 		
-		// not first decorator
+		// current decorator is not first
+		
+		//  check if iterator created
 		if (null == iter)
 		{
 			// parent input is empty - no query required
@@ -102,7 +127,74 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		if (!iter.hasNext() && inputStream.hasNext())
 			return hasNext();
 
-		return iter.hasNext();
+
+		// validate er stream with query filters. (skip er's which over filter amount)
+		hasNext = checkQueryFilters();
+		
+		return hasNext;
+	}
+	
+	
+	/**
+	 * validate er stream with query filters. (skip er's which over filter amount)
+	 *  
+	 * @return
+	 */
+	private boolean checkQueryFilters()
+	{
+		boolean hasNext = iter.hasNext();
+		
+		if (!hasNext) // nothing found in current iterator
+		{
+			// check if parent stream has more elements
+			if (inputStream.hasNext())
+			{
+				// recreate current iterator with new data from parent stream
+				updateIterator();
+				// recursive check
+	        	return checkQueryFilters();
+	        	
+			} else {
+				// end of parent iterator
+	    		nextDoc = null;         	
+				return hasNext; // return false;
+			}
+		}
+		
+		boolean goThroughIterator = false;
+		do
+		{
+    		goThroughIterator = false;
+			nextDoc = iter.next(); 
+			
+	        ERBase er = SearchIndexHandler.doc2erbase(nextDoc);
+			for (Filter f : filterMap.keySet())
+			{
+		        if (f.propertyValue.equals(er.getProperty(f.propertyName)) )
+		        {
+		        	// er match this filter
+		        	int matchCount = filterMap.get(f);
+		        	matchCount++;
+		        	filterMap.put(f, matchCount);
+		        	
+		        	if (matchCount > f.filterAmount)
+		        	{
+		    			// skip current doc 
+		            	nextDoc = null;
+		            	
+		            	if (iter.hasNext())
+			        		goThroughIterator = true;
+			        	else
+			            	hasNext = checkQueryFilters(); // do recursive check - may need updateIterator() call
+
+		        		break;
+		        	}
+		        }
+			}
+		} while (goThroughIterator);
+
+        
+        return hasNext;
 	}
 	
 	/**
@@ -131,17 +223,23 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 			if (optional)
 				for (Path p : inputStream.getCurrentMatchedPaths())
 					currentMatchedPaths.add(p);
+			
+			
+	    	iter = siMgr.query(solrQuery);								
 		}
 		
-    	iter = siMgr.query(solrQuery);					
 		return;
 	}
 	
 	public String next() {
 		
-		SolrDocument doc = iter.next();
+		if (null == nextDoc)
+			return null;
 		
-        ERBase er = SearchIndexHandler.doc2erbase(doc);
+        ERBase er = SearchIndexHandler.doc2erbase(nextDoc);
+		
+        nextDoc = null;
+        
 		if (null == inputStream)
 		{
 			// very first decorator

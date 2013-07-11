@@ -139,9 +139,9 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 	
 		if (null == qpStream)
 		{
-			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, currentERType, currentMatchedPaths, qpStream, optional);
+			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, currentERType, currentMatchedPaths, qpStream, optional);
 		} else {
-			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, qpStream, optional);
+			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, qpStream, optional);
 		}
 
 		return;
@@ -303,7 +303,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 				if (ignoreAttrMap.size() > 0)
 					solrQuery = getIgnoreQuery(getOpositeER(qpStream.getERQueryType()));
 				
-				qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, qpStream, true);
+				qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, qpStream, true);
 			}
 			
 		} catch (Exception ex) {

@@ -8,4 +8,11 @@ public class Filter {
 	public String propertyName;
 	public String propertyValue;
 	public int filterAmount;
+	
+	@Override
+	public String toString() {
+		return erType + "[" + propertyName + "=" + propertyValue + "] " + filterAmount;
+	}
+	
+	
 }

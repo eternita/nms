@@ -10,8 +10,8 @@ import java.util.Set;
 import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
-import org.neuro4j.storage.inmemory.qp.InMemoryNQLProcessorStreamBase;
 import org.neuro4j.storage.qp.ERType;
+import org.neuro4j.storage.qp.Filter;
 import org.neuro4j.storage.qp.NQLProcessorStream;
 
 public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamBase {
@@ -30,9 +30,20 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	
 	private Map<String, Set<String>> ignoreAttrMap = new HashMap<String, Set<String>>();
 	
+	private ERBase next = null;
+
+	/**
+	 * for serving filter clause e.g. filter(r[name='coin-belong-to-coin-definition'] 5, r[name='user-contributed-to-coin-definition'] 3)
+	 * 
+	 * <filter, match-count>
+	 */
+	protected Map<Filter, Integer> filterMap = new HashMap<Filter, Integer>();
+
+	
 	public InMemoryNQLProcessorStreamQuery(
 			Set<ERBase> currentERNetwork,
 			Network pipeNet,
+			Set<Filter> filterSet,
 			ERType queryType, 
 			Set<Path> currentMatchedPaths,
 			NQLProcessorStream inputStream, 
@@ -41,6 +52,9 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		super(currentMatchedPaths, inputStream, optional);
 		this.currentERNetwork = currentERNetwork;
 		this.pipeNet = pipeNet;
+		
+		for (Filter filter : filterSet)
+			filterMap.put(filter, 0);		
 		
 		if (null == inputStream)
 		{
@@ -64,6 +78,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	public InMemoryNQLProcessorStreamQuery(
 			Set<ERBase> currentERNetwork,
 			Network pipeNet,
+			Set<Filter> filterSet,
 			NQLProcessorStream inputStream, 
 			boolean optional,
 			Map<String, Set<String>> useOnlyAttrMap,
@@ -71,7 +86,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 			) 
 	{ 
 		
-		this(currentERNetwork, pipeNet, null, new HashSet<Path>(), inputStream, optional);
+		this(currentERNetwork, pipeNet, filterSet, null, new HashSet<Path>(), inputStream, optional);
 		this.useOnlyAttrMap = useOnlyAttrMap;
 		this.ignoreAttrMap = ignoreAttrMap;
 
@@ -87,13 +102,21 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	 */
 	public boolean hasNext() 
 	{
+		if (null != next) // next() was not called. probably hasNext() called > 1 time 
+			return true;
+		
+		boolean hasNext = false;
+
 		if (null == inputStream)
 		{
 			// very first decorator - no parent ids
 			if (null == iter)
 		    	iter = currentERNetwork.iterator();
 
-			return iter.hasNext();
+			hasNext = iter.hasNext();
+			if (hasNext) 
+				next = iter.next(); 
+			return hasNext;
 		}
 		
 		// not first decorator
@@ -120,7 +143,71 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		if (!iter.hasNext() && inputStream.hasNext())
 			return hasNext();
 
-		return iter.hasNext();
+		// validate er stream with query filters. (skip er's which over filter amount)
+		hasNext = checkQueryFilters();
+		
+		return hasNext;
+	}
+	
+	
+	/**
+	 * validate er stream with query filters. (skip er's which over filter amount)
+	 *  
+	 * @return
+	 */
+	private boolean checkQueryFilters()
+	{
+		boolean hasNext = iter.hasNext();
+		
+		if (!hasNext) // nothing found in current iterator
+		{
+			// check if parent stream has more elements
+			if (inputStream.hasNext())
+			{
+				// recreate current iterator with new data from parent stream
+				updateIterator();
+				// recursive check
+	        	return checkQueryFilters();
+	        	
+			} else {
+				// end of parent iterator
+	    		next = null;         	
+				return hasNext; // return false;
+			}
+		}
+		
+		boolean goThroughIterator = false;
+		do
+		{
+    		goThroughIterator = false;
+			next = iter.next(); 
+			
+	        ERBase er = next;
+			for (Filter f : filterMap.keySet())
+			{
+		        if (f.propertyValue.equals(er.getProperty(f.propertyName)) )
+		        {
+		        	// er match this filter
+		        	int matchCount = filterMap.get(f);
+		        	matchCount++;
+		        	filterMap.put(f, matchCount);
+		        	
+		        	if (matchCount > f.filterAmount)
+		        	{
+		    			// skip current doc 
+		            	next = null;
+		            	
+		            	if (iter.hasNext())
+			        		goThroughIterator = true;
+			        	else
+			            	hasNext = checkQueryFilters(); // do recursive check - may need updateIterator() call
+
+		        		break;
+		        	}
+		        }
+			}
+		} while (goThroughIterator);		
+        return hasNext;
 	}
 	
 	/**
@@ -241,10 +328,13 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	
 	public String next() {
 		
-//		String erid = iter.next();
+		if (null == next)
+			return null;
 		
-//        ERBase er = currentERNetwork.getById(erid);
-		ERBase er = iter.next();
+		ERBase er = next;
+		
+		next = null;
+		
 		if (null == inputStream)
 		{
 			// very first decorator

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.nms.server.NMSServerConfig;
+import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.NeuroStorage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.utils.KVUtils;
@@ -73,6 +74,11 @@ public class QueryController {
 				
 				long end = System.currentTimeMillis();
 				request.setAttribute("qtime", end - start);				
+			} catch (NQLException e) {
+				request.setAttribute("nql_error", e.getMessage());
+				request.setAttribute("qtime", "0");				
+				logger.error(e.getLocalizedMessage());
+				net = new Network();
 			} catch (Exception e) {
 				request.setAttribute("nql_error", e.getMessage());
 				request.setAttribute("qtime", "0");				

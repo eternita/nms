@@ -258,8 +258,8 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 
 	public void addFilter(String erType, String sKey, String sValue, int filterSize)
 	{
-		// function for second parse cycle only
-		if (FIRST_CYCLE == parseCycle)
+		// function for first parse cycle only
+		if (SECOND_CYCLE == parseCycle)
 			return;
 		
 		Filter filter = new Filter();
@@ -751,9 +751,9 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		
 		if (null == qpStream)
 		{
-			qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, currentERType, currentMatchedPaths, qpStream, optional);
+			qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, currentERType, currentMatchedPaths, qpStream, optional);
 		} else {
-			qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, qpStream, optional, this.useOnlyAttrMap, this.ignoreAttrMap);
+			qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, qpStream, optional, this.useOnlyAttrMap, this.ignoreAttrMap);
 		}
 
 		/*
@@ -859,7 +859,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 				currentERs.add(er);
 			
 			for (int i = 0; i < depth; i++)
-				qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, qpStream, true, this.useOnlyAttrMap, this.ignoreAttrMap);
+				qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, qpStream, true, this.useOnlyAttrMap, this.ignoreAttrMap);
 						
 		} catch (Exception ex) {
 			logger.severe("Wrong depth");
