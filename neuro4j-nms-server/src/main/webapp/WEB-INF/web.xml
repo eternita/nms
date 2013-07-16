@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>n4j</display-name>
-  
+
+  <!-- Session is not used except in QueryController and JSONController. 
+  They cache queries in session. QueryController put network to session and JSONController remove it (to avoid second execution for graph UI). 
+  In case of bots (load tests) clients load just page and do not execute JavaScript with graph visualization. It leads to "memory leaks" in sessions.
+  To fix it session timeout set to 1. because session isn't used for other purposes in this application.
+  -->
+  <session-config>
+        <session-timeout>1</session-timeout>
+  </session-config>
+      
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
