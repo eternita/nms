@@ -78,21 +78,36 @@ public abstract class LogicBlock  implements ExecutableEntity {
 		lba.init(entity);
 	}
 	
-	protected  List<Relation> getOutgoingRelations(String relationName)
+	/**
+	 * return outgoing relations (lba.uuid == relation.from)
+	 * filtered by relation name
+	 * 
+	 * @param relationName
+	 * @return
+	 */
+	private  List<Relation> getOutgoingRelations(String relationName)
 	{
 		List<Relation> outRelations = new ArrayList<Relation>(3);
 		
 		for (Relation r : lba.getRelations())
 		{
-			if (lba.getUuid().equals(r.getProperty(DirectionRelation.FROM_KEY)) && r.getName() != null
-					&& r.getName().equals(relationName)){
-				outRelations.add(r);
-			} if (r.getName() == null && (relationName == null || "".equals(relationName.trim())))
+			if (lba.getUuid().equals(r.getProperty(DirectionRelation.FROM_KEY)))
 			{
-				outRelations.add(r);
-			}
-
-		}
+				// filter by direction only
+				if (null == relationName)
+				{
+					outRelations.add(r);
+					 
+				// is used by Switch Block	
+				} else if ("null".equals(relationName) && null == r.getName()) {
+					outRelations.add(r);
+					
+				} else if (relationName.equals(r.getName())) {
+					// filter by direction and relation name
+					outRelations.add(r);
+				}
+			} // if (lba.getUuid().equals(r.getProperty(DirectionRelation.FROM_KEY)))
+		} // for (Relation r : lba.getRelations())
 		
 		return outRelations;
 	}

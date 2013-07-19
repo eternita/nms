@@ -95,7 +95,8 @@ public class CallByFlowNameBlock extends LogicBlock {
 
 		Entity lastNode = (Entity) ctx.get(SWFConstants.AC_CURRENT_NODE);
 		
-		List<String> relations = getOutgoingRelationsUUID(lastNode.getName());
+//		List<String> relations = getOutgoingRelationsUUID(lastNode.getName());
+		List<String> relations = getOutgoingRelationsUUID(null);
 	
 		String nextActionUUID = null;
 		

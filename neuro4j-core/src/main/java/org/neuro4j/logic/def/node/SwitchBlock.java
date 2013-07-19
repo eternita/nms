@@ -38,6 +38,9 @@ public class SwitchBlock extends LogicBlock {
 			 relation = relation.replace(SWFConstants.QUOTES_SYMBOL, "");
 		 }
 		 
+		 if (null == relation)
+			 relation = "null";
+		 
 		 List<String> nextRelations = getOutgoingRelationsUUID(relation);
 		 if (nextRelations != null && nextRelations.size() == 1)
 		 {
