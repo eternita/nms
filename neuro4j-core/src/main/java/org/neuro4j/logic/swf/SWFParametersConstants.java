@@ -105,6 +105,7 @@ public class SWFParametersConstants {
 	 */
 	public static final String SWITCH_NODE_ACTION_NAME = "SWF_PARAM_ACTION_NAME";
 	public static final String SWITCH_NODE_DEFAULT_ACTION_NAME = SWFConstants.NEXT_RELATION_NAME;
+	public static final String SWITCH_NODE_DEFAULT_ACTION_NAME_2 = "default";
 	public static final String SWITCH_NODE_DEFAULT_PARAMETER_VALUE = "relationName";
 	public static final String SWITCH_NODE_DEFAULT_ACTION = "DEFAULT";
 

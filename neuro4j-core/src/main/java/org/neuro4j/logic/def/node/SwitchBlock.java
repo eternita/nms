@@ -73,16 +73,25 @@ public class SwitchBlock extends LogicBlock {
 		 {
 			 relationName = SWFParametersConstants.SWITCH_NODE_DEFAULT_PARAMETER_VALUE;
 		 }
-		 List<String> nextRelations = getOutgoingRelationsUUID(SWFParametersConstants.SWITCH_NODE_DEFAULT_ACTION_NAME);
-		 if (nextRelations != null && nextRelations.size() == 1)
+		 List<String> nextRelations = getOutgoingRelationsUUID(SWFParametersConstants.SWITCH_NODE_DEFAULT_ACTION_NAME_2);
+		 if (nextRelations != null && nextRelations.size() > 0)
 		 {
 			 defaultRelation = nextRelations.get(0);
 		 } else {
-			 nextRelations = getOutgoingRelationsUUID(SWFParametersConstants.SWITCH_NODE_DEFAULT_ACTION); 
-			 if (nextRelations != null && nextRelations.size() == 1){
+
+			 nextRelations = getOutgoingRelationsUUID(SWFParametersConstants.SWITCH_NODE_DEFAULT_ACTION_NAME);
+			 if (nextRelations != null && nextRelations.size() == 1)
+			 {
 				 defaultRelation = nextRelations.get(0);
+			 } else {
+				 nextRelations = getOutgoingRelationsUUID(SWFParametersConstants.SWITCH_NODE_DEFAULT_ACTION); 
+				 if (nextRelations != null && nextRelations.size() == 1){
+					 defaultRelation = nextRelations.get(0);
+				 }
 			 }
+			 
 		 }
+		 return;
 	}
 	
 	
