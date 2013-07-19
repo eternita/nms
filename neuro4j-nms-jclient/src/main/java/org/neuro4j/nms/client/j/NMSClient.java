@@ -135,16 +135,13 @@ public class NMSClient extends StorageBase {
 			    Network n = null;
 			    String errorMsg = "can't parse server response";
 			    try {
-			    	{ // check if 
-				    	byte[] b = new byte[5]; 
-				        instream.read(b, 0, 5);
-				        String start = new String(b);
-				        if (!"<?xml".equals(start))
-				        	errorMsg = new String(IOUtils.toByteArray(instream));
-			    	}
-			        
+			    	String str = new String(IOUtils.toByteArray(instream));
+			        if (!str.startsWith("<?xml"))
+			        	errorMsg = new String(IOUtils.toByteArray(instream));
+
 			    	// In case of exception input stream are closed by JAXB
-					n = NetworkConverter.xml2network(instream);
+					n = NetworkConverter.xml2network(str);
+//					n = NetworkConverter.xml2network(instream);
 				} catch (ConvertationException e) {
 					throw new StorageException(errorMsg);
 				}
