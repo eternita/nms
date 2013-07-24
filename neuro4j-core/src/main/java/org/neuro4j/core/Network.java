@@ -737,6 +737,21 @@ public class Network implements Serializable {
 		return erset;
 	}
 	
+	public ERBase getFirst(String key, String value)
+	{
+		Set<ERBase> erset = new HashSet<ERBase>();
+		erset.addAll(getEntities(key, value));
+		if (erset.size() > 0)
+			return erset.iterator().next();
+		
+		erset.addAll(getRelations(key, value));
+		
+		if (erset.size() > 0)
+			return erset.iterator().next();
+	
+		return null;
+	}
+	
 	/**
 	 * Gets network size
 	 * 

@@ -137,7 +137,7 @@ public class NMSClient extends StorageBase {
 			    try {
 			    	String str = new String(IOUtils.toByteArray(instream));
 			        if (!str.startsWith("<?xml"))
-			        	errorMsg = new String(IOUtils.toByteArray(instream));
+			        	errorMsg = str;
 
 			    	// In case of exception input stream are closed by JAXB
 					n = NetworkConverter.xml2network(str);
