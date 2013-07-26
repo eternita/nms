@@ -40,6 +40,7 @@ public class RepresentationController {
         if (null == repis)
         	return;
         
+        response.setHeader("Content-Disposition", "inline; filename=\"representation-" + id + "\"");
 		try {
 	        OutputStream out = response.getOutputStream();
 	        IOUtils.copyLarge(repis, out);
