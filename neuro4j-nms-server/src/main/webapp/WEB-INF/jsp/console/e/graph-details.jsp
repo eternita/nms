@@ -97,17 +97,24 @@ for (String groupName : groupedRelationMap.keySet())
                     for (Representation rep : entity.getRepresentations())
                     {
                   %> 
-                  <%
-                    for (String key : rep.getPropertyKeys())
-                    {
-                  %> 
-                        <tr>
-                          <td width="50%" class="r" ><span title="<%=key%>"><%=StringUtils.getShortStr(key, 15) %></span></td>
-                          <td width="50%"><span title="<%=rep.getProperty(key)%>"><%=StringUtils.getShortStr(rep.getProperty(key), 15) %></span></td>
-                        </tr>
-                  <%
-                    }
-                  %>   
+	                    <tr>
+	                      <td width="100%" colspan="2" class="t hp" >
+	                       <a title="download <%=rep.getUuid()%>" target="_blank" href="representation-details?storage=${storage}&id=<%=rep.getUuid()%>">
+	                        <b>load</b> <%=StringUtils.getShortStr(rep.getUuid(), 24) %>
+	                       </a> 
+	                      </td>
+	                    </tr>
+	                  <%
+	                    for (String key : rep.getPropertyKeys())
+	                    {
+	                  %> 
+	                        <tr>
+	                          <td width="50%" class="r" ><span title="<%=key%>"><%=StringUtils.getShortStr(key, 15) %></span></td>
+	                          <td width="50%"><span title="<%=rep.getProperty(key)%>"><%=StringUtils.getShortStr(rep.getProperty(key), 15) %></span></td>
+	                        </tr>
+	                  <%
+	                    }
+	                  %>   
                    
                   <%
                     }

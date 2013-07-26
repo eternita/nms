@@ -111,7 +111,7 @@
 .m-button-ur {
     font-weight: bold;
     color: #994800;
-    background: #fed81c url(/console/images/button/button.png) repeat-x;
+    background: #fed81c url(../images/button/button.png) repeat-x;
     border-color: #ecc101;
 }
 
@@ -181,7 +181,7 @@
     font-weight: bold;
     font-size: small;
     cursor: pointer;
-    background: url(/n4j-nms/console/images/header.gif);
+    background: url(../../console/images/header.gif);
     text-align: left;
 }
 ul, li{
@@ -191,7 +191,7 @@ ul, li{
 
 }
 .acc h3:hover {
-    background: url(/n4j-nms/console/images/header_over.gif);
+    background: url(../../console/images/header_over.gif);
 }
 
 .acc .acc-section {

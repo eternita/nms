@@ -27,7 +27,7 @@ NMSServerConfig nmsConfig = NMSServerConfig.getInstance();
               - <a href="storage-settings?name=<%= storageName %>"><%= storage.getClass().getName() %></a>
             </td>
 
-            <td align="right" width="30px" class="b">
+            <td align="right" width="30px" class="b" style="padding: 2px;">
 	            <form action="query" method="post">
 	                <input type="hidden" name="storage" value="<%= storageName %>"> 
 	                <input type="hidden" name="vt" value="graph"> 

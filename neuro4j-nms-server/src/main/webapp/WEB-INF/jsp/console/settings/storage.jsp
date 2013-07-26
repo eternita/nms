@@ -14,9 +14,11 @@
 	<table border="0" cellspacing="0" cellpadding="0" class="l r t b" width="100%" >
 
 	    <tr>
-            <td align="left" class="hp"><a href="query?vt=graph&storage=<%= storageName %>"><b><%= storageName %></b> - <%= storage.getClass().getName() %></a></td>
+            <td align="left" class="hp">
+              &nbsp;&nbsp;<a href="query?vt=graph&storage=<%= storageName %>"><b><%= storageName %></b> - <%= storage.getClass().getName() %></a>
+            </td>
 
-            <td align="right" width="30px" class="hp">
+            <td align="right" width="30px" class="hp" style="padding: 2px;">
 	            <form action="query" method="post">
 	                <input type="hidden" name="storage" value="<%= storageName %>"> 
 	                <input type="hidden" name="vt" value="graph"> 
@@ -26,7 +28,7 @@
 	                    type="submit" name="search" value="Query">
 	            </form>            
             </td>            
-            <td align="right" width="30px" class="hp">
+            <td align="right" width="30px" class="hp" style="padding: 2px;">
                 <form action="import" method="get">
                     <input type="hidden" name="storage" value="<%= storageName %>"> 
                     <input
@@ -68,7 +70,7 @@
                         String value = props.getProperty(key);
                     %>
                         <tr>
-                            <td align="left" class="l b"><%=key %></td>
+                            <td align="left" class="l b">&nbsp;&nbsp;<%=key %></td>
                             <td align="left" class="r b"><%=value %></td>
                         </tr>
                     <%

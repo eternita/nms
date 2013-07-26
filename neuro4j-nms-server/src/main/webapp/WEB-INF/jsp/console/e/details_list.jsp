@@ -24,6 +24,28 @@ Entity entity = (Entity) request.getAttribute("entity");
         </td>
     </tr>
     <tr>
+        <td width="150px" align="left" valign="top" class="r b">
+        Properties
+        </td>
+        <td align="left" valign="top" class="b">
+           <table>
+             <%
+                for (String key : entity.getPropertyKeys()) {
+             %> 
+                <tr>
+                  <td valign="top"><%=key%> : </td>
+                  <td valign="top"><%=entity.getProperty(key)%>&nbsp;</td>
+                </tr>           
+            <%
+              }
+            %> 
+
+
+           </table>
+        
+        </td>
+    </tr>
+    <tr>
         <td width="150px" align="left" valign="top" class="b">
         Relations
         </td>
@@ -82,16 +104,27 @@ Entity entity = (Entity) request.getAttribute("entity");
 
     <tr>
         <td width="150px" align="left" valign="top" class="r">
-        Properties
+        Representations
         </td>
         <td align="left" valign="top" >
-           <table>
+           <table width="100%">
              <%
-                for (String key : entity.getPropertyKeys()) {
+                for (Representation rep : entity.getRepresentations()) {
              %> 
                 <tr>
-                  <td valign="top"><%=key%> : </td>
-                  <td valign="top"><%=entity.getProperty(key)%>&nbsp;</td>
+                  <td valign="top" class="b">
+                    <a href="representation-details?storage=${storage}&id=<%=rep.getUuid()%>">download</a>  
+                    <br/>
+		             <%
+		                for (String repKey : rep.getPropertyKeys()) {
+		             %> 
+                          <%=repKey%>: <%=rep.getProperty(repKey)%>
+	                    <br/>                  
+		            <%
+		              }
+		            %> 
+                  </td>
+                  
                 </tr>           
             <%
               }

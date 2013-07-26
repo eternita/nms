@@ -221,6 +221,7 @@ public class ERBase extends KVBase implements Serializable {
 		{
 			this.properties.put(Representation.REPRESENTATION_PREFIX + arrayIdx + "." + key, representationProperties.get(key));
 		}
+		setModified(true);
 		return;
 	}
 	
@@ -235,6 +236,7 @@ public class ERBase extends KVBase implements Serializable {
 		{
 			this.properties.remove(Representation.REPRESENTATION_PREFIX + arrayIdx + "." + key);
 		}
+		setModified(true);
 		return;
 	}
 	
