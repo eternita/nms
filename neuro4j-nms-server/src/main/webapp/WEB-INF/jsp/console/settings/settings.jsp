@@ -22,7 +22,10 @@ NMSServerConfig nmsConfig = NMSServerConfig.getInstance();
 	    %>
 	    
 	    <tr>
-            <td align="left" class="b"><a href="storage-settings?name=<%= storageName %>"><b><%= storageName %></b> &nbsp;&nbsp; (<%= storage.getClass().getName() %>)</a></td>
+            <td align="left" class="b">
+             &nbsp;&nbsp;<a href="storage-settings?name=<%= storageName %>"><b><%= storageName %></b></a>
+              - <a href="storage-settings?name=<%= storageName %>"><%= storage.getClass().getName() %></a>
+            </td>
 
             <td align="right" width="30px" class="b">
 	            <form action="query" method="post">

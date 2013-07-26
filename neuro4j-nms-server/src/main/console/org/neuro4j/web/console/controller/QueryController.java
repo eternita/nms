@@ -54,7 +54,7 @@ public class QueryController {
 		if (null == neuroStorage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
-			return "console/settings";
+			return "console/settings/settings";
 		}
 			
 		RequestUtils.params2attributes(request, "vt");
