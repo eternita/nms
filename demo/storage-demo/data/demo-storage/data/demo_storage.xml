@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<network>
+    <entities>
+        <item name="Brad" uuid="phDAqFYBQbUAAAFA00KD6zX2">
+            <properties>
+                <item value="Brad" key="first_name"/>
+                <item value="Perterson" key="last_name"/>
+            </properties>
+            <relations>
+                <item uuid="jvzAqFYBUgYAAAFA_OKD6zX2"/>
+                <item uuid="d53AqFYBUggAAAFA_OKD6zX2"/>
+                <item uuid="x4bAqFYBUgsAAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item name="Mike" uuid="zDTAqFYBQbQAAAFA00KD6zX2">
+            <properties>
+                <item value="Mike" key="first_name"/>
+                <item value="Johnson" key="last_name"/>
+            </properties>
+            <relations>
+                <item uuid="n_rAqFYBUgUAAAFA_OKD6zX2"/>
+                <item uuid="s7bAqFYBUg4AAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item name="Jane" uuid="mdrAqFYBQbMAAAFA00KD6zX2">
+            <properties>
+                <item value="Jane" key="first_name"/>
+                <item value="23" key="age"/>
+                <item value="Smith" key="last_name"/>
+            </properties>
+            <relations>
+                <item uuid="5CPAqFYBUgMAAAFA_OKD6zX2"/>
+                <item uuid="sQHAqFYBUgoAAAFA_OKD6zX2"/>
+                <item uuid="MiXAqFYBUgIAAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item name="High School" uuid="z2LAqFYBUf4AAAFA_OKD6zX2">
+            <properties>
+                <item value="USA, Idaho, Boise, XYZ" key="address"/>
+            </properties>
+            <relations>
+                <item uuid="_jbAqFYBUg0AAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item lastModifiedDate="2013-07-31T12:21:47.133-06:00" name="Marry" uuid="Y7LAqFYBQbIAAAFA00KD6zX2">
+            <properties>
+                <item value="Marry" key="first_name"/>
+                <item value="25" key="age"/>
+                <item value="Smith" key="last_name"/>
+            </properties>
+            <relations>
+                <item uuid="Xo7AqFYBUgQAAAFA_OKD6zX2"/>
+                <item uuid="_jbAqFYBUg0AAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item lastModifiedDate="2013-07-31T12:21:47.133-06:00" name="Jasica" uuid="dwvAqFYBQbYAAAFA00KD6zX2">
+            <properties>
+                <item value="Jasica" key="first_name"/>
+            </properties>
+            <relations>
+                <item uuid="1BHAqFYBUgwAAAFA_OKD6zX2"/>
+                <item uuid="d53AqFYBUggAAAFA_OKD6zX2"/>
+                <item uuid="YVPAqFYBUgcAAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item lastModifiedDate="2013-07-31T12:21:47.133-06:00" name="HP Company" uuid="hQTAqFYBUfsAAAFA_OKD6zX2">
+            <properties>
+                <item value="USA, Idaho, Boise" key="address"/>
+            </properties>
+            <relations>
+                <item uuid="nZnAqFYBUgkAAAFA_OKD6zX2"/>
+                <item uuid="x4bAqFYBUgsAAAFA_OKD6zX2"/>
+                <item uuid="s7bAqFYBUg4AAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item name="Coins" uuid="GXjAqFYBUf8AAAFA_OKD6zX2">
+            <properties/>
+            <relations>
+                <item uuid="MxzAqFYBUg8AAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item name="Dog Roger" uuid="P13AqFYBwVMAAAFA0eKD6zX2">
+            <properties>
+                <item value="terrier" key="breed"/>
+                <item value="byte[]" key="representation.0.type"/>
+                <item value="male" key="sex"/>
+                <item value="brown" key="color"/>
+                <item value="3" key="age"/>
+                <item value="30126" key="representation.0.size"/>
+                <item value="P0PAqFYBwVQAAAFA0eKD6zX2" key="representation.0.uuid"/>
+            </properties>
+            <relations>
+                <item uuid="rz_AqFYBUgAAAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item lastModifiedDate="2013-07-31T12:21:47.133-06:00" name="Micron Company" uuid="A6jAqFYBUf0AAAFA_OKD6zX2">
+            <properties>
+                <item value="USA, Idaho, Boise" key="address"/>
+            </properties>
+            <relations>
+                <item uuid="1BHAqFYBUgwAAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item lastModifiedDate="2013-07-31T12:21:47.133-06:00" name="House" uuid="NK7AqFYBNhEAAAFA0uKD6zX2">
+            <properties>
+                <item value="..." key="address"/>
+                <item value="..." key="size"/>
+            </properties>
+            <relations>
+                <item uuid="rz_AqFYBUgAAAAFA_OKD6zX2"/>
+                <item uuid="RV7AqFYBUgEAAAFA_OKD6zX2"/>
+                <item uuid="MiXAqFYBUgIAAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item lastModifiedDate="2013-07-31T12:21:47.133-06:00" name="Walmart" uuid="Sa7AqFYBUfwAAAFA_OKD6zX2">
+            <properties>
+                <item value="USA, Idaho, Boise" key="address"/>
+            </properties>
+            <relations>
+                <item uuid="sQHAqFYBUgoAAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+        <item lastModifiedDate="2013-07-31T12:21:47.133-06:00" name="John" uuid="jgbAqFYBNhIAAAFA0uKD6zX2">
+            <properties>
+                <item value="John" key="first_name"/>
+                <item value="byte[]" key="representation.0.type"/>
+                <item value="27" key="age"/>
+                <item value="Smith" key="last_name"/>
+                <item value="28136" key="representation.0.size"/>
+                <item value="_PvAqFYBNhMAAAFA0uKD6zX2" key="representation.0.uuid"/>
+            </properties>
+            <relations>
+                <item uuid="5CPAqFYBUgMAAAFA_OKD6zX2"/>
+                <item uuid="n_rAqFYBUgUAAAFA_OKD6zX2"/>
+                <item uuid="Xo7AqFYBUgQAAAFA_OKD6zX2"/>
+                <item uuid="nZnAqFYBUgkAAAFA_OKD6zX2"/>
+                <item uuid="RV7AqFYBUgEAAAFA_OKD6zX2"/>
+                <item uuid="jvzAqFYBUgYAAAFA_OKD6zX2"/>
+                <item uuid="YVPAqFYBUgcAAAFA_OKD6zX2"/>
+                <item uuid="MxzAqFYBUg8AAAFA_OKD6zX2"/>
+            </relations>
+        </item>
+    </entities>
+    <relations>
+        <item name="live at" uuid="rz_AqFYBUgAAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="P13AqFYBwVMAAAFA0eKD6zX2"/>
+                <item uuid="NK7AqFYBNhEAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="work at" uuid="sQHAqFYBUgoAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="mdrAqFYBQbMAAAFA00KD6zX2"/>
+                <item uuid="Sa7AqFYBUfwAAAFA_OKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="friends" uuid="n_rAqFYBUgUAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="zDTAqFYBQbQAAAFA00KD6zX2"/>
+                <item uuid="jgbAqFYBNhIAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="brother-sister" uuid="Xo7AqFYBUgQAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="Y7LAqFYBQbIAAAFA00KD6zX2"/>
+                <item uuid="jgbAqFYBNhIAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="work at" uuid="nZnAqFYBUgkAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="hQTAqFYBUfsAAAFA_OKD6zX2"/>
+                <item uuid="jgbAqFYBNhIAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="friends" uuid="jvzAqFYBUgYAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="phDAqFYBQbUAAAFA00KD6zX2"/>
+                <item uuid="jgbAqFYBNhIAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="work at" uuid="x4bAqFYBUgsAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="phDAqFYBQbUAAAFA00KD6zX2"/>
+                <item uuid="hQTAqFYBUfsAAAFA_OKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="friends" uuid="YVPAqFYBUgcAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="dwvAqFYBQbYAAAFA00KD6zX2"/>
+                <item uuid="jgbAqFYBNhIAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="study at" uuid="_jbAqFYBUg0AAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="z2LAqFYBUf4AAAFA_OKD6zX2"/>
+                <item uuid="Y7LAqFYBQbIAAAFA00KD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="married" uuid="5CPAqFYBUgMAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="mdrAqFYBQbMAAAFA00KD6zX2"/>
+                <item uuid="jgbAqFYBNhIAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="work at" uuid="1BHAqFYBUgwAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="dwvAqFYBQbYAAAFA00KD6zX2"/>
+                <item uuid="A6jAqFYBUf0AAAFA_OKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="live at" uuid="RV7AqFYBUgEAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="NK7AqFYBNhEAAAFA0uKD6zX2"/>
+                <item uuid="jgbAqFYBNhIAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="friends" uuid="d53AqFYBUggAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="dwvAqFYBQbYAAAFA00KD6zX2"/>
+                <item uuid="phDAqFYBQbUAAAFA00KD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="work at" uuid="s7bAqFYBUg4AAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="hQTAqFYBUfsAAAFA_OKD6zX2"/>
+                <item uuid="zDTAqFYBQbQAAAFA00KD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="live at" uuid="MiXAqFYBUgIAAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="mdrAqFYBQbMAAAFA00KD6zX2"/>
+                <item uuid="NK7AqFYBNhEAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+        <item name="interested in" uuid="MxzAqFYBUg8AAAFA_OKD6zX2">
+            <properties/>
+            <relation_parts>
+                <item uuid="GXjAqFYBUf8AAAFA_OKD6zX2"/>
+                <item uuid="jgbAqFYBNhIAAAFA0uKD6zX2"/>
+            </relation_parts>
+        </item>
+    </relations>
+</network>
