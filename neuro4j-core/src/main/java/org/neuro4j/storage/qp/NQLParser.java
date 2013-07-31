@@ -262,7 +262,6 @@ public class NQLParser implements NQLParserConstants {
   }
 
   final public void delete() throws ParseException, StorageException {
-  System.out.println(" delete ");
     parseER();
       nqlProcessor.finishERParse();
     nqlProcessor.finishDelete();
@@ -1361,6 +1360,11 @@ public class NQLParser implements NQLParserConstants {
     finally { jj_save(82, xla); }
   }
 
+  private boolean jj_3_15() {
+    if (jj_3R_16()) return true;
+    return false;
+  }
+
   private boolean jj_3R_33() {
     if (jj_3R_34()) return true;
     Token xsp;
@@ -1372,11 +1376,6 @@ public class NQLParser implements NQLParserConstants {
     if (jj_3_65()) return true;
     }
     }
-    return false;
-  }
-
-  private boolean jj_3_15() {
-    if (jj_3R_16()) return true;
     return false;
   }
 
@@ -1400,9 +1399,8 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3R_29() {
-    if (jj_scan_token(CONNECTED)) return true;
-    if (jj_scan_token(LPAREN)) return true;
+  private boolean jj_3_12() {
+    if (jj_3R_16()) return true;
     return false;
   }
 
@@ -1411,8 +1409,14 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_12() {
-    if (jj_3R_16()) return true;
+  private boolean jj_3R_29() {
+    if (jj_scan_token(CONNECTED)) return true;
+    if (jj_scan_token(LPAREN)) return true;
+    return false;
+  }
+
+  private boolean jj_3_11() {
+    if (jj_3R_15()) return true;
     return false;
   }
 
@@ -1432,16 +1436,6 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_11() {
-    if (jj_3R_15()) return true;
-    return false;
-  }
-
-  private boolean jj_3_47() {
-    if (jj_scan_token(RBRACE)) return true;
-    return false;
-  }
-
   private boolean jj_3_13() {
     if (jj_scan_token(SET_PROPERTY)) return true;
     Token xsp;
@@ -1449,6 +1443,11 @@ public class NQLParser implements NQLParserConstants {
     if (jj_3_11()) jj_scanpos = xsp;
     xsp = jj_scanpos;
     if (jj_3_12()) jj_scanpos = xsp;
+    return false;
+  }
+
+  private boolean jj_3_47() {
+    if (jj_scan_token(RBRACE)) return true;
     return false;
   }
 
@@ -1482,8 +1481,18 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3_25() {
+    if (jj_scan_token(LIMIT)) return true;
+    return false;
+  }
+
   private boolean jj_3_75() {
     if (jj_3R_29()) return true;
+    return false;
+  }
+
+  private boolean jj_3_24() {
+    if (jj_scan_token(STRING)) return true;
     return false;
   }
 
@@ -1501,18 +1510,8 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_25() {
-    if (jj_scan_token(LIMIT)) return true;
-    return false;
-  }
-
   private boolean jj_3_74() {
     if (jj_3R_31()) return true;
-    return false;
-  }
-
-  private boolean jj_3_24() {
-    if (jj_scan_token(STRING)) return true;
     return false;
   }
 
@@ -1520,11 +1519,6 @@ public class NQLParser implements NQLParserConstants {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_30()) return true;
     if (jj_scan_token(RPAREN)) return true;
-    return false;
-  }
-
-  private boolean jj_3_46() {
-    if (jj_scan_token(R_LBRACE)) return true;
     return false;
   }
 
@@ -1536,6 +1530,16 @@ public class NQLParser implements NQLParserConstants {
     if (jj_3_25()) return true;
     }
     if (jj_scan_token(EQUALS)) return true;
+    return false;
+  }
+
+  private boolean jj_3_46() {
+    if (jj_scan_token(R_LBRACE)) return true;
+    return false;
+  }
+
+  private boolean jj_3_27() {
+    if (jj_3R_19()) return true;
     return false;
   }
 
@@ -1558,24 +1562,8 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_27() {
-    if (jj_3R_19()) return true;
-    return false;
-  }
-
   private boolean jj_3_26() {
     if (jj_3R_18()) return true;
-    return false;
-  }
-
-  private boolean jj_3R_25() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_45()) {
-    jj_scanpos = xsp;
-    if (jj_3_46()) return true;
-    }
-    if (jj_scan_token(STRING)) return true;
     return false;
   }
 
@@ -1597,18 +1585,19 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_58() {
-    if (jj_scan_token(NUMBER)) return true;
+  private boolean jj_3R_25() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_45()) {
+    jj_scanpos = xsp;
+    if (jj_3_46()) return true;
+    }
+    if (jj_scan_token(STRING)) return true;
     return false;
   }
 
   private boolean jj_3_9() {
     if (jj_scan_token(E_LBRACE)) return true;
-    return false;
-  }
-
-  private boolean jj_3_57() {
-    if (jj_scan_token(DIGIT)) return true;
     return false;
   }
 
@@ -1622,6 +1611,21 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3_58() {
+    if (jj_scan_token(NUMBER)) return true;
+    return false;
+  }
+
+  private boolean jj_3_57() {
+    if (jj_scan_token(DIGIT)) return true;
+    return false;
+  }
+
+  private boolean jj_3_23() {
+    if (jj_3R_17()) return true;
+    return false;
+  }
+
   private boolean jj_3_59() {
     Token xsp;
     xsp = jj_scanpos;
@@ -1632,18 +1636,23 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_23() {
-    if (jj_3R_17()) return true;
-    return false;
-  }
-
   private boolean jj_3_72() {
     if (jj_3R_32()) return true;
     return false;
   }
 
+  private boolean jj_3_22() {
+    if (jj_scan_token(LIMIT)) return true;
+    return false;
+  }
+
   private boolean jj_3_44() {
     if (jj_3R_25()) return true;
+    return false;
+  }
+
+  private boolean jj_3_21() {
+    if (jj_scan_token(STRING)) return true;
     return false;
   }
 
@@ -1656,25 +1665,15 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_22() {
-    if (jj_scan_token(LIMIT)) return true;
-    return false;
-  }
-
-  private boolean jj_3_21() {
-    if (jj_scan_token(STRING)) return true;
+  private boolean jj_3_8() {
+    if (jj_scan_token(SQL)) return true;
+    if (jj_3R_14()) return true;
     return false;
   }
 
   private boolean jj_3R_21() {
     if (jj_scan_token(FILTER)) return true;
     if (jj_scan_token(LPAREN)) return true;
-    return false;
-  }
-
-  private boolean jj_3_8() {
-    if (jj_scan_token(SQL)) return true;
-    if (jj_3R_14()) return true;
     return false;
   }
 
@@ -1714,35 +1713,9 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_70() {
-    if (jj_3R_31()) return true;
-    return false;
-  }
-
-  private boolean jj_3_83() {
-    if (jj_scan_token(NUMBER)) return true;
-    return false;
-  }
-
   private boolean jj_3_3() {
     if (jj_scan_token(SELECT)) return true;
     if (jj_3R_9()) return true;
-    return false;
-  }
-
-  private boolean jj_3_82() {
-    if (jj_scan_token(DIGIT)) return true;
-    return false;
-  }
-
-  private boolean jj_3R_23() {
-    if (jj_scan_token(LIMIT)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_82()) {
-    jj_scanpos = xsp;
-    if (jj_3_83()) return true;
-    }
     return false;
   }
 
@@ -1768,6 +1741,37 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3_70() {
+    if (jj_3R_31()) return true;
+    return false;
+  }
+
+  private boolean jj_3_83() {
+    if (jj_scan_token(NUMBER)) return true;
+    return false;
+  }
+
+  private boolean jj_3_82() {
+    if (jj_scan_token(DIGIT)) return true;
+    return false;
+  }
+
+  private boolean jj_3R_23() {
+    if (jj_scan_token(LIMIT)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_82()) {
+    jj_scanpos = xsp;
+    if (jj_3_83()) return true;
+    }
+    return false;
+  }
+
+  private boolean jj_3_20() {
+    if (jj_3R_15()) return true;
+    return false;
+  }
+
   private boolean jj_3_69() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_30()) return true;
@@ -1782,11 +1786,6 @@ public class NQLParser implements NQLParserConstants {
     jj_scanpos = xsp;
     if (jj_3_70()) return true;
     }
-    return false;
-  }
-
-  private boolean jj_3_20() {
-    if (jj_3R_15()) return true;
     return false;
   }
 
@@ -1812,6 +1811,22 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3_19() {
+    if (jj_scan_token(LIMIT)) return true;
+    return false;
+  }
+
+  private boolean jj_3_18() {
+    if (jj_scan_token(STRING)) return true;
+    return false;
+  }
+
+  private boolean jj_3_2() {
+    if (jj_scan_token(PIPE)) return true;
+    if (jj_3R_8()) return true;
+    return false;
+  }
+
   private boolean jj_3_42() {
     if (jj_scan_token(LBRACE)) return true;
     if (jj_3R_20()) return true;
@@ -1833,22 +1848,6 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_19() {
-    if (jj_scan_token(LIMIT)) return true;
-    return false;
-  }
-
-  private boolean jj_3_18() {
-    if (jj_scan_token(STRING)) return true;
-    return false;
-  }
-
-  private boolean jj_3_2() {
-    if (jj_scan_token(PIPE)) return true;
-    if (jj_3R_8()) return true;
-    return false;
-  }
-
   private boolean jj_3_56() {
     Token xsp;
     xsp = jj_scanpos;
@@ -1856,16 +1855,6 @@ public class NQLParser implements NQLParserConstants {
     jj_scanpos = xsp;
     if (jj_3_55()) return true;
     }
-    return false;
-  }
-
-  private boolean jj_3_40() {
-    if (jj_scan_token(OPTIONAL)) return true;
-    return false;
-  }
-
-  private boolean jj_3_38() {
-    if (jj_scan_token(RBRACE)) return true;
     return false;
   }
 
@@ -1877,6 +1866,16 @@ public class NQLParser implements NQLParserConstants {
     if (jj_3_19()) return true;
     }
     if (jj_scan_token(EQUALS)) return true;
+    return false;
+  }
+
+  private boolean jj_3_40() {
+    if (jj_scan_token(OPTIONAL)) return true;
+    return false;
+  }
+
+  private boolean jj_3_38() {
+    if (jj_scan_token(RBRACE)) return true;
     return false;
   }
 
@@ -1905,6 +1904,12 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3_1() {
+    if (jj_scan_token(PIPE)) return true;
+    if (jj_3R_8()) return true;
+    return false;
+  }
+
   private boolean jj_3_67() {
     if (jj_scan_token(NOTEQUAL)) return true;
     return false;
@@ -1920,9 +1925,8 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_1() {
-    if (jj_scan_token(PIPE)) return true;
-    if (jj_3R_8()) return true;
+  private boolean jj_3_17() {
+    if (jj_3R_15()) return true;
     return false;
   }
 
@@ -1955,8 +1959,8 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_17() {
-    if (jj_3R_15()) return true;
+  private boolean jj_3R_14() {
+    if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 
@@ -1972,11 +1976,6 @@ public class NQLParser implements NQLParserConstants {
 
   private boolean jj_3_79() {
     if (jj_3R_28()) return true;
-    return false;
-  }
-
-  private boolean jj_3R_14() {
-    if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 
@@ -2018,6 +2017,11 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3R_13() {
+    if (jj_scan_token(LPAREN)) return true;
+    return false;
+  }
+
   private boolean jj_3_78() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_24()) return true;
@@ -2031,11 +2035,6 @@ public class NQLParser implements NQLParserConstants {
 
   private boolean jj_3_65() {
     if (jj_3R_29()) return true;
-    return false;
-  }
-
-  private boolean jj_3R_13() {
-    if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 

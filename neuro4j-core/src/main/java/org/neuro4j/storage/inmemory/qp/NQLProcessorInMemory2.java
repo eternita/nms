@@ -127,11 +127,22 @@ public class NQLProcessorInMemory2 extends NQLProcessorBase {
 			throw new StorageException("Storage is run in read only mode");
 		
 
+		
 		for (String id : outputNet.getEntities())
-			this.pipeNet.remove(outputNet.getById(id));
+		{
+			ERBase er = pipeNet.getById(id);
+			if (!er.isCompleteLoaded())
+				NetworkUtils.loadConnected(er, this.pipeNet, baseStorage);
+			this.pipeNet.remove(er);
+		}
 		
 		for (String id : outputNet.getRelations())
-			this.pipeNet.remove(outputNet.getById(id));
+		{
+			ERBase er = pipeNet.getById(id);
+			if (!er.isCompleteLoaded())
+				NetworkUtils.loadConnected(er, this.pipeNet, baseStorage);
+			this.pipeNet.remove(er);
+		}
 		
 		return;
 	}

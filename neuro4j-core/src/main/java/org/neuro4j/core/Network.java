@@ -185,7 +185,7 @@ public class Network implements Serializable {
 		return;
 	}
 	
-	public void remove(Entity... entities)
+	private void remove(Entity... entities)
 	{
 		for (Entity entity : entities)
 			remove(entity, false);
@@ -200,11 +200,12 @@ public class Network implements Serializable {
 	 * @param entity
 	 * @param force
 	 */
-	public void remove(Entity entity, boolean force)
+	private void remove(Entity entity, boolean force)
 	{
 		
 		if (force)
 		{
+			// delete relations even they were not loaded (may lead to relations with missed entities)
 			for (String rid : entity.getRelationsKeys())
 			{
 				Relation r = entity.getRelation(rid);
@@ -215,14 +216,8 @@ public class Network implements Serializable {
 			for (Relation r : entity.getAllRelations())
 			{
 				r.removeParticipant(entity.getUuid());
-				// if relation has one entity only - remove relation
-//				if (r.getParticipantsKeys().size() < 2)
-//				{
-//					remove(r);
-//				}
 			}
 		}
-
 		
 		deletedEntityIds.add(entity.getUuid());
 
@@ -231,7 +226,7 @@ public class Network implements Serializable {
 		return;
 	}
 	
-	public void remove(Relation... relations)
+	private void remove(Relation... relations)
 	{
 		for (Relation relation : relations)
 		{

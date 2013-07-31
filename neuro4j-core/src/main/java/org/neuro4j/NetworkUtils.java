@@ -65,8 +65,18 @@ public class NetworkUtils {
 		return net2;
 	}
 	
+	public static boolean loadConnected(ERBase er, NeuroStorage storage)
+	{
+		if (er instanceof Entity)
+			loadConnected((Entity) er, storage); 
+		
+		else if (er instanceof Relation)
+			loadConnected((Relation) er, storage); 
+		
+		return false;
+	}
 	
-	public static boolean loadConnected(Entity e, NeuroStorage neuroStorage)
+	private static boolean loadConnected(Entity e, NeuroStorage neuroStorage)
 	{
 		try
 		{
@@ -88,7 +98,7 @@ public class NetworkUtils {
 		return true;
 	}
 	
-	public static boolean loadConnected(Relation r, NeuroStorage neuroStorage)
+	private static boolean loadConnected(Relation r, NeuroStorage neuroStorage)
 	{
 		try
 		{
@@ -120,12 +130,29 @@ public class NetworkUtils {
 	 * @param neuroStorage
 	 * @return
 	 */
-	public static boolean loadConnected(Entity e, Network network, NeuroStorage neuroStorage)
+	public static boolean loadConnected(ERBase er, Network network, NeuroStorage neuroStorage)
 	{
-		return loadConnected(e, network, neuroStorage, Integer.MAX_VALUE);
+		if (er instanceof Entity)
+			loadConnected((Entity)er, network, neuroStorage, Integer.MAX_VALUE);
+		
+		else if (er instanceof Relation)
+			loadConnected((Relation)er, network, neuroStorage, Integer.MAX_VALUE);
+		
+		return false;
 	}
 	
-	public static boolean loadConnected(Entity e, Network network, NeuroStorage neuroStorage, int connectedCountLimit)
+	public static boolean loadConnected(ERBase er, Network network, NeuroStorage neuroStorage, int connectedCountLimit)
+	{
+		if (er instanceof Entity)
+			loadConnected((Entity)er, network, neuroStorage, connectedCountLimit);
+		
+		else if (er instanceof Relation)
+			loadConnected((Relation)er, network, neuroStorage, connectedCountLimit);
+		
+		return false;
+	}
+
+	private static boolean loadConnected(Entity e, Network network, NeuroStorage neuroStorage, int connectedCountLimit)
 	{
 		try
 		{
@@ -152,20 +179,7 @@ public class NetworkUtils {
 		return true;
 	}
 	
-	/**
-	 * load all connected
-	 * 
-	 * @param r
-	 * @param network
-	 * @param neuroStorage
-	 * @return
-	 */
-	public static boolean loadConnected(Relation r, Network network, NeuroStorage neuroStorage)
-	{
-		return loadConnected(r, network, neuroStorage, Integer.MAX_VALUE);
-	}
-	
-	public static boolean loadConnected(Relation r, Network network, NeuroStorage neuroStorage, int connectedCountLimit)
+	private static boolean loadConnected(Relation r, Network network, NeuroStorage neuroStorage, int connectedCountLimit)
 	{
 		try
 		{
