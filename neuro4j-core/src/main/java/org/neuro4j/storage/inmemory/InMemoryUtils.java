@@ -134,9 +134,13 @@ public class InMemoryUtils {
 			{
 				// new relation should be loaded (because it's new)
 				Relation newRel = newEntity.getRelation(nrid);
-				// create similar relation - use existing entities (if possible)
-				currentRel = createNewRelationUsingExistingEntitiesIfPossible(net, newRel);
-				net.add(currentRel);
+				// it can be null. E.g. in case of export/import ERs can have orphan connections  
+				if (null != newRel)
+				{
+					// create similar relation - use existing entities (if possible)
+					currentRel = createNewRelationUsingExistingEntitiesIfPossible(net, newRel);
+					net.add(currentRel);
+				}
 			}
 		}
 
