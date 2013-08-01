@@ -1,5 +1,6 @@
 package org.neuro4j.storage.solr.qp;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -37,4 +38,21 @@ public abstract class SolrNQLProcessorStreamBase implements NQLProcessorStream {
 		return currentMatchedPaths;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
+	public int getCurrentOutputNetSize()
+	{
+		if (null == currentMatchedPaths)
+			return -1;
+		
+		Set<String> netids = new HashSet<String>();
+		for (Path p : currentMatchedPaths)
+			netids.addAll(p.getItems());
+		
+		return netids.size();
+	}
+	
 }

@@ -33,6 +33,13 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	private ERBase next = null;
 
 	/**
+	 * output network size limit
+	 * allows to stop processing if the limit is reached
+	 * 
+	 */
+	private long outputNetworkLimit = -1;
+	
+	/**
 	 * for serving filter clause e.g. filter(r[name='coin-belong-to-coin-definition'] 5, r[name='user-contributed-to-coin-definition'] 3)
 	 * 
 	 * <filter, match-count>
@@ -47,9 +54,11 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 			ERType queryType, 
 			Set<Path> currentMatchedPaths,
 			NQLProcessorStream inputStream, 
-			boolean optional) 
+			boolean optional, 
+			long outputNetworkLimit) 
 	{
 		super(currentMatchedPaths, inputStream, optional);
+		this.outputNetworkLimit = outputNetworkLimit;
 		this.currentERNetwork = currentERNetwork;
 		this.pipeNet = pipeNet;
 		
@@ -82,14 +91,13 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 			NQLProcessorStream inputStream, 
 			boolean optional,
 			Map<String, Set<String>> useOnlyAttrMap,
-			Map<String, Set<String>> ignoreAttrMap
+			Map<String, Set<String>> ignoreAttrMap,
+			long outputNetworkLimit
 			) 
 	{ 
-		
-		this(currentERNetwork, pipeNet, filterSet, null, new HashSet<Path>(), inputStream, optional);
+		this(currentERNetwork, pipeNet, filterSet, null, new HashSet<Path>(), inputStream, optional, outputNetworkLimit);
 		this.useOnlyAttrMap = useOnlyAttrMap;
 		this.ignoreAttrMap = ignoreAttrMap;
-
 	}
 	
 	public ERType getERQueryType()
@@ -104,6 +112,10 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	{
 		if (null != next) // next() was not called. probably hasNext() called > 1 time 
 			return true;
+		
+		if (-1 < outputNetworkLimit // not ALL 
+				&& outputNetworkLimit + 1 < getCurrentOutputNetSize()) // more then limit
+			return false;
 		
 		boolean hasNext = false;
 
@@ -330,6 +342,13 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		
 		if (null == next)
 			return null;
+		
+/*		Don't check it - in next() call outputNetworkLimit is much more then in hasNext() 
+		because it updated in updateIterator() 
+		
+		if (outputNetworkLimit < getCurrentOutputNetSize())
+			return null;
+*/		
 		
 		ERBase er = next;
 		

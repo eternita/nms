@@ -139,9 +139,9 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 	
 		if (null == qpStream)
 		{
-			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, currentERType, currentMatchedPaths, qpStream, optional);
+			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, currentERType, currentMatchedPaths, qpStream, optional, outputNetworkLimit);
 		} else {
-			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, qpStream, optional);
+			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, qpStream, optional, outputNetworkLimit);
 		}
 
 		return;
@@ -169,17 +169,14 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 		
 		currentMatchedPaths = qpStream.getCurrentMatchedPaths(); 
 		Set<String> netIds = new HashSet<String>();
-		// filter out duplicates
+
 		for (Path p : currentMatchedPaths)
 		{
-			// if (p.getSize() == qpStream.getDepthLevel() + 1) // check current depth level // no longer - we support optional elements in query
+			for (String s : p.getItems())
 			{
-				for (String s : p.getItems())
-				{
-					netIds.add(s);
-					if (-1 < outputNetworkLimit && netIds.size() >= outputNetworkLimit)
-						break;
-				}
+				netIds.add(s);
+				if (-1 < outputNetworkLimit && netIds.size() >= outputNetworkLimit)
+					break;
 			}
 			
 			if (-1 < outputNetworkLimit && netIds.size() >= outputNetworkLimit)
@@ -303,7 +300,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 				if (ignoreAttrMap.size() > 0)
 					solrQuery = getIgnoreQuery(getOpositeER(qpStream.getERQueryType()));
 				
-				qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, qpStream, true);
+				qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, qpStream, true, outputNetworkLimit);
 			}
 			
 		} catch (Exception ex) {

@@ -35,12 +35,32 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 	 */
 	protected Map<Filter, Integer> filterMap = new HashMap<Filter, Integer>();
 
+	/**
+	 * output network size limit
+	 * allows to stop processing if the limit is reached
+	 * 
+	 */
+	private long outputNetworkLimit = -1;
 
+	/**
+	 * 
+	 * @param solrQuery
+	 * @param siMgr
+	 * @param filterSet
+	 * @param queryType
+	 * @param currentMatchedPaths
+	 * @param inputStream
+	 * @param optional
+	 * @param outputNetworkLimit
+	 */
 	public SolrNQLProcessorStreamQuery(String solrQuery, SolrIndexMgr siMgr, Set<Filter> filterSet,
 			ERType queryType, Set<Path> currentMatchedPaths, 
-			NQLProcessorStream inputStream, boolean optional) // , Map<String, Set<String>> useOnlyAttrMap 
+			NQLProcessorStream inputStream, boolean optional, long outputNetworkLimit)  
 	{
 		super(siMgr, currentMatchedPaths, inputStream, optional);
+		
+		this.outputNetworkLimit = outputNetworkLimit;
+		
 		this.solrQuery = solrQuery;
 		
 		for (Filter filter : filterSet)
@@ -68,11 +88,19 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param solrQuery
+	 * @param siMgr
+	 * @param filterSet
+	 * @param inputStream
+	 * @param optional
+	 * @param outputNetworkLimit
+	 */
 	public SolrNQLProcessorStreamQuery(String solrQuery, SolrIndexMgr siMgr, Set<Filter> filterSet,
-			NQLProcessorStream inputStream, boolean optional) { // , Map<String, Set<String>> useOnlyAttrMap
-		
-		this(solrQuery, siMgr, filterSet, null, new HashSet<Path>(), inputStream, optional); // , useOnlyAttrMap
-
+			NQLProcessorStream inputStream, boolean optional, long outputNetworkLimit) 
+	{
+		this(solrQuery, siMgr, filterSet, null, new HashSet<Path>(), inputStream, optional, outputNetworkLimit);
 	}
 	
 	public ERType getERQueryType()
@@ -88,6 +116,10 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		if (null != nextDoc) // next() was not called. probably hasNext() called > 1 time 
 			return true;
 		
+		if (-1 < outputNetworkLimit // not ALL 
+				&& outputNetworkLimit + 1 < getCurrentOutputNetSize()) // more then limit
+			return false;
+			
 		boolean hasNext = false;
 		if (null == inputStream)
 		{
@@ -236,6 +268,12 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		if (null == nextDoc)
 			return null;
 		
+/*		Don't check it - in next() call outputNetworkLimit is much more then in hasNext() 
+		because it updated in updateIterator() 
+		
+		if (outputNetworkLimit < getCurrentOutputNetSize())
+			return null;
+*/		
         ERBase er = SearchIndexHandler.doc2erbase(nextDoc);
 		
         nextDoc = null;

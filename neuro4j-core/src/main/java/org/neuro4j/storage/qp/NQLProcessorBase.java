@@ -48,6 +48,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 	private static boolean ALLOW_REENTRANCE = false; 
 
 	protected long outputNetworkLimit = -1;
+	
 	protected static final String CURRENT_MATCHED_PATHS = "CURRENT_MATCHED_PATHS"; 
 	protected static final String FILTER_CLASS = "class"; 
 	protected static final String FLOW = "flow"; 
@@ -123,6 +124,20 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 	protected Network pipeNet = null; // can change between pipes 
 
 	protected NQLProcessorStream qpStream = null;
+
+	
+	public NQLProcessorBase() {
+		super();
+		String outputNetworkLimitStr = N4JConfig.getProperty("n4j.quering.nql.default_output_network_size_limit");
+		if (null != outputNetworkLimitStr)
+		{
+			try {
+				outputNetworkLimit = Long.parseLong(outputNetworkLimitStr);
+			} catch (Exception e) {
+				logger.severe("Can't get n4j.quering.nql.default_output_network_size_limit. Should be long");
+			}
+		}
+	}
 
 	public Network getNetwork() {
 		
@@ -751,9 +766,9 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		
 		if (null == qpStream)
 		{
-			qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, currentERType, currentMatchedPaths, qpStream, optional);
+			qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, currentERType, currentMatchedPaths, qpStream, optional, outputNetworkLimit);
 		} else {
-			qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, qpStream, optional, this.useOnlyAttrMap, this.ignoreAttrMap);
+			qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, qpStream, optional, this.useOnlyAttrMap, this.ignoreAttrMap, outputNetworkLimit);
 		}
 
 		/*
@@ -859,7 +874,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 				currentERs.add(er);
 			
 			for (int i = 0; i < depth; i++)
-				qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, qpStream, true, this.useOnlyAttrMap, this.ignoreAttrMap);
+				qpStream = new InMemoryNQLProcessorStreamQuery(currentERs, this.pipeNet, this.filterSet, qpStream, true, this.useOnlyAttrMap, this.ignoreAttrMap, outputNetworkLimit);
 						
 		} catch (Exception ex) {
 			logger.severe("Wrong depth");

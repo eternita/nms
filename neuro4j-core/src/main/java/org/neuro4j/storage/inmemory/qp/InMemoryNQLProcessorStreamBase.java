@@ -1,5 +1,6 @@
 package org.neuro4j.storage.inmemory.qp;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.neuro4j.core.Path;
@@ -28,4 +29,21 @@ public abstract class InMemoryNQLProcessorStreamBase implements NQLProcessorStre
 		return currentMatchedPaths;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
+	public int getCurrentOutputNetSize()
+	{
+		if (null == currentMatchedPaths)
+			return -1;
+		
+		Set<String> netids = new HashSet<String>();
+		for (Path p : currentMatchedPaths)
+			netids.addAll(p.getItems());
+		
+		return netids.size();
+	}
+	
 }
