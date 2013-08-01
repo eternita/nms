@@ -1,5 +1,7 @@
 package org.neuro4j.nms.demo.roger;
 
+import java.io.File;
+
 import org.neuro4j.NeuroManager;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.NeuroStorage;
@@ -32,6 +34,15 @@ public class Main {
 		// post some data using Java client
 		stroageBuilder.postDataFromJava();
 		
+		// import network from file example
+		// import some data about a Russian Empire's Ruble exported from http://coinshome.net
+		// http://www.coinshome.net/en/neuro4j/net-browser.htm?eid=B_Z_AAEBWpoAAAEj8a5ucewv
+		// http://www.coinshome.net/coin_details.htm?id=B_Z_AAEBWpoAAAEj8a5ucewv
+		stroageBuilder.importNetwork(new File("./data/demo-files/1_rub_chn_import.xml"));
+
+		// import example
+		// import some data about a Roman Respublic's Denarius exported from http://coinshome.net
+		stroageBuilder.importNetwork(new File("./data/demo-files/1_denarius_chn_import.xml"));
 
 	}
 

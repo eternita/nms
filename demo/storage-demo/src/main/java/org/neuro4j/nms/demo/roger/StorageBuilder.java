@@ -2,6 +2,9 @@ package org.neuro4j.nms.demo.roger;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 import org.neuro4j.NetworkUtils;
 import org.neuro4j.core.Entity;
@@ -10,6 +13,8 @@ import org.neuro4j.core.Representation;
 import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.NeuroStorage;
 import org.neuro4j.storage.StorageException;
+import org.neuro4j.xml.ConvertationException;
+import org.neuro4j.xml.NetworkConverter;
 
 public class StorageBuilder {
 
@@ -32,6 +37,30 @@ public class StorageBuilder {
 		}
 		
 		return null;
+	}
+
+	public void importNetwork(File dump)
+	{
+		InputStream is;
+		try {
+			is = new FileInputStream(dump);
+			if (null == is)
+				return;
+			
+	        Network network = NetworkConverter.xml2network(is);
+	        if (null == network)
+	        	return;
+	        
+	        storage.save(network);
+	        
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ConvertationException e) {
+			e.printStackTrace();
+		} catch (StorageException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void postDataFromJava()
