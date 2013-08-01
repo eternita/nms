@@ -70,7 +70,8 @@ public class EntitiesController {
 			ex.printStackTrace();
 		}
 		
-		String queryStr = "select e(id='" + eid + "') / [depth='" + 2*depth + "']";
+		String queryStr = "select e(id='" + eid + "') / [depth='" + 2*depth + "'] limit " +
+				NMSServerConfig.getInstance().getProperty("org.neuro4j.nms.console.max_network_size_for_graph");
 		request.setAttribute("q", queryStr);
 		
 		if ("graph".equalsIgnoreCase(view))
@@ -108,7 +109,8 @@ public class EntitiesController {
 	private Entity getEntity(String eid, NeuroStorage neuroStorage)
 	{
 		// for details 1 level of expand is enough
-		String queryStr = "select e(id='" + eid + "') / [depth='2'] "; 
+		String queryStr = "select e(id='" + eid + "') / [depth='2'] limit " + 
+											NMSServerConfig.getInstance().getProperty("org.neuro4j.nms.console.max_network_size_for_graph"); 
 		Network net;
 		try {
 			net = neuroStorage.query(queryStr);

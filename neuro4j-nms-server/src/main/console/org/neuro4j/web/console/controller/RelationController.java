@@ -37,7 +37,8 @@ public class RelationController {
 		{
 			Network net;
 			try {
-				net = neuroStorage.query("select r(id='" + rUUID + "') / [depth='2']");
+				net = neuroStorage.query("select r(id='" + rUUID + "') / [depth='2'] limit " + 
+															NMSServerConfig.getInstance().getProperty("org.neuro4j.nms.console.max_network_size_for_graph"));
 				Relation r = net.getRelationByUUID(rUUID);
 				if (null != r)
 				{
