@@ -732,6 +732,17 @@ public class Network implements Serializable {
 		return erset;
 	}
 	
+	public ERBase getFirst()
+	{
+		if (!ideMap.values().isEmpty())
+			return ideMap.values().iterator().next();
+
+		if (!idRelationMap.values().isEmpty())
+			return idRelationMap.values().iterator().next();
+		
+		return null;
+	}
+	
 	public ERBase getFirst(String key, String value)
 	{
 		Set<ERBase> erset = new HashSet<ERBase>();

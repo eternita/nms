@@ -174,7 +174,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (FIRST_CYCLE == parseCycle)
 			return;
 		
-		this.pipeNet = null;
+//		this.pipeNet = null;
 		
 		resetVariables();
 	}
