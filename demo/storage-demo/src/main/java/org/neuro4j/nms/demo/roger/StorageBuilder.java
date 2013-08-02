@@ -2,11 +2,12 @@ package org.neuro4j.nms.demo.roger;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Logger;
 
 import org.neuro4j.NetworkUtils;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Representation;
@@ -17,6 +18,8 @@ import org.neuro4j.xml.ConvertationException;
 import org.neuro4j.xml.NetworkConverter;
 
 public class StorageBuilder {
+
+	private Logger logger = Logger.getLogger(this.getClass().getName());
 
 	private NeuroStorage storage = null;
 	
@@ -29,6 +32,9 @@ public class StorageBuilder {
 	{
 		try {
 			Network net = storage.query(query);
+			
+			logger.info("Quering example : \n query='" + query + "' \n output network: "  + net + "\n");
+			
 			return net;
 		} catch (NQLException e) {
 			e.printStackTrace();
@@ -44,8 +50,6 @@ public class StorageBuilder {
 		InputStream is;
 		try {
 			is = new FileInputStream(dump);
-			if (null == is)
-				return;
 			
 	        Network network = NetworkConverter.xml2network(is);
 	        if (null == network)
@@ -154,6 +158,29 @@ public class StorageBuilder {
 		return;
 	}
 	
+	public void updateDataFromJava()
+	{
+		try {
+			Network net = storage.query("INSERT R(desc='coins John interested in')");
+			String id = net.getERBaseIds()[0];
+			
+			storage.query("UPDATE " +
+					"SET " +
+					" E(name='John' OR " +
+					"  name='Coins' OR " +
+					"  CHN_TYPE='COIN_INSTANCE' OR CHN_TYPE='COIN_GROUP') " +
+					
+					"WHERE R(id=?)", new String[]{id});
+			
+		} catch (NQLException e) {
+			e.printStackTrace();
+		} catch (StorageException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	
 	/**
 	 * Read a file and upload it to storage as representation
 	 * 
@@ -166,7 +193,7 @@ public class StorageBuilder {
 		try {
 			byte[] fileBytes = getFileData(fileName);
 			if (null == fileBytes)
-				System.err.println("Can't read " + fileName);
+				logger.severe("Can't read " + fileName);
 			
 			representation.setData(storage, fileBytes);
 			
@@ -178,6 +205,36 @@ public class StorageBuilder {
 		return null;
 	}
 	
+	/**
+	 * example of reading binary data from Network using representations 
+	 */
+	public void readBinaryDataFromJava()
+	{
+		try {
+			Network net = storage.query("SELECT E(name='John')");
+			
+			ERBase john = net.getFirst();
+
+			logger.info("Example of reading binary data from Network using representations. readBinaryDataFromJava(). ");
+			for (Representation representation : john.getRepresentations())
+			{
+				// read meta-data
+				for (String key : representation.getPropertyKeys())
+					System.out.println("key : " + key + " value: " + representation.getProperty(key));
+				
+				// load binary data
+				byte[] data = representation.getDataAsBytes(storage);
+				
+				// binary data can be loaded using streams (for large data)
+				InputStream is = representation.getData(storage);
+			}
+			System.out.println("");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		
+		return;
+	}
 
     private byte[] getFileData(String fileName) throws Exception {
         byte[] data = null;
