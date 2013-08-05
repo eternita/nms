@@ -207,12 +207,12 @@ public class ERBase extends KVBase implements Serializable {
 		return Representation.properties2representations(this.properties);
 	}
 	
-	public void addRepresentation(Representation reprepsentation)
+	public void addRepresentation(Representation representation)
 	{
-		if (null == reprepsentation)
+		if (null == representation)
 			return;
 		
-		Map<String, String> representationProperties = Representation.representation2properties(reprepsentation);
+		Map<String, String> representationProperties = Representation.representation2properties(representation);
 		
 		int arrayIdx = KVUtils.getMaxPropertyArrayIdx(Representation.REPRESENTATION, this.properties);
 		arrayIdx ++;
