@@ -2,29 +2,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.neuro4j</groupId>
-		<artifactId>nms</artifactId>
-		<version>1.2.2-SNAPSHOT</version>
-	</parent>
-	<artifactId>weblogs-demo</artifactId>
+    <parent>
+        <groupId>org.neuro4j.weblog</groupId>
+        <artifactId>weblog</artifactId>
+        <version>0.1.0</version>
+    </parent>
+    <artifactId>engine</artifactId>
+
 
 	<dependencies>
-
-		<dependency>
-			<groupId>org.neuro4j</groupId>
-			<artifactId>neuro4j-core</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.neuro4j</groupId>
-			<artifactId>neuro4j-workflow-common</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
+        <dependency>
+            <groupId>org.neuro4j</groupId>
+            <artifactId>neuro4j-workflow-common</artifactId>
+            <version>${org.neuro4j.nms.version}</version>
+        </dependency>
 	</dependencies>
 
-	<build>
+    <build>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -39,6 +33,6 @@
                 </includes>
             </resource>
         </resources>
-	</build>
+    </build>
 
 </project>
