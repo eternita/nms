@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.neuro4j.weblog</groupId>
+    <artifactId>weblog</artifactId>
+    <version>0.1.0</version>
+    <packaging>pom</packaging>
+    <name>Weblog</name>
+    <url>http://neuro4j.org</url>
+
+    <repositories>
+        <repository>
+            <id>neuro4j-maven-milestone</id>
+            <name>Neuro4J Maven Repository</name>
+            <url>http://static.neuro4j.org/maven2</url>
+        </repository>
+    </repositories>  
+
+    <modules>
+        <module>jclient</module>
+        <module>engine</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <org.neuro4j.nms.version>1.2.2-SNAPSHOT</org.neuro4j.nms.version>
+    </properties>
+
+    <dependencies>
+		<dependency>
+			<groupId>org.neuro4j</groupId>
+			<artifactId>neuro4j-core</artifactId>
+			<version>${org.neuro4j.nms.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.neuro4j</groupId>
+			<artifactId>neuro4j-nms-jclient</artifactId>
+			<version>${org.neuro4j.nms.version}</version>
+		</dependency>
+	
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <finalName>weblog-${project.artifactId}-${project.version}</finalName>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
+
+
+</project>

@@ -8,21 +8,25 @@ import org.neuro4j.storage.NeuroStorage;
 public class Main {
 
 	private static final String STORAGE_HOME_DIR = "./data/demo-storage"; 
-	private static NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(STORAGE_HOME_DIR, "storage.properties");
 	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
+		NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(STORAGE_HOME_DIR, "storage.properties");
 
 		StorageBuilder stroageBuilder = new StorageBuilder(storage);
 		
 		// example of simple query
 		stroageBuilder.query("select e() limit 3");
 		
+		// example of simple query
+		stroageBuilder.query("select e() limit 3");
+		
 		// cleanup
 		// call flow inside NQL
+		// flow can be found at /storage-demo/src/main/flows/Utils.n4j
 		stroageBuilder.query("behave(flow='Utils-Cleanup')");
 
 		// query after cleanup -> network should be empty
