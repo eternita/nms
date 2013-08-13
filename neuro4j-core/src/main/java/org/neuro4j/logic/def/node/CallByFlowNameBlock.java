@@ -77,7 +77,7 @@ public class CallByFlowNameBlock extends LogicBlock {
 		
 		if (startNode == null)
 		{
-			throw new FlowExecutionException(startNodeName + " not found in flow " + flowName);
+			throw new FlowExecutionException(new StringBuilder(startNodeName).append(" not found in flow ").append(flowName).toString());
 		}
 		
 		
@@ -95,12 +95,11 @@ public class CallByFlowNameBlock extends LogicBlock {
 
 		Entity lastNode = (Entity) ctx.get(SWFConstants.AC_CURRENT_NODE);
 		
-//		List<String> relations = getOutgoingRelationsUUID(lastNode.getName());
-		List<String> relations = getOutgoingRelationsUUID(null);
+		List<String> relations = getOutgoingRelationsUUID(lastNode.getName());
 	
 		String nextActionUUID = null;
 		
-		if(!relations.isEmpty())
+		if(relations.size() == 1)
 		{
 		    nextActionUUID = relations.get(0);
 			
@@ -113,7 +112,13 @@ public class CallByFlowNameBlock extends LogicBlock {
 				}
 			}
 			
-		} 
+		} else {
+			relations = getOutgoingRelationsUUID(null);
+			if (relations.size() == 1)
+			{
+				nextActionUUID = relations.get(0);
+			}
+		}
 		
 		
 		if (nextActionUUID != null )
@@ -134,7 +139,7 @@ public class CallByFlowNameBlock extends LogicBlock {
 		{
 			if(!ctx.getCurrentPackage().equals(startNode.getPackage()))
 			{
-				throw new FlowExecutionException("Node " + startNode.getName() + " in package " + startNode.getPackage() + " is private and can be used just inside package.");
+				throw new FlowExecutionException(new StringBuilder("Node ").append(startNode.getName()).append(" in package ").append(startNode.getPackage()).append(" is private and can be used just inside package.").toString());
 			}
 			
 		}
