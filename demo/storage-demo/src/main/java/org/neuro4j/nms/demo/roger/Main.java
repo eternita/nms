@@ -21,9 +21,6 @@ public class Main {
 		// example of simple query
 		stroageBuilder.query("select e() limit 3");
 		
-		// example of simple query
-		stroageBuilder.query("select e() limit 3");
-		
 		// cleanup
 		// call flow inside NQL
 		// flow can be found at /storage-demo/src/main/flows/Utils.n4j
