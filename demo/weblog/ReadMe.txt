@@ -18,7 +18,7 @@ Storage setup & config
 
 Web app integreation
 
-1. Add weblogs-client.jar to your web application's lib directory
+1. Add weblog-client.jar to your web application's lib directory
 
 2. add weblog-client.properties to you class path. Example in conf-sample/weblog-storage.properties
 
@@ -45,6 +45,9 @@ Web app integreation
    </filter-mapping>
    <!-- end Weblog request logger -->
 
+4. Run your application, do some clicks and check data in storage.
+   
+5. Extend it to make more advanced request post-processing exactly for your application to make recommendations and data analysis more advanced.
 
 
 

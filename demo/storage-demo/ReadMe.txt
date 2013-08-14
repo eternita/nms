@@ -4,7 +4,7 @@ Requirements:
 - install Neuro4J Studio (It's Eclipse based UI). More here: http://www.neuro4j.org/f/welcome-downloads 
 
 
-The project create network storage and populate it with data in different ways (queries, imports, java client update, etc).
+The project creates network storage and populate it with data in different ways (queries, imports, java client update, etc).
 
 How to use it:
 - import it to Eclipse
