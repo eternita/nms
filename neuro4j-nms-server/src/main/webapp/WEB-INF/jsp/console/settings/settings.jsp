@@ -16,9 +16,9 @@ NMSServerConfig nmsConfig = NMSServerConfig.getInstance();
 	        <td colspan="2" width="100%" align="center" class="hp b"><b>Storages</b></td>
 	    </tr>
 	    <%
-	    for (String storageName : nmsConfig.getStorageNames())
-	    {
-	    	NeuroStorage storage = nmsConfig.getStorage(storageName);
+	    	for (String storageName : nmsConfig.getStorageNames())
+	    	    {
+	    	    	Storage storage = nmsConfig.getStorage(storageName);
 	    %>
 	    
 	    <tr>

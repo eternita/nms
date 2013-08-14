@@ -12,10 +12,10 @@ import org.neuro4j.storage.StorageException;
 
 /**
  * 
- * In Memory NeuroStorage
+ * In Memory Storage
  *
  */
-public class InMemoryNeuroStorage extends StorageBase {
+public class InMemoryStorage extends StorageBase {
 
 	protected Network instance = new Network();
 	

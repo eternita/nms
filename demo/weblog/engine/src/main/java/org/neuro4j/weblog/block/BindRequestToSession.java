@@ -9,7 +9,7 @@ import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.ParameterDefinition;
 import org.neuro4j.logic.swf.ParameterDefinitionList;
 import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 @ParameterDefinitionList(input={
@@ -22,7 +22,7 @@ public class BindRequestToSession extends CustomBlock {
 	public int execute(LogicContext ctx) throws FlowExecutionException {
 		
 		Entity request = (Entity) ctx.get(IN_REQUEST);
-		NeuroStorage currentStorage = (NeuroStorage) ctx.get(CURRENT_STORAGE); 
+		Storage currentStorage = (Storage) ctx.get(CURRENT_STORAGE); 
 		Network net = null;
 		try {
 			String sessionIdStr = request.getProperty("session-id");

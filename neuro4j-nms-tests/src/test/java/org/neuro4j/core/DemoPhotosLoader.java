@@ -7,7 +7,7 @@ import java.util.Set;
 
 import org.junit.Assert;
 import org.neuro4j.NeuroManager;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 /**
@@ -23,17 +23,17 @@ public class DemoPhotosLoader {
 
 	public static void main(String[] args) throws Exception {
 		
-		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(STORAGE_DIR, "storage.properties");
+		Storage storage = NeuroManager.newInstance().getStorage(STORAGE_DIR, "storage.properties");
 		
-		Network net = neuroStorage.query("select e(name='John')");
+		Network net = storage.query("select e(name='John')");
 		Entity entity = (Entity) net.getFirst("name", "John");
 		
 		Representation r1 = new Representation();
 		byte[] file1 = getFileData(TEST_DATA_BASE_DIR + "files/john.jpg");
 		try {
-			r1.setData(neuroStorage, file1);
+			r1.setData(storage, file1);
 			
-			byte[] data1 = r1.getDataAsBytes(neuroStorage);
+			byte[] data1 = r1.getDataAsBytes(storage);
 			Assert.assertEquals(file1.length, data1.length);
 		} catch (StorageException e1) {
 			e1.printStackTrace();
@@ -44,14 +44,14 @@ public class DemoPhotosLoader {
 
 		String eid = entity.getUuid();
 		try {
-			neuroStorage.save(net);
+			storage.save(net);
 		} catch (StorageException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		// read reps from storage
-		net = neuroStorage.query("select e(id=?)", new String[]{eid});
+		net = storage.query("select e(id=?)", new String[]{eid});
 		
 		Entity entity2 = net.getEntityByUUID(eid);
 		
@@ -59,7 +59,7 @@ public class DemoPhotosLoader {
 		
 		Representation rep2 = reps.iterator().next();
 		
-		byte[] ba2 = rep2.getDataAsBytes(neuroStorage);
+		byte[] ba2 = rep2.getDataAsBytes(storage);
 		
 		Assert.assertEquals(file1.length, ba2.length);
 

@@ -22,7 +22,7 @@ How to use it:
 Demo storage persistence is based on org.neuro4j.storage.xml.XMLNeuroStorage implementation.
 That implementation is suitable for small amount of data (< 1000 objects).
 
-For large storages use different implementations (e.g. org.neuro4j.storage.solr.SolrNeuroStorage)
+For large storages use different implementations (e.g. org.neuro4j.storage.solr.SolrStorage)
 
 Have questions, issues ? 
  - check forum http://www.neuro4j.org/forum

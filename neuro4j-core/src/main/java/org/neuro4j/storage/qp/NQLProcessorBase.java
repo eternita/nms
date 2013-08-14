@@ -25,7 +25,7 @@ import org.neuro4j.core.Relation;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.SimpleWorkflowEngine;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.storage.inmemory.qp.InMemoryNQLProcessorStreamQuery;
 import org.neuro4j.storage.inmemory.qp.N4JSQLUtils;
@@ -40,7 +40,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 
 	protected static final int OUTPUT_NET_REQUEST_IDS_LIMIT = 500; // when building output net by matched paths / for pageable request from solr by ids
 
-	protected NeuroStorage baseStorage = null; 
+	protected Storage baseStorage = null; 
 
 	// different behavior for queries like: 
 	// select e[e_type='request'] / r[name='session-request'] / e[e_type='session'] / r[name='session-request'] / e[e_type='request']

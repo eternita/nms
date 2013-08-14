@@ -15,13 +15,13 @@ import org.neuro4j.storage.solr.qp.NQLProcessorSolr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SolrNeuroStorage extends StorageBase {
+public class SolrStorage extends StorageBase {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private SolrIndexMgr siMgr = null; 
 
 	
-	public SolrNeuroStorage()   
+	public SolrStorage()   
 	{
 		super();
 	}

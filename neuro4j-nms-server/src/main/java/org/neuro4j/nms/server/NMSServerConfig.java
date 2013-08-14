@@ -8,7 +8,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.neuro4j.NeuroManager;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.utils.KVUtils;
 
 public class NMSServerConfig {
@@ -34,7 +34,7 @@ public class NMSServerConfig {
 		nmsHomeDir = new File(nmsHome); 
 	}
 	
-	private static Map<String, NeuroStorage> storageMap = null;
+	private static Map<String, Storage> storageMap = null;
 	
 	private Properties config = null;
 	
@@ -57,8 +57,8 @@ public class NMSServerConfig {
 	 * 
 	 * load storages configured in conf file to Map
 	 */
-	private Map<String, NeuroStorage> loadStorages() {
-		Map<String, NeuroStorage> storageMap = new HashMap<String, NeuroStorage>();
+	private Map<String, Storage> loadStorages() {
+		Map<String, Storage> storageMap = new HashMap<String, Storage>();
 		for (Object storageObj : config.keySet())
 		{
 			String storageStr = (String) storageObj;
@@ -70,13 +70,13 @@ public class NMSServerConfig {
 			File storageHome = new File(nmsHomeDir, storageHomeDir);
 			storageHomeDir = storageHome.getAbsolutePath(); // storage dir (absolute path)
 			
-			NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(storageHomeDir, STORAGE_CONFIG_FILE);
+			Storage storage = NeuroManager.newInstance().getStorage(storageHomeDir, STORAGE_CONFIG_FILE);
 			storageMap.put(storageStr.substring(STORAGE_PREFIX.length()), storage);
 		}
 		return storageMap;
 	}
 	
-	public NeuroStorage getStorage(String name)
+	public Storage getStorage(String name)
 	{
 		return storageMap.get(name);
 	}

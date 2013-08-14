@@ -3,7 +3,7 @@ package org.neuro4j.nms.demo.roger;
 import java.io.File;
 
 import org.neuro4j.NeuroManager;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 
 public class Main {
 
@@ -14,7 +14,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		
-		NeuroStorage storage = NeuroManager.newInstance().getNeuroStorage(STORAGE_HOME_DIR, "storage.properties");
+		Storage storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
 
 		StorageBuilder stroageBuilder = new StorageBuilder(storage);
 		

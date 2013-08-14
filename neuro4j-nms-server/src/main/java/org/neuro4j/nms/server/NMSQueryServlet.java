@@ -13,7 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.xml.NetworkConverter;
 
@@ -56,8 +56,8 @@ public class NMSQueryServlet extends HttpServlet {
 		resp.setContentType("text/xml");
 		String query = req.getParameter("q");
 		
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(req.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(req.getParameter("storage"));
+		if (null == storage)
 		{
 			OutputStream os = resp.getOutputStream();
 			os.write("Storage is not specified.".getBytes("UTF-8"));
@@ -76,7 +76,7 @@ public class NMSQueryServlet extends HttpServlet {
 
 		Network n;
 		try {
-			n = neuroStorage.query(query);
+			n = storage.query(query);
 			String xmlstr = NetworkConverter.network2xml(n);
 			// debug only
 //			dump2file(query, xmlstr);
@@ -127,8 +127,8 @@ public class NMSQueryServlet extends HttpServlet {
 			logger.info("No NQL query");
 			return;
 		}
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(req.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(req.getParameter("storage"));
+		if (null == storage)
 		{
 			OutputStream os = resp.getOutputStream();
 			os.write("Storage is not specified.".getBytes("UTF-8"));
@@ -138,7 +138,7 @@ public class NMSQueryServlet extends HttpServlet {
 		
 		Network n;
 		try {
-			n = neuroStorage.query(query);
+			n = storage.query(query);
 			ObjectOutputStream oos = new ObjectOutputStream(resp.getOutputStream());
 			oos.writeObject(n);
 			oos.flush();

@@ -9,7 +9,7 @@ import org.neuro4j.core.Network;
 import org.neuro4j.core.Relation;
 
 
-public interface NeuroStorage {
+public interface Storage {
 	
 	public Properties getConfig();
 	

@@ -13,7 +13,7 @@ import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
 import org.neuro4j.core.Relation;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 
 public class NetworkUtils {
 
@@ -65,7 +65,7 @@ public class NetworkUtils {
 		return net2;
 	}
 	
-	public static boolean loadConnected(ERBase er, NeuroStorage storage)
+	public static boolean loadConnected(ERBase er, Storage storage)
 	{
 		if (er instanceof Entity)
 			loadConnected((Entity) er, storage); 
@@ -76,7 +76,7 @@ public class NetworkUtils {
 		return false;
 	}
 	
-	private static boolean loadConnected(Entity e, NeuroStorage neuroStorage)
+	private static boolean loadConnected(Entity e, Storage storage)
 	{
 		try
 		{
@@ -84,7 +84,7 @@ public class NetworkUtils {
 			{
 				if (null == e.getRelation(rid))
 				{
-					Relation r = neuroStorage.getRelationByUUID(rid); 
+					Relation r = storage.getRelationByUUID(rid); 
 					if (null != r)
 						e.addRelation(r);
 				}
@@ -98,7 +98,7 @@ public class NetworkUtils {
 		return true;
 	}
 	
-	private static boolean loadConnected(Relation r, NeuroStorage neuroStorage)
+	private static boolean loadConnected(Relation r, Storage storage)
 	{
 		try
 		{
@@ -108,7 +108,7 @@ public class NetworkUtils {
 				{
 					if (null == r.getParticipant(reid))
 					{
-						Entity re = neuroStorage.getEntityByUUID(reid); 
+						Entity re = storage.getEntityByUUID(reid); 
 						if (null != re)
 							r.addParticipant(re);
 					}
@@ -127,32 +127,32 @@ public class NetworkUtils {
 	 * 
 	 * @param e
 	 * @param network
-	 * @param neuroStorage
+	 * @param storage
 	 * @return
 	 */
-	public static boolean loadConnected(ERBase er, Network network, NeuroStorage neuroStorage)
+	public static boolean loadConnected(ERBase er, Network network, Storage storage)
 	{
 		if (er instanceof Entity)
-			loadConnected((Entity)er, network, neuroStorage, Integer.MAX_VALUE);
+			loadConnected((Entity)er, network, storage, Integer.MAX_VALUE);
 		
 		else if (er instanceof Relation)
-			loadConnected((Relation)er, network, neuroStorage, Integer.MAX_VALUE);
+			loadConnected((Relation)er, network, storage, Integer.MAX_VALUE);
 		
 		return false;
 	}
 	
-	public static boolean loadConnected(ERBase er, Network network, NeuroStorage neuroStorage, int connectedCountLimit)
+	public static boolean loadConnected(ERBase er, Network network, Storage storage, int connectedCountLimit)
 	{
 		if (er instanceof Entity)
-			loadConnected((Entity)er, network, neuroStorage, connectedCountLimit);
+			loadConnected((Entity)er, network, storage, connectedCountLimit);
 		
 		else if (er instanceof Relation)
-			loadConnected((Relation)er, network, neuroStorage, connectedCountLimit);
+			loadConnected((Relation)er, network, storage, connectedCountLimit);
 		
 		return false;
 	}
 
-	private static boolean loadConnected(Entity e, Network network, NeuroStorage neuroStorage, int connectedCountLimit)
+	private static boolean loadConnected(Entity e, Network network, Storage storage, int connectedCountLimit)
 	{
 		try
 		{
@@ -165,7 +165,7 @@ public class NetworkUtils {
 				
 				if (null == e.getRelation(rid))
 				{
-					Relation r = neuroStorage.getRelationByUUID(rid); 
+					Relation r = storage.getRelationByUUID(rid); 
 					if (null != r)
 						network.add(r);
 				}
@@ -179,7 +179,7 @@ public class NetworkUtils {
 		return true;
 	}
 	
-	private static boolean loadConnected(Relation r, Network network, NeuroStorage neuroStorage, int connectedCountLimit)
+	private static boolean loadConnected(Relation r, Network network, Storage storage, int connectedCountLimit)
 	{
 		try
 		{
@@ -194,7 +194,7 @@ public class NetworkUtils {
 					
 					if (null == r.getParticipant(reid))
 					{
-						Entity re = neuroStorage.getEntityByUUID(reid); 
+						Entity re = storage.getEntityByUUID(reid); 
 						if (null != re)
 							network.add(re);
 					}

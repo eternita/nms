@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.utils.IOUtils;
 
@@ -33,7 +33,7 @@ public class NMSReadRepresentationServlet extends HttpServlet {
 
 	private void read(HttpServletRequest request, HttpServletResponse resp) {
 		resp.setContentType("text/xml");
-		NeuroStorage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
 		
 		String repId = request.getParameter("repId");
 		String len = request.getParameter("len");

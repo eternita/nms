@@ -8,7 +8,7 @@ import java.util.Set;
 import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.storage.qp.ERType;
 import org.neuro4j.storage.qp.NQLProcessorBase;
@@ -26,7 +26,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 	private StringBuffer erAttrQuery4Solr = null;
 	
 	
-	public NQLProcessorSolr(SolrIndexMgr siMgr, Properties properties, NeuroStorage baseStorage)
+	public NQLProcessorSolr(SolrIndexMgr siMgr, Properties properties, Storage baseStorage)
 	{
 		this.siMgr = siMgr;
 		this.baseStorage = baseStorage;

@@ -12,7 +12,7 @@ import org.neuro4j.logic.LogicProcessorFactory;
 import org.neuro4j.logic.LogicProcessorNotFoundException;
 import org.neuro4j.logic.swf.SWFConstants;
 import org.neuro4j.nms.server.NMSServerConfig;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.web.console.utils.RequestUtils;
 import org.springframework.stereotype.Controller;
@@ -38,14 +38,14 @@ public class ActionController {
 	{
 		RequestUtils.params2attributes(request, "eid", "storage");
 		String startNodeId = request.getParameter("eid");
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == storage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings";
 		}		
 
-		Entity e = neuroStorage.getEntityByUUID(startNodeId);
+		Entity e = storage.getEntityByUUID(startNodeId);
 		request.setAttribute("entity", e);
 		
 		return "console/a/init";
@@ -54,8 +54,8 @@ public class ActionController {
 	@RequestMapping("/run-action")
 	public String runAction(HttpServletRequest request) throws StorageException 
 	{
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == storage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings";
@@ -67,7 +67,7 @@ public class ActionController {
 		Map<String, String> params = parseCtxParameters(ctxParametersStr);
 			
 		LogicContext logicContext = new LogicContext();
-		logicContext.put(SWFConstants.AC_NEURO_STORAGE, neuroStorage);
+		logicContext.put(SWFConstants.AC_NEURO_STORAGE, storage);
 		logicContext.put(SWFConstants.AC_LOGIC_PROCESSOR, logicProcessor);
 		logicContext.put(SWFConstants.AC_REQUEST, request);
 
@@ -75,9 +75,9 @@ public class ActionController {
 		for (String key : params.keySet())
 			logicContext.put(key, params.get(key));
 		
-		Entity e = neuroStorage.getEntityByUUID(startNodeId);
+		Entity e = storage.getEntityByUUID(startNodeId);
 		try {
-			logicProcessor.action(e, null, neuroStorage, logicContext);
+			logicProcessor.action(e, null, storage, logicContext);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

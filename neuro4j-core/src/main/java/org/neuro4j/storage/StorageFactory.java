@@ -6,13 +6,13 @@ public class StorageFactory {
 	
 	private final transient static Logger logger = Logger.getLogger(StorageFactory.class.getName());
 		
-	public static NeuroStorage getNeuroStorage(String name) throws StorageNotFoundException
+	public static Storage getStorage(String name) throws StorageNotFoundException
 	{
 		try {
 			Class clazz = Class.forName(name);
 			Object fObj = clazz.newInstance();
-			if (fObj instanceof NeuroStorage)
-				return (NeuroStorage) fObj;
+			if (fObj instanceof Storage)
+				return (Storage) fObj;
 				
 		} catch (ClassNotFoundException e) {
 			logger.severe(e.getMessage());
@@ -23,6 +23,6 @@ public class StorageFactory {
 		} catch (Exception e) {
 			logger.severe(e.getMessage());
 		}
-		throw new StorageNotFoundException("NeuroStorage " + name + " not found");
+		throw new StorageNotFoundException("Storage " + name + " not found");
 	}
 }

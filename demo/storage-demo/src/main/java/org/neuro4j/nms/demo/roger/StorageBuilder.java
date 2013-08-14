@@ -12,7 +12,7 @@ import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Representation;
 import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.xml.ConvertationException;
 import org.neuro4j.xml.NetworkConverter;
@@ -21,9 +21,9 @@ public class StorageBuilder {
 
 	private Logger logger = Logger.getLogger(this.getClass().getName());
 
-	private NeuroStorage storage = null;
+	private Storage storage = null;
 	
-	public StorageBuilder(NeuroStorage storage)
+	public StorageBuilder(Storage storage)
 	{
 		this.storage = storage;		
 	}

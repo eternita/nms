@@ -5,8 +5,8 @@
 <%@page import="java.util.*"%>
 
         <%
-        String storageName = (String) request.getAttribute("storage");
-        NeuroStorage storage = (NeuroStorage) request.getAttribute("storageObj");
+        	String storageName = (String) request.getAttribute("storage");
+                Storage storage = (Storage) request.getAttribute("storageObj");
         %>
 
 <div align="center"><a href="settings">Settings</a> &gt; <b><%= storageName %></b></div>

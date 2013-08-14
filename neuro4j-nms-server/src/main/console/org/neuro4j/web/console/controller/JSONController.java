@@ -18,7 +18,7 @@ import org.neuro4j.core.Network;
 import org.neuro4j.core.Relation;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,8 +61,8 @@ public class JSONController {
 		if (null != query)
 		{ 
 			try {
-				NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-				if (null == neuroStorage)
+				Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+				if (null == storage)
 				{
 					logger.error("storage is not defined");
 					return;
@@ -72,7 +72,7 @@ public class JSONController {
 				net = (Network) request.getSession().getAttribute(query);
 				if (null == net)
 				{
-					net = neuroStorage.query(query);
+					net = storage.query(query);
 				} else {
 					request.getSession().removeAttribute(query);
 				}

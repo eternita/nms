@@ -6,16 +6,14 @@
 # Can be overwritten with other relative or absolute path
 #n4j.storage.lib_dir=lib
 
-#n4j.storage.lib_dir=C:/Develop/src/neuro4j/recommendation/engine/target
 
-
-n4j.manager.storage=org.neuro4j.storage.solr.SolrNeuroStorage
+n4j.manager.storage=org.neuro4j.storage.solr.SolrStorage
 
 ###################################################################
-# start settings for org.neuro4j.storage.solr.SolrNeuroStorage
+# start settings for org.neuro4j.storage.solr.SolrStorage
 
 # Solr Server URL 
 n4j.storage.solr.server_url=http://localhost:8080/solr123/expsys-demo
 
-# end settings for org.neuro4j.storage.solr.SolrNeuroStorage
+# end settings for org.neuro4j.storage.solr.SolrStorage
 ###################################################################

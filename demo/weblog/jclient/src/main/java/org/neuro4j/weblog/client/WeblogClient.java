@@ -18,7 +18,7 @@ import org.neuro4j.NeuroManager;
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Representation;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.utils.StringUtils;
 
 /**
@@ -45,7 +45,7 @@ public class WeblogClient {
 	// executed just after request posted to storage
 	private String REQUEST_POST_QUERY = null; //"behave(flow='weblog.ProcessRequest-Start' requestId=?)"; 
 	
-	private NeuroStorage storage; 
+	private Storage storage; 
 	
 	public WeblogClient(Properties properties)
 	{
@@ -53,7 +53,7 @@ public class WeblogClient {
 		
 		REQUEST_POST_QUERY = properties.getProperty("org.neuro4j.weblogs.post_flow"); 
 		
-		storage = NeuroManager.newInstance().getNeuroStorage(STORAGE_HOME_DIR, "storage.properties");
+		storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
 	}
 
 //	public void post(HttpServletRequest request)
@@ -136,7 +136,7 @@ public class WeblogClient {
 	
 //	public Network query(String query) throws NQLException, StorageException
 //	{
-//		return neuroStorage.query(query);
+//		return storage.query(query);
 //	}
 
 	private static Entity map2entity(Map<String, String> map)

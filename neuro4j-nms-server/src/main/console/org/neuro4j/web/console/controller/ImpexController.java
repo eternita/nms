@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.neuro4j.core.Network;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.web.console.controller.form.UploadItem;
 import org.neuro4j.web.console.utils.RequestUtils;
@@ -37,8 +37,8 @@ public class ImpexController {
 	public void exportNetwork(HttpServletRequest request, HttpServletResponse response) throws StorageException {
 
 		RequestUtils.params2attributes(request, "storage");
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == storage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
 			try {
@@ -63,7 +63,7 @@ public class ImpexController {
 			RequestUtils.params2attributes(request, "q");
 			try {
 				long start = System.currentTimeMillis();
-				net = neuroStorage.query(q);
+				net = storage.query(q);
 				long end = System.currentTimeMillis();
 				request.setAttribute("qtime", end - start);				
 			} catch (NQLException e) {
@@ -93,8 +93,8 @@ public class ImpexController {
 	
     @RequestMapping(value = "/import", method = RequestMethod.GET)
     public String getUploadForm(HttpServletRequest request, Model model) {
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == storage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings";
@@ -119,8 +119,8 @@ public class ImpexController {
                     return "console/impex/import_status";
             }
 
-    		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(uploadItem.getStorage());
-    		if (null == neuroStorage)
+    		Storage storage = NMSServerConfig.getInstance().getStorage(uploadItem.getStorage());
+    		if (null == storage)
     		{
     			request.setAttribute("storage_error", "Storage is not specified");
     			return "console/settings";
@@ -136,7 +136,7 @@ public class ImpexController {
 
                     		inputStream.close();
                     		
-                    		if(neuroStorage.save(network))
+                    		if(storage.save(network))
                     		{
                     			// ok
                     			

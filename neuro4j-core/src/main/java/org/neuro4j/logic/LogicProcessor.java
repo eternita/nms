@@ -5,7 +5,7 @@ import java.util.Properties;
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.swf.SimpleWorkflowException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 
 public interface LogicProcessor {
 
@@ -17,11 +17,11 @@ public interface LogicProcessor {
 	 * 
 	 * @param start
 	 * @param network
-	 * @param neuroStorage
+	 * @param storage
 	 * @param logicContext
 	 * @return
 	 * @throws SimpleWorkflowException 
 	 */
-	public LogicContext action(Entity start, Network network, NeuroStorage neuroStorage, LogicContext logicContext) throws LogicProcessorException;
+	public LogicContext action(Entity start, Network network, Storage storage, LogicContext logicContext) throws LogicProcessorException;
 	
 }

@@ -4,7 +4,7 @@ import java.util.Set;
 
 import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Path;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.qp.ERType;
 import org.neuro4j.storage.qp.NQLProcessorStream;
 import org.neuro4j.storage.qp.QueryProcessorFilter;
@@ -12,10 +12,10 @@ import org.neuro4j.storage.solr.SolrIndexMgr;
 
 public class SolrNQLProcessorStreamFilter extends SolrNQLProcessorStreamBase {
 	
-	private NeuroStorage baseStorage = null;
+	private Storage baseStorage = null;
 	private QueryProcessorFilter filter = null;
 
-	public SolrNQLProcessorStreamFilter(QueryProcessorFilter filter, NeuroStorage baseStorage,
+	public SolrNQLProcessorStreamFilter(QueryProcessorFilter filter, Storage baseStorage,
 			SolrIndexMgr siMgr, Set<Path> currentMatchedPaths,
 			NQLProcessorStream inputStream) 
 	{

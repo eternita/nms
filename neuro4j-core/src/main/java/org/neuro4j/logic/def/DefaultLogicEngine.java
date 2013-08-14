@@ -10,7 +10,7 @@ import org.neuro4j.logic.LogicProcessorException;
 import org.neuro4j.logic.LogicProcessorFactory;
 import org.neuro4j.logic.LogicProcessorNotFoundException;
 import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 /**
@@ -33,49 +33,49 @@ public class DefaultLogicEngine {
 	/**
 	 * 
 	 * @param flow  is EntityId or NQL to get entity with start node (name='Start')
-	 * @param neuroStorage
+	 * @param storage
 	 * @return
 	 * @throws LogicProcessorException
 	 */
-	public static LogicContext run(String flow, NeuroStorage neuroStorage) throws LogicProcessorException
+	public static LogicContext run(String flow, Storage storage) throws LogicProcessorException
 	{
-		return run(flow, null, neuroStorage, null);
+		return run(flow, null, storage, null);
 	}
 	
 	/**
 	 * 
 	 * @param flow  is EntityId or NQL to get entity with start node (name='Start')
-	 * @param neuroStorage
+	 * @param storage
 	 * @param params
 	 * @return
 	 * @throws LogicProcessorException
 	 */
-	public static LogicContext run(String flow, NeuroStorage neuroStorage, Map<String, Object> params) throws LogicProcessorException
+	public static LogicContext run(String flow, Storage storage, Map<String, Object> params) throws LogicProcessorException
 	{
-		return run(flow, null, neuroStorage, params);
+		return run(flow, null, storage, params);
 	}
 	
 	/**
 	 * 
 	 * @param flow  is EntityId or NQL to get entity with start node (name='Start')
 	 * @param startNode
-	 * @param neuroStorage
+	 * @param storage
 	 * @param params
 	 * @return
 	 * @throws LogicProcessorException
 	 */
-	public static LogicContext run(String flow, String startNode, NeuroStorage neuroStorage, Map<String, Object> params) throws LogicProcessorException
+	public static LogicContext run(String flow, String startNode, Storage storage, Map<String, Object> params) throws LogicProcessorException
 	{
 		Entity e = null;
 		Network net = null;
 		if (-1 < flow.toLowerCase().indexOf("select"))
 		{
 			try {
-				net = neuroStorage.query(flow);
+				net = storage.query(flow);
 			} catch (StorageException e1) {
-				throw new LogicProcessorException("Can't execute flow query " + flow + "' in storage " + neuroStorage);
+				throw new LogicProcessorException("Can't execute flow query " + flow + "' in storage " + storage);
 			} catch (NQLException e1) {
-				throw new LogicProcessorException("Can't execute flow query " + flow + "' in storage " + neuroStorage + ". Wrong NQL: " + e1.getMessage());
+				throw new LogicProcessorException("Can't execute flow query " + flow + "' in storage " + storage + ". Wrong NQL: " + e1.getMessage());
 			}
 			if (null == startNode)
 				startNode = "Start";
@@ -83,9 +83,9 @@ public class DefaultLogicEngine {
 		} else {
 			String startNodeId = flow;
 			try {
-				e = neuroStorage.getEntityByUUID(startNodeId);
+				e = storage.getEntityByUUID(startNodeId);
 			} catch (StorageException e1) {
-				throw new LogicProcessorException("Node '" + startNodeId + "' not found in storage " + neuroStorage);
+				throw new LogicProcessorException("Node '" + startNodeId + "' not found in storage " + storage);
 			}
 		}
 		
@@ -95,7 +95,7 @@ public class DefaultLogicEngine {
 			for (String key : params.keySet())
 				logicContext.put(key, params.get(key));
 
-		logicProcessor.action(e, net, neuroStorage, logicContext);	
+		logicProcessor.action(e, net, storage, logicContext);	
 		
 		return logicContext;
 

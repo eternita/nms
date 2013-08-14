@@ -9,7 +9,7 @@ import org.neuro4j.logic.def.LogicBlock;
 import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.FlowInitializationException;
 import org.neuro4j.logic.swf.SWFConstants;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 public class CallBlock extends LogicBlock {
@@ -42,7 +42,7 @@ public class CallBlock extends LogicBlock {
 			throws FlowExecutionException {
 		String callNodeId = (String)ctx.get("CALL_NODE_ID");
 		
-		NeuroStorage neuroStorage = (NeuroStorage) ctx.get(SWFConstants.AC_NEURO_STORAGE);
+		Storage storage = (Storage) ctx.get(SWFConstants.AC_NEURO_STORAGE);
 		Network network = (Network) ctx.get(SWFConstants.AC_FLOW_NETWORK);
 		LogicProcessor logicProcessor = (LogicProcessor) ctx.get(SWFConstants.AC_LOGIC_PROCESSOR);
 		
@@ -50,14 +50,14 @@ public class CallBlock extends LogicBlock {
 
 		if (null == e)
 			try {
-				e = neuroStorage.getEntityByUUID(callNodeId);
+				e = storage.getEntityByUUID(callNodeId);
 			} catch (StorageException e1) {
 				throw new FlowExecutionException("Can't load from storage entity with id " + lba.getUuid(), e1);
 			}
 		
 		
 		try {
-			logicProcessor.action(e, network, neuroStorage, ctx);
+			logicProcessor.action(e, network, storage, ctx);
 		} catch (LogicProcessorException e1) {
             throw new FlowExecutionException(e1.getCause());
 		}

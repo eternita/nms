@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.neuro4j.NeuroManager;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 /**
@@ -33,16 +33,16 @@ public class RepresentationsXMLStorageTest {
 	@Test
 	public void testBinaryRepresentationsInXMLStorage() throws Exception {
 		
-		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
+		Storage storage = NeuroManager.newInstance().getStorage(
 				TEST_DATA_BASE_DIR + "storages/demo-xml-rw", "storage.properties");
 		
 		Network net = new Network();
 		Representation r1 = new Representation();
 		byte[] file1 = getFileData(TEST_DATA_BASE_DIR + "files/1.png");
 		try {
-			r1.setData(neuroStorage, file1);
+			r1.setData(storage, file1);
 			
-			byte[] data1 = r1.getDataAsBytes(neuroStorage);
+			byte[] data1 = r1.getDataAsBytes(storage);
 			Assert.assertEquals(file1.length, data1.length);
 		} catch (StorageException e1) {
 			e1.printStackTrace();
@@ -54,14 +54,14 @@ public class RepresentationsXMLStorageTest {
 
 		String eid = entity.getUuid();
 		try {
-			neuroStorage.save(net);
+			storage.save(net);
 		} catch (StorageException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		// read reps from storage
-		net = neuroStorage.query("select e(id=?)", new String[]{eid});
+		net = storage.query("select e(id=?)", new String[]{eid});
 		
 		Entity entity2 = net.getEntityByUUID(eid);
 		
@@ -69,7 +69,7 @@ public class RepresentationsXMLStorageTest {
 		
 		Representation rep2 = reps.iterator().next();
 		
-		byte[] ba2 = rep2.getDataAsBytes(neuroStorage);
+		byte[] ba2 = rep2.getDataAsBytes(storage);
 		
 		Assert.assertEquals(file1.length, ba2.length);
 
@@ -80,7 +80,7 @@ public class RepresentationsXMLStorageTest {
 	@Test
 	public void testNetworkRepresentationsInXMLStorage() throws Exception {
 		
-		NeuroStorage neuroStorage = NeuroManager.newInstance().getNeuroStorage(
+		Storage storage = NeuroManager.newInstance().getStorage(
 				TEST_DATA_BASE_DIR + "storages/demo-xml-rw", "storage.properties");
 		
 		
@@ -89,9 +89,9 @@ public class RepresentationsXMLStorageTest {
 		Network net = new Network();
 		Representation representation = new Representation();
 		
-		representationNetwork = neuroStorage.query("select e()");
+		representationNetwork = storage.query("select e()");
 
-		representation.setData(neuroStorage, representationNetwork);
+		representation.setData(storage, representationNetwork);
 
 
 		Entity entity = new Entity("test entity with net representation");
@@ -100,10 +100,10 @@ public class RepresentationsXMLStorageTest {
 
 		String eid = entity.getUuid();
 		
-		neuroStorage.save(net);
+		storage.save(net);
 		
 		// read reps from storage
-		net = neuroStorage.query("select e(id=?)", new String[]{eid});
+		net = storage.query("select e(id=?)", new String[]{eid});
 		
 		Entity entity2 = net.getEntityByUUID(eid);
 		
@@ -111,7 +111,7 @@ public class RepresentationsXMLStorageTest {
 		
 		Representation rep2 = reps.iterator().next();
 		
-		Network net2 = rep2.getDataAsNetwork(neuroStorage);
+		Network net2 = rep2.getDataAsNetwork(storage);
 		
 		System.out.println(net2);
 		

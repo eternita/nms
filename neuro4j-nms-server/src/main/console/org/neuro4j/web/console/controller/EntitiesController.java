@@ -10,7 +10,7 @@ import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Relation;
 import org.neuro4j.nms.server.NMSServerConfig;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.web.console.utils.RequestUtils;
 import org.springframework.stereotype.Controller;
@@ -46,14 +46,14 @@ public class EntitiesController {
 		if (null == eid)
 			return "redirect:/entities";
 
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == storage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings";
 		}
 
-		Entity e = getEntity(eid, neuroStorage);
+		Entity e = getEntity(eid, storage);
 
 		if (null == e)
 			return "redirect:/query";
@@ -88,13 +88,13 @@ public class EntitiesController {
 		String eid = (String) request.getParameter("eid");
 		RequestUtils.params2attributes(request, "q", "storage");
 
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == storage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings";
 		}
-		Entity e = getEntity(eid, neuroStorage);
+		Entity e = getEntity(eid, storage);
 		
 		request.setAttribute("entity", e);		
 
@@ -106,14 +106,14 @@ public class EntitiesController {
 		return "console/e/graph-details";
 	}
 	
-	private Entity getEntity(String eid, NeuroStorage neuroStorage)
+	private Entity getEntity(String eid, Storage storage)
 	{
 		// for details 1 level of expand is enough
 		String queryStr = "select e(id='" + eid + "') / [depth='2'] limit " + 
 											NMSServerConfig.getInstance().getProperty("org.neuro4j.nms.console.max_network_size_for_graph"); 
 		Network net;
 		try {
-			net = neuroStorage.query(queryStr);
+			net = storage.query(queryStr);
 			Entity e = net.getEntityByUUID(eid);
 			return e;
 		} catch (Exception e1) {

@@ -10,7 +10,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.utils.IOUtils;
 import org.neuro4j.utils.KVUtils;
@@ -73,14 +73,14 @@ public class Representation extends KVBase implements Serializable {
 		setProperty(UUID_KEY, getUuid());
 	}
 		
-	public void setData(NeuroStorage storage, InputStream data) throws StorageException {
+	public void setData(Storage storage, InputStream data) throws StorageException {
 		if (null != data)
 			setProperty(DATA_TYPE_KEY, data.getClass().getCanonicalName());
 		
 		setDataImpl(storage, data);
 	}
 	
-	public void setData(NeuroStorage storage, byte[] data) throws StorageException {
+	public void setData(Storage storage, byte[] data) throws StorageException {
 		
 		if (null == data)
 			throw new StorageException("Can't save data for representation " + getUuid() + ". Input data is NULL");
@@ -92,7 +92,7 @@ public class Representation extends KVBase implements Serializable {
 		return;
 	}
 	
-	public void setData(NeuroStorage storage, Network data) throws StorageException {
+	public void setData(Storage storage, Network data) throws StorageException {
 		if (null == data)
 			throw new StorageException("Can't save data for representation " + getUuid() + ". Input network is NULL");
 			
@@ -111,7 +111,7 @@ public class Representation extends KVBase implements Serializable {
 	 * @param data
 	 * @throws StorageException
 	 */
-	private void setDataImpl(NeuroStorage storage, InputStream data) throws StorageException {
+	private void setDataImpl(Storage storage, InputStream data) throws StorageException {
 		if (null == storage)
 			throw new StorageException("Can't save data for representation " + getUuid() + ". Storage is NULL");
 		
@@ -135,7 +135,7 @@ public class Representation extends KVBase implements Serializable {
 		return;
 	}
 	
-	public Network getDataAsNetwork(NeuroStorage storage) throws StorageException {
+	public Network getDataAsNetwork(Storage storage) throws StorageException {
 		String dataClass = getProperty(DATA_TYPE_KEY);
 		if (!"org.neuro4j.core.Network".equals(dataClass))
 			throw new StorageException("Representation's (" + getUuid() + ") type is not org.neuro4j.core.Network. It's '" + dataClass + "'");
@@ -160,7 +160,7 @@ public class Representation extends KVBase implements Serializable {
 		return net;
 	}
 	
-	private Network getNetworkByIds(NeuroStorage storage, String[] ids)
+	private Network getNetworkByIds(Storage storage, String[] ids)
 	{
 		Network outNet = new Network();
 		StringBuffer qsb = new StringBuffer("select e("); // select e(id='F53DA3BEC6218003FA9A37EC23B8AAF8' OR id='F53DA3BEC6218003FA9A37EC23B8AAF8')
@@ -220,7 +220,7 @@ public class Representation extends KVBase implements Serializable {
 	 * @return
 	 * @throws StorageException
 	 */
-	public byte[] getDataAsBytes(NeuroStorage storage) throws StorageException {
+	public byte[] getDataAsBytes(Storage storage) throws StorageException {
 		
 		String dataClass = getProperty(DATA_TYPE_KEY);
 		if (!"byte[]".equals(dataClass))
@@ -240,7 +240,7 @@ public class Representation extends KVBase implements Serializable {
 		return ba;
 	}
 	
-	public InputStream getData(NeuroStorage storage) throws StorageException {
+	public InputStream getData(Storage storage) throws StorageException {
 		
 		InputStream in = storage.getRepresentationInputStream(getUuid());
 		return in;

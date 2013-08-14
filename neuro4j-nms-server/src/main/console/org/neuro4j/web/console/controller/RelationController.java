@@ -6,7 +6,7 @@ import org.neuro4j.core.Network;
 import org.neuro4j.core.Relation;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.web.console.utils.RequestUtils;
 import org.slf4j.Logger;
@@ -26,8 +26,8 @@ public class RelationController {
 	public String relationDetails(HttpServletRequest request) throws StorageException {
 		RequestUtils.params2attributes(request, "storage");
 		String rUUID = (String) request.getParameter("uuid");
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == storage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings";
@@ -37,7 +37,7 @@ public class RelationController {
 		{
 			Network net;
 			try {
-				net = neuroStorage.query("select r(id='" + rUUID + "') / [depth='2'] limit " + 
+				net = storage.query("select r(id='" + rUUID + "') / [depth='2'] limit " + 
 															NMSServerConfig.getInstance().getProperty("org.neuro4j.nms.console.max_network_size_for_graph"));
 				Relation r = net.getRelationByUUID(rUUID);
 				if (null != r)

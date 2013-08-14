@@ -11,7 +11,7 @@ import org.neuro4j.logic.LogicProcessor;
 import org.neuro4j.logic.LogicProcessorException;
 import org.neuro4j.logic.LogicProcessorFactory;
 import org.neuro4j.logic.LogicProcessorNotFoundException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageConfig;
 import org.neuro4j.storage.StorageFactory;
 import org.neuro4j.storage.StorageNotFoundException;
@@ -23,7 +23,7 @@ public class NeuroManager  {
 
 	private final static Logger logger = Logger.getLogger(NeuroManager.class.getName());
 	
-	private Map<String, NeuroStorage> storageMap = new HashMap<String, NeuroStorage>();
+	private Map<String, Storage> storageMap = new HashMap<String, Storage>();
 	
 	private Map<String, LogicProcessor> logicProcessorMap = new HashMap<String, LogicProcessor>();
 
@@ -40,12 +40,12 @@ public class NeuroManager  {
 	 * @param configFileName
 	 * @return
 	 */
-	public NeuroStorage getNeuroStorage(String configFile)
+	public Storage getStorage(String configFile)
 	{
 		Properties props = KVUtils.loadPropertiesFromCodebase(configFile);
 		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
 		
-		return getNeuroStorage(storageImpl, props);
+		return getStorage(storageImpl, props);
 	}
 	
 	/**
@@ -54,12 +54,12 @@ public class NeuroManager  {
 	 * @param configFileName
 	 * @return
 	 */
-	public NeuroStorage getNeuroStorage(File configFile)
+	public Storage getStorage(File configFile)
 	{
 		Properties props = KVUtils.loadProperties(configFile);
 		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
 		
-		return getNeuroStorage(storageImpl, props);
+		return getStorage(storageImpl, props);
 	}
 	
 	/**
@@ -68,7 +68,7 @@ public class NeuroManager  {
 	 * @param configFileStr
 	 * @return
 	 */
-	public NeuroStorage getNeuroStorage(String storageHomeDirStr, String configFileStr)
+	public Storage getStorage(String storageHomeDirStr, String configFileStr)
 	{
 		File storageHomeDir = new File(storageHomeDirStr);
 		
@@ -78,7 +78,7 @@ public class NeuroManager  {
 		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
 		props.put(StorageConfig.STORAGE_HOME_DIR, storageHomeDir.getAbsolutePath());
 		
-		return getNeuroStorage(storageImpl, props);
+		return getStorage(storageImpl, props);
 	}
 	
 	/**
@@ -86,12 +86,12 @@ public class NeuroManager  {
 	 * @param inputStream
 	 * @return
 	 */
-	public NeuroStorage getNeuroStorage(InputStream inputStream)
+	public Storage getStorage(InputStream inputStream)
 	{
 		Properties props = KVUtils.loadProperties(inputStream);
 		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
 		
-		return getNeuroStorage(storageImpl, props);
+		return getStorage(storageImpl, props);
 	}
 	
 	/**
@@ -101,13 +101,13 @@ public class NeuroManager  {
 	 * @param properties
 	 * @return
 	 */
-	public NeuroStorage getNeuroStorage(String storageImpl, Properties properties)
+	public Storage getStorage(String storageImpl, Properties properties)
 	{
-		NeuroStorage storage = storageMap.get(storageImpl);
+		Storage storage = storageMap.get(storageImpl);
 		if (null == storage)
 		{
 			try {
-				storage = StorageFactory.getNeuroStorage(storageImpl);
+				storage = StorageFactory.getStorage(storageImpl);
 			} catch (StorageNotFoundException e) {
 				logger.severe("NeuroManager instantiation failed - can't instantiate NeuroStorage. " + e);
 				throw new RuntimeException( "NeuroManager instantiation failed - can't instantiate NeuroStorage. " + e.getMessage());

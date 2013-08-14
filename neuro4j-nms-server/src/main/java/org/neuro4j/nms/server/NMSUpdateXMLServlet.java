@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.neuro4j.core.Network;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.xml.ConvertationException;
 import org.neuro4j.xml.NetworkConverter;
@@ -40,8 +40,8 @@ public class NMSUpdateXMLServlet extends HttpServlet {
 	private void save(HttpServletRequest req, HttpServletResponse resp) {
 		resp.setContentType("text/xml");
 		String netXML = req.getParameter("network");
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(req.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(req.getParameter("storage"));
+		if (null == storage)
 		{
 			string2outputStream(resp, "<resp>Storage is not specified</resp>");
 			return;
@@ -52,7 +52,7 @@ public class NMSUpdateXMLServlet extends HttpServlet {
 		try {
 			n = NetworkConverter.xml2network(netXML);
 			
-			boolean isOK = neuroStorage.save(n);
+			boolean isOK = storage.save(n);
 			if (isOK)
 			{
 				string2outputStream(resp, "<resp>OK</resp>");

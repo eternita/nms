@@ -5,14 +5,14 @@ import java.util.Map;
 import org.neuro4j.NetworkUtils;
 import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.storage.inmemory.InMemoryUtils;
 import org.neuro4j.storage.qp.ERExpression;
 import org.neuro4j.storage.qp.NQLProcessorBase;
 public class NQLProcessorInMemory2 extends NQLProcessorBase {	
 
-	public NQLProcessorInMemory2(Network inputNetwork, NeuroStorage baseStorage) {
+	public NQLProcessorInMemory2(Network inputNetwork, Storage baseStorage) {
 		super();
 		this.baseStorage = baseStorage;
 		this.storageNet = inputNetwork;

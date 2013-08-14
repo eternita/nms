@@ -9,7 +9,7 @@ import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.utils.KVUtils;
 import org.neuro4j.web.console.GeneralHelper;
@@ -50,8 +50,8 @@ public class QueryController {
 		if (!"graph".equalsIgnoreCase(view) && !"jsplumb".equalsIgnoreCase(view))
 			view = "list";
 		
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
-		if (null == neuroStorage)
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		if (null == storage)
 		{
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings/settings";
@@ -68,7 +68,7 @@ public class QueryController {
 			RequestUtils.params2attributes(request, "q");
 			try {
 				long start = System.currentTimeMillis();
-				net = neuroStorage.query(q);
+				net = storage.query(q);
 				if (null == net) // can be in case of behave queries.  behave(flow="n4j_site.flows.ExpsysPostHook-TestQuery") 
 					net = new Network();
 				
@@ -108,14 +108,14 @@ public class QueryController {
 			request.setAttribute("header_columns", headers);
 
 			
-			GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(neuroStorage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
+			GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
 			view = "table"; // SQL table
 		} else if (0 == entities.length && 0 != relations.length) {
-			GeneralHelper.createVHLList(request, relations, "en", new RelationResolver(neuroStorage, net, DISPLAYED_CONNECTED_LIMIT), "r_list", "_el", LIST_PAGE_SIZE);
+			GeneralHelper.createVHLList(request, relations, "en", new RelationResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "r_list", "_el", LIST_PAGE_SIZE);
 			view = null; // list view only
 			
 		} else if (0 != entities.length && 0 == relations.length) {
-			GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(neuroStorage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
+			GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
 			view = null; // list view only
 
 		} else {
@@ -124,7 +124,7 @@ public class QueryController {
 				view = null; // list view only
 
 			if (null == view || "list".equalsIgnoreCase(view))
-				GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(neuroStorage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
+				GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
 				
 		}
 			

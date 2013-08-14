@@ -16,7 +16,7 @@ import org.neuro4j.logic.LogicProcessorException;
 import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.FlowInitializationException;
 import org.neuro4j.logic.swf.SWFConstants;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 public class WorkFlowProcessor implements LogicProcessor
@@ -33,7 +33,7 @@ public class WorkFlowProcessor implements LogicProcessor
 	}
 	
 
-	public LogicContext action(Entity start, Network network, NeuroStorage neuroStorage, LogicContext logicContext) throws FlowExecutionException
+	public LogicContext action(Entity start, Network network, Storage storage, LogicContext logicContext) throws FlowExecutionException
 	{
 		if (null == logicContext)
 			throw new RuntimeException("LogicContext must not be null");
@@ -45,9 +45,9 @@ public class WorkFlowProcessor implements LogicProcessor
 			currentStep = nextStep; 
 
 			// reload from storage to have fresh 'relations' in case of remote storage (TODO: rework for performance)
-			currentStep = getEntityByUUID(currentStep.getUuid(), network, neuroStorage);
+			currentStep = getEntityByUUID(currentStep.getUuid(), network, storage);
 			
-			nextStep = actionImpl(currentStep, network, neuroStorage, logicContext); 
+			nextStep = actionImpl(currentStep, network, storage, logicContext); 
 
 		} // while (null != nextStep)
 		
@@ -55,7 +55,7 @@ public class WorkFlowProcessor implements LogicProcessor
 		return logicContext;
 	}
 	
-	private static Entity actionImpl(Entity currentStep, Network network, NeuroStorage neuroStorage, LogicContext logicContext) throws FlowExecutionException
+	private static Entity actionImpl(Entity currentStep, Network network, Storage storage, LogicContext logicContext) throws FlowExecutionException
 	{
 		if (null == logicContext)
 			throw new FlowExecutionException("LogicContext must not be null");
@@ -88,11 +88,11 @@ public class WorkFlowProcessor implements LogicProcessor
 		if (null != logicContext.get(SWFConstants.AC_NEXT_NODE_UUID))
 		{
 			String nextStepUUID = (String) logicContext.remove(SWFConstants.AC_NEXT_NODE_UUID);
-			nextStep = getEntityByUUID(nextStepUUID, network, neuroStorage);
+			nextStep = getEntityByUUID(nextStepUUID, network, storage);
 		}
 
 		if (null == nextStep)
-			nextStep = getNext(currentStep, network, neuroStorage);
+			nextStep = getNext(currentStep, network, storage);
 		
 		return nextStep;
 	}
@@ -131,7 +131,7 @@ public class WorkFlowProcessor implements LogicProcessor
 	 * @param currentStep
 	 * @return
 	 */
-	private static Entity getNext(Entity currentStep, Network network, NeuroStorage neuroStorage)
+	private static Entity getNext(Entity currentStep, Network network, Storage storage)
 	{
 		Entity next = null;
 		for (Relation r : currentStep.getRelations(SWFConstants.NEXT_RELATION_NAME))
@@ -153,7 +153,7 @@ public class WorkFlowProcessor implements LogicProcessor
 						// check if next has futher relations -> if not -> reload it from storage
 						if (0 == next.getRelations(SWFConstants.NEXT_RELATION_NAME).size())
 						{
-							next = getEntityByUUID(next.getUuid(), network, neuroStorage); // reload from storage to get futher relations
+							next = getEntityByUUID(next.getUuid(), network, storage); // reload from storage to get futher relations
 						}
 						
 						break;
@@ -169,7 +169,7 @@ public class WorkFlowProcessor implements LogicProcessor
 		return next;
 	}
 	
-	private static Entity getEntityByUUID(String uuid, Network network, NeuroStorage neuroStorage)
+	private static Entity getEntityByUUID(String uuid, Network network, Storage storage)
 	{
 		Entity e = null;
 		
@@ -181,7 +181,7 @@ public class WorkFlowProcessor implements LogicProcessor
 			return e;
 		
 		try {
-			e = neuroStorage.getEntityByUUID(uuid);
+			e = storage.getEntityByUUID(uuid);
 		} catch (StorageException e1) {
 			logger.fine("Can't load entity with id " + uuid + " " + e1.getMessage());
 		}

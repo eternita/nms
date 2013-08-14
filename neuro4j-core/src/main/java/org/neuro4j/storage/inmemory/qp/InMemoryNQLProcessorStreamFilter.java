@@ -3,17 +3,17 @@ package org.neuro4j.storage.inmemory.qp;
 import java.util.Set;
 
 import org.neuro4j.core.Path;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.inmemory.qp.InMemoryNQLProcessorStreamBase;
 import org.neuro4j.storage.qp.ERType;
 import org.neuro4j.storage.qp.NQLProcessorStream;
 import org.neuro4j.storage.qp.QueryProcessorFilter;
 public class InMemoryNQLProcessorStreamFilter extends InMemoryNQLProcessorStreamBase {
 	
-	private NeuroStorage baseStorage = null;
+	private Storage baseStorage = null;
 	private QueryProcessorFilter filter = null;
 
-	public InMemoryNQLProcessorStreamFilter(QueryProcessorFilter filter, NeuroStorage baseStorage,
+	public InMemoryNQLProcessorStreamFilter(QueryProcessorFilter filter, Storage baseStorage,
 //			SolrIndexMgr2 siMgr, 
 			Set<Path> currentMatchedPaths,
 			NQLProcessorStream inputStream) 

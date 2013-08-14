@@ -11,7 +11,7 @@ import java.util.Properties;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.StorageException;
-import org.neuro4j.storage.inmemory.InMemoryNeuroStorage;
+import org.neuro4j.storage.inmemory.InMemoryStorage;
 import org.neuro4j.storage.inmemory.qp.NQLProcessorInMemory2;
 import org.neuro4j.storage.qp.NQLParser;
 import org.neuro4j.storage.qp.NQLProcessor;
@@ -20,7 +20,7 @@ import org.neuro4j.utils.KVUtils;
 import org.neuro4j.xml.ConvertationException;
 import org.neuro4j.xml.NetworkConverter;
 
-public class XMLNeuroStorage extends InMemoryNeuroStorage {
+public class XMLStorage extends InMemoryStorage {
 
 	private String filePath;
 

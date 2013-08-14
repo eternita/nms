@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.neuro4j.nms.server.NMSServerConfig;
-import org.neuro4j.storage.NeuroStorage;
+import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.utils.IOUtils;
 import org.neuro4j.web.console.utils.RequestUtils;
@@ -31,12 +31,12 @@ public class RepresentationController {
 		String id = (String) request.getParameter("id");
 		RequestUtils.params2attributes(request, "q", "storage");
 
-		NeuroStorage neuroStorage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
+		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
 		
-		if (null == neuroStorage)
+		if (null == storage)
 			return;
 
-        InputStream repis = neuroStorage.getRepresentationInputStream(id);
+        InputStream repis = storage.getRepresentationInputStream(id);
         if (null == repis)
         	return;
         
