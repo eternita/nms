@@ -50,11 +50,9 @@ public class BindRequestToSession extends CustomBlock {
 			}
 			
 		} catch (NQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ERROR;
 		} catch (StorageException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ERROR;
 		}

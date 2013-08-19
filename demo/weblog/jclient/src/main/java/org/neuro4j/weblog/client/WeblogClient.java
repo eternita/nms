@@ -18,7 +18,9 @@ import org.neuro4j.NeuroManager;
 import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Representation;
+import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.Storage;
+import org.neuro4j.storage.StorageException;
 import org.neuro4j.utils.StringUtils;
 
 /**
@@ -55,12 +57,6 @@ public class WeblogClient {
 		
 		storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
 	}
-
-//	public void post(HttpServletRequest request)
-//	{
-//		post(request, null);
-//		return;
-//	}
 	
 	public void post(HttpServletRequest request, Map params, byte[] content)
 	{
@@ -68,36 +64,29 @@ public class WeblogClient {
 		if (null != params)
 			map.putAll(params);
 		
-		Entity e = map2entity(params);
-		post(e, content);
+		String requestId = (String) request.getAttribute("requestId");
+		Entity e = map2entity(requestId, params);
+		post(e, content, REQUEST_POST_QUERY);
 		return;
 	}
 	
-//	public void post(Map params)
-//	{
-//		Entity e = map2entity(params);
-//		post(e);
-//		return;
-//	}
-
-//	public void post(Network net)
-//	{
-//		try {
-//			storage.save(net);
-//		} catch (StorageException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return;
-//	}
+	public void post(Map params)
+	{
+		post((String) null, params, null, null);
+		return;
+	}
 	
-	private void post(final Entity entity, final byte[] content)
+	public void post(String requestId, Map params, String postQuery, byte[] content)
+	{
+		Entity e = map2entity(requestId, params);
+		post(e, content, postQuery);
+		return;
+	}
+	
+	private void post(final Entity entity, final byte[] content, final String postQuery)
 	{
 			final Network net = new Network();
 			net.add(entity);
-			
-
-
 			
 			final String requestId = entity.getUuid(); 
 			
@@ -116,11 +105,14 @@ public class WeblogClient {
 							}
 						}
 						storage.save(net);
-						// TODO: !! wait until data committed to solr
-						// Solr doesn't commit immideatly even for : solrServer.commit(true, true);
-						// check if it solved in further versions of Solr
-						Thread.currentThread().sleep(500); // wait until data committed to solr
-						storage.query(REQUEST_POST_QUERY, new String[]{requestId});
+						if (null != postQuery)
+						{
+							// TODO: !! wait until data committed to solr
+							// Solr doesn't commit immideatly even for : solrServer.commit(true, true);
+							// check if it solved in further versions of Solr
+							Thread.currentThread().sleep(500); // wait until data committed to solr
+							storage.query(postQuery, new String[]{requestId});
+						}
 					} catch (Exception e) {
 						logger.severe("Post entity error: " + e.getMessage());
 					}
@@ -134,14 +126,18 @@ public class WeblogClient {
 		return;
 	}
 	
-//	public Network query(String query) throws NQLException, StorageException
-//	{
-//		return storage.query(query);
-//	}
+	public Network query(String query) throws NQLException, StorageException
+	{
+		return storage.query(query);
+	}
 
-	private static Entity map2entity(Map<String, String> map)
+	private static Entity map2entity(String id, Map<String, String> map)
 	{
 		Entity e = new Entity();
+		
+		if (null != id)
+			e.setUuid(id);
+		
 		if (null == map)
 			return e;
 		

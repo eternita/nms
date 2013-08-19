@@ -15,6 +15,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import org.neuro4j.mgr.uuid.UUIDMgr;
+
 
 /**
  * 
@@ -44,6 +46,10 @@ public class WeblogFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException 
 	{
 		long start = System.currentTimeMillis();
+		
+		String requestId = UUIDMgr.getInstance().createUUIDString();
+		// requestId can be used to post other events during request processing 
+		request.setAttribute("requestId", requestId);
 		
 		chain.doFilter(request, response);
 		
