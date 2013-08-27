@@ -1,9 +1,8 @@
 package org.neuro4j.logic.def.node;
 
 import java.util.List;
-import java.util.Map;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicProcessor;
 import org.neuro4j.logic.LogicProcessorException;
@@ -93,7 +92,7 @@ public class CallByFlowNameBlock extends LogicBlock {
 		     throw new FlowExecutionException(e1.getCause());
 		}
 
-		Entity lastNode = (Entity) ctx.get(SWFConstants.AC_CURRENT_NODE);
+		ERBase lastNode = (ERBase) ctx.get(SWFConstants.AC_CURRENT_NODE);
 		
 		List<String> relations = getOutgoingRelationsUUID(lastNode.getName());
 	
@@ -146,7 +145,7 @@ public class CallByFlowNameBlock extends LogicBlock {
 	
 	}
 
-	public void load(Entity entity) throws FlowInitializationException
+	public void load(ERBase entity) throws FlowInitializationException
 	{
 		super.load(entity);
 		

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Entity extends ERBase implements Serializable {
+public class Entity1 extends ERBase implements Serializable {
 
 	/**
 	 * 

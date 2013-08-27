@@ -38,6 +38,18 @@ public class ERBase extends KVBase implements Serializable {
 		setModified(true);
 	}
 	
+	public ERBase(String name, ERBase... connected) {
+		this(name);
+		Map<String, ERBase> connectedMap = new HashMap<String, ERBase>();
+		for (ERBase rp : connected)
+		{
+			connectedMap.put(rp.getUuid(), rp);
+			rp.addConnected(this);
+		}
+		this.connected = connectedMap;
+        setModified(true);
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -84,6 +96,16 @@ public class ERBase extends KVBase implements Serializable {
 		erBase.connected.put(this.getUuid(), this);
 	}
 
+	public void addConnected(ERBase erBase)
+	{
+		erBase.connected.put(this.getUuid(), this);
+		
+		if (null != erBase)
+			addConnectedTail(erBase);
+        
+		setModified(true);
+	}
+	
 	public Date getLastModifiedDate() {
 		return lastModifiedDate;
 	}
@@ -202,6 +224,18 @@ public class ERBase extends KVBase implements Serializable {
 		return filter;
 	}
 	
+	public Set<ERBase> getAllConnected() {
+		
+		if (this.connected.keySet().size() != this.connected.values().size())
+			throw new RuntimeException("ERBase " + uuid + " is not complete loaded)");
+		
+		return getConnected();
+	}
+	
+	public ERBase getConnected(String id) {
+		return this.connected.get(id);
+	}
+	
 	public Set<Representation> getRepresentations()
 	{
 		return Representation.properties2representations(this.properties);
@@ -255,7 +289,7 @@ public class ERBase extends KVBase implements Serializable {
 		
 	}
 	
-	protected ERBase cloneBase()
+	public ERBase cloneBase()
 	{
 		ERBase clone = null;
 		try {
@@ -299,5 +333,23 @@ public class ERBase extends KVBase implements Serializable {
 		this.virtual = virtual;
 	}	
 	
+	public void removeConnected(String uuid)
+	{
+		ERBase con = connected.remove(uuid);
+		
+		if (null != con)
+		{
+			con.removeConnectedTail(this.getUuid());
+			setModified(true);
+		}
+		return;
+	}	
+	
+	void removeConnectedTail(String uuid)
+	{
+		if(null != connected.remove(uuid))
+			setModified(true);
+		
+	}
 	
 }

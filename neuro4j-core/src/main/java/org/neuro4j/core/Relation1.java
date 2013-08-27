@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 
-public class Relation extends ERBase implements Serializable {
+public class Relation1 extends ERBase implements Serializable {
 
 
 	/**
@@ -16,16 +16,16 @@ public class Relation extends ERBase implements Serializable {
 	 */
 	private static final long serialVersionUID = Constants.SERIALIZATION_VERSION_UID;
 	
-	public Relation() {
+	public Relation1() {
 		super();
 	}
 
-	public Relation(String name) {
+	public Relation1(String name) {
 		super(name);
 	}
 
 	
-	public Relation(String name, Entity... participants) {
+	public Relation1(String name, Entity... participants) {
 		this(name);
 		Map<String, ERBase> participantsMap = new HashMap<String, ERBase>();
 		for (Entity rp : participants)

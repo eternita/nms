@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 
 public class InMemoryUtils {
 
@@ -19,27 +18,27 @@ public class InMemoryUtils {
 	 */
 	public static Network andNetworks(Network net1, Network net2)
 	{
-		List<Entity> e4Removal = new ArrayList<Entity>();
-		for (String eid : net1.getEntities())
+		List<ERBase> e4Removal = new ArrayList<ERBase>();
+		for (String eid : net1.getIds())
 		{
-			if (null == net2.getEntityByUUID(eid))
-				e4Removal.add(net1.getEntityByUUID(eid));
+			if (null == net2.getById(eid))
+				e4Removal.add(net1.getById(eid));
 		}
 		
 //		net1.remove(e4Removal.toArray(new Entity[]{}));
-		for (Entity entity : e4Removal)
+		for (ERBase entity : e4Removal)
 			net1.remove(entity, true);
 
 
-		// relations
-		List<Relation> r4Removal = new ArrayList<Relation>();
-		for (String rid : net1.getRelations())
-		{
-			if (null == net2.getRelationByUUID(rid))
-				r4Removal.add(net1.getRelationByUUID(rid));
-		}
-		
-		net1.remove(r4Removal.toArray(new Relation[]{}));
+//		// relations
+//		List<Relation> r4Removal = new ArrayList<Relation>();
+//		for (String rid : net1.getRelations())
+//		{
+//			if (null == net2.getRelationByUUID(rid))
+//				r4Removal.add(net1.getRelationByUUID(rid));
+//		}
+//		
+//		net1.remove(r4Removal.toArray(new Relation[]{}));
 		
 		return net1;
 	}	
@@ -52,9 +51,9 @@ public class InMemoryUtils {
 	 * @param value
 	 */
 	public static void filterEntities(Network net, String key, String value) {
-		for (String eid : net.getEntities())
+		for (String eid : net.getIds())
 		{
-			Entity e = net.getEntityByUUID(eid);
+			ERBase e = net.getById(eid);
 			if (!value.equals(e.getProperty(key)))
 			{
 				net.remove(e, true);
@@ -63,13 +62,13 @@ public class InMemoryUtils {
 		return;
 	}
 	
-	/**
+/*	*//**
 	 * useful for AND operation
 	 * 
 	 * @param net
 	 * @param key
 	 * @param value
-	 */
+	 *//*
 	public static void filterRelations(Network net, String key, String value) {
 		for (String rid : net.getRelations())
 		{
@@ -80,9 +79,9 @@ public class InMemoryUtils {
 			}
 		}
 		return;
-	}
+	}*/
 	
-	public static void saveOrUpdate(Network net, Relation newRelation) {
+/*	public static void saveOrUpdate(Network net, ERBase newRelation) {
 		Relation currentRelation = net.getRelationByUUID(newRelation.getUuid());
 		if (null == currentRelation)
 		{
@@ -97,7 +96,7 @@ public class InMemoryUtils {
 		}
 		
 		return;
-	}
+	}*/
 
 	/**
 	 * 
@@ -105,9 +104,9 @@ public class InMemoryUtils {
 	 * @param net
 	 * @param newEntity
 	 */
-	public static void saveOrUpdate(Network net, Entity newEntity) {
+	public static void saveOrUpdate(Network net, ERBase newEntity) {
 		
-		Entity currentEntity = net.getEntityByUUID(newEntity.getUuid());
+		ERBase currentEntity = net.getById(newEntity.getUuid());
 		if (null == currentEntity)
 		{
 			// TODO do not make deep copy - it can lead to object duplications (through entities in relations)
@@ -126,59 +125,11 @@ public class InMemoryUtils {
 				
 		}
 
-		// relations
-		for (String nrid : newEntity.getConnectedKeys())
-		{
-			Relation currentRel = currentEntity.getRelation(nrid);
-			if (null == currentRel)
-			{
-				// new relation should be loaded (because it's new)
-				Relation newRel = newEntity.getRelation(nrid);
-				// it can be null. E.g. in case of export/import ERs can have orphan connections  
-				if (null != newRel)
-				{
-					// create similar relation - use existing entities (if possible)
-					currentRel = createNewRelationUsingExistingEntitiesIfPossible(net, newRel);
-					net.add(currentRel);
-				}
-			}
-		}
-
-		for (String crid : currentEntity.getConnectedKeys())
-		{
-			Relation newRel = newEntity.getRelation(crid);
-			if (null == newRel)
-			{
-				// relation has been deleted
-				// do nothing - it's handled in NeuroStorage.save()
-			}
-		}
-	
-	
-/*		
-		// relations
-		for (Relation newRel : newEntity.getAllRelations())
-		{
-			Relation currentRel = currentEntity.getRelation(newRel.getUuid());
-			if (null == currentRel)
-			{
-				// new relation
-				// create similar relation - use existing entities (if possible)
-				currentRel = createNewRelationUsingExistingEntitiesIfPossible(net, newRel);
-				net.add(currentRel);
-			} else if (!currentRel.equalsData(newRel)) {
-				// updated relation
-				updateCurrentRelationUsingExistingEntitiesIfPossible(net, currentRel, newRel);
-			} else {
-				// equals - do nothing
-			}
-		}
-//*/		
 		return;
 	}
 
 	
-	private static Relation createNewRelationUsingExistingEntitiesIfPossible(Network net, Relation outsideRelation)
+/*	private static Relation createNewRelationUsingExistingEntitiesIfPossible(Network net, Relation outsideRelation)
 	{
 		Relation r = outsideRelation.cloneBase(); 
 		
@@ -194,9 +145,9 @@ public class InMemoryUtils {
 			r.addParticipant(e);
 		}
 		return r;
-	}
+	}*/
 
-	private static void updateCurrentRelationUsingExistingEntitiesIfPossible(Network net, Relation existingRelation, Relation outsideRelation)
+/*	private static void updateCurrentRelationUsingExistingEntitiesIfPossible(Network net, Relation existingRelation, Relation outsideRelation)
 	{
 		existingRelation.setName(outsideRelation.getName());
 		existingRelation.setLastModifiedDate(outsideRelation.getLastModifiedDate());
@@ -230,4 +181,4 @@ public class InMemoryUtils {
 		return;
 	}
 	
-}
+*/}

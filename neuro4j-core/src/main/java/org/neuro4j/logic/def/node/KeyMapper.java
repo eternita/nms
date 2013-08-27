@@ -4,11 +4,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 import org.neuro4j.apache.commons.beanutils.ConstructorUtils;
-import org.neuro4j.core.Entity;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.LogicBlock;
 import org.neuro4j.logic.swf.FlowExecutionException;
-import org.neuro4j.logic.swf.FlowInitializationException;
 import org.neuro4j.logic.swf.SWEUtils;
 import org.neuro4j.logic.swf.SWFConstants;
 import org.neuro4j.logic.swf.SWFParametersConstants;

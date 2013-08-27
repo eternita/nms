@@ -1,6 +1,6 @@
 package org.neuro4j.logic.def.node;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.LogicBlock;
 import org.neuro4j.logic.swf.FlowExecutionException;
@@ -45,7 +45,7 @@ public class SetViewTemplate extends LogicBlock {
 
 	
 	
-	public void load(Entity entity) throws FlowInitializationException
+	public void load(ERBase entity) throws FlowInitializationException
 	{
 		super.load(entity);		
 		staticTemplateName = getNotEmptyProperty(SWFParametersConstants.VIEW_NODE_TEMPLATE_NAME);

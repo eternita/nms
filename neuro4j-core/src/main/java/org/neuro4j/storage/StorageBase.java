@@ -11,9 +11,8 @@ import java.io.OutputStream;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.utils.ClassloaderUtil;
 import org.neuro4j.utils.KVUtils;
 
@@ -129,13 +128,13 @@ public abstract class StorageBase implements Storage {
 		return;
 	}
 	
-	public Entity getEntityByUUID(String entityUUID) throws StorageException
+	public ERBase getById(String entityUUID) throws StorageException
 	{
-		Entity e = null;
+		ERBase e = null;
 		Network net;
 		try {
 			net = query("select e(id=?)", new String[]{entityUUID});
-			e = net.getEntityByUUID(entityUUID);
+			e = net.getById(entityUUID);
 		} catch (NQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -144,17 +143,17 @@ public abstract class StorageBase implements Storage {
 	}
 	
 
-	public Relation getRelationByUUID(String relationUUID) throws StorageException {
-		Relation r = null;
-		Network net;
-		try {
-			net = query("select r(id=?)", new String[]{relationUUID});
-			r = net.getRelationByUUID(relationUUID);
-		} catch (NQLException e) {
-			e.printStackTrace();
-		}
-		return r;
-	}	
+//	public Relation getRelationByUUID(String relationUUID) throws StorageException {
+//		Relation r = null;
+//		Network net;
+//		try {
+//			net = query("select r(id=?)", new String[]{relationUUID});
+//			r = net.getRelationByUUID(relationUUID);
+//		} catch (NQLException e) {
+//			e.printStackTrace();
+//		}
+//		return r;
+//	}	
 	
 	/**
 	 * "select e[?] depth 1", new String[]{entityUUID}

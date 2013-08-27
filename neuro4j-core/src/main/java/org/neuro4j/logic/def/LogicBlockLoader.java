@@ -1,6 +1,6 @@
 package org.neuro4j.logic.def;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.logic.ExecutableEntityFactory;
 import org.neuro4j.logic.ExecutableEntityNotFoundException;
 import org.neuro4j.logic.swf.FlowInitializationException;
@@ -17,7 +17,7 @@ public class LogicBlockLoader {
 		return INSTANCE;
 	}
 	
-	public  LogicBlock  lookupBlock(Entity entity, String className) throws ExecutableEntityNotFoundException, FlowInitializationException
+	public  LogicBlock  lookupBlock(ERBase entity, String className) throws ExecutableEntityNotFoundException, FlowInitializationException
 	{
 		LogicBlock  block = (LogicBlock) ExecutableEntityFactory.getActionEntity(className); 
 		

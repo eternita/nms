@@ -1,13 +1,12 @@
 package org.neuro4j.logic.def.node;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicProcessor;
 import org.neuro4j.logic.LogicProcessorException;
 import org.neuro4j.logic.def.LogicBlock;
 import org.neuro4j.logic.swf.FlowExecutionException;
-import org.neuro4j.logic.swf.FlowInitializationException;
 import org.neuro4j.logic.swf.SWFConstants;
 import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
@@ -46,11 +45,11 @@ public class CallBlock extends LogicBlock {
 		Network network = (Network) ctx.get(SWFConstants.AC_FLOW_NETWORK);
 		LogicProcessor logicProcessor = (LogicProcessor) ctx.get(SWFConstants.AC_LOGIC_PROCESSOR);
 		
-		Entity e = network.getEntityByUUID(callNodeId);
+		ERBase e = network.getById(callNodeId);
 
 		if (null == e)
 			try {
-				e = storage.getEntityByUUID(callNodeId);
+				e = storage.getById(callNodeId);
 			} catch (StorageException e1) {
 				throw new FlowExecutionException("Can't load from storage entity with id " + lba.getUuid(), e1);
 			}

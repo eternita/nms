@@ -25,7 +25,7 @@ public class FlowSet {
 	}
 
 	private void updateVisibility(Network network){
-		Entity config =  network.getEntityByName("networkConfig");
+		ERBase config =  network.get("name", "networkConfig");
 		if (config != null)
 		{
 			String visibilityStr =  config.getProperty(SWFParametersConstants.NETWORK_VISIBILITY);

@@ -128,15 +128,7 @@ public class NQLProcessorInMemory2 extends NQLProcessorBase {
 		
 
 		
-		for (String id : outputNet.getEntities())
-		{
-			ERBase er = pipeNet.getById(id);
-			if (!er.isCompleteLoaded())
-				NetworkUtils.loadConnected(er, this.pipeNet, baseStorage);
-			this.pipeNet.remove(er);
-		}
-		
-		for (String id : outputNet.getRelations())
+		for (String id : outputNet.getIds())
 		{
 			ERBase er = pipeNet.getById(id);
 			if (!er.isCompleteLoaded())

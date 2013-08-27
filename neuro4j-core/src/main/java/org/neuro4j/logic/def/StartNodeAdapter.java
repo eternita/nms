@@ -1,12 +1,12 @@
 package org.neuro4j.logic.def;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.logic.swf.SWFParametersConstants;
 import org.neuro4j.logic.swf.enums.StartNodeTypes;
 
 public class StartNodeAdapter {
 	
-	Entity entity;
+	ERBase entity;
 	StartNodeTypes type;
 	String flowPackage;
 	
@@ -15,7 +15,7 @@ public class StartNodeAdapter {
 		super();
 	}
 	
-	public StartNodeAdapter(Entity entity, String flowPackage)
+	public StartNodeAdapter(ERBase entity, String flowPackage)
 	{
 		this();
 		this.entity = entity;
@@ -23,7 +23,7 @@ public class StartNodeAdapter {
 		proccessParameters(entity);
 	}
 	
-	private void proccessParameters(Entity startNode) {
+	private void proccessParameters(ERBase startNode) {
 		String nodeType = startNode.getProperty(SWFParametersConstants.START_NODE_TYPE);
 		nodeType = (nodeType == null || nodeType.trim().equals("")) ? StartNodeTypes.getDefaultType().name(): nodeType.toUpperCase();
 		type = StartNodeTypes.valueOf(nodeType);
@@ -44,7 +44,7 @@ public class StartNodeAdapter {
 		return entity.getName();
 	}
 	
-	public Entity getEntity()
+	public ERBase getEntity()
 	{
 		return entity;
 	}

@@ -14,7 +14,6 @@ import java.util.Properties;
 import java.util.Set;
 
 import org.neuro4j.core.ERBase;
-import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.utils.N4JConfig;
 import org.neuro4j.utils.StringUtils;
@@ -29,7 +28,7 @@ public class N4JSQLUtils {
 		headers.add("n4jtype");
 		headers.add("connected");
 		
-		for (String id : net.getERBaseIds())
+		for (String id : net.getIds())
 		{
 			ERBase er = net.getById(id);
 			headers.addAll(er.getPropertyKeys());
@@ -141,7 +140,7 @@ public class N4JSQLUtils {
 		Network net = new Network();
 		
 		// create header
-		Entity header = new Entity("n4j_sql_table_header");
+		ERBase header = new ERBase("n4j_sql_table_header");
 		int cnt = rsmd.getColumnCount();
 		for (int i = 1; i <= cnt; i++)
 		{
@@ -153,7 +152,7 @@ public class N4JSQLUtils {
 		// create rows
 		while (result.next())
 		{
-			Entity row = new Entity("n4j_row");
+			ERBase row = new ERBase("n4j_row");
 			for (int i = 1; i <= cnt; i++)
 			{
 				String key = rsmd.getColumnName(i);
@@ -173,7 +172,7 @@ public class N4JSQLUtils {
 		List<String> values = new ArrayList<String>();
 		StringBuffer sb = new StringBuffer();
 		sb.append("INSERT INTO "+ tableName);
-		sb.append("(id, name, n4jtype, connected");
+		sb.append("(id, name, connected");
 		
 		sb.append("");
 		for (String key : er.getPropertyKeys())
@@ -185,12 +184,7 @@ public class N4JSQLUtils {
 		
 		sb.append(" VALUES(");
 		sb.append("'" + er.getUuid() + "'").append(", ");
-		sb.append("'" + er.getName() + "'").append(", ");
-		if (er instanceof Entity)
-			sb.append("'").append("e").append("'");
-		else
-			sb.append("'").append("r").append("'");
-			
+		sb.append("'" + er.getName() + "'").append(", ");			
 		sb.append(", ").append("'").append(StringUtils.set2str(er.getConnectedKeys())).append("'");
 		
 		for (String val : values)

@@ -2,7 +2,7 @@ package org.neuro4j.logic;
 
 import java.util.Properties;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.swf.SimpleWorkflowException;
 import org.neuro4j.storage.Storage;
@@ -22,6 +22,6 @@ public interface LogicProcessor {
 	 * @return
 	 * @throws SimpleWorkflowException 
 	 */
-	public LogicContext action(Entity start, Network network, Storage storage, LogicContext logicContext) throws LogicProcessorException;
+	public LogicContext action(ERBase start, Network network, Storage storage, LogicContext logicContext) throws LogicProcessorException;
 	
 }
