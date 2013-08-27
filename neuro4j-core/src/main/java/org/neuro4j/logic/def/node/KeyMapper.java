@@ -1,7 +1,9 @@
 package org.neuro4j.logic.def.node;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
+import org.neuro4j.apache.commons.beanutils.ConstructorUtils;
 import org.neuro4j.core.Entity;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.LogicBlock;
@@ -30,12 +32,21 @@ public class KeyMapper extends LogicBlock {
 					if (SWFConstants.NULL_VALUE.equalsIgnoreCase(splittedValue[0]))
 					{
 						ctx.put(splittedValue[1], null);
+					// ex. "(java.util.HashSet)" will create new instance of java.util.HashSet. can be just in SOURCE
+					} else if(splittedValue[0] != null && splittedValue[0].startsWith(SWFConstants.NEW_CLASS_SYMBOL_START) && splittedValue[0].endsWith(SWFConstants.NEW_CLASS_SYMBOL_END)) {
+						
+						splittedValue[0] = splittedValue[0].replace(SWFConstants.QUOTES_SYMBOL, "").replace("(", "").replace(")", "");
+						
+						Object obj = createNewInstance(splittedValue[0]);
+						
+						ctx.put(splittedValue[1], obj);
 						
 					} else if(splittedValue[0] != null && splittedValue[0].startsWith(SWFConstants.QUOTES_SYMBOL)) {
+						
 						splittedValue[0] = splittedValue[0].replace(SWFConstants.QUOTES_SYMBOL, "");
 						ctx.put(splittedValue[1], splittedValue[0]);
 						
-					} else {
+					}else {
 						Object obj = ctx.get(splittedValue[0]);
 						ctx.put(splittedValue[1], obj);
 					}
@@ -44,6 +55,28 @@ public class KeyMapper extends LogicBlock {
 			}
 		}
 		return NEXT;
+	}
+	
+	private Object createNewInstance(String clazzName) {
+		Class<?> beanClass = null;
+		Object beanInstance = null;
+		try {
+			beanClass = Class.forName(clazzName);
+			beanInstance = ConstructorUtils.invokeConstructor(beanClass, null);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		}
+
+		return beanInstance;
+
 	}
 
 

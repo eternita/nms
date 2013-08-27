@@ -29,4 +29,6 @@ public class SWFConstants {
 	public final static String NULL_VALUE = "NULL";
 
 	public final static String QUOTES_SYMBOL = "\"";
+	public final static String NEW_CLASS_SYMBOL_START = "\"(";
+	public final static String NEW_CLASS_SYMBOL_END = ")\"";
 }
