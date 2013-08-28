@@ -1,6 +1,6 @@
 package org.neuro4j.logic.def;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.def.node.StartBlock;
 import org.neuro4j.logic.swf.FlowExecutionException;
@@ -25,7 +25,7 @@ public class FlowSet {
 	}
 
 	private void updateVisibility(Network network){
-		ERBase config =  network.get("name", "networkConfig");
+		ERBase config =  network.getFirst("name", "networkConfig");
 		if (config != null)
 		{
 			String visibilityStr =  config.getProperty(SWFParametersConstants.NETWORK_VISIBILITY);
@@ -53,9 +53,9 @@ public class FlowSet {
 		return visibility == NetworkVisibility.Public; 
 	}
 
-	public Entity getEntityByName(String startNode) 
+	public ERBase getEntityByName(String startNode) 
 	{
-		return network.getEntityByName(startNode);
+		return network.getFirst("name", startNode);
 	}
 
 	public Network query(String q) throws NQLException {
@@ -64,7 +64,7 @@ public class FlowSet {
 	
 	public StartNodeAdapter getStartNodeAdapter(String startNodeName) throws FlowExecutionException
 	{
-		Entity startNodeEntity = this.network.getEntityByName(startNodeName);
+		ERBase startNodeEntity = this.network.getFirst("name", startNodeName);
 		
 		if (startNodeEntity == null)
 		{

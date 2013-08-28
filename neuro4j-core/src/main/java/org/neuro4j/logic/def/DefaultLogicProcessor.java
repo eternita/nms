@@ -168,7 +168,8 @@ public class DefaultLogicProcessor implements LogicProcessor
 	private static ERBase getNext(ERBase currentStep, Network network, Storage storage)
 	{
 		ERBase next = null;
-		for (ERBase r : currentStep.getRelations(SWFConstants.NEXT_RELATION_NAME))
+//		for (ERBase r : currentStep.getRelations(SWFConstants.NEXT_RELATION_NAME))
+		for (ERBase r : currentStep.getConnected("name", SWFConstants.NEXT_RELATION_NAME))
 		{
 			if (null != r)
 			{
@@ -176,7 +177,7 @@ public class DefaultLogicProcessor implements LogicProcessor
 				if (null == nextEid) 
 					continue;
 
-				Set<ERBase> rparts = r.getAllParticipants(currentStep.getUuid());
+				Set<ERBase> rparts = r.getAllConnectedFiltered(currentStep.getUuid());
 				if (rparts.size() > 0)
 				{
 					ERBase rp = rparts.iterator().next();
@@ -185,7 +186,7 @@ public class DefaultLogicProcessor implements LogicProcessor
 						next = rp;
 						
 						// check if next has futher relations -> if not -> reload it from storage
-						if (0 == next.getRelations(SWFConstants.NEXT_RELATION_NAME).size())
+						if (0 == next.getConnected("name", SWFConstants.NEXT_RELATION_NAME).size())
 						{
 							next = getEntityByUUID(next.getUuid(), network, storage); // reload from storage to get futher relations
 						}

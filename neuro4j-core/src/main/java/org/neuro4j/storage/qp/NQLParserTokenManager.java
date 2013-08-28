@@ -4,7 +4,6 @@ import java.lang.StringBuffer;
 import java.io.StringReader;
 import java.io.Reader;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Entity;
 import org.neuro4j.core.Path;
 import java.util.Map;
 import java.util.HashMap;

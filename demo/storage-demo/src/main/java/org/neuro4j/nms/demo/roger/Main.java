@@ -17,7 +17,8 @@ public class Main {
 		Storage storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
 
 		StorageBuilder stroageBuilder = new StorageBuilder(storage);
-		
+
+/*		
 		// example of simple query
 		stroageBuilder.query("select e() limit 3");
 		
@@ -28,11 +29,13 @@ public class Main {
 
 		// query after cleanup -> network should be empty
 		stroageBuilder.query("select e() limit 3");
+*/		
 		
 		// example how to post data with Java client
 		// post some data using Java client
 		stroageBuilder.postDataFromJava();
-		
+
+/*		
 		// import network from file example
 		// import some data about a Russian Empire's Ruble exported from http://coinshome.net
 		// http://www.coinshome.net/en/neuro4j/net-browser.htm?eid=B_Z_AAEBWpoAAAEj8a5ucewv
@@ -50,7 +53,7 @@ public class Main {
 		// example of reading binary data from Network using representations
 		// query entity John and download his photo
 		stroageBuilder.readBinaryDataFromJava();
-
+*/
 	}
 
 }

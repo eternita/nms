@@ -1,7 +1,7 @@
 package org.neuro4j.logic.def;
 
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.core.rel.DirectionRelation;
 
 public class WorkflowBuilder {
@@ -36,7 +36,7 @@ public class WorkflowBuilder {
 		net.add(b1.getLogicBlockAdapter());
 		net.add(b2.getLogicBlockAdapter());
 		
-		Relation r = new DirectionRelation(
+		ERBase r = new DirectionRelation(
 				relation, 
 				b1.getLogicBlockAdapter(), 
 				b2.getLogicBlockAdapter());

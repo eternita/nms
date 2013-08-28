@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 
 public class EntityXML {
 
@@ -26,7 +26,7 @@ public class EntityXML {
 	List<PropertyXML> properties = new ArrayList<PropertyXML>();
 	
 	@XmlJavaTypeAdapter(RelationTailListXMLAdapter.class)
-	@XmlElement(name="relations")
+	@XmlElement(name="connected")
 	List<RelationTailXML> relations = new ArrayList<RelationTailXML>();
 	
 	public EntityXML() {
@@ -44,7 +44,7 @@ public class EntityXML {
 		this.name = name;
 	}
 
-	public EntityXML(Entity entity) {
+	public EntityXML(ERBase entity) {
 		super();
 		this.uuid = entity.getUuid();
 		this.name = entity.getName();
@@ -52,7 +52,7 @@ public class EntityXML {
 		for (String key : entity.getPropertyKeysWithRepresentations())
 			properties.add(new PropertyXML(key, entity.getProperty(key)));
 		
-		for (String rid : entity.getRelationsKeys())
+		for (String rid : entity.getConnectedKeys())
 			relations.add(new RelationTailXML(rid));
 		
 	}

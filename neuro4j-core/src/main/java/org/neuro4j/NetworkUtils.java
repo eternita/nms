@@ -9,18 +9,16 @@ import java.util.Map;
 import java.util.Set;
 
 import org.neuro4j.core.ERBase;
-import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
-import org.neuro4j.core.Relation;
 import org.neuro4j.storage.Storage;
 
 public class NetworkUtils {
 
 	/**
-	 * Merge entities & relations from net2 to net1
+	 * Merge entities from net2 to net1
 	 * 
-	 * If net1 & net2 have entity or relation with the same uuid (but different objects) will survive (will be returned) which is in net1 
+	 * If net1 & net2 have entity with the same uuid (but different objects) will survive (will be returned) which is in net1 
 	 * 
 	 * @param net1
 	 * @param net2
@@ -28,16 +26,10 @@ public class NetworkUtils {
 	 */
 	public static Network sumNetworks(Network net1, Network net2)
 	{
-		for (String eid : net2.getEntities())
+		for (String eid : net2.getIds())
 		{
-			Entity e2 = net2.getEntityByUUID(eid);
+			ERBase e2 = net2.getById(eid);
 			net1.add(e2);
-		}
-		
-		for (String rid : net2.getRelations())
-		{
-			Relation r2 = net2.getRelationByUUID(rid);
-			net1.add(r2);
 		}
 
 		return net1;
@@ -67,26 +59,15 @@ public class NetworkUtils {
 	
 	public static boolean loadConnected(ERBase er, Storage storage)
 	{
-		if (er instanceof Entity)
-			loadConnected((Entity) er, storage); 
-		
-		else if (er instanceof Relation)
-			loadConnected((Relation) er, storage); 
-		
-		return false;
-	}
-	
-	private static boolean loadConnected(Entity e, Storage storage)
-	{
 		try
 		{
-			for (String rid : e.getRelationsKeys())
+			for (String rid : er.getConnectedKeys())
 			{
-				if (null == e.getRelation(rid))
+				if (null == er.getConnected(rid))
 				{
-					Relation r = storage.getRelationByUUID(rid); 
+					ERBase r = storage.getById(rid); 
 					if (null != r)
-						e.addRelation(r);
+						er.addConnected(r);
 				}
 			}
 		} catch (Exception ex)
@@ -98,29 +79,7 @@ public class NetworkUtils {
 		return true;
 	}
 	
-	private static boolean loadConnected(Relation r, Storage storage)
-	{
-		try
-		{
-			if (!r.isCompleteLoaded())
-			{
-				for (String reid : r.getParticipantsKeys())
-				{
-					if (null == r.getParticipant(reid))
-					{
-						Entity re = storage.getEntityByUUID(reid); 
-						if (null != re)
-							r.addParticipant(re);
-					}
-				}
-			}
-		} catch (Exception ex)
-		{
-			ex.printStackTrace();
-			return false;
-		}
-		return true;
-	}
+	
 
 	/**
 	 * load all connected
@@ -132,40 +91,23 @@ public class NetworkUtils {
 	 */
 	public static boolean loadConnected(ERBase er, Network network, Storage storage)
 	{
-		if (er instanceof Entity)
-			loadConnected((Entity)er, network, storage, Integer.MAX_VALUE);
-		
-		else if (er instanceof Relation)
-			loadConnected((Relation)er, network, storage, Integer.MAX_VALUE);
-		
-		return false;
+		return loadConnected(er, network, storage, Integer.MAX_VALUE);
 	}
 	
-	public static boolean loadConnected(ERBase er, Network network, Storage storage, int connectedCountLimit)
-	{
-		if (er instanceof Entity)
-			loadConnected((Entity)er, network, storage, connectedCountLimit);
-		
-		else if (er instanceof Relation)
-			loadConnected((Relation)er, network, storage, connectedCountLimit);
-		
-		return false;
-	}
-
-	private static boolean loadConnected(Entity e, Network network, Storage storage, int connectedCountLimit)
+	public static boolean loadConnected(ERBase e, Network network, Storage storage, int connectedCountLimit)
 	{
 		try
 		{
 			int counter = 0;
-			for (String rid : e.getRelationsKeys())
+			for (String rid : e.getConnectedKeys())
 			{
 				counter++;
 				if (counter >= connectedCountLimit)
 					break;
 				
-				if (null == e.getRelation(rid))
+				if (null == e.getConnected(rid))
 				{
-					Relation r = storage.getRelationByUUID(rid); 
+					ERBase r = storage.getById(rid); 
 					if (null != r)
 						network.add(r);
 				}
@@ -179,46 +121,16 @@ public class NetworkUtils {
 		return true;
 	}
 	
-	private static boolean loadConnected(Relation r, Network network, Storage storage, int connectedCountLimit)
+	public static Map<String, List<ERBase>> groupConnectedByName(Set<ERBase> relations)
 	{
-		try
-		{
-			if (!r.isCompleteLoaded())
-			{
-				int counter = 0;
-				for (String reid : r.getParticipantsKeys())
-				{
-					counter++;
-					if (counter >= connectedCountLimit)
-						break;
-					
-					if (null == r.getParticipant(reid))
-					{
-						Entity re = storage.getEntityByUUID(reid); 
-						if (null != re)
-							network.add(re);
-					}
-				}
-			}
-		} catch (Exception ex)
-		{
-			ex.printStackTrace();
-			return false;
-		}
-		
-		return true;
-	}
-	
-	public static Map<String, List<Relation>> groupRelationsByName(Set<Relation> relations)
-	{
-		Map<String, List<Relation>> groupMap = new HashMap<String, List<Relation>>();
-		for (Relation r : relations)
+		Map<String, List<ERBase>> groupMap = new HashMap<String, List<ERBase>>();
+		for (ERBase r : relations)
 		{
 			String rName = r.getName();
-			List<Relation> rList = groupMap.get(rName);
+			List<ERBase> rList = groupMap.get(rName);
 			if (null == rList)
 			{
-				rList = new ArrayList<Relation>();
+				rList = new ArrayList<ERBase>();
 				groupMap.put(rName, rList);
 			}
 			
@@ -250,7 +162,7 @@ public class NetworkUtils {
 	 * @param e2
 	 * @return
 	 */
-	public static boolean isConnected(Entity e1, Entity e2)
+	public static boolean isConnectedThroughMediator(ERBase e1, ERBase e2)
 	{
 		if (null == e1 || null == e2)
 			return false;
@@ -269,12 +181,12 @@ public class NetworkUtils {
 	
 
 	
-	public static void addRelation(Network net, Entity b1, Entity b2, String relation)
+	public static void addRelation(Network net, ERBase b1, ERBase b2, String relation)
 	{
 		net.add(b1);
 		net.add(b2);
 		
-		Relation r = new Relation(
+		ERBase r = new ERBase(
 				relation, 
 				b1, 
 				b2);

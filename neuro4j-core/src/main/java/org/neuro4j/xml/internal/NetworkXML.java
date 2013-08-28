@@ -14,10 +14,6 @@ public class NetworkXML {
 	@XmlElement(name="entities")
 	List<org.neuro4j.xml.internal.EntityXML> entities = new ArrayList<org.neuro4j.xml.internal.EntityXML>();
 	
-	@XmlJavaTypeAdapter(RelationListXMLAdapter.class)
-	@XmlElement(name="relations")
-	List<org.neuro4j.xml.internal.RelationXML> relations = new ArrayList<org.neuro4j.xml.internal.RelationXML>();
-	
 	public NetworkXML()
 	{
 		
@@ -25,15 +21,10 @@ public class NetworkXML {
 	
 	public NetworkXML(org.neuro4j.core.Network n)
 	{
-		for (String eid : n.getEntities())
+		for (String eid : n.getIds())
 		{
-			org.neuro4j.core.Entity e = n.getEntityByUUID(eid);
+			org.neuro4j.core.ERBase e = n.getById(eid);
 			entities.add(new org.neuro4j.xml.internal.EntityXML(e));
-		}
-		for (String rid : n.getRelations())
-		{
-			org.neuro4j.core.Relation e = n.getRelationByUUID(rid);
-			relations.add(new org.neuro4j.xml.internal.RelationXML(e));
 		}
 		
 	}
@@ -42,8 +33,4 @@ public class NetworkXML {
 		return entities;
 	}
 
-	public List<org.neuro4j.xml.internal.RelationXML> getRelations() {
-		return relations;
-	}
-		
 }

@@ -2,15 +2,10 @@ package org.neuro4j.logic.swf;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.Stack;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.core.rel.DirectionRelation;
 import org.neuro4j.logic.def.FlowSet;
 import org.neuro4j.storage.NQLException;
@@ -39,7 +34,7 @@ public class SWEUtils {
 			try {
 				Network net = flowNet.query(SELECT_START_NODE_QUERY);
 				
-				for (String eid : net.getEntities())
+				for (String eid : net.getIds())
 					ids.add(eid);
 				
 			} catch (NQLException e) {
@@ -65,8 +60,8 @@ public class SWEUtils {
 			try {
 				Network net = flowNet.query(SELECT_START_NODE_QUERY);
 				
-				for (String eid : net.getEntities())
-					startNodeList.add(net.getEntityByUUID(eid).getName());
+				for (String eid : net.getIds())
+					startNodeList.add(net.getById(eid).getName());
 				
 			} catch (NQLException e) {
 				e.printStackTrace();
@@ -84,11 +79,11 @@ public class SWEUtils {
 	 * @param block
 	 * @return
 	 */
-	public static List<Relation> getOutgoingRelations(Entity block)
+	public static List<ERBase> getOutgoingRelations(ERBase block)
 	{
-		List<Relation> outRelations = new ArrayList<Relation>();
+		List<ERBase> outRelations = new ArrayList<ERBase>();
 		
-		for (Relation r : block.getRelations())
+		for (ERBase r : block.getConnected()) // TODO: rework with (type='relations') ..
 		{
 			if (block.getUuid().equals(r.getProperty(DirectionRelation.FROM_KEY)))
 				outRelations.add(r);

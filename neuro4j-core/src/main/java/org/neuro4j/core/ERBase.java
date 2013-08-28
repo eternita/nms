@@ -98,7 +98,7 @@ public class ERBase extends KVBase implements Serializable {
 
 	public void addConnected(ERBase erBase)
 	{
-		erBase.connected.put(this.getUuid(), this);
+		this.connected.put(erBase.getUuid(), erBase);
 		
 		if (null != erBase)
 			addConnectedTail(erBase);
@@ -230,6 +230,28 @@ public class ERBase extends KVBase implements Serializable {
 			throw new RuntimeException("ERBase " + uuid + " is not complete loaded)");
 		
 		return getConnected();
+	}
+	
+	/**
+	 * 
+	 * @param ids IDs to filter out
+	 * @return
+	 */
+	public Set<ERBase> getAllConnectedFiltered(String... ids) {
+		
+		Set<ERBase> cset = getAllConnected();
+		
+		// filter out excluded
+		if (null != ids)
+		{
+			for (String id : ids)
+			{
+				ERBase exclude = this.connected.get(id);
+				if (null != exclude)
+					cset.remove(exclude);
+			}
+		}
+		return cset;
 	}
 	
 	public ERBase getConnected(String id) {

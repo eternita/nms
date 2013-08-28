@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 
 import org.neuro4j.NetworkUtils;
 import org.neuro4j.core.ERBase;
-import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Representation;
 import org.neuro4j.storage.NQLException;
@@ -70,7 +69,7 @@ public class StorageBuilder {
 	public void postDataFromJava()
 	{
 		Network net = new Network();
-		Entity roger = new Entity("Dog Roger");
+		ERBase roger = new ERBase("Dog Roger");
 		roger.setProperty("age", "3");
 		roger.setProperty("sex", "male");
 		roger.setProperty("color", "brown");
@@ -80,11 +79,11 @@ public class StorageBuilder {
 		Representation r1 = uploadRepresentation("./data/demo-files/dog_roger.jpg");
 		roger.addRepresentation(r1);
 
-		Entity house = new Entity("House");
+		ERBase house = new ERBase("House");
 		house.setProperty("address", "...");
 		house.setProperty("size", "...");
 
-		Entity john = new Entity("John");
+		ERBase john = new ERBase("John");
 		john.setProperty("first_name", "John");
 		john.setProperty("last_name", "Smith");
 		john.setProperty("age", "27");
@@ -92,41 +91,41 @@ public class StorageBuilder {
 		Representation r2 = uploadRepresentation("./data/demo-files/john.jpg");
 		john.addRepresentation(r2);
 		
-		Entity marry = new Entity("Marry");
+		ERBase marry = new ERBase("Marry");
 		marry.setProperty("first_name", "Marry");
 		marry.setProperty("last_name", "Smith");
 		marry.setProperty("age", "25");
 
-		Entity jane = new Entity("Jane");
+		ERBase jane = new ERBase("Jane");
 		jane.setProperty("first_name", "Jane");
 		jane.setProperty("last_name", "Smith");
 		jane.setProperty("age", "23");
 		
-		Entity mike = new Entity("Mike");
+		ERBase mike = new ERBase("Mike");
 		mike.setProperty("first_name", "Mike");
 		mike.setProperty("last_name", "Johnson");
 
-		Entity brad = new Entity("Brad");
+		ERBase brad = new ERBase("Brad");
 		brad.setProperty("first_name", "Brad");
 		brad.setProperty("last_name", "Perterson");
 
-		Entity jasica = new Entity("Jasica");
+		ERBase jasica = new ERBase("Jasica");
 		jasica.setProperty("first_name", "Jasica");
 
 		
-		Entity hp = new Entity("HP Company");
+		ERBase hp = new ERBase("HP Company");
 		hp.setProperty("address", "USA, Idaho, Boise");
 
-		Entity walmart = new Entity("Walmart");
+		ERBase walmart = new ERBase("Walmart");
 		walmart.setProperty("address", "USA, Idaho, Boise");
 
-		Entity micron = new Entity("Micron Company");
+		ERBase micron = new ERBase("Micron Company");
 		micron.setProperty("address", "USA, Idaho, Boise");
 
-		Entity school = new Entity("High School");
+		ERBase school = new ERBase("High School");
 		school.setProperty("address", "USA, Idaho, Boise, XYZ");
 		
-		Entity coins = new Entity("Coins");
+		ERBase coins = new ERBase("Coins");
 
 		
 		NetworkUtils.addRelation(net, roger, house, "live at");
@@ -162,7 +161,7 @@ public class StorageBuilder {
 	{
 		try {
 			Network net = storage.query("INSERT R(desc='coins John interested in')");
-			String id = net.getERBaseIds()[0];
+			String id = net.getIds()[0];
 			
 			storage.query("UPDATE " +
 					"SET " +

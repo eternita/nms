@@ -116,40 +116,52 @@ public class NetworkConverter {
 
 		for (org.neuro4j.xml.internal.EntityXML e : net.getEntities())
 		{
-			org.neuro4j.core.Entity entity = new org.neuro4j.core.Entity(e.getName());
+			org.neuro4j.core.ERBase entity = new org.neuro4j.core.ERBase(e.getName());
 			entity.setUuid(e.getUuid());
 			for (PropertyXML rep : e.getRepresentations())
 				entity.setProperty(rep.getKey(), rep.getValue());
 			
-			for (org.neuro4j.xml.internal.RelationTailXML rp : e.getRelations())
-			{
-//				org.neuro4j.core.Relation relation = network.getEntityByUUID(rp.getUuid());
-				entity.addRelation(rp.getUuid());
-			}			
 			network.add(entity);
 		}
 		
-		for (org.neuro4j.xml.internal.RelationXML r : net.getRelations())
+		// restore connected
+		for (org.neuro4j.xml.internal.EntityXML e : net.getEntities())
 		{
-			org.neuro4j.core.Relation relation = new org.neuro4j.core.Relation(r.getName());
-			relation.setUuid(r.getUuid());
+			org.neuro4j.core.ERBase entity = network.getById(e.getUuid());
 			
-			for (PropertyXML rep : r.getRepresentations())
-				relation.setProperty(rep.getKey(), rep.getValue());
-
-
-			for (org.neuro4j.xml.internal.EntityTailXML rp : r.getRelationParts())
+			if (null != entity)
 			{
-				// try to resolve entity (if it has been loaded)
-				org.neuro4j.core.Entity relationPart = network.getEntityByUUID(rp.getUuid());
-				if (null != relationPart)
-					relation.addParticipant(relationPart);
-				else
-					relation.addParticipant(rp.getUuid());
+				for (org.neuro4j.xml.internal.RelationTailXML rp : e.getRelations())
+				{
+					org.neuro4j.core.ERBase con = network.getById(rp.getUuid());
+					if (null != con)
+						entity.addConnected(con);
+				}			
 			}
-			
-			network.add(relation);
 		}
+		
+		
+//		for (org.neuro4j.xml.internal.RelationXML r : net.getRelations())
+//		{
+//			org.neuro4j.core.Relation relation = new org.neuro4j.core.Relation(r.getName());
+//			relation.setUuid(r.getUuid());
+//			
+//			for (PropertyXML rep : r.getRepresentations())
+//				relation.setProperty(rep.getKey(), rep.getValue());
+//
+//
+//			for (org.neuro4j.xml.internal.EntityTailXML rp : r.getRelationParts())
+//			{
+//				// try to resolve entity (if it has been loaded)
+//				org.neuro4j.core.Entity relationPart = network.getEntityByUUID(rp.getUuid());
+//				if (null != relationPart)
+//					relation.addParticipant(relationPart);
+//				else
+//					relation.addParticipant(rp.getUuid());
+//			}
+//			
+//			network.add(relation);
+//		}
 		
 		
 		return network;			

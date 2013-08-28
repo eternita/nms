@@ -111,7 +111,9 @@ public class InMemoryUtils {
 		{
 			// TODO do not make deep copy - it can lead to object duplications (through entities in relations)
 //			currentEntity = (Entity) ClassUtils.deepCloneBySerialization(newEntity);
-			currentEntity = newEntity.cloneBase();
+
+//			currentEntity = newEntity.cloneBase();
+			currentEntity = newEntity.cloneWithConnectedKeys();
 			net.add(currentEntity);
 
 		} else {

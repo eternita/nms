@@ -18,10 +18,8 @@ import java.util.logging.Logger;
 
 import org.neuro4j.NetworkUtils;
 import org.neuro4j.core.ERBase;
-import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
-import org.neuro4j.core.Relation;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.SimpleWorkflowEngine;
@@ -29,10 +27,6 @@ import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.storage.inmemory.qp.InMemoryNQLProcessorStreamQuery;
 import org.neuro4j.storage.inmemory.qp.N4JSQLUtils;
-import org.neuro4j.storage.qp.ERType;
-import org.neuro4j.storage.qp.Filter;
-import org.neuro4j.storage.qp.NQLProcessor;
-import org.neuro4j.storage.qp.NQLProcessorStream;
 import org.neuro4j.utils.N4JConfig;
 
 
@@ -303,11 +297,12 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			
 			switch (filter.erType) {
 			case relation:
-				ids = outputNet.getEntities();
-				break;
+//				ids = outputNet.getEntities();
+//				break;
 
 			case entity:
-				ids = outputNet.getRelations();
+//				ids = outputNet.getRelations();
+				ids = outputNet.getIds();
 				break;
 
 			default:
@@ -394,7 +389,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			N4JSQLUtils.createTempTable(conn, tableName, headers);
 			
 			// populate temp table
-			for (String id : this.pipeNet.getERBaseIds())
+			for (String id : this.pipeNet.getIds())
 			{
 				ERBase er = this.pipeNet.getById(id);
 				N4JSQLUtils.addER2Table(conn, er, tableName);
@@ -534,20 +529,26 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			switch (currentERType)
 			{
 			case entity:
-				for (String id : storageNet.getEntities())
-				{
-//					srcids.add(id);
-					connectedStack.add(new Path(id));
-				}
-				break;
+//				for (String id : storageNet.getEntities())
+//				{
+//					connectedStack.add(new Path(id));
+//				}
+//				break;
+				
 			case relation:
-				for (String id : storageNet.getRelations())
+//				for (String id : storageNet.getRelations())
+//				{
+//					connectedStack.add(new Path(id));
+//				}
+				
+				for (String id : storageNet.getIds())
 				{
-//					srcids.add(id);
 					connectedStack.add(new Path(id));
 				}
+
 				break;
-				default:
+				
+			default:
 					throw new RuntimeException("Wring ERType " + currentERType);
 			}
 		} else {
@@ -638,7 +639,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			if (null == src)
 				continue;
 			
-			for (String cid : connectedNet.getERBaseIds())
+			for (String cid : connectedNet.getIds())
 			{
 				if (src.isConnectedTo(cid))
 				{
@@ -746,7 +747,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			currentERNetwork = new Network();
 			for (ERBase er : this.pipeNet.getERBases())
 			{
-				switch (currentERType)
+/*				switch (currentERType)
 				{
 				case entity:
 					if (er instanceof Entity)
@@ -757,6 +758,8 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 						currentERs.add(er);
 					break;
 				}				
+*/
+				currentERs.add(er);
 			}
 		} else {
 			for (ERBase er : currentERNetwork.getERBases())
@@ -957,17 +960,21 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			switch (currentERType) 
 			{
 			case entity:
-				for (Entity e : pipeNet.getEntities(key, value)) {
-					currentERNetwork.add(e.cloneWithConnectedKeys());
-				}
-
-				break;
+//				for (Entity e : pipeNet.getEntities(key, value)) {
+//					currentERNetwork.add(e.cloneWithConnectedKeys());
+//				}
+//				break;
+				
 			case relation:
-				for (Relation r : pipeNet.getRelations(key, value)) {
-					currentERNetwork.add(r.cloneWithConnectedKeys());
-				}
+//				for (Relation r : pipeNet.getRelations(key, value)) {
+//					currentERNetwork.add(r.cloneWithConnectedKeys());
+//				}
 
+				for (ERBase r : pipeNet.get(key, value)) {
+				currentERNetwork.add(r.cloneWithConnectedKeys());
+				}
 				break;
+				
 			default:
 				throw new RuntimeException("Wring ERType " + currentERType);
 			}			
@@ -977,16 +984,19 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			switch (currentERType) 
 			{
 			case entity:
-				for (Entity e : pipeNet.getEntitiesByRegexp(key, value)) {
-					currentERNetwork.add(e.cloneWithConnectedKeys());
-				}
-
-				break;
+//				for (Entity e : pipeNet.getEntitiesByRegexp(key, value)) {
+//					currentERNetwork.add(e.cloneWithConnectedKeys());
+//				}
+//
+//				break;
 			case relation:
-				for (Relation r : pipeNet.getRelationsByRegexp(key, value)) {
+//				for (Relation r : pipeNet.getRelationsByRegexp(key, value)) {
+//					currentERNetwork.add(r.cloneWithConnectedKeys());
+//				}
+
+				for (ERBase r : pipeNet.getByRegexp(key, value)) {
 					currentERNetwork.add(r.cloneWithConnectedKeys());
 				}
-
 				break;
 			default:
 				throw new RuntimeException("Wring ERType " + currentERType);
@@ -1025,11 +1035,12 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		ERBase er = null;
 		switch (erType) {
 		case relation:
-			er = new Relation();
-			break;
+//			er = new Relation();
+//			break;
 
 		case entity:
-			er = new Entity();
+//			er = new Entity();
+			er = new ERBase();
 			break;
 
 		default:
@@ -1086,12 +1097,14 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 					if (er.getClass().equals(connected.getClass()))
 						throw new StorageException("Wrong UPDATE clause (add connected)");
 					
-					if (er instanceof Entity)
+/*					if (er instanceof Entity)
 						((Entity) er).addRelation((Relation) connected);
 					
 					else if (er instanceof Relation)
 						((Relation) er).addParticipant((Entity) connected);
-					
+*/					
+					er.addConnected(connected);
+
 				}
 			} // if (null != addConnections)
 			
@@ -1102,11 +1115,13 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 					net4update.add(connected);
 					if (er.isConnectedTo(connected.getUuid()))
 					{
-						if (er instanceof Entity)
+/*						if (er instanceof Entity)
 							((Entity) er).removeRelation(connected.getUuid());
 						
 						else if (er instanceof Relation)
 							((Relation) er).removeParticipant(connected.getUuid());
+*/						
+						er.removeConnected(connected.getUuid());
 					}
 				}
 			} // if (null != removeConnections)
