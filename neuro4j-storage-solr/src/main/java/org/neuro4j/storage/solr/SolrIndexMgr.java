@@ -14,11 +14,8 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 import org.neuro4j.core.ERBase;
-import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.storage.StorageException;
-import org.neuro4j.storage.qp.ERType;
 import org.neuro4j.storage.qp.NQLProcessor;
 import org.neuro4j.utils.KVUtils;
 import org.slf4j.Logger;
@@ -118,11 +115,7 @@ public class SolrIndexMgr {
 		if (iter.hasNext())
 		{
 			SolrDocument doc = iter.next();
-            String erType = (String) doc.getFieldValue(SearchIndexConfiguration.FIELD_ER_TYPE); 
-            if (SearchIndexConfiguration.ER_TYPE_ENTITY.equals(erType))
-            	return SearchIndexHandler.doc2entity(doc);
-            else if (SearchIndexConfiguration.ER_TYPE_RELATION.equals(erType))
-            	return SearchIndexHandler.doc2relation(doc);
+			return SearchIndexHandler.doc2erbase(doc);
 		}
 
 		return null;
@@ -154,15 +147,6 @@ public class SolrIndexMgr {
 		return erset;
 	}
 	
-	public Entity getEntityById(String uuid)
-	{
-		ERBase er = getById(uuid);
-		if (null != er)
-			return (Entity) er;
-			
-        return null;
-	}
-	
 	public void deleteById(String... uuids) throws StorageException
 	{
 		try {
@@ -173,27 +157,16 @@ public class SolrIndexMgr {
 				
 				//start update tails
 		    	SolrQuery solrQuery = new SolrQuery();
-		    	solrQuery.setQuery("entities:(" + id + ") OR relations:(" + id + ")");
+		    	solrQuery.setQuery("connected:(" + id + ")");
 
 		    	Iterator<SolrDocument> iter = query(solrQuery);
 
 	    		while (iter.hasNext())
 	    		{
 	    			SolrDocument doc = iter.next();
-	    			String docERType = (String) doc.getFieldValue(SearchIndexConfiguration.FIELD_ER_TYPE);
-	    			if(SearchIndexConfiguration.ER_TYPE_ENTITY.equals(docERType))
-	    			{
-	                    Entity e = SearchIndexHandler.doc2entity(doc);
-	                    e.removeRelation(id);
-	                    saveOrUpdate(e);
-	    			} else if (SearchIndexConfiguration.ER_TYPE_RELATION.equals(docERType)) {
-	                    Relation r = SearchIndexHandler.doc2relation(doc);
-	                    r.removeParticipant(id);
-	                    saveOrUpdate(r);
-	    				
-	    			} else {
-	    				throw new RuntimeException("Wrong doc type (FIELD_ER_TYPE)");
-	    			}
+                    ERBase e = SearchIndexHandler.doc2erbase(doc);
+                    e.removeConnected(id);
+                    saveOrUpdate(e);
 	    		}
 
 			} // for (String id : uuids)
@@ -214,17 +187,18 @@ public class SolrIndexMgr {
     	SearchIndexHandler.clearIndex(solrServer);
     }
 
-	public Network getNetworkByQuery(String[] previousIds, String previousQueryType, String queryType, String solrQueryStr) {
+	public Network getNetworkByQuery(String[] previousIds, String solrQueryStr) {
     	SolrQuery solrQuery = new SolrQuery();
     	
     	StringBuffer sqSB = new StringBuffer();
-    	if (null != previousQueryType)
+    	if (null != previousIds && previousIds.length > 0)
     	{
+    		sqSB.append("connected:("); 
 
-        	if ("entity".equals(previousQueryType))
-        		sqSB.append("entities:("); 
-        	else if ("relation".equals(previousQueryType))
-        		sqSB.append("relations:("); 
+//        	if ("entity".equals(previousQueryType))
+//        		sqSB.append("entities:("); 
+//        	else if ("relation".equals(previousQueryType))
+//        		sqSB.append("relations:("); 
         	
 			for (String id : previousIds)
 				sqSB.append(id).append(" ");
@@ -233,15 +207,16 @@ public class SolrIndexMgr {
 			sqSB.append("  AND ( ");
     	}
     	
-		sqSB.append(SearchIndexConfiguration.FIELD_ER_TYPE)
-			.append(":")
-			.append(queryType)
-			.append(" AND ")
-			.append("(")
-			.append(solrQueryStr)
-			.append(")");
+		sqSB.append(solrQueryStr);
+//		    .append(SearchIndexConfiguration.FIELD_ER_TYPE)
+//			.append(":")
+//			.append(queryType)
+//			.append(" AND ")
+//			.append("(")
+//			.append(solrQueryStr)
+//			.append(")");
 
-    	if (null != previousQueryType)
+    	if (null != previousIds && previousIds.length > 0)
 			sqSB.append(" ) ");
 		
 	
@@ -257,20 +232,20 @@ public class SolrIndexMgr {
 		return net;
 	}
 	
-	public String addERFilterToQuery(String query, ERType queryType)
-	{
-		StringBuffer sqSB = new StringBuffer(); 
-		
-		sqSB.append(SearchIndexConfiguration.FIELD_ER_TYPE)
-		.append(":")
-		.append(queryType)
-		.append(" AND ")
-		.append("(")
-		.append(query)
-		.append(")");
-		
-		return sqSB.toString();
-	}
+//	public String addERFilterToQuery(String query, ERType queryType)
+//	{
+//		StringBuffer sqSB = new StringBuffer(); 
+//		
+//		sqSB.append(SearchIndexConfiguration.FIELD_ER_TYPE)
+//		.append(":")
+//		.append(queryType)
+//		.append(" AND ")
+//		.append("(")
+//		.append(query)
+//		.append(")");
+//		
+//		return sqSB.toString();
+//	}
 
 	public Iterator<SolrDocument> query(String solrQuery)
 	{

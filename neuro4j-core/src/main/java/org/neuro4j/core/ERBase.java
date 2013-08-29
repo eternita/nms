@@ -106,6 +106,20 @@ public class ERBase extends KVBase implements Serializable {
 		setModified(true);
 	}
 	
+	/**
+	 * add stub only
+	 * 
+	 * @param id
+	 */
+	public void addConnected(String id)
+	{
+		if (null == connected.get(id))
+		{
+			connected.put(id, null);
+			setModified(true);
+		}
+	}
+	
 	public Date getLastModifiedDate() {
 		return lastModifiedDate;
 	}

@@ -39,10 +39,10 @@ public class SolrNQLProcessorStreamFilter extends SolrNQLProcessorStreamBase {
 		return inputStream.hasNext();
 	}
 	
-	public ERType getERQueryType()
-	{
-		return inputStream.getERQueryType();
-	}	
+//	public ERType getERQueryType()
+//	{
+//		return inputStream.getERQueryType();
+//	}	
 	
 	public String next() {
 		

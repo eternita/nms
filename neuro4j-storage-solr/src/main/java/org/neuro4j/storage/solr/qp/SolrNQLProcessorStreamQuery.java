@@ -12,7 +12,6 @@ import org.neuro4j.core.Path;
 import org.neuro4j.storage.qp.ERType;
 import org.neuro4j.storage.qp.Filter;
 import org.neuro4j.storage.qp.NQLProcessorStream;
-import org.neuro4j.storage.solr.SearchIndexConfiguration;
 import org.neuro4j.storage.solr.SearchIndexHandler;
 import org.neuro4j.storage.solr.SolrIndexMgr;
 
@@ -22,7 +21,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 
 	private String solrQuery;
 	
-	private ERType queryType;
+//	private ERType queryType;
 	
 	private ERType previousQueryType;
 	
@@ -54,7 +53,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 	 * @param outputNetworkLimit
 	 */
 	public SolrNQLProcessorStreamQuery(String solrQuery, SolrIndexMgr siMgr, Set<Filter> filterSet,
-			ERType queryType, Set<Path> currentMatchedPaths, 
+			Set<Path> currentMatchedPaths, 
 			NQLProcessorStream inputStream, boolean optional, long outputNetworkLimit)  
 	{
 		super(siMgr, currentMatchedPaths, inputStream, optional);
@@ -66,7 +65,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		for (Filter filter : filterSet)
 			filterMap.put(filter, 0);
 		
-		if (null == inputStream)
+/*		if (null == inputStream)
 		{
 			// very first decorator
 			this.queryType = queryType;
@@ -86,6 +85,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 				break;
 			}
 		}
+*/		
 	}
 	
 	/**
@@ -100,12 +100,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 	public SolrNQLProcessorStreamQuery(String solrQuery, SolrIndexMgr siMgr, Set<Filter> filterSet,
 			NQLProcessorStream inputStream, boolean optional, long outputNetworkLimit) 
 	{
-		this(solrQuery, siMgr, filterSet, null, new HashSet<Path>(), inputStream, optional, outputNetworkLimit);
-	}
-	
-	public ERType getERQueryType()
-	{
-		return queryType;
+		this(solrQuery, siMgr, filterSet, new HashSet<Path>(), inputStream, optional, outputNetworkLimit);
 	}
 	
 	/**
@@ -345,36 +340,21 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 	private String previousIds2query(String solrQueryStr, Set<String> previousIds)
 	{
     	StringBuffer sqSB = new StringBuffer();
-		if (null != previousQueryType)
+		if (null != previousIds && previousIds.size() > 0)
     	{
-
-			switch (previousQueryType)
-			{
-			case entity:
-        		sqSB.append("entities:("); 
-				break;
-			case relation:
-        		sqSB.append("relations:("); 
-				break;
-			}
-
+    		sqSB.append("connected:("); 
         	
 			for (String id : previousIds)
 				sqSB.append(id).append(" ");
+
 			sqSB.append(")");
     		
 			sqSB.append("  AND ( ");
     	}
     	
-		sqSB.append(SearchIndexConfiguration.FIELD_ER_TYPE)
-			.append(":")
-			.append(queryType.name())
-			.append(" AND ")
-			.append("(")
-			.append(solrQueryStr)
-			.append(")");
+		sqSB.append(solrQueryStr);
 
-    	if (null != previousQueryType)
+    	if (null != previousIds && previousIds.size() > 0)
 			sqSB.append(" ) ");
     	
     	return sqSB.toString();

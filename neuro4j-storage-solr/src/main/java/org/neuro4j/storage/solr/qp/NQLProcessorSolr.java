@@ -139,7 +139,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 	
 		if (null == qpStream)
 		{
-			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, currentERType, currentMatchedPaths, qpStream, optional, outputNetworkLimit);
+			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, currentMatchedPaths, qpStream, optional, outputNetworkLimit);
 		} else {
 			qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, qpStream, optional, outputNetworkLimit);
 		}
@@ -264,8 +264,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 		if (READ_ONLY_QUERIES)
 			throw new StorageException("Storage is run in read only mode");
 			
-		siMgr.deleteById(outputNet.getEntities());
-		siMgr.deleteById(outputNet.getRelations());
+		siMgr.deleteById(outputNet.getIds());
 		
 		return;
 	}
@@ -294,11 +293,12 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 			for (int i = 0; i < depth; i++)
 			{
 				String solrQuery = "*:*";
+				
 				if (useOnlyAttrMap.size() > 0)
-					solrQuery = getUseOnlyQuery(getOpositeER(qpStream.getERQueryType()));
+					solrQuery = getUseOnlyQuery(); // getOpositeER(qpStream.getERQueryType())
 
 				if (ignoreAttrMap.size() > 0)
-					solrQuery = getIgnoreQuery(getOpositeER(qpStream.getERQueryType()));
+					solrQuery = getIgnoreQuery(); // getOpositeER(qpStream.getERQueryType())
 				
 				qpStream = new SolrNQLProcessorStreamQuery(solrQuery, this.siMgr, this.filterSet, qpStream, true, outputNetworkLimit);
 			}
@@ -311,7 +311,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 		return;
 	}
 
-	private String getUseOnlyQuery(ERType queryType)
+	private String getUseOnlyQuery() // ERType queryType
 	{		
     	StringBuffer sqSB = new StringBuffer();
 
@@ -320,7 +320,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
     	{
     		String qkey = key;
 
-    		if (key.startsWith("r."))
+/*    		if (key.startsWith("r."))
     		{
     			if (queryType != ERType.relation)
     				continue;
@@ -334,7 +334,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
     				continue;
     			
     			qkey = key.substring("e.".length());
-    		}
+    		}*/
     		
     		Set<String> values = useOnlyAttrMap.get(key);
     		for (String value : values)
@@ -352,7 +352,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 		return sqSB.toString();
 	}
 
-	private String getIgnoreQuery(ERType queryType)
+	private String getIgnoreQuery() // ERType queryType
 	{		
     	StringBuffer sqSB = new StringBuffer();
 
@@ -361,7 +361,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
     	{
     		String qkey = key;
 
-    		if (key.startsWith("r."))
+/*    		if (key.startsWith("r."))
     		{
     			if (queryType != ERType.relation)
     				continue;
@@ -376,7 +376,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
     			
     			qkey = key.substring("e.".length());
     		}
-    		
+*/    		
     		Set<String> values = ignoreAttrMap.get(key);
     		for (String value : values)
     		{

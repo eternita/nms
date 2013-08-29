@@ -1,7 +1,7 @@
 package org.neuro4j.web.console.resolver;
 
 import org.neuro4j.NetworkUtils;
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
@@ -9,7 +9,7 @@ import org.neuro4j.web.console.vlh.EntryResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class EntityResolver implements EntryResolver {
+public class ERBaseResolver implements EntryResolver {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -17,13 +17,13 @@ public class EntityResolver implements EntryResolver {
 	private Network network = null;
 	private int connectedCountLimit = Integer.MAX_VALUE;
 	
-	public EntityResolver(Storage storage, Network network)
+	public ERBaseResolver(Storage storage, Network network)
 	{
 		this.storage = storage;
 		this.network = network;
 	}
 	
-	public EntityResolver(Storage storage, Network network, int connectedCountLimit)
+	public ERBaseResolver(Storage storage, Network network, int connectedCountLimit)
 	{
 		this.storage = storage;
 		this.network = network;
@@ -33,10 +33,10 @@ public class EntityResolver implements EntryResolver {
 	public Object resolve(String id, String language) {
 		
 		try {
-			Entity e = network.getEntityByUUID(id);
+			ERBase e = network.getById(id);
 			if (null == e)
 			{
-				e = storage.getEntityByUUID(id);
+				e = storage.getById(id);
 				network.add(e);
 			}
 			NetworkUtils.loadConnected(e, network, storage, connectedCountLimit);

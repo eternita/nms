@@ -3,9 +3,8 @@ package org.neuro4j.storage.solr;
 import java.net.URLDecoder;
 import java.util.Properties;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.StorageBase;
 import org.neuro4j.storage.StorageException;
@@ -39,9 +38,9 @@ public class SolrStorage extends StorageBase {
 			for (String eid : network.getDeletedEntityIds())
 				siMgr.deleteById(eid);
 			
-			for (String eid : network.getEntities())
+			for (String eid : network.getIds())
 			{
-				Entity e = network.getEntityByUUID(eid);
+				ERBase e = network.getById(eid);
 				if (e.isModified())
 				{
 					siMgr.saveOrUpdate(e);				
@@ -49,21 +48,6 @@ public class SolrStorage extends StorageBase {
 			} // for (Entity e : network.getEIdMap().values())
 		}
 		
-		{ // relations
-			// handle deleted
-			for (String rid : network.getDeletedRelationIds())
-				siMgr.deleteById(rid);
-
-			for (String rid : network.getRelations())
-			{
-				Relation r = network.getRelationByUUID(rid);
-				if (r.isModified())
-				{
-					siMgr.saveOrUpdate(r);
-				} // if (r.isModified())
-			}
-			
-		}
 		
 		siMgr.commit();
 		return true;
@@ -71,11 +55,8 @@ public class SolrStorage extends StorageBase {
 
 
 	public Network query(String q) throws NQLException, StorageException  {
-		
 
 		long start = System.currentTimeMillis();
-//    	NQLProcessorSolr nqlProcessor = new NQLProcessorSolr(this.siMgr, this.properties);		
-//		NQLParser eqp = new NQLParser(q, nqlProcessor);
 
     	NQLProcessorSolr nqlProcessor = new NQLProcessorSolr(this.siMgr, this.properties, this);
     	NQLParser eqp = new NQLParser(q, nqlProcessor);

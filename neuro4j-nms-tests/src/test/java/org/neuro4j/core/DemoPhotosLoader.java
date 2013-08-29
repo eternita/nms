@@ -25,7 +25,7 @@ public class DemoPhotosLoader {
 		
 		Storage storage = NeuroManager.newInstance().getStorage(STORAGE_DIR, "storage.properties");
 		
-		Network net = storage.query("select e(name='John')");
+		Network net = storage.query("select (name='John')");
 		ERBase entity = net.getFirst("name", "John");
 		
 		Representation r1 = new Representation();
@@ -51,7 +51,7 @@ public class DemoPhotosLoader {
 		}
 		
 		// read reps from storage
-		net = storage.query("select e(id=?)", new String[]{eid});
+		net = storage.query("select (id=?)", new String[]{eid});
 		
 		ERBase entity2 = net.getById(eid);
 		

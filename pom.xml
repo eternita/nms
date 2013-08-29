@@ -20,11 +20,9 @@
 
     <modules>
         <module>neuro4j-core</module>
-<!--
         <module>neuro4j-nms-server</module>
         <module>neuro4j-nms-jclient</module>
         <module>neuro4j-storage-solr</module>
--->
     </modules>
 
     <properties>

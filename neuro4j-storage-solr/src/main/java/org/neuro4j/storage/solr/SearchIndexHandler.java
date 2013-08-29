@@ -17,9 +17,7 @@ import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 import org.neuro4j.core.ERBase;
-import org.neuro4j.core.Entity;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.storage.StorageException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -119,20 +117,9 @@ public class SearchIndexHandler {
     	for (String propertyKey : er.getPropertyKeysWithRepresentations())
         	doc.addField(SearchIndexConfiguration.PROPERTY_PREFIX + propertyKey, er.getProperty(propertyKey));	
     	
-    	if (er instanceof Entity)
-    	{
-        	doc.addField(SearchIndexConfiguration.FIELD_ER_TYPE, SearchIndexConfiguration.ER_TYPE_ENTITY);	
-    		
-        	for (String rid : ((Entity) er).getRelationsKeys())
-            	doc.addField(SearchIndexConfiguration.RELATIONS, rid);	
-    	}
-    	
-    	if (er instanceof Relation)
-    	{
-        	doc.addField(SearchIndexConfiguration.FIELD_ER_TYPE, SearchIndexConfiguration.ER_TYPE_RELATION);	
-        	for (String rid : ((Relation) er).getParticipantsKeys())
-            	doc.addField(SearchIndexConfiguration.ENTITIES, rid);	
-    	}
+    	for (String cid : er.getConnectedKeys())
+        	doc.addField(SearchIndexConfiguration.CONNECTED, cid);	
+
     	
     	return doc;		
 	}
@@ -176,55 +163,23 @@ public class SearchIndexHandler {
 			if (propName.startsWith(SearchIndexConfiguration.PROPERTY_PREFIX))
 				er.setProperty(propName.substring(SearchIndexConfiguration.PROPERTY_PREFIX.length()), (String) doc.get(propName));
 		}
+		
+		List<String> eids = (List<String>) doc.getFieldValue(SearchIndexConfiguration.CONNECTED);
+		if (null != eids)
+			for (String eid : eids)
+				er.addConnected(eid);
+		
 		return;
 	}
 
 	public static ERBase doc2erbase(SolrDocument doc)
 	{
-		String docERType = (String) doc.getFieldValue(SearchIndexConfiguration.FIELD_ER_TYPE);
-		ERBase er = null;
-		if(SearchIndexConfiguration.ER_TYPE_ENTITY.equals(docERType))
-		{
-            er = SearchIndexHandler.doc2entity(doc);
-		} else if (SearchIndexConfiguration.ER_TYPE_RELATION.equals(docERType)) {
-            er = SearchIndexHandler.doc2relation(doc);
-		} else {
-			throw new RuntimeException("Wrong doc type (FIELD_ER_TYPE)");
-		}
+		ERBase er = new ERBase();
+		doc2erbase(er, doc);
 		return er;
 	}
 
-	public static Entity doc2entity(SolrDocument doc)
-	{
-		if (null == doc)
-			return null;
-		
-		Entity e = new Entity();
-		doc2erbase(e, doc);
-		
-		List<String> rids = (List<String>) doc.getFieldValue(SearchIndexConfiguration.RELATIONS);
-		if (null != rids)
-			for (String rid : rids)
-				e.addRelation(rid);
 
-		return e;
-	}
-
-	public static Relation doc2relation(SolrDocument doc)
-	{
-		if (null == doc)
-			return null;
-		
-		Relation r = new Relation("");
-		doc2erbase(r, doc);
-		
-		List<String> eids = (List<String>) doc.getFieldValue(SearchIndexConfiguration.ENTITIES);
-		if (null != eids)
-			for (String eid : eids)
-				r.addParticipant(eid);
-
-		return r;
-	}
 	
 	/**
 	 * @deprecated use docs2net(Network net, Iterator<SolrDocument> iter)
@@ -238,18 +193,7 @@ public class SearchIndexHandler {
         {
     		for (SolrDocument doc : queryResponse.getResults())
     		{
-    			String docERType = (String) doc.getFieldValue(SearchIndexConfiguration.FIELD_ER_TYPE);
-    			if(SearchIndexConfiguration.ER_TYPE_ENTITY.equals(docERType))
-    			{
-                    Entity e = doc2entity(doc);
-                    net.add(e);
-    			} else if (SearchIndexConfiguration.ER_TYPE_RELATION.equals(docERType)) {
-                    Relation r = doc2relation(doc);
-                    net.add(r);
-    				
-    			} else {
-    				throw new RuntimeException("Wrong doc type (FIELD_ER_TYPE)");
-    			}
+                net.add(doc2erbase(doc));
     		}
         }		
 	}	
@@ -259,39 +203,9 @@ public class SearchIndexHandler {
 		while (iter.hasNext())
 		{
 			SolrDocument doc = iter.next();
-		
-			String docERType = (String) doc.getFieldValue(SearchIndexConfiguration.FIELD_ER_TYPE);
-			if(SearchIndexConfiguration.ER_TYPE_ENTITY.equals(docERType))
-			{
-                Entity e = doc2entity(doc);
-                net.add(e);
-			} else if (SearchIndexConfiguration.ER_TYPE_RELATION.equals(docERType)) {
-                Relation r = doc2relation(doc);
-                net.add(r);
-				
-			} else {
-				throw new RuntimeException("Wrong doc type (FIELD_ER_TYPE)");
-			}
+            net.add(doc2erbase(doc));
 		}
 	}	
-	
-	public static boolean isEntity(SolrDocument doc)
-	{
-		String docERType = (String) doc.getFieldValue(SearchIndexConfiguration.FIELD_ER_TYPE);
-		if(SearchIndexConfiguration.ER_TYPE_ENTITY.equals(docERType))
-			return true;
-			
-		return false;
-	}
-
-	public static boolean isRelation(SolrDocument doc)
-	{
-		String docERType = (String) doc.getFieldValue(SearchIndexConfiguration.FIELD_ER_TYPE);
-		if(SearchIndexConfiguration.ER_TYPE_RELATION.equals(docERType))
-			return true;
-			
-		return false;
-	}
 	
 	public static Set<String> response2Ids(Iterator<SolrDocument> iter)
 	{
