@@ -81,7 +81,7 @@ public interface NQLProcessor {
 	
 	public void behave(Map<String, String> params) throws StorageException;
 	
-	public void insert(String ertype, Map<String, String> params) throws StorageException;
+	public void insert(Map<String, String> params) throws StorageException;
 
 	public void update(Network updateNet, Map<String, String> setProperties, Set<String> removeProperties, Network addConnections, Network removeConnections) throws StorageException;
 	

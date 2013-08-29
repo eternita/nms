@@ -354,7 +354,16 @@ public class ERBase extends KVBase implements Serializable {
 	public void setVirtual(boolean virtual) {
 		this.virtual = virtual;
 	}	
-	
+
+	public void removeConnected()
+	{
+		String[] cids = connected.keySet().toArray(new String[connected.keySet().size()]);
+		for(String cid : cids)
+			removeConnected(cid);
+		
+		return;
+	}
+
 	public void removeConnected(String uuid)
 	{
 		ERBase con = connected.remove(uuid);

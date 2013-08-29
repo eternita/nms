@@ -103,30 +103,15 @@ public class NQLParser implements NQLParserConstants {
   }
 
   final public void insert() throws ParseException, StorageException {
-  String ertype = "";
   Map<String, String> params = new HashMap<String, String>();
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case E_LBRACE:
-      jj_consume_token(E_LBRACE);
-        ertype = "entity";
-      break;
-    case R_LBRACE:
-      jj_consume_token(R_LBRACE);
-        ertype = "relation";
-      break;
-    default:
-      jj_la1[3] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
+    jj_consume_token(LPAREN);
     getParams(params);
     jj_consume_token(RPAREN);
-    nqlProcessor.insert(ertype, params);
+    nqlProcessor.insert(params);
     {if (true) return;}
   }
 
   final public void update() throws ParseException, StorageException {
-  String ertype = "";
   Map<String, String> setProperties = new HashMap<String, String>();
   Set<String> removeProperties = new HashSet<String>();
   Network updateNet = null;
@@ -141,25 +126,24 @@ public class NQLParser implements NQLParserConstants {
         getParams(setProperties);
         break;
       default:
-        jj_la1[4] = jj_gen;
+        jj_la1[3] = jj_gen;
         ;
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case E_LBRACE:
-      case R_LBRACE:
       case F_LBRACE:
       case LBRACE:
+      case LPAREN:
             nqlProcessor.reset();
         parseER();
                 addConnections = nqlProcessor.finishERParse();
         break;
       default:
-        jj_la1[5] = jj_gen;
+        jj_la1[4] = jj_gen;
         ;
       }
       break;
     default:
-      jj_la1[6] = jj_gen;
+      jj_la1[5] = jj_gen;
       ;
     }
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -171,32 +155,31 @@ public class NQLParser implements NQLParserConstants {
         getList(removeProperties);
         break;
       default:
-        jj_la1[7] = jj_gen;
+        jj_la1[6] = jj_gen;
         ;
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case E_LBRACE:
-      case R_LBRACE:
       case F_LBRACE:
       case LBRACE:
+      case LPAREN:
             nqlProcessor.reset();
         parseER();
             removeConnections = nqlProcessor.finishERParse();
         break;
       default:
-        jj_la1[8] = jj_gen;
+        jj_la1[7] = jj_gen;
         ;
       }
       break;
     default:
-      jj_la1[9] = jj_gen;
+      jj_la1[8] = jj_gen;
       ;
     }
     jj_consume_token(WHERE);
             nqlProcessor.reset();
     parseER();
         updateNet = nqlProcessor.finishERParse();
-    nqlProcessor.update(updateNet, setProperties, removeProperties, addConnections, removeConnections);// update(ertype, params);
+    nqlProcessor.update(updateNet, setProperties, removeProperties, addConnections, removeConnections);
     {if (true) return;}
   }
 
@@ -224,7 +207,7 @@ public class NQLParser implements NQLParserConstants {
       getParams(params);
       break;
     default:
-      jj_la1[10] = jj_gen;
+      jj_la1[9] = jj_gen;
       ;
     }
     jj_consume_token(RPAREN);
@@ -243,7 +226,7 @@ public class NQLParser implements NQLParserConstants {
       tKey = jj_consume_token(LIMIT);
       break;
     default:
-      jj_la1[11] = jj_gen;
+      jj_la1[10] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -258,7 +241,7 @@ public class NQLParser implements NQLParserConstants {
       getParams(params);
       break;
     default:
-      jj_la1[12] = jj_gen;
+      jj_la1[11] = jj_gen;
       ;
     }
     {if (true) return;}
@@ -274,7 +257,7 @@ public class NQLParser implements NQLParserConstants {
       tKey = jj_consume_token(LIMIT);
       break;
     default:
-      jj_la1[13] = jj_gen;
+      jj_la1[12] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -286,7 +269,7 @@ public class NQLParser implements NQLParserConstants {
       getList(params);
       break;
     default:
-      jj_la1[14] = jj_gen;
+      jj_la1[13] = jj_gen;
       ;
     }
     {if (true) return;}
@@ -311,7 +294,7 @@ public class NQLParser implements NQLParserConstants {
         tKey = jj_consume_token(LIMIT);
         break;
       default:
-        jj_la1[15] = jj_gen;
+        jj_la1[14] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -322,7 +305,7 @@ public class NQLParser implements NQLParserConstants {
         params.put(key.toLowerCase(), value);
       break;
     default:
-      jj_la1[16] = jj_gen;
+      jj_la1[15] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -334,7 +317,7 @@ public class NQLParser implements NQLParserConstants {
       getParams4recursion(params);
       break;
     default:
-      jj_la1[17] = jj_gen;
+      jj_la1[16] = jj_gen;
       ;
     }
     {if (true) return;}
@@ -355,7 +338,7 @@ public class NQLParser implements NQLParserConstants {
       filter();
       break;
     default:
-      jj_la1[18] = jj_gen;
+      jj_la1[17] = jj_gen;
       ;
     }
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -363,7 +346,7 @@ public class NQLParser implements NQLParserConstants {
       strict();
       break;
     default:
-      jj_la1[19] = jj_gen;
+      jj_la1[18] = jj_gen;
       ;
     }
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -371,7 +354,7 @@ public class NQLParser implements NQLParserConstants {
       limit();
       break;
     default:
-      jj_la1[20] = jj_gen;
+      jj_la1[19] = jj_gen;
       ;
     }
     {if (true) return;}
@@ -383,24 +366,19 @@ public class NQLParser implements NQLParserConstants {
   Map<String, String> techParams = new HashMap<String, String>();
   boolean optional = false;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case E_LBRACE:
-    case R_LBRACE:
     case F_LBRACE:
+    case LPAREN:
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case E_LBRACE:
-        jj_consume_token(E_LBRACE);
-                             nqlProcessor.startERAttributeProcessing("entity");
-        break;
-      case R_LBRACE:
-        jj_consume_token(R_LBRACE);
-                             nqlProcessor.startERAttributeProcessing("relation");
+      case LPAREN:
+        jj_consume_token(LPAREN);
+                           nqlProcessor.startERAttributeProcessing("entity");
         break;
       case F_LBRACE:
         jj_consume_token(F_LBRACE);
                              nqlProcessor.startERAttributeProcessing("filter");
         break;
       default:
-        jj_la1[21] = jj_gen;
+        jj_la1[20] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -411,7 +389,7 @@ public class NQLParser implements NQLParserConstants {
         net = parseERBraceExpression();
         break;
       default:
-        jj_la1[22] = jj_gen;
+        jj_la1[21] = jj_gen;
         ;
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -421,7 +399,7 @@ public class NQLParser implements NQLParserConstants {
         jj_consume_token(RBRACE);
         break;
       default:
-        jj_la1[23] = jj_gen;
+        jj_la1[22] = jj_gen;
         ;
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -432,7 +410,7 @@ public class NQLParser implements NQLParserConstants {
         jj_consume_token(RPAREN);
         break;
       default:
-        jj_la1[24] = jj_gen;
+        jj_la1[23] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -442,7 +420,7 @@ public class NQLParser implements NQLParserConstants {
                       optional = true;
         break;
       default:
-        jj_la1[25] = jj_gen;
+        jj_la1[24] = jj_gen;
         ;
       }
                 nqlProcessor.finishERAttributeProcessing(net, techParams, optional);
@@ -454,7 +432,7 @@ public class NQLParser implements NQLParserConstants {
                 nqlProcessor.recursiveERSubpath(techParams);
       break;
     default:
-      jj_la1[26] = jj_gen;
+      jj_la1[25] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -465,7 +443,7 @@ public class NQLParser implements NQLParserConstants {
       parseER();
       break;
     default:
-      jj_la1[27] = jj_gen;
+      jj_la1[26] = jj_gen;
       ;
     }
     {if (true) return;}
@@ -482,7 +460,7 @@ public class NQLParser implements NQLParserConstants {
         ;
         break;
       default:
-        jj_la1[28] = jj_gen;
+        jj_la1[27] = jj_gen;
         break label_3;
       }
       getFilterExpression();
@@ -505,7 +483,7 @@ public class NQLParser implements NQLParserConstants {
         erType = "relation";
       break;
     default:
-      jj_la1[29] = jj_gen;
+      jj_la1[28] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -529,7 +507,7 @@ public class NQLParser implements NQLParserConstants {
       jj_consume_token(RPAREN);
       break;
     default:
-      jj_la1[30] = jj_gen;
+      jj_la1[29] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -541,7 +519,7 @@ public class NQLParser implements NQLParserConstants {
       tFilterSize = jj_consume_token(NUMBER);
       break;
     default:
-      jj_la1[31] = jj_gen;
+      jj_la1[30] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -553,7 +531,7 @@ public class NQLParser implements NQLParserConstants {
       getFilterExpression();
       break;
     default:
-      jj_la1[32] = jj_gen;
+      jj_la1[31] = jj_gen;
       ;
     }
     {if (true) return;}
@@ -571,7 +549,7 @@ public class NQLParser implements NQLParserConstants {
         ;
         break;
       default:
-        jj_la1[33] = jj_gen;
+        jj_la1[32] = jj_gen;
         break label_4;
       }
       getIgnoreAttribute();
@@ -593,7 +571,7 @@ public class NQLParser implements NQLParserConstants {
         ;
         break;
       default:
-        jj_la1[34] = jj_gen;
+        jj_la1[33] = jj_gen;
         break label_5;
       }
       getUseOnlyAttribute();
@@ -619,13 +597,13 @@ public class NQLParser implements NQLParserConstants {
         tUseOnlyDepthLevel = jj_consume_token(NUMBER);
         break;
       default:
-        jj_la1[35] = jj_gen;
+        jj_la1[34] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
       break;
     default:
-      jj_la1[36] = jj_gen;
+      jj_la1[35] = jj_gen;
       ;
     }
     if (null != tUseOnlyDepthLevel)
@@ -658,13 +636,13 @@ public class NQLParser implements NQLParserConstants {
         tIgnoreDepthLevel = jj_consume_token(NUMBER);
         break;
       default:
-        jj_la1[37] = jj_gen;
+        jj_la1[36] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
       break;
     default:
-      jj_la1[38] = jj_gen;
+      jj_la1[37] = jj_gen;
       ;
     }
     if (null != tIgnoreDepthLevel)
@@ -698,7 +676,7 @@ public class NQLParser implements NQLParserConstants {
       tComparator = jj_consume_token(LIKE);
       break;
     default:
-      jj_la1[39] = jj_gen;
+      jj_la1[38] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -749,7 +727,7 @@ public class NQLParser implements NQLParserConstants {
       net2 = parseConnected(connectedStack);
       break;
     default:
-      jj_la1[40] = jj_gen;
+      jj_la1[39] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -778,7 +756,7 @@ public class NQLParser implements NQLParserConstants {
       tComparator = jj_consume_token(LIKE);
       break;
     default:
-      jj_la1[41] = jj_gen;
+      jj_la1[40] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -814,13 +792,13 @@ public class NQLParser implements NQLParserConstants {
       System.out.println(" parseConnectedBraceExpression() - > not empty ");
         break;
       default:
-        jj_la1[42] = jj_gen;
+        jj_la1[41] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
       break;
     default:
-      jj_la1[43] = jj_gen;
+      jj_la1[42] = jj_gen;
       ;
     }
     if (isEmpty)
@@ -835,7 +813,7 @@ public class NQLParser implements NQLParserConstants {
         ;
         break;
       default:
-        jj_la1[44] = jj_gen;
+        jj_la1[43] = jj_gen;
         break label_6;
       }
       // (a='1' AND b='2' AND c='3')    
@@ -868,7 +846,7 @@ public class NQLParser implements NQLParserConstants {
       net2 = parseConnected(connectedStack);
       break;
     default:
-      jj_la1[45] = jj_gen;
+      jj_la1[44] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -907,7 +885,7 @@ public class NQLParser implements NQLParserConstants {
         operand = "OR";
       break;
     default:
-      jj_la1[46] = jj_gen;
+      jj_la1[45] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -941,7 +919,7 @@ public class NQLParser implements NQLParserConstants {
       net1 = parseConnected(connectedStack);
       break;
     default:
-      jj_la1[47] = jj_gen;
+      jj_la1[46] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -953,7 +931,7 @@ public class NQLParser implements NQLParserConstants {
         ;
         break;
       default:
-        jj_la1[48] = jj_gen;
+        jj_la1[47] = jj_gen;
         break label_7;
       }
       // (a='1' AND b='2' AND c='3')    
@@ -980,7 +958,7 @@ public class NQLParser implements NQLParserConstants {
       tMaxNetworkSize = jj_consume_token(NUMBER);
       break;
     default:
-      jj_la1[49] = jj_gen;
+      jj_la1[48] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -997,7 +975,7 @@ public class NQLParser implements NQLParserConstants {
   public Token jj_nt;
   private int jj_ntk;
   private int jj_gen;
-  final private int[] jj_la1 = new int[50];
+  final private int[] jj_la1 = new int[49];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static {
@@ -1005,10 +983,10 @@ public class NQLParser implements NQLParserConstants {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x100,0x100,0x47c00,0x18000000,0x400000,0x78000000,0x8000,0x400000,0x78000000,0x10000,0x400000,0x400000,0x400000,0x400000,0x400000,0x400000,0x580000,0x580000,0x200000,0x800000,0x400000,0x38000000,0x0,0x40000000,0x80000000,0x4000000,0x78000000,0x0,0x18000000,0x18000000,0x80000000,0xc0,0x0,0xc0,0xc0,0xc0,0xc0,0xc0,0xc0,0x0,0x0,0x0,0x0,0x0,0x200,0x0,0x200,0x0,0x200,0xc0,};
+      jj_la1_0 = new int[] {0x100,0x100,0x47c00,0x400000,0x60000000,0x8000,0x400000,0x60000000,0x10000,0x400000,0x400000,0x400000,0x400000,0x400000,0x400000,0x580000,0x580000,0x200000,0x800000,0x400000,0x20000000,0x0,0x40000000,0x80000000,0x4000000,0x60000000,0x0,0x18000000,0x18000000,0x80000000,0xc0,0x0,0xc0,0xc0,0xc0,0xc0,0xc0,0xc0,0x0,0x0,0x0,0x0,0x0,0x200,0x0,0x200,0x0,0x200,0xc0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x0,0x0,0x0,0x0,0x200,0x0,0x0,0x200,0x0,0x0,0x200,0x200,0x200,0x200,0x200,0x200,0x200,0x200,0x0,0x0,0x0,0x0,0x304,0x0,0x8,0x0,0x0,0x1,0x0,0x0,0x8,0x0,0x80,0x200,0x200,0x0,0x0,0x0,0x0,0x70,0x304,0x70,0x204,0x204,0x2,0x304,0x2,0x304,0x2,0x0,};
+      jj_la1_1 = new int[] {0x0,0x0,0x0,0x200,0x4,0x0,0x200,0x4,0x0,0x200,0x200,0x200,0x200,0x200,0x200,0x200,0x200,0x0,0x0,0x0,0x4,0x304,0x0,0x8,0x0,0x4,0x1,0x0,0x0,0x8,0x0,0x80,0x200,0x200,0x0,0x0,0x0,0x0,0x70,0x304,0x70,0x204,0x204,0x2,0x304,0x2,0x304,0x2,0x0,};
    }
 
   /** Constructor with InputStream. */
@@ -1022,7 +1000,7 @@ public class NQLParser implements NQLParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 50; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 49; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -1036,7 +1014,7 @@ public class NQLParser implements NQLParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 50; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 49; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -1046,7 +1024,7 @@ public class NQLParser implements NQLParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 50; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 49; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -1056,7 +1034,7 @@ public class NQLParser implements NQLParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 50; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 49; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -1065,7 +1043,7 @@ public class NQLParser implements NQLParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 50; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 49; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -1074,7 +1052,7 @@ public class NQLParser implements NQLParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 50; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 49; i++) jj_la1[i] = -1;
   }
 
   private Token jj_consume_token(int kind) throws ParseException {
@@ -1130,7 +1108,7 @@ public class NQLParser implements NQLParserConstants {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 49; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {

@@ -296,7 +296,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			String[] ids = null;
 			
 			switch (filter.erType) {
-			case relation:
+//			case relation:
 //				ids = outputNet.getEntities();
 //				break;
 
@@ -535,7 +535,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 //				}
 //				break;
 				
-			case relation:
+//			case relation:
 //				for (String id : storageNet.getRelations())
 //				{
 //					connectedStack.add(new Path(id));
@@ -965,7 +965,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 //				}
 //				break;
 				
-			case relation:
+//			case relation:
 //				for (Relation r : pipeNet.getRelations(key, value)) {
 //					currentERNetwork.add(r.cloneWithConnectedKeys());
 //				}
@@ -989,7 +989,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 //				}
 //
 //				break;
-			case relation:
+//			case relation:
 //				for (Relation r : pipeNet.getRelationsByRegexp(key, value)) {
 //					currentERNetwork.add(r.cloneWithConnectedKeys());
 //				}
@@ -1010,31 +1010,32 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 	}
 
 
-	protected ERType getOpositeER(ERType in)
-	{
-		switch (in)
-		{
-		case entity:
-			return ERType.relation;
-		case relation:
-			return ERType.entity;
-		}
-		
-		return in;
-	}
+//	protected ERType getOpositeER(ERType in)
+//	{
+//		switch (in)
+//		{
+//		case entity:
+//			return ERType.relation;
+//		case relation:
+//			return ERType.entity;
+//		}
+//		
+//		return in;
+//	}
 
-	public void insert(String ertype, Map<String, String> params) throws StorageException
+	public void insert(Map<String, String> params) throws StorageException
 	{
 		if (FIRST_CYCLE == parseCycle)
 			return;
 		
 		if (READ_ONLY_QUERIES)
 			throw new StorageException("Storage is run in read only mode");
+		
+		ERBase er = new ERBase();
 
-		ERType erType = ERType.valueOf(ertype);
-		ERBase er = null;
+/*		ERType erType = ERType.valueOf(ertype);
 		switch (erType) {
-		case relation:
+//		case relation:
 //			er = new Relation();
 //			break;
 
@@ -1046,7 +1047,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		default:
 			throw new StorageException("Wrong ER type " + ertype);
 		}
-		
+*/		
 		// set properties
 		for (String key : params.keySet())
 			er.setProperty(key, params.get(key));
@@ -1094,8 +1095,8 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 				for (ERBase connected : addConnections.getERBases())
 				{
 					net4update.add(connected);
-					if (er.getClass().equals(connected.getClass()))
-						throw new StorageException("Wrong UPDATE clause (add connected)");
+//					if (er.getClass().equals(connected.getClass()))
+//						throw new StorageException("Wrong UPDATE clause (add connected)");
 					
 /*					if (er instanceof Entity)
 						((Entity) er).addRelation((Relation) connected);

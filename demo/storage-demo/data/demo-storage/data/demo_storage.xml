@@ -1,40 +1,592 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <network>
     <entities>
-        <item name="Walmart" uuid="JmPAqFYBdo0AAAFARUtog8cv">
+        <item name="Jasica" uuid="5ETAqFYBbKsAAAFAQQZSKcwp">
+            <properties>
+                <item value="Jasica" key="first_name"/>
+            </properties>
+            <connected>
+                <item uuid="zNXAqFYBbLkAAAFAQQZSKcwp"/>
+                <item uuid="kLvAqFYBbL0AAAFAQQZSKcwp"/>
+                <item uuid="e0zAqFYBbLgAAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="OuIK_j7gg0AAAAE7g4r01_y2">
+            <properties>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
+                <item value="n1jBwcI0m8cAAAEmIVBKQNy6" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hGjBwcI0zoYAAAEmV4oNrT2Z"/>
+            </connected>
+        </item>
+        <item name="work at" uuid="dDbAqFYBbLoAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="Os_AqFYBbKwAAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="Coin photo" uuid="FCYK.GJAIVwAAAEwH5Ny4bY7">
+            <properties>
+                <item value="tdUK.GJA4HcAAAEwHpNy4bY7" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="BNkK_j7gkA8AAAE7mzv01_ye">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="eAXBwcI0FHcAAAEp8qMFQTu." key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="eAXBwcI0FHcAAAEp8qMFQTu."/>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="married" uuid="vDrAqFYBbLQAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="EwLAqFYBQNcAAAFAQAZSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="15 Kopeck Group" uuid="jTV_AAEBVxkAAAEjL8Fucewv">
+            <properties>
+                <item value="sIh_AAEB9osAAAEjQr9ucewv" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="Nonamez" uuid="JFAK.GJAEGsAAAEwbbiw5kUs">
+            <properties>
+                <item value="USER" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="lUUK_j7g02cAAAE7FDL01_8Y"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="TI0K_j7gbsoAAAE7lkD01_yr">
+            <properties>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
+                <item value="aQjBwcI0_G8AAAEmuCo6TOhE" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hGjBwcI0zoYAAAEmV4oNrT2Z"/>
+            </connected>
+        </item>
+        <item name="Russian Soviet Federative Socialist Republic  (1917-1922)" uuid="Vax_AAEBjgIAAAEljqneJiFE">
+            <properties>
+                <item value="E63BwcI0ij0AAAEsTXHzaoJl" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="dEsK_j7gylEAAAE7yUb01_ye"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="1 Cent Group" uuid="5SV_AAEBQ4UAAAEjNJZucewv">
+            <properties>
+                <item value="Gy5_AAEB2osAAAEj0pVucewv" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-belong-to-coin-definition" uuid="8wgK_j7gEa0AAAE84ZH01wAu">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="1wjBwcI01NkAAAEqNkZDRaTW" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="coin-related-to-country" uuid="fzkK_j7gnsoAAAE7cVn01_3s">
+            <properties>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
+                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hGjBwcI0zoYAAAEmV4oNrT2Z"/>
+            </connected>
+        </item>
+        <item name="Marry" uuid="40TAqFYBQNYAAAFAQAZSKcwp">
+            <properties>
+                <item value="Marry" key="first_name"/>
+                <item value="25" key="age"/>
+                <item value="Smith" key="last_name"/>
+            </properties>
+            <connected>
+                <item uuid="zjLAqFYBbLUAAAFAQQZSKcwp"/>
+                <item uuid="AnzAqFYBbL4AAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="FX4K_j7gkwIAAAE2S5EKqVrb">
+            <properties>
+                <item value="pkoK_j7gMTkAAAE24JEKqVrb" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="MH0K_j7gsR0AAAE7X1n01_3s">
+            <properties>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
+                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hGjBwcI0zoYAAAEmV4oNrT2Z"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="04oK_j7g6YMAAAE7hVr01_2T">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="649_AAEB_PwAAAEjvnNucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="649_AAEB_PwAAAEjvnNucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Denarius Group" uuid="aQjBwcI0_G8AAAEmuCo6TOhE">
+            <properties>
+                <item value="DjbBwcI0q5gAAAEmpSo6TOhE" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="GALBwcI0wJUAAAEqtehDRaVa">
+            <properties>
+                <item value="wmHBwcI0_w4AAAEqpOhDRaVa" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="Micron Company" uuid="QIDAqFYBbK4AAAFAQQZSKcwp">
             <properties>
                 <item value="USA, Idaho, Boise" key="address"/>
             </properties>
             <connected>
-                <item uuid="0izAqFYBsy4AAAFARktog8cv"/>
+                <item uuid="kLvAqFYBbL0AAAFAQQZSKcwp"/>
             </connected>
         </item>
-        <item name="friends" uuid="JWDAqFYBdpYAAAFARUtog8cv">
-            <properties/>
-            <connected>
-                <item uuid="DWHAqFYBdokAAAFARUtog8cv"/>
-                <item uuid="ZzrAqFYBtEwAAAFAREtog8cv"/>
-            </connected>
-        </item>
-        <item name="married" uuid="5L3AqFYBdpQAAAFARUtog8cv">
-            <properties/>
-            <connected>
-                <item uuid="ZzrAqFYBtEwAAAFAREtog8cv"/>
-                <item uuid="BITAqFYBtE8AAAFAREtog8cv"/>
-            </connected>
-        </item>
-        <item name="Brad" uuid="GWPAqFYBdooAAAFARUtog8cv">
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Penny Group" uuid="p2R_AAEBwuMAAAElAOJMTtxW">
             <properties>
-                <item value="Brad" key="first_name"/>
-                <item value="Perterson" key="last_name"/>
+                <item value="4Fx_AAEBfpIAAAElxkNMTtxV" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="5Y7AqFYBsywAAAFARktog8cv"/>
-                <item uuid="yI7AqFYBdpcAAAFARUtog8cv"/>
-                <item uuid="LM_AqFYBsy8AAAFARktog8cv"/>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
             </connected>
         </item>
-        <item name="Dog Roger" uuid="farAqFYBSjYAAAFAQEtog8cv">
+        <item name="Jane" uuid="EwLAqFYBQNcAAAFAQAZSKcwp">
+            <properties>
+                <item value="Jane" key="first_name"/>
+                <item value="23" key="age"/>
+                <item value="Smith" key="last_name"/>
+            </properties>
+            <connected>
+                <item uuid="i7DAqFYBbLMAAAFAQQZSKcwp"/>
+                <item uuid="vDrAqFYBbLQAAAFAQQZSKcwp"/>
+                <item uuid="v1vAqFYBbLsAAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="Walmart" uuid="5mfAqFYBbK0AAAFAQQZSKcwp">
+            <properties>
+                <item value="USA, Idaho, Boise" key="address"/>
+            </properties>
+            <connected>
+                <item uuid="v1vAqFYBbLsAAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="work at" uuid="kLvAqFYBbL0AAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="5ETAqFYBbKsAAAFAQQZSKcwp"/>
+                <item uuid="QIDAqFYBbK4AAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="qYIK_j7gFqYAAAE7EEX01_yg">
+            <properties/>
+            <connected>
+                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="Pa4K_j7gAsIAAAE8H8301wEJ">
+            <properties>
+                <item value="Cv7BwcI0aqkAAAEm2B86TOhE" key="EndUUID"/>
+                <item value="WSrBwcI0vJgAAAEmo8eg6.as" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="WSrBwcI0vJgAAAEmo8eg6.as"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="Z1UK_j7gsj4AAAE7BIj01_ye">
+            <properties>
+                <item value="afN_AAEBG5AAAAEjW91ucewv" key="EndUUID"/>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="afN_AAEBG5AAAAEjW91ucewv"/>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="GmQK_j7g9DgAAAE73kT01_yg">
+            <properties>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
+                <item value="dGDBwcI05B8AAAEmzSI6TOhE" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hGjBwcI0zoYAAAEmV4oNrT2Z"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="Uj4K_j7ggd0AAAE7Lgz01_yg">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="kHR_AAEBEu8AAAEl0tU8vl88" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="Finland (1917 - )" uuid="afN_AAEBG5AAAAEjW91ucewv">
+            <properties>
+                <item value="7.gK_j7gsTMAAAEzr8T5lul2" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="Z1UK_j7gsj4AAAE7BIj01_ye"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="0fQK_j7gKpQAAAE7dWT01_3s">
+            <properties>
+                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="EndUUID"/>
+                <item value="WSrBwcI0vJgAAAEmo8eg6.as" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="WSrBwcI0vJgAAAEmo8eg6.as"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Ruble Group" uuid="AKF_AAEBX08AAAEjM_lucewv">
+            <properties>
+                <item value="L59_AAEBjY4AAAEl6NJzfAP." key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="Russian Empire (1720-1917)" uuid="sYl_AAEBUxcAAAEjoXhucewv">
+            <properties>
+                <item value="hWjBwcI0nP8AAAEo728hPeO0" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="3XwK_j7gvjQAAAE7HQD01_ym"/>
+                <item uuid="Z1UK_j7gsj4AAAE7BIj01_ye"/>
+                <item uuid="BNkK_j7gkA8AAAE7mzv01_ye"/>
+                <item uuid="PxoK_j7gxzMAAAE7ujv01_ye"/>
+                <item uuid="uUgK_j7g0Q8AAAE7oOr01_yf"/>
+                <item uuid="Uj4K_j7ggd0AAAE7Lgz01_yg"/>
+                <item uuid="aJ4K_j7g44IAAAE7K4701_ye"/>
+                <item uuid="pvcK_j7gQVkAAAE7wub01_yf"/>
+                <item uuid="iwQK_j7g6LYAAAE7CFn01_2T"/>
+                <item uuid="TbEK_j7grZwAAAE7mOT01_ye"/>
+                <item uuid="dEsK_j7gylEAAAE7yUb01_ye"/>
+                <item uuid="FRIK_j7gg48AAAE74jv01_ye"/>
+                <item uuid="HMsK_j7gkGwAAAE71uv01_yf"/>
+                <item uuid="4MsK_j7g6LUAAAE7CFn01_2T"/>
+                <item uuid="NJsK_j7gwyQAAAE7fTv01_ye"/>
+                <item uuid="O0kK_j7gad0AAAE7ADz01_ye"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="rv8K.GJAHvwAAAEvECmcYVXs">
+            <properties>
+                <item value="CgIK.GJAD_IAAAEvZiicYVXs" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="5_YK.GJA6wQAAAEwHOWw5kU1">
+            <properties>
+                <item value="mL8K.GJAnWwAAAEwveSw5kU1" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-person" uuid="IoQK_j7gssQAAAE7Lln01_2T">
+            <properties>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="s9IK_j7gfgwAAAE7egv01_ye">
+            <properties>
+                <item value="it_BwcI065UAAAEmP0A6TPGB" key="EndUUID"/>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hGjBwcI0zoYAAAEmV4oNrT2Z"/>
+                <item uuid="it_BwcI065UAAAEmP0A6TPGB"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Denarius Group" uuid="6rHBwcI0vSkAAAEmeHo6TOhE">
+            <properties>
+                <item value="447BwcI0.tkAAAEmZno6TOhE" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="uwgK_j7g5b0AAAE7Dlr01_3s">
+            <properties/>
+            <connected>
+                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="NWwK_j7goJoAAAE7vRb01_8Y">
+            <properties>
+                <item value="FCYK.GJAIVwAAAEwH5Ny4bY7" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item name="live at" uuid="4YvAqFYBbLEAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="RGzAqFYBZsAAAAFAPwZSKcwp"/>
+                <item uuid="USHAqFYBcdcAAAFAPgZSKcwp"/>
+            </connected>
+        </item>
+        <item name="gcoins" uuid="YQXBwcI0jsoAAAEq1cRDRaSN">
+            <properties>
+                <item value="bQnBwcI09xwAAAEqP.tDRaSY" key="CHN_IMG_ID"/>
+                <item value="USER" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="tDUK_j7gW4AAAAE7GCz01__I"/>
+                <item uuid="0tkK_j7gIwAAAAE8SRn01wCL"/>
+                <item uuid="0CEK_j7g76QAAAE80pr01wAu"/>
+            </connected>
+        </item>
+        <item name="friends" uuid="zNXAqFYBbLkAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="5ETAqFYBbKsAAAFAQQZSKcwp"/>
+                <item uuid="gpTAqFYBbKoAAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="brother-sister" uuid="zjLAqFYBbLUAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="40TAqFYBQNYAAAFAQAZSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="1 Denarius Group" uuid="TqbBwcI0dzQAAAEm3R86TOhE">
+            <properties>
+                <item value="P1PBwcI0Fm8AAAEmyB86TOhE" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="1 Denarius Group" uuid="dGDBwcI05B8AAAEmzSI6TOhE">
+            <properties>
+                <item value="EnrBwcI0Ze8AAAEmuCI6TOhE" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-person" uuid="2_4K_j7gxN8AAAE7GEr01_yk">
+            <properties>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
+                <item value="Xqh_AAEBSwAAAAEju_rAPfNS" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+            </connected>
+        </item>
+        <item name="spa1" uuid="649_AAEB_PwAAAEjvnNucewv">
+            <properties>
+                <item value="SJx_AAEBc5kAAAEkEL.3W1mn" key="CHN_IMG_ID"/>
+                <item value="USER" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="04oK_j7g6YMAAAE7hVr01_2T"/>
+                <item uuid="z0cK_j7g03QAAAE7lVr01_2T"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="lUUK_j7g02cAAAE7FDL01_8Y">
+            <properties>
+                <item value="5_YK.GJA6wQAAAEwHOWw5kU1" key="EndUUID"/>
+                <item value="JFAK.GJAEGsAAAEwbbiw5kUs" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="JFAK.GJAEGsAAAEwbbiw5kUs"/>
+            </connected>
+        </item>
+        <item name="interested in" uuid="_UzAqFYBbMAAAAFAQQZSKcwp">
+            <properties/>
+            <connected/>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="1 Denarius Group" uuid="WNfBwcI0j4IAAAEmMlxKQNy6">
+            <properties>
+                <item value="u_nBwcI0MhgAAAEmaDBKQNu7" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="aJ4K_j7g44IAAAE7K4701_ye">
+            <properties>
+                <item value="c9MK.GJAIDgAAAEulzzPKEP2" key="EndUUID"/>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+                <item uuid="c9MK.GJAIDgAAAEulzzPKEP2"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="8YQK_j7g0h0AAAE7zgf01_yg">
+            <properties/>
+            <connected>
+                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="Coin photo" uuid="8D_BwcI0I5EAAAEqQ6FDRaSh">
+            <properties>
+                <item value="KUjBwcI0P_0AAAEqMqFDRaSh" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="3UoK_j7grigAAAE7_C701_yg">
+            <properties>
+                <item value="SZHBwcI0W68AAAEmhxs6TOhE" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="1 Denarius Group" uuid="01HBwcI0GGcAAAEmerM6TOhE">
+            <properties>
+                <item value="cLTBwcI02T0AAAEmabM6TOhE" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="FRIK_j7gg48AAAE74jv01_ye">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="o1J_AAEBzuYAAAEjAD9ucexC" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+                <item uuid="o1J_AAEBzuYAAAEjAD9ucexC"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="dEsK_j7gylEAAAE7yUb01_ye">
+            <properties>
+                <item value="Vax_AAEBjgIAAAEljqneJiFE" key="EndUUID"/>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+                <item uuid="Vax_AAEBjgIAAAEljqneJiFE"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="s2gK_j7giyUAAAE7oJb01_8Y">
+            <properties>
+                <item value="vkEK.GJAqjEAAAEvo6ZNbZcw" key="EndUUID"/>
+                <item value="TgJ_AAEBApAAAAEluFmqTkXP" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-person" uuid="tSQK_j7gCO0AAAE7bH_01_2Y">
+            <properties>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
+                <item value="gffBwcI0k90AAAEnrEsQY_Ex" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="_7UK_j7g20EAAAE7VC701_yg">
+            <properties/>
+            <connected>
+                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="5 Ruble Group" uuid="Xqh_AAEBSwAAAAEju_rAPfNS">
+            <properties>
+                <item value="N1d_AAEBdkwAAAEjQfrAPfNS" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-belong-to-coin-definition" uuid="GU0K_j7gB0wAAAE77DH01_8Y">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="5_YK.GJA6wQAAAEwHOWw5kU1" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="uuUK_j7g4KcAAAE7XOj01_yf">
+            <properties>
+                <item value="5SV_AAEBQ4UAAAEjNJZucewv" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Denarius Group" uuid="SZHBwcI0W68AAAEmhxs6TOhE">
+            <properties>
+                <item value="lqnBwcI0JJgAAAEmZhs6TOhE" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="50 Kopeck Group" uuid="9X9_AAEB_yEAAAEjpI5ucewv">
+            <properties>
+                <item value="KQB_AAEBOmkAAAEl4rRzfAP9" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="Dog Roger" uuid="USHAqFYBcdcAAAFAPgZSKcwp">
             <properties>
                 <item value="terrier" key="breed"/>
                 <item value="byte[]" key="representation.0.type"/>
@@ -42,214 +594,1026 @@
                 <item value="brown" key="color"/>
                 <item value="3" key="age"/>
                 <item value="30126" key="representation.0.size"/>
-                <item value="8aXAqFYBAqsAAAFAQUtog8cv" key="representation.0.uuid"/>
+                <item value="K8fAqFYBcdgAAAFAPgZSKcwp" key="representation.0.uuid"/>
             </properties>
             <connected>
-                <item uuid="cB7AqFYBdpEAAAFARUtog8cv"/>
+                <item uuid="4YvAqFYBbLEAAAFAQQZSKcwp"/>
             </connected>
         </item>
-        <item name="Micron Company" uuid="Bi_AqFYBdo4AAAFARUtog8cv">
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="NVwK.GJAOFQAAAEvLwxXVkos">
+            <properties>
+                <item value="W_EK.GJAPOIAAAEvHgxXVkos" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-belong-to-coin-definition" uuid="XL8K_j7gnREAAAE8gcX01wEJ">
+            <properties>
+                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="EndUUID"/>
+                <item value="Cv7BwcI0aqkAAAEm2B86TOhE" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="Ruble" uuid="uGp_AAEBgdMAAAEj0H1ucewv">
+            <properties>
+                <item value="CURRENCY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="y8wK_j7gn0wAAAE78BL01_yg"/>
+                <item uuid="BD8K_j7guCwAAAE7M0301_yf"/>
+                <item uuid="pHIK_j7gswMAAAE7pVn01_2T"/>
+                <item uuid="Z4EK_j7gfjoAAAE7Xg701_yg"/>
+                <item uuid="JeAK_j7gswIAAAE7pVn01_2T"/>
+                <item uuid="IvIK_j7gSm0AAAE7URD01_yg"/>
+                <item uuid="8YQK_j7g0h0AAAE7zgf01_yg"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="z0cK_j7g03QAAAE7lVr01_2T">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="649_AAEB_PwAAAEjvnNucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="649_AAEB_PwAAAEjvnNucewv"/>
+            </connected>
+        </item>
+        <item name="ancient" uuid="WSrBwcI0vJgAAAEmo8eg6.as">
+            <properties>
+                <item value="USER" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="YEAK_j7gjJsAAAE7bmT01_3s"/>
+                <item uuid="0fQK_j7gKpQAAAE7dWT01_3s"/>
+                <item uuid="Pa4K_j7gAsIAAAE8H8301wEJ"/>
+            </connected>
+        </item>
+        <item name="Tsardom of Russia (1547-1721)" uuid="eAXBwcI0FHcAAAEp8qMFQTu.">
+            <properties>
+                <item value="mE7BwcI0gKYAAAEpnh4FQTvE" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="BNkK_j7gkA8AAAE7mzv01_ye"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="Y1kK_j7g5QEAAAE81yf01wCn">
+            <properties>
+                <item value="gybBwcI0zsAAAAEqzhTXZwEW" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Denarius Group" uuid="n1jBwcI0m8cAAAEmIVBKQNy6">
+            <properties>
+                <item value="4NXBwcI0SNIAAAEmRRFKQNy1" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="HMsK_j7gkGwAAAE71uv01_yf">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="jTV_AAEBVxkAAAEjL8Fucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="ERIK_j7geoAAAAE7nEX01_yg">
+            <properties>
+                <item value="dGDBwcI05B8AAAEmzSI6TOhE" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="M0UK_j7gS34AAAE7hkT01_7H">
+            <properties>
+                <item value="JUbBwcI09a4AAAEozJMYEDvs" key="EndUUID"/>
+                <item value="TgJ_AAEBApAAAAEluFmqTkXP" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="hy_AqFYB4s4AAAFA4wdSKcwp" uuid="hy_AqFYB4s4AAAFA4wdSKcwp">
+            <properties>
+                <item value="coins John interested in" key="desc"/>
+            </properties>
+            <connected>
+                <item uuid="B_Z_AAEBWpoAAAEj8a5ucewv"/>
+                <item uuid="vkEK.GJAqjEAAAEvo6ZNbZcw"/>
+                <item uuid="FCYK.GJAIVwAAAEwH5Ny4bY7"/>
+                <item uuid="TqbBwcI0dzQAAAEm3R86TOhE"/>
+                <item uuid="U2J_AAEBGgIAAAEjZaRucew1"/>
+                <item uuid="dGDBwcI05B8AAAEmzSI6TOhE"/>
+                <item uuid="31LBwcI0ZRkAAAEqY2TXZwEJ"/>
+                <item uuid="jTV_AAEBVxkAAAEjL8Fucewv"/>
+                <item uuid="T0B_AAEBrJQAAAEl4N3sOnUF"/>
+                <item uuid="WNfBwcI0j4IAAAEmMlxKQNy6"/>
+                <item uuid="5SV_AAEBQ4UAAAEjNJZucewv"/>
+                <item uuid="TknAqFYBbLAAAAFAQQZSKcwp"/>
+                <item uuid="8D_BwcI0I5EAAAEqQ6FDRaSh"/>
+                <item uuid="01HBwcI0GGcAAAEmerM6TOhE"/>
+                <item uuid="E05_AAEBof0AAAEj81Bucew1"/>
+                <item uuid="FX4K_j7gkwIAAAE2S5EKqVrb"/>
+                <item uuid="Xqh_AAEBSwAAAAEju_rAPfNS"/>
+                <item uuid="qk7BwcI0r7kAAAEqRY_XZwB7"/>
+                <item uuid="Cv7BwcI0aqkAAAEm2B86TOhE"/>
+                <item uuid="gybBwcI0zsAAAAEqzhTXZwEW"/>
+                <item uuid="1MR_AAEBUpwAAAEj.rduceww"/>
+                <item uuid="JUbBwcI09a4AAAEozJMYEDvs"/>
+                <item uuid="GALBwcI0wJUAAAEqtehDRaVa"/>
+                <item uuid="aQjBwcI0_G8AAAEmuCo6TOhE"/>
+                <item uuid="SZHBwcI0W68AAAEmhxs6TOhE"/>
+                <item uuid="1wjBwcI01NkAAAEqNkZDRaTW"/>
+                <item uuid="9X9_AAEB_yEAAAEjpI5ucewv"/>
+                <item uuid="p2R_AAEBwuMAAAElAOJMTtxW"/>
+                <item uuid="NVwK.GJAOFQAAAEvLwxXVkos"/>
+                <item uuid="gffBwcI0k90AAAEnrEsQY_Ex"/>
+                <item uuid="x17AqFYBQNQAAAFAQAZSKcwp"/>
+                <item uuid="Q_l_AAEBa9sAAAEjK7tucewv"/>
+                <item uuid="vXl_AAEBwGcAAAEjDI5ucew1"/>
+                <item uuid="SEIK.GJA5hEAAAEv6becYZFo"/>
+                <item uuid="AKF_AAEBX08AAAEjM_lucewv"/>
+                <item uuid="n1jBwcI0m8cAAAEmIVBKQNy6"/>
+                <item uuid="5_YK.GJA6wQAAAEwHOWw5kU1"/>
+                <item uuid="rv8K.GJAHvwAAAEvECmcYVXs"/>
+                <item uuid="4AsK_j7gexIAAAE2xiIXRJu8"/>
+                <item uuid="MHN_AAEB6N8AAAElI4A8vl9L"/>
+                <item uuid="6rHBwcI0vSkAAAEmeHo6TOhE"/>
+                <item uuid="kHR_AAEBEu8AAAEl0tU8vl88"/>
+                <item uuid="pf4K.GJAft8AAAEvJMycYY3b"/>
+                <item uuid=".c_BwcI0wmEAAAEmAME6TOhI"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="WbgK_j7g_QwAAAE8iCz01wCn">
+            <properties>
+                <item value="qk7BwcI0r7kAAAEqRY_XZwB7" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="7BUK_j7g_OEAAAE8MCr01wCn">
+            <properties>
+                <item value="31LBwcI0ZRkAAAEqY2TXZwEJ" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="1bUK_j7guSEAAAE7C1r01_3s">
+            <properties/>
+            <connected>
+                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Kopeck Group" uuid="kHR_AAEBEu8AAAEl0tU8vl88">
+            <properties>
+                <item value="jfp_AAEBM0gAAAElPktzfAP_" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-belong-to-coin-definition" uuid="3hkK_j7g80gAAAE7Gyb01__I">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="GALBwcI0wJUAAAEqtehDRaVa" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="person-belong-to-dynasty" uuid="QkQK_j7gWukAAAE7dmL01_yd">
+            <properties>
+                <item value="Z_vBwcI01XAAAAEs3WXzaoJp" key="EndUUID"/>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+                <item uuid="Z_vBwcI01XAAAAEs3WXzaoJp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="1 Ruble Group" uuid="B_Z_AAEBWpoAAAEj8a5ucewv">
+            <properties>
+                <item value="r6jBwcI0F1wAAAEoUz37lK.U" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="5 Ruble Group" uuid="U2J_AAEBGgIAAAEjZaRucew1">
+            <properties>
+                <item value="9UV_AAEBwPYAAAEjB6Rucew1" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-person" uuid="aP4K_j7gCO4AAAE7bH_01_2Y">
+            <properties>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
+                <item value="gffBwcI0k90AAAEnrEsQY_Ex" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="uUgK_j7g0Q8AAAE7oOr01_yf">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="Q_l_AAEBa9sAAAEjK7tucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="IvIK_j7gSm0AAAE7URD01_yg">
+            <properties/>
+            <connected>
+                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="pvcK_j7gQVkAAAE7wub01_yf">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="9X9_AAEB_yEAAAEjpI5ucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="Polish-Lithuanian Commonwealth (1569-1795)" uuid="o1J_AAEBzuYAAAEjAD9ucexC">
+            <properties>
+                <item value="9oYK.GJAncIAAAEuDbXPKEPu" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="FRIK_j7gg48AAAE74jv01_ye"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="Coins" uuid="TknAqFYBbLAAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="iwQK_j7g6LYAAAE7CFn01_2T">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="btIK_j7gUhsAAAE7drX01_8Y">
+            <properties>
+                <item value="rv8K.GJAHvwAAAEvECmcYVXs" key="EndUUID"/>
+                <item value="VM5_AAEBK8gAAAElZ.mJ4JO1" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="VM5_AAEBK8gAAAElZ.mJ4JO1"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="tDUK_j7gW4AAAAE7GCz01__I">
+            <properties>
+                <item value="GALBwcI0wJUAAAEqtehDRaVa" key="EndUUID"/>
+                <item value="YQXBwcI0jsoAAAEq1cRDRaSN" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="YQXBwcI0jsoAAAEq1cRDRaSN"/>
+            </connected>
+        </item>
+        <item name="country-parent-child" uuid="TbEK_j7grZwAAAE7mOT01_ye">
+            <properties>
+                <item value="UY0K.GJAO1EAAAEuZJy1LiWh" key="EndUUID"/>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+                <item uuid="UY0K.GJAO1EAAAEuZJy1LiWh"/>
+            </connected>
+        </item>
+        <item name="Denarius" uuid="spvBwcI0CO8AAAEnaA1D7z2c">
+            <properties>
+                <item value="CURRENCY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="_7UK_j7g20EAAAE7VC701_yg"/>
+                <item uuid="qYIK_j7gFqYAAAE7EEX01_yg"/>
+                <item uuid="DVgK_j7gtAwAAAE7Lbz01_yo"/>
+                <item uuid="Kr8K_j7gwX0AAAE7a7_01_yo"/>
+                <item uuid="SUcK_j7gRjEAAAE7Hxr01_yp"/>
+                <item uuid="1bUK_j7guSEAAAE7C1r01_3s"/>
+                <item uuid="uwgK_j7g5b0AAAE7Dlr01_3s"/>
+            </connected>
+        </item>
+        <item name="coin-belong-to-coin-definition" uuid="vo4K_j7gK_UAAAE7Gur01_8Y">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="NVwK.GJAOFQAAAEvLwxXVkos" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Ruble Group" uuid="E05_AAEBof0AAAEj81Bucew1">
+            <properties>
+                <item value="fOt_AAEB.WYAAAEjsVBucew1" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="6XEK_j7gHQMAAAE7oJv01_8Y">
+            <properties>
+                <item value="SEIK.GJA5hEAAAEv6becYZFo" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item name="Helen" uuid="VM5_AAEBK8gAAAElZ.mJ4JO1">
+            <properties>
+                <item value="USER" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="btIK_j7gUhsAAAE7drX01_8Y"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-person" uuid="jjwK_j7gj14AAAE7G3301_1o">
+            <properties>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
+                <item value="T0B_AAEBrJQAAAEl4N3sOnUF" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="qk7BwcI0r7kAAAEqRY_XZwB7">
+            <properties>
+                <item value="Ld3BwcI07ngAAAEq747XZwB7" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-person" uuid="FakK_j7grKMAAAE7Gn301_1o">
+            <properties>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
+                <item value="T0B_AAEBrJQAAAEl4N3sOnUF" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="qfwK_j7gnOEAAAE7Ni701_yg">
+            <properties>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
+                <item value="SZHBwcI0W68AAAEmhxs6TOhE" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hGjBwcI0zoYAAAEmV4oNrT2Z"/>
+            </connected>
+        </item>
+        <item name="dpa1" uuid="cxB_AAEBd7YAAAEj03Nucewv">
+            <properties>
+                <item value="USER" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="3UoK_j7grigAAAE7_C701_yg"/>
+                <item uuid="Y1kK_j7g5QEAAAE81yf01wCn"/>
+                <item uuid="6XEK_j7gHQMAAAE7oJv01_8Y"/>
+                <item uuid="nNIK_j7gGs8AAAE7GF_01_3s"/>
+                <item uuid="fZIK_j7gbfkAAAE7RFn01_8F"/>
+                <item uuid="ERIK_j7geoAAAAE7nEX01_yg"/>
+                <item uuid="uuUK_j7g4KcAAAE7XOj01_yf"/>
+                <item uuid="WbgK_j7g_QwAAAE8iCz01wCn"/>
+                <item uuid="7BUK_j7g_OEAAAE8MCr01wCn"/>
+                <item uuid="NWwK_j7goJoAAAE7vRb01_8Y"/>
+                <item uuid="oxMK_j7g52QAAAE7Al_01_3s"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="Cv7BwcI0aqkAAAEm2B86TOhE">
+            <properties>
+                <item value="P1PBwcI0Fm8AAAEmyB86TOhE" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="10 Ruble Group" uuid="1MR_AAEBUpwAAAEj.rduceww">
+            <properties>
+                <item value="ETt_AAEBCesAAAElxjSJ4JPW" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="pY0K_j7gSu0AAAE7vWr01_yr">
+            <properties>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
+                <item value="WNfBwcI0j4IAAAEmMlxKQNy6" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hGjBwcI0zoYAAAEmV4oNrT2Z"/>
+            </connected>
+        </item>
+        <item name="Крымское ханство (1441 - 1783)" uuid=".i7BwcI0sU8AAAErcjZp2tVY">
+            <properties>
+                <item value="oIgK.GJAFp0AAAEt_8B60pUs" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="PxoK_j7gxzMAAAE7ujv01_ye"/>
+            </connected>
+        </item>
+        <item name="work at" uuid="T2XAqFYBbL8AAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="Os_AqFYBbKwAAAFAQQZSKcwp"/>
+                <item uuid="pEXAqFYBQNgAAAFAQAZSKcwp"/>
+            </connected>
+        </item>
+        <item name="Nikolay II (1868-1918)" uuid="k0B_AAEBSgcAAAEjCHRucewv">
+            <properties>
+                <item value="Rh_BwcI0.XYAAAEo3TEhPePg" key="CHN_IMG_ID"/>
+                <item value="PERSON" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="dW4K_j7gTBQAAAE7LVn01_2T"/>
+                <item uuid="tSQK_j7gCO0AAAE7bH_01_2Y"/>
+                <item uuid="2_4K_j7gxN8AAAE7GEr01_yk"/>
+                <item uuid="jjwK_j7gj14AAAE7G3301_1o"/>
+                <item uuid="aP4K_j7gCO4AAAE7bH_01_2Y"/>
+                <item uuid="FakK_j7grKMAAAE7Gn301_1o"/>
+                <item uuid="IoQK_j7gssQAAAE7Lln01_2T"/>
+                <item uuid="QkQK_j7gWukAAAE7dmL01_yd"/>
+            </connected>
+        </item>
+        <item name="HP Company" uuid="Os_AqFYBbKwAAAFAQQZSKcwp">
             <properties>
                 <item value="USA, Idaho, Boise" key="address"/>
             </properties>
             <connected>
-                <item uuid="9eXAqFYBszAAAAFARktog8cv"/>
+                <item uuid="kivAqFYBbLwAAAFAQQZSKcwp"/>
+                <item uuid="dDbAqFYBbLoAAAFAQQZSKcwp"/>
+                <item uuid="T2XAqFYBbL8AAAFAQQZSKcwp"/>
             </connected>
         </item>
-        <item name="HP Company" uuid="BqrAqFYBdowAAAFARUtog8cv">
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="15 Kopeck Group" uuid="Q_l_AAEBa9sAAAEjK7tucewv">
             <properties>
-                <item value="USA, Idaho, Boise" key="address"/>
+                <item value="sPt_AAEB7BgAAAEjQblucewv" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="kILAqFYBszIAAAFARktog8cv"/>
-                <item uuid="tLzAqFYBsy0AAAFARktog8cv"/>
-                <item uuid="LM_AqFYBsy8AAAFARktog8cv"/>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
             </connected>
         </item>
-        <item name="friends" uuid="yI7AqFYBdpcAAAFARUtog8cv">
+        <item name="user-uploaded-coin" uuid="fZIK_j7gbfkAAAE7RFn01_8F">
+            <properties>
+                <item value="FX4K_j7gkwIAAAE2S5EKqVrb" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="3XwK_j7gvjQAAAE7HQD01_ym">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="MHN_AAEB6N8AAAElI4A8vl9L" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="House" uuid="RGzAqFYBZsAAAAFAPwZSKcwp">
+            <properties>
+                <item value="..." key="address"/>
+                <item value="..." key="size"/>
+            </properties>
+            <connected>
+                <item uuid="i7DAqFYBbLMAAAFAQQZSKcwp"/>
+                <item uuid="4YvAqFYBbLEAAAFAQQZSKcwp"/>
+                <item uuid="r_7AqFYBbLIAAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="SUcK_j7gRjEAAAE7Hxr01_yp">
             <properties/>
             <connected>
-                <item uuid="GWPAqFYBdooAAAFARUtog8cv"/>
-                <item uuid="ZzrAqFYBtEwAAAFAREtog8cv"/>
+                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
             </connected>
         </item>
-        <item name="brother-sister" uuid="Q6jAqFYBdpUAAAFARUtog8cv">
+        <item name="work at" uuid="v1vAqFYBbLsAAAFAQQZSKcwp">
             <properties/>
             <connected>
-                <item uuid="ZzrAqFYBtEwAAAFAREtog8cv"/>
-                <item uuid="WSXAqFYBtE4AAAFAREtog8cv"/>
+                <item uuid="EwLAqFYBQNcAAAFAQAZSKcwp"/>
+                <item uuid="5mfAqFYBbK0AAAFAQQZSKcwp"/>
             </connected>
         </item>
-        <item name="friends" uuid="BYXAqFYBsysAAAFARktog8cv">
+        <item name="friends" uuid="bxDAqFYBbLcAAAFAQQZSKcwp">
             <properties/>
             <connected>
-                <item uuid="ZzrAqFYBtEwAAAFAREtog8cv"/>
-                <item uuid="pDfAqFYBdosAAAFARUtog8cv"/>
+                <item uuid="gpTAqFYBbKoAAAFAQQZSKcwp"/>
             </connected>
         </item>
-        <item name="work at" uuid="0izAqFYBsy4AAAFARktog8cv">
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="SEIK.GJA5hEAAAEv6becYZFo">
+            <properties>
+                <item value="ZwUK.GJAmKIAAAEvrbecYZFo" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="YEAK_j7gjJsAAAE7bmT01_3s">
+            <properties>
+                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="EndUUID"/>
+                <item value="WSrBwcI0vJgAAAEmo8eg6.as" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="WSrBwcI0vJgAAAEmo8eg6.as"/>
+            </connected>
+        </item>
+        <item name="live at" uuid="i7DAqFYBbLMAAAFAQQZSKcwp">
             <properties/>
             <connected>
-                <item uuid="JmPAqFYBdo0AAAFARUtog8cv"/>
-                <item uuid="BITAqFYBtE8AAAFAREtog8cv"/>
+                <item uuid="EwLAqFYBQNcAAAFAQAZSKcwp"/>
+                <item uuid="RGzAqFYBZsAAAAFAPwZSKcwp"/>
             </connected>
         </item>
-        <item name="John" uuid="ZzrAqFYBtEwAAAFAREtog8cv">
+        <item name="Kingdom of Poland (1815-1915)" uuid="UY0K.GJAO1EAAAEuZJy1LiWh">
+            <properties>
+                <item value="SY4K.GJAxjAAAAEuAPi1LiWk" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="TbEK_j7grZwAAAE7mOT01_ye"/>
+            </connected>
+        </item>
+        <item name="Finland (1809 - 1917)" uuid="5FgK_j7gC4MAAAEzvSb5lul3">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="NJsK_j7gwyQAAAE7fTv01_ye"/>
+            </connected>
+        </item>
+        <item name="coin-belong-to-coin-definition" uuid="U3MK_j7gncMAAAE7VFj01_8F">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="4AsK_j7gexIAAAE2xiIXRJu8" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="FOsK_j7gpvIAAAE73W_01_6u">
+            <properties>
+                <item value="p2R_AAEBwuMAAAElAOJMTtxW" key="EndUUID"/>
+                <item value="TgJ_AAEBApAAAAEluFmqTkXP" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="JeAK_j7gswIAAAE7pVn01_2T">
+            <properties/>
+            <connected>
+                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="4AsK_j7gexIAAAE2xiIXRJu8">
+            <properties>
+                <item value="1QkK_j7gzz4AAAE2hCQXRJu8" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="friends" uuid="e0zAqFYBbLgAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="5ETAqFYBbKsAAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="30 Kopeck / 2 Zloty Group" uuid="pf4K.GJAft8AAAEvJMycYY3b">
+            <properties>
+                <item value="tnF_AAEBm3oAAAEl6XhzfAP." key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Denarius Group" uuid=".c_BwcI0wmEAAAEmAME6TOhI">
+            <properties>
+                <item value="TtDBwcI0FlEAAAEme8A6TOhI" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="live at" uuid="r_7AqFYBbLIAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="RGzAqFYBZsAAAAFAPwZSKcwp"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="CusK_j7gFmIAAAE7dE_01_7T">
+            <properties>
+                <item value="pf4K.GJAft8AAAEvJMycYY3b" key="EndUUID"/>
+                <item value="TgJ_AAEBApAAAAEluFmqTkXP" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="Coin photo" uuid="vkEK.GJAqjEAAAEvo6ZNbZcw">
+            <properties>
+                <item value="PDAK.GJA3ccAAAEvLKZNbZcw" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="Coin photo" uuid="31LBwcI0ZRkAAAEqY2TXZwEJ">
+            <properties>
+                <item value="M.PBwcI0KBMAAAEqUGTXZwEJ" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="PxoK_j7gxzMAAAE7ujv01_ye">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value=".i7BwcI0sU8AAAErcjZp2tVY" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+                <item uuid=".i7BwcI0sU8AAAErcjZp2tVY"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="Z4EK_j7gfjoAAAE7Xg701_yg">
+            <properties/>
+            <connected>
+                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.801-06:00" name="50 Kopeck Group" uuid="T0B_AAEBrJQAAAEl4N3sOnUF">
+            <properties>
+                <item value="LoQK.GJAQJcAAAEv_S5XVk4q" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="0CEK_j7g76QAAAE80pr01wAu">
+            <properties>
+                <item value="1wjBwcI01NkAAAEqNkZDRaTW" key="EndUUID"/>
+                <item value="YQXBwcI0jsoAAAEq1cRDRaSN" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="YQXBwcI0jsoAAAEq1cRDRaSN"/>
+            </connected>
+        </item>
+        <item name="Mike" uuid="pEXAqFYBQNgAAAFAQAZSKcwp">
+            <properties>
+                <item value="Mike" key="first_name"/>
+                <item value="Johnson" key="last_name"/>
+            </properties>
+            <connected>
+                <item uuid="gJjAqFYBbLYAAAFAQQZSKcwp"/>
+                <item uuid="T2XAqFYBbL8AAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="y8wK_j7gn0wAAAE78BL01_yg">
+            <properties/>
+            <connected>
+                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
+            </connected>
+        </item>
+        <item name="High School" uuid="keTAqFYBbK8AAAFAQQZSKcwp">
+            <properties>
+                <item value="USA, Idaho, Boise, XYZ" key="address"/>
+            </properties>
+            <connected>
+                <item uuid="AnzAqFYBbL4AAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="nNIK_j7gGs8AAAE7GF_01_3s">
+            <properties>
+                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="Kr8K_j7gwX0AAAE7a7_01_yo">
+            <properties/>
+            <connected>
+                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="DVgK_j7gtAwAAAE7Lbz01_yo">
+            <properties/>
+            <connected>
+                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-country" uuid="4MsK_j7g6LUAAAE7CFn01_2T">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+            </connected>
+        </item>
+        <item name="Second Polish Republic (1918 - 1939)" uuid="c9MK.GJAIDgAAAEulzzPKEP2">
+            <properties>
+                <item value="zbwK.GJAEDUAAAEuVzHPKEP5" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="aJ4K_j7g44IAAAE7K4701_ye"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="gybBwcI0zsAAAAEqzhTXZwEW">
+            <properties>
+                <item value="Z0zBwcI0IKkAAAEqvBTXZwEW" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="25 Kopeck Group" uuid="JUbBwcI09a4AAAEozJMYEDvs">
+            <properties>
+                <item value="ssEK.GJAfXUAAAEvbklXVkom" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-belong-to-coin-definition" uuid="TFgK_j7gR2sAAAE8iAr01wCL">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="8D_BwcI0I5EAAAEqQ6FDRaSh" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="Coin photo" uuid="1wjBwcI01NkAAAEqNkZDRaTW">
+            <properties>
+                <item value="nv7BwcI02CAAAAEqJkZDRaTW" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="O0kK_j7gad0AAAE7ADz01_ye">
+            <properties>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
+                <item value="3r0K.GJAF.sAAAEuQKEFioBw" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+                <item uuid="3r0K.GJAF.sAAAEuQKEFioBw"/>
+            </connected>
+        </item>
+        <item name="coin-belong-to-coin-definition" uuid="uYIK_j7gO40AAAE7NrX01_8Y">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="rv8K.GJAHvwAAAEvECmcYVXs" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="t0sK_j7g7pgAAAE7E1v01_2T">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="TgJ_AAEBApAAAAEluFmqTkXP" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
+            </connected>
+        </item>
+        <item name="friends" uuid="gJjAqFYBbLYAAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="pEXAqFYBQNgAAAFAQAZSKcwp"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-person" uuid="dW4K_j7gTBQAAAE7LVn01_2T">
+            <properties>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="tQ4K_j7gpPcAAAE75Vr01_2T">
+            <properties>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="TgJ_AAEBApAAAAEluFmqTkXP" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="1 Ruble Group" uuid="gffBwcI0k90AAAEnrEsQY_Ex">
+            <properties>
+                <item value="wQvBwcI0uKAAAAEnio0QY_EK" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="John" uuid="x17AqFYBQNQAAAFAQAZSKcwp">
             <properties>
                 <item value="John" key="first_name"/>
                 <item value="byte[]" key="representation.0.type"/>
                 <item value="27" key="age"/>
                 <item value="Smith" key="last_name"/>
                 <item value="28136" key="representation.0.size"/>
-                <item value="G27AqFYBtE0AAAFAREtog8cv" key="representation.0.uuid"/>
+                <item value="UV7AqFYBQNUAAAFAQAZSKcwp" key="representation.0.uuid"/>
             </properties>
             <connected>
-                <item uuid="JWDAqFYBdpYAAAFARUtog8cv"/>
-                <item uuid="CbPAqFYBszMAAAFARktog8cv"/>
-                <item uuid="5L3AqFYBdpQAAAFARUtog8cv"/>
-                <item uuid="yI7AqFYBdpcAAAFARUtog8cv"/>
-                <item uuid="t6DAqFYBdpIAAAFARUtog8cv"/>
-                <item uuid="tLzAqFYBsy0AAAFARktog8cv"/>
-                <item uuid="Q6jAqFYBdpUAAAFARUtog8cv"/>
-                <item uuid="BYXAqFYBsysAAAFARktog8cv"/>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
             </connected>
         </item>
-        <item name="work at" uuid="kILAqFYBszIAAAFARktog8cv">
-            <properties/>
-            <connected>
-                <item uuid="DWHAqFYBdokAAAFARUtog8cv"/>
-                <item uuid="BqrAqFYBdowAAAFARUtog8cv"/>
-            </connected>
-        </item>
-        <item name="study at" uuid="vjHAqFYBszEAAAFARktog8cv">
-            <properties/>
-            <connected>
-                <item uuid="WSXAqFYBtE4AAAFAREtog8cv"/>
-                <item uuid="J8vAqFYBdo8AAAFARUtog8cv"/>
-            </connected>
-        </item>
-        <item name="Jane" uuid="BITAqFYBtE8AAAFAREtog8cv">
+        <item name="Brad" uuid="gpTAqFYBbKoAAAFAQQZSKcwp">
             <properties>
-                <item value="Jane" key="first_name"/>
-                <item value="23" key="age"/>
-                <item value="Smith" key="last_name"/>
+                <item value="Brad" key="first_name"/>
+                <item value="Perterson" key="last_name"/>
             </properties>
             <connected>
-                <item uuid="5L3AqFYBdpQAAAFARUtog8cv"/>
-                <item uuid="hQzAqFYBdpMAAAFARUtog8cv"/>
-                <item uuid="0izAqFYBsy4AAAFARktog8cv"/>
+                <item uuid="zNXAqFYBbLkAAAFAQQZSKcwp"/>
+                <item uuid="kivAqFYBbLwAAAFAQQZSKcwp"/>
+                <item uuid="bxDAqFYBbLcAAAFAQQZSKcwp"/>
             </connected>
         </item>
-        <item name="live at" uuid="cB7AqFYBdpEAAAFARUtog8cv">
-            <properties/>
-            <connected>
-                <item uuid="09TAqFYBtEsAAAFAREtog8cv"/>
-                <item uuid="farAqFYBSjYAAAFAQEtog8cv"/>
-            </connected>
-        </item>
-        <item name="interested in" uuid="CbPAqFYBszMAAAFARktog8cv">
-            <properties/>
-            <connected>
-                <item uuid="ZzrAqFYBtEwAAAFAREtog8cv"/>
-                <item uuid="PObAqFYBdpAAAAFARUtog8cv"/>
-            </connected>
-        </item>
-        <item name="House" uuid="09TAqFYBtEsAAAFAREtog8cv">
+        <item name="demo" uuid="TgJ_AAEBApAAAAEluFmqTkXP">
             <properties>
-                <item value="..." key="address"/>
-                <item value="..." key="size"/>
+                <item value="USER" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="hQzAqFYBdpMAAAFARUtog8cv"/>
-                <item uuid="t6DAqFYBdpIAAAFARUtog8cv"/>
-                <item uuid="cB7AqFYBdpEAAAFARUtog8cv"/>
+                <item uuid="t0sK_j7g7pgAAAE7E1v01_2T"/>
+                <item uuid="CusK_j7gFmIAAAE7dE_01_7T"/>
+                <item uuid="tQ4K_j7gpPcAAAE75Vr01_2T"/>
+                <item uuid="vgEK_j7g2yYAAAE7Vur01_8Y"/>
+                <item uuid="s2gK_j7giyUAAAE7oJb01_8Y"/>
+                <item uuid="M0UK_j7gS34AAAE7hkT01_7H"/>
+                <item uuid="FOsK_j7gpvIAAAE73W_01_6u"/>
             </connected>
         </item>
-        <item name="work at" uuid="9eXAqFYBszAAAAFARktog8cv">
-            <properties/>
-            <connected>
-                <item uuid="pDfAqFYBdosAAAFARUtog8cv"/>
-                <item uuid="Bi_AqFYBdo4AAAFARUtog8cv"/>
-            </connected>
-        </item>
-        <item name="friends" uuid="5Y7AqFYBsywAAAFARktog8cv">
-            <properties/>
-            <connected>
-                <item uuid="GWPAqFYBdooAAAFARUtog8cv"/>
-                <item uuid="pDfAqFYBdosAAAFARUtog8cv"/>
-            </connected>
-        </item>
-        <item name="Coins" uuid="PObAqFYBdpAAAAFARUtog8cv">
-            <properties/>
-            <connected>
-                <item uuid="CbPAqFYBszMAAAFARktog8cv"/>
-            </connected>
-        </item>
-        <item name="Marry" uuid="WSXAqFYBtE4AAAFAREtog8cv">
+        <item name="user-uploaded-coin" uuid="0tkK_j7gIwAAAAE8SRn01wCL">
             <properties>
-                <item value="Marry" key="first_name"/>
-                <item value="25" key="age"/>
-                <item value="Smith" key="last_name"/>
+                <item value="8D_BwcI0I5EAAAEqQ6FDRaSh" key="EndUUID"/>
+                <item value="YQXBwcI0jsoAAAEq1cRDRaSN" key="StartUUID"/>
             </properties>
             <connected>
-                <item uuid="vjHAqFYBszEAAAFARktog8cv"/>
-                <item uuid="Q6jAqFYBdpUAAAFARUtog8cv"/>
+                <item uuid="YQXBwcI0jsoAAAEq1cRDRaSN"/>
             </connected>
         </item>
-        <item name="work at" uuid="LM_AqFYBsy8AAAFARktog8cv">
-            <properties/>
-            <connected>
-                <item uuid="GWPAqFYBdooAAAFARUtog8cv"/>
-                <item uuid="BqrAqFYBdowAAAFARUtog8cv"/>
-            </connected>
-        </item>
-        <item name="High School" uuid="J8vAqFYBdo8AAAFARUtog8cv">
+        <item name="House of Romanov" uuid="Z_vBwcI01XAAAAEs3WXzaoJp">
             <properties>
-                <item value="USA, Idaho, Boise, XYZ" key="address"/>
+                <item value="kBfBwcI0iD4AAAEsolfzaoKr" key="CHN_IMG_ID"/>
+                <item value="DYNASTY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="vjHAqFYBszEAAAFARktog8cv"/>
+                <item uuid="QkQK_j7gWukAAAE7dmL01_yd"/>
             </connected>
         </item>
-        <item name="live at" uuid="hQzAqFYBdpMAAAFARUtog8cv">
+        <item name="coin-related-to-currency" uuid="pHIK_j7gswMAAAE7pVn01_2T">
             <properties/>
             <connected>
-                <item uuid="09TAqFYBtEsAAAFAREtog8cv"/>
-                <item uuid="BITAqFYBtE8AAAFAREtog8cv"/>
+                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
             </connected>
         </item>
-        <item name="Mike" uuid="DWHAqFYBdokAAAFARUtog8cv">
+        <item name="study at" uuid="AnzAqFYBbL4AAAFAQQZSKcwp">
+            <properties/>
+            <connected>
+                <item uuid="40TAqFYBQNYAAAFAQAZSKcwp"/>
+                <item uuid="keTAqFYBbK8AAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="5 Ruble Group" uuid="vXl_AAEBwGcAAAEjDI5ucew1">
             <properties>
-                <item value="Mike" key="first_name"/>
-                <item value="Johnson" key="last_name"/>
+                <item value="lM1_AAEBM.QAAAEjro1ucew1" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="JWDAqFYBdpYAAAFARUtog8cv"/>
-                <item uuid="kILAqFYBszIAAAFARktog8cv"/>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
             </connected>
         </item>
-        <item name="Jasica" uuid="pDfAqFYBdosAAAFARUtog8cv">
+        <item name="Roman Republic (509BC-27BC)" uuid="hGjBwcI0zoYAAAEmV4oNrT2Z">
             <properties>
-                <item value="Jasica" key="first_name"/>
+                <item value="MaQK.GJAtbcAAAEtbaq372cr" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="9eXAqFYBszAAAAFARktog8cv"/>
-                <item uuid="5Y7AqFYBsywAAAFARktog8cv"/>
-                <item uuid="BYXAqFYBsysAAAFARktog8cv"/>
+                <item uuid="OuIK_j7gg0AAAAE7g4r01_y2"/>
+                <item uuid="fzkK_j7gnsoAAAE7cVn01_3s"/>
+                <item uuid="MH0K_j7gsR0AAAE7X1n01_3s"/>
+                <item uuid="qfwK_j7gnOEAAAE7Ni701_yg"/>
+                <item uuid="GmQK_j7g9DgAAAE73kT01_yg"/>
+                <item uuid="TI0K_j7gbsoAAAE7lkD01_yr"/>
+                <item uuid="pY0K_j7gSu0AAAE7vWr01_yr"/>
+                <item uuid="s9IK_j7gfgwAAAE7egv01_ye"/>
             </connected>
         </item>
-        <item name="live at" uuid="t6DAqFYBdpIAAAFARUtog8cv">
-            <properties/>
+        <item name="Roman Empire (27BC-395)" uuid="it_BwcI065UAAAEmP0A6TPGB">
+            <properties>
+                <item value="ZOPBwcI0hCkAAAEoBeITYXH6" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
             <connected>
-                <item uuid="09TAqFYBtEsAAAFAREtog8cv"/>
-                <item uuid="ZzrAqFYBtEwAAAFAREtog8cv"/>
+                <item uuid="s9IK_j7gfgwAAAE7egv01_ye"/>
             </connected>
         </item>
-        <item name="work at" uuid="tLzAqFYBsy0AAAFARktog8cv">
+        <item name="Grand Duchy of Lithuania (1236 - 1791)" uuid="3r0K.GJAF.sAAAEuQKEFioBw">
+            <properties>
+                <item value="bOYK.GJAQEoAAAEudOkFioBy" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="O0kK_j7gad0AAAE7ADz01_ye"/>
+            </connected>
+        </item>
+        <item name="work at" uuid="kivAqFYBbLwAAAFAQQZSKcwp">
             <properties/>
             <connected>
-                <item uuid="ZzrAqFYBtEwAAAFAREtog8cv"/>
-                <item uuid="BqrAqFYBdowAAAFARUtog8cv"/>
+                <item uuid="Os_AqFYBbKwAAAFAQQZSKcwp"/>
+                <item uuid="gpTAqFYBbKoAAAFAQQZSKcwp"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="vgEK_j7g2yYAAAE7Vur01_8Y">
+            <properties>
+                <item value="NVwK.GJAOFQAAAEvLwxXVkos" key="EndUUID"/>
+                <item value="TgJ_AAEBApAAAAEluFmqTkXP" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
+            </connected>
+        </item>
+        <item name="coin-related-to-currency" uuid="BD8K_j7guCwAAAE7M0301_yf">
+            <properties/>
+            <connected>
+                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
+            </connected>
+        </item>
+        <item name="country-parent-child" uuid="NJsK_j7gwyQAAAE7fTv01_ye">
+            <properties>
+                <item value="5FgK_j7gC4MAAAEzvSb5lul3" key="EndUUID"/>
+                <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
+                <item uuid="5FgK_j7gC4MAAAEzvSb5lul3"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-08-29T16:19:35.802-06:00" name="5 Kopeck Group" uuid="MHN_AAEB6N8AAAElI4A8vl9L">
+            <properties>
+                <item value="G51_AAEBhjIAAAElQQlzfAP." key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="hy_AqFYB4s4AAAFA4wdSKcwp"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="oxMK_j7g52QAAAE7Al_01_3s">
+            <properties>
+                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
             </connected>
         </item>
     </entities>

@@ -34,7 +34,7 @@ public interface NQLProcessorStream {
 	 */
 	public int getDepthLevel();
 	
-	public ERType getERQueryType();
+//	public ERType getERQueryType();
 	
 	public Set<Path> getCurrentMatchedPaths();
 

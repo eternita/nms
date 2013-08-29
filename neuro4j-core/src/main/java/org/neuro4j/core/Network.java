@@ -419,13 +419,12 @@ public class Network implements Serializable {
 		StringBuffer sb = new StringBuffer();
 		sb.append("size ");
 		sb.append(getSize());
-		sb.append("(" + ideMap.size() + " )");
 
-		sb.append("(e[ ");
+		sb.append(" - ( ");
 		for (String eid : ideMap.keySet())
 			sb.append(eid).append(" ");
 		
-		sb.append("] ");
+		sb.append(" )");
 		
 		return sb.toString();
 	}

@@ -1,8 +1,8 @@
 package org.neuro4j.storage.qp;
 
 /**
- * e[....] - entity
- * r[....] - relation
+ * (....) - entity
+ * f(....) - relation
  *
  */
-public enum ERType {entity, relation, filter}
+public enum ERType {entity, filter}

@@ -61,42 +61,6 @@ public class InMemoryUtils {
 		}
 		return;
 	}
-	
-/*	*//**
-	 * useful for AND operation
-	 * 
-	 * @param net
-	 * @param key
-	 * @param value
-	 *//*
-	public static void filterRelations(Network net, String key, String value) {
-		for (String rid : net.getRelations())
-		{
-			Relation r = net.getRelationByUUID(rid);
-			if (!value.equals(r.getProperty(key)))
-			{
-				net.remove(r);
-			}
-		}
-		return;
-	}*/
-	
-/*	public static void saveOrUpdate(Network net, ERBase newRelation) {
-		Relation currentRelation = net.getRelationByUUID(newRelation.getUuid());
-		if (null == currentRelation)
-		{
-			// TODO do not make deep copy - it can lead to object duplications (through entities in relations)
-//			currentRelation = (Relation) ClassUtils.deepCloneBySerialization(newRelation);
-			// create new relation - all entities should be in network already  
-			currentRelation = createNewRelationUsingExistingEntitiesIfPossible(net, newRelation);
-			net.add(currentRelation);
-		} else {
-			// update existing relation - all entities should be in network already  
-			updateCurrentRelationUsingExistingEntitiesIfPossible(net, currentRelation, newRelation);
-		}
-		
-		return;
-	}*/
 
 	/**
 	 * 
@@ -112,7 +76,6 @@ public class InMemoryUtils {
 			// TODO do not make deep copy - it can lead to object duplications (through entities in relations)
 //			currentEntity = (Entity) ClassUtils.deepCloneBySerialization(newEntity);
 
-//			currentEntity = newEntity.cloneBase();
 			currentEntity = newEntity.cloneWithConnectedKeys();
 			net.add(currentEntity);
 
@@ -124,63 +87,26 @@ public class InMemoryUtils {
 			currentEntity.removeProperties();
 			for (String key : newEntity.getPropertyKeysWithRepresentations())
 				currentEntity.setProperty(key, newEntity.getProperty(key));
-				
-		}
-
-		return;
-	}
-
-	
-/*	private static Relation createNewRelationUsingExistingEntitiesIfPossible(Network net, Relation outsideRelation)
-	{
-		Relation r = outsideRelation.cloneBase(); 
-		
-		for (Entity outrpe : outsideRelation.getAllParticipants())
-		{
-			Entity e = net.getEntityByUUID(outrpe.getUuid());
-			if (null == e)
-			{
-				// create new entity without relations
-				e = outrpe.cloneBase();
-			}
-//			RelationPart rp = new RelationPart(outrp.getType(), e);
-			r.addParticipant(e);
-		}
-		return r;
-	}*/
-
-/*	private static void updateCurrentRelationUsingExistingEntitiesIfPossible(Network net, Relation existingRelation, Relation outsideRelation)
-	{
-		existingRelation.setName(outsideRelation.getName());
-		existingRelation.setLastModifiedDate(outsideRelation.getLastModifiedDate());
-
-		existingRelation.removeProperties();
-		for (String key : outsideRelation.getPropertyKeysWithRepresentations())
-			existingRelation.setProperty(key, outsideRelation.getProperty(key));
-		
-		
-		for (Entity outrpe : outsideRelation.getAllParticipants())
-		{
-//			Entity outrpe = outrp.getEntity();
-			Entity rp = existingRelation.getParticipant(outrpe.getUuid());
-			if (null != rp)
-				continue; // this relation part already exist
 			
-			Entity e = net.getEntityByUUID(outrpe.getUuid());
-			if (null == e)
+			// connected
+			currentEntity.removeConnected();
+			
+			for (String nrid : newEntity.getConnectedKeys())
 			{
-				// create new entity without relations
-				e = new Entity(outrpe.getName());
-				e.setUuid(outrpe.getUuid());
-				e.setLastModifiedDate(outrpe.getLastModifiedDate());
+				ERBase currentConnected = currentEntity.getConnected(nrid);
+				if (null == currentConnected)
+				{
+					// new relation should be loaded (because it's new)
+					ERBase newConnected = newEntity.getConnected(nrid);
+					// it can be null. E.g. in case of export/import ERs can have orphan connections  
+					if (null != newConnected)
+						currentEntity.addConnected(newConnected);
+				}
+			}			
 				
-				for (String key : outrpe.getPropertyKeys())
-					e.setProperty(key, outrpe.getProperty(key));
-			}
-			existingRelation.addParticipant(e);
 		}
-		
+
 		return;
 	}
-	
-*/}
+
+}

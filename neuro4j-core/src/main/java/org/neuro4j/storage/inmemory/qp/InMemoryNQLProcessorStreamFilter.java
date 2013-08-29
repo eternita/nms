@@ -38,10 +38,10 @@ public class InMemoryNQLProcessorStreamFilter extends InMemoryNQLProcessorStream
 		return inputStream.hasNext();
 	}
 	
-	public ERType getERQueryType()
-	{
-		return inputStream.getERQueryType();
-	}	
+//	public ERType getERQueryType()
+//	{
+//		return inputStream.getERQueryType();
+//	}	
 	
 	public String next() {
 		

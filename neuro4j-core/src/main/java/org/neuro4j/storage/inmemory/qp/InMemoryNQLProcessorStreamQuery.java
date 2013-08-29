@@ -22,7 +22,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	
 	private int inChunkCounter = 0;
 
-	private ERType queryType;
+//	private ERType queryType;
 
 	private Iterator<ERBase> iter;
 	
@@ -68,19 +68,19 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		if (null == inputStream)
 		{
 			// very first decorator
-			this.queryType = queryType;
+//			this.queryType = queryType;
 		} else {
 			// not first decorator
-			ERType previousQueryType = inputStream.getERQueryType();
-			switch (previousQueryType)
-			{
-			case entity:
-				this.queryType = ERType.relation;
-				break;
-			case relation:
-				this.queryType = ERType.entity;
-				break;
-			}
+//			ERType previousQueryType = inputStream.getERQueryType();
+//			switch (previousQueryType)
+//			{
+//			case entity:
+//				this.queryType = ERType.relation;
+//				break;
+//			case relation:
+//				this.queryType = ERType.entity;
+//				break;
+//			}
 		}
 	}
 	
@@ -100,10 +100,10 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		this.ignoreAttrMap = ignoreAttrMap;
 	}
 	
-	public ERType getERQueryType()
-	{
-		return queryType;
-	}
+//	public ERType getERQueryType()
+//	{
+//		return queryType;
+//	}
 	
 	/**
 	 * 
@@ -268,8 +268,12 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
     	for (String key : attrMap.keySet())
     	{
     		String qkey = key;
+			match = false;
+			qkey = key;
+			if (isMatch(er, qkey, attrMap.get(key)))
+				return true;
 
-    		if (key.startsWith("r.") 
+/*    		if (key.startsWith("r.") 
     				&& queryType == ERType.relation)
     		{
     			match = false;
@@ -293,7 +297,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
     			if (isMatch(er, qkey, attrMap.get(key)))
     				return true;
     		}
-    		
+*/    		
     	} // for (String key : useOnlyAttrMap.keySet())
 
     	return match;

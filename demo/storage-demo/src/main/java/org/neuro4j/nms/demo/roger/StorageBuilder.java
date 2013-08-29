@@ -32,7 +32,7 @@ public class StorageBuilder {
 		try {
 			Network net = storage.query(query);
 			
-			logger.info("Quering example : \n query='" + query + "' \n output network: "  + net + "\n");
+			logger.info("Quering example : \n query='" + query + "' \n output network size: "  + net.getSize() + "\n");
 			
 			return net;
 		} catch (NQLException e) {
@@ -160,16 +160,16 @@ public class StorageBuilder {
 	public void updateDataFromJava()
 	{
 		try {
-			Network net = storage.query("INSERT R(desc='coins John interested in')");
+			Network net = storage.query("INSERT (desc='coins John interested in')");
 			String id = net.getIds()[0];
 			
 			storage.query("UPDATE " +
 					"SET " +
-					" E(name='John' OR " +
+					" (name='John' OR " +
 					"  name='Coins' OR " +
 					"  CHN_TYPE='COIN_INSTANCE' OR CHN_TYPE='COIN_GROUP') " +
 					
-					"WHERE R(id=?)", new String[]{id});
+					"WHERE (id=?)", new String[]{id});
 			
 		} catch (NQLException e) {
 			e.printStackTrace();
@@ -210,7 +210,7 @@ public class StorageBuilder {
 	public void readBinaryDataFromJava()
 	{
 		try {
-			Network net = storage.query("SELECT E(name='John')");
+			Network net = storage.query("SELECT (name='John')");
 			
 			ERBase john = net.getFirst();
 
