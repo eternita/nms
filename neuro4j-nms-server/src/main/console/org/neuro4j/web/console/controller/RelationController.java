@@ -1,18 +1,8 @@
 package org.neuro4j.web.console.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
-import org.neuro4j.nms.server.NMSServerConfig;
-import org.neuro4j.storage.NQLException;
-import org.neuro4j.storage.Storage;
-import org.neuro4j.storage.StorageException;
-import org.neuro4j.web.console.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class RelationController {
@@ -21,7 +11,7 @@ public class RelationController {
 
 	public RelationController() {
 	}
-	
+/*	
 	@RequestMapping("/relation-details")
 	public String relationDetails(HttpServletRequest request) throws StorageException {
 		RequestUtils.params2attributes(request, "storage");
@@ -49,5 +39,5 @@ public class RelationController {
 			}			
 		}
 		return "console/r/details";
-	}
+	}*/
 }

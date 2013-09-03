@@ -5,7 +5,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.NQLException;
@@ -15,8 +15,7 @@ import org.neuro4j.utils.KVUtils;
 import org.neuro4j.web.console.GeneralHelper;
 import org.neuro4j.web.console.controller.view.ViewComponent;
 import org.neuro4j.web.console.controller.view.ViewJSPlumbProcessor;
-import org.neuro4j.web.console.resolver.EntityResolver;
-import org.neuro4j.web.console.resolver.RelationResolver;
+import org.neuro4j.web.console.resolver.ERBaseResolver;
 import org.neuro4j.web.console.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,12 +86,12 @@ public class QueryController {
 			}
 		}
 			
-		Entity header = getSQLTableHeader(net);
+		ERBase header = getSQLTableHeader(net);
 
-		String[] entities = net.getEntities();
-		String[] relations = net.getRelations();
+		String[] entities = net.getIds();
+//		String[] relations = net.getRelations();
 		request.setAttribute("e_size", entities.length);
-		request.setAttribute("r_size", relations.length);
+//		request.setAttribute("r_size", relations.length);
 		
 
 		if (null != header)
@@ -108,23 +107,23 @@ public class QueryController {
 			request.setAttribute("header_columns", headers);
 
 			
-			GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
+			GeneralHelper.createVHLList(request, entities, "en", new ERBaseResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
 			view = "table"; // SQL table
-		} else if (0 == entities.length && 0 != relations.length) {
-			GeneralHelper.createVHLList(request, relations, "en", new RelationResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "r_list", "_el", LIST_PAGE_SIZE);
-			view = null; // list view only
-			
-		} else if (0 != entities.length && 0 == relations.length) {
-			GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
-			view = null; // list view only
-
+//		} else if (0 == entities.length && 0 != relations.length) {
+//			GeneralHelper.createVHLList(request, relations, "en", new RelationResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "r_list", "_el", LIST_PAGE_SIZE);
+//			view = null; // list view only
+//			
+//		} else if (0 != entities.length && 0 == relations.length) {
+//			GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
+//			view = null; // list view only
+//
 		} else {
 			
 			if (net.getSize() > MAX_NETWORK_SIZE_FOR_GRAPH)
 				view = null; // list view only
 
 			if (null == view || "list".equalsIgnoreCase(view))
-				GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
+				GeneralHelper.createVHLList(request, entities, "en", new ERBaseResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
 				
 		}
 			
@@ -148,7 +147,7 @@ public class QueryController {
 			String startNodeId = request.getParameter("startNodeId");
 			if (null == startNodeId)
 			{
-				Entity start = net.getEntityByName("Start");
+				ERBase start = net.getFirst("name", "Start");
 				if (null != start)
 					startNodeId = start.getUuid();
 			}
@@ -163,11 +162,11 @@ public class QueryController {
 	}
 
 
-	private Entity getSQLTableHeader(Network net) {
+	private ERBase getSQLTableHeader(Network net) {
 		if (null == net)
 			return null;
 		
-		Entity header = net.getEntityByName("n4j_sql_table_header"); //query("select e[name='n4j_sql_table_header']");
+		ERBase header = net.getFirst("name", "n4j_sql_table_header"); //query("select e[name='n4j_sql_table_header']");
 
 		if (null != header)
 		{

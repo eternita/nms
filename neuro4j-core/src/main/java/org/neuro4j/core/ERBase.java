@@ -1,9 +1,11 @@
 package org.neuro4j.core;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -397,4 +399,25 @@ public class ERBase extends KVBase implements Serializable {
 		
 	}
 	
+	public Map<String, List<ERBase>> groupConnectedByName()
+	{
+		Map<String, List<ERBase>> groupMap = new HashMap<String, List<ERBase>>();
+		for (ERBase r : connected.values())
+		{
+			if (null == r) // if not loaded - skip it
+				continue;
+
+			String rName = r.getName();
+			List<ERBase> rList = groupMap.get(rName);
+			if (null == rList)
+			{
+				rList = new ArrayList<ERBase>();
+				groupMap.put(rName, rList);
+			}
+
+			rList.add(r);
+		} // for (Relation r : relations)
+
+		return groupMap;
+	}	
 }

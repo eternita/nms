@@ -96,11 +96,14 @@ public class InMemoryUtils {
 				ERBase currentConnected = currentEntity.getConnected(nrid);
 				if (null == currentConnected)
 				{
+					currentEntity.addConnected(nrid);
+/*					
 					// new relation should be loaded (because it's new)
 					ERBase newConnected = newEntity.getConnected(nrid);
 					// it can be null. E.g. in case of export/import ERs can have orphan connections  
 					if (null != newConnected)
 						currentEntity.addConnected(newConnected);
+*/					
 				}
 			}			
 				

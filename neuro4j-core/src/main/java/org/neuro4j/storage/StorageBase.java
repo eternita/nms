@@ -133,7 +133,7 @@ public abstract class StorageBase implements Storage {
 		ERBase e = null;
 		Network net;
 		try {
-			net = query("select e(id=?)", new String[]{entityUUID});
+			net = query("select (id=?)", new String[]{entityUUID});
 			e = net.getById(entityUUID);
 		} catch (NQLException e1) {
 			// TODO Auto-generated catch block

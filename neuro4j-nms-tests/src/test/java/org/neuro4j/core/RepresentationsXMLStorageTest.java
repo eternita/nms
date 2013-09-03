@@ -61,7 +61,7 @@ public class RepresentationsXMLStorageTest {
 		}
 		
 		// read reps from storage
-		net = storage.query("select e(id=?)", new String[]{eid});
+		net = storage.query("select (id=?)", new String[]{eid});
 		
 		ERBase entity2 = net.getById(eid);
 		
@@ -89,7 +89,7 @@ public class RepresentationsXMLStorageTest {
 		Network net = new Network();
 		Representation representation = new Representation();
 		
-		representationNetwork = storage.query("select e()");
+		representationNetwork = storage.query("select ()");
 
 		representation.setData(storage, representationNetwork);
 
@@ -103,7 +103,7 @@ public class RepresentationsXMLStorageTest {
 		storage.save(net);
 		
 		// read reps from storage
-		net = storage.query("select e(id=?)", new String[]{eid});
+		net = storage.query("select (id=?)", new String[]{eid});
 		
 		ERBase entity2 = net.getById(eid);
 		

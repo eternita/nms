@@ -6,9 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
@@ -53,7 +52,7 @@ public class EntitiesController {
 			return "console/settings";
 		}
 
-		Entity e = getEntity(eid, storage);
+		ERBase e = getEntity(eid, storage);
 
 		if (null == e)
 			return "redirect:/query";
@@ -70,7 +69,7 @@ public class EntitiesController {
 			ex.printStackTrace();
 		}
 		
-		String queryStr = "select e(id='" + eid + "') / [depth='" + 2*depth + "'] limit " +
+		String queryStr = "select (id='" + eid + "') / [depth='" + 2*depth + "'] limit " +
 				NMSServerConfig.getInstance().getProperty("org.neuro4j.nms.console.max_network_size_for_graph");
 		request.setAttribute("q", queryStr);
 		
@@ -94,11 +93,11 @@ public class EntitiesController {
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings";
 		}
-		Entity e = getEntity(eid, storage);
+		ERBase e = getEntity(eid, storage);
 		
 		request.setAttribute("entity", e);		
 
-		Map<String, List<Relation>> groupedRelationMap = e.groupRelationsByName();// NetUtils.groupRelationsByName(e.getRelations()); //  getRelationMapGroupedByType(e);
+		Map<String, List<ERBase>> groupedRelationMap = e.groupConnectedByName();// NetUtils.groupRelationsByName(e.getRelations()); //  getRelationMapGroupedByType(e);
 		request.setAttribute("grouped_relation_map", groupedRelationMap);
 		
 		response.setCharacterEncoding("UTF-8");
@@ -106,15 +105,15 @@ public class EntitiesController {
 		return "console/e/graph-details";
 	}
 	
-	private Entity getEntity(String eid, Storage storage)
+	private ERBase getEntity(String eid, Storage storage)
 	{
 		// for details 1 level of expand is enough
-		String queryStr = "select e(id='" + eid + "') / [depth='2'] limit " + 
+		String queryStr = "select (id='" + eid + "') / [depth='2'] limit " + 
 											NMSServerConfig.getInstance().getProperty("org.neuro4j.nms.console.max_network_size_for_graph"); 
 		Network net;
 		try {
 			net = storage.query(queryStr);
-			Entity e = net.getEntityByUUID(eid);
+			ERBase e = net.getById(eid);
 			return e;
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block

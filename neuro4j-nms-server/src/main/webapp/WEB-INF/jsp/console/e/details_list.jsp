@@ -3,7 +3,7 @@
 <%@ page import="java.util.*"%>
 
 <%
-Entity entity = (Entity) request.getAttribute("entity");
+ERBase entity = (ERBase) request.getAttribute("entity");
 %>
 
 <table style="margin-bottom: 3px;" width="100%"  border="0" cellspacing="0" cellpadding="0" class="l r t b">
@@ -56,7 +56,7 @@ Entity entity = (Entity) request.getAttribute("entity");
            
           </tr>
 			<%
-			Map<String, List<Relation>> groupedRelationMap = entity.groupRelationsByName();
+			Map<String, List<ERBase>> groupedRelationMap = entity.groupConnectedByName();
 			for (String groupName : groupedRelationMap.keySet())
 			{
 			    %>
@@ -64,24 +64,11 @@ Entity entity = (Entity) request.getAttribute("entity");
 		            <td class="hp"><%= groupName %> (<%= groupedRelationMap.get(groupName).size() %>) </td> 
 		          </tr>
                 <%
-                  for (Relation rel : groupedRelationMap.get(groupName))
+                  for (ERBase rel : groupedRelationMap.get(groupName))
                   {
                 %> 
                   <tr>
                     <td class=""><a href="relation-details?storage=${storage}&uuid=<%=rel.getUuid()%>"><%=rel.getName()%></a> 
-		                (<%
-		                  for (String rpid : rel.getParticipantsKeys())
-		                  {
-		                	  Entity rp = rel.getParticipant(rpid);
-		                	  String rpStr = rpid;
-		                	  if (null != rp)
-		                		  rpStr = rp.getName();
-		                %> 
-		                  <a href="entity-details?storage=${storage}&eid=<%=rpid%>"><%=rpStr%></a> 
-		                  &nbsp; 
-                        <%
-		                  }
-                        %>) 
                         [<%
                          	for (String key : rel.getPropertyKeys())
                                                    {

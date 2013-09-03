@@ -13,9 +13,8 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.Storage;
@@ -56,7 +55,7 @@ public class JSONController {
 			
 		}
 		
-		Set<Entity> eList = new HashSet<Entity>();
+		Set<ERBase> eList = new HashSet<ERBase>();
 		Network net = new Network();
 		if (null != query)
 		{ 
@@ -77,11 +76,11 @@ public class JSONController {
 					request.getSession().removeAttribute(query);
 				}
 				
-				String[] entities = net.getEntities();
+				String[] entities = net.getIds();
 				
 				for (String eid : entities)
 				{
-					doDepthView(net.getEntityByUUID(eid), eList, depth);
+					doDepthView(net.getById(eid), eList, depth);
 				}
 			} catch (NQLException e) {
 				logger.error("Wrong NQL query " + query, e);
@@ -113,15 +112,15 @@ public class JSONController {
 	/*
 	 * does recursive call depends on depth
 	 */
-	private void doDepthView(Entity e, Collection<Entity> eList, int depth)
+	private void doDepthView(ERBase e, Collection<ERBase> eList, int depth)
 	{
 		eList.add(e);
 		if (depth == 1)
 			return;
 
-		for (Relation r : e.getRelations())
+		for (ERBase r : e.getConnected())
 		{
-			for (Entity rpe : r.getParticipants(e.getUuid()))
+			for (ERBase rpe : r.getAllConnectedFiltered(e.getUuid()))
 			{
 				eList.add(rpe);
 
@@ -132,16 +131,16 @@ public class JSONController {
 		return;
 	}
 	
-	private String getNodeType(Entity e)
+	private String getNodeType(ERBase e)
 	{
 		return e.getProperty("N4J_CONSOLE_NODE_TYPE");
 	}
 	
-	private List<Node> adaptNodes(Collection<Entity> eList, Network net)
+	private List<Node> adaptNodes(Collection<ERBase> eList, Network net)
 	{
 		List<Node> nodes = new ArrayList<Node>(eList.size());
-		List<Entity> dependentEntities = new ArrayList<Entity>();
-		for (Entity e : eList)
+		List<ERBase> dependentEntities = new ArrayList<ERBase>();
+		for (ERBase e : eList)
 		{
 			Node n = new Node();
 			if (null != e.getUuid())
@@ -162,17 +161,17 @@ public class JSONController {
 			}
 			n.data.put("$dim", 10);
 			
-			for (Relation r : e.getRelations())
+			for (ERBase r : e.getConnected())
 			{
 				if (null == net.getById(r.getUuid())) // show relations in network only
 					continue;
 				
-				for (Entity rp : r.getParticipants(e.getUuid()))
+//				for (ERBase rp : r.getAllConnectedFiltered(e.getUuid()))
 				{
 					Adjacency a = new Adjacency();
 					a.nodeFrom = e.getUuid();
-					a.nodeTo = rp.getUuid();
-					dependentEntities.add(rp);
+					a.nodeTo = r.getUuid();
+					dependentEntities.add(r);
 //					a.nodeFrom = e.getName();
 //					a.nodeTo = rp.getEntity().getName();
 					a.data.put("$name", r.getName());
@@ -187,7 +186,7 @@ public class JSONController {
 		}
 		
 		// update names for denepndent nodes (add depenent nodes without relations)
-		for (Entity e : dependentEntities)
+		for (ERBase e : dependentEntities)
 		{
 			if (!eList.contains(e))
 			{

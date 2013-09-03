@@ -9,7 +9,7 @@
 <%@page import="org.neuro4j.web.console.controller.vd.*"%>
 
 <%
-Entity entity = (Entity) request.getAttribute("entity");
+ERBase entity = (ERBase) request.getAttribute("entity");
 String localizedEntityName = entity.getName();
 %>
 <div align="center">
@@ -26,7 +26,7 @@ if (null != entity.getProperty("SWF_BLOCK_CLASS"))
 }
 %>
 <br/>
-<div style="padding: 10px; font-size: medium;"><b>Relations (<%= entity.getRelationsKeys().size() %>)</b></div>
+<div style="padding: 10px; font-size: medium;"><b>Connected (<%= entity.getConnectedKeys().size() %>)</b></div>
 
 <div align="left" style="vertical-align: top;" class="b">
 
@@ -35,7 +35,7 @@ if (null != entity.getProperty("SWF_BLOCK_CLASS"))
 
 <%
 
-Map<String, List<Relation>> groupedRelationMap = (Map<String, List<Relation>>) request.getAttribute("grouped_relation_map");
+Map<String, List<ERBase>> groupedRelationMap = (Map<String, List<ERBase>>) request.getAttribute("grouped_relation_map");
 for (String groupName : groupedRelationMap.keySet())
 {
 	String groupNameStr = groupName + " (" + groupedRelationMap.get(groupName).size() + ")";

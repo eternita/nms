@@ -186,7 +186,7 @@ public class Representation extends KVBase implements Serializable {
 		}
 		outNet.add(eNet);
 		
-		qsb = new StringBuffer("select r("); // select r(id='F53DA3BEC6218003FA9A37EC23B8AAF8' OR id='F53DA3BEC6218003FA9A37EC23B8AAF8')
+/*		qsb = new StringBuffer("select r("); // select r(id='F53DA3BEC6218003FA9A37EC23B8AAF8' OR id='F53DA3BEC6218003FA9A37EC23B8AAF8')
 
 		first = true;
 		
@@ -208,7 +208,7 @@ public class Representation extends KVBase implements Serializable {
 			e.printStackTrace();
 		}
 		outNet.add(rNet);
-		
+*/		
 
 		return outNet;
 	}

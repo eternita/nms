@@ -1,6 +1,6 @@
 package org.neuro4j.web.console.controller.view;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.logic.swf.SWFConstants;
 
 
@@ -10,7 +10,7 @@ public class ViewRelation {
 	String targetId;
 	String anchor = "TopCenter";
 	
-	public ViewRelation(Entity source, Entity target)
+	public ViewRelation(ERBase source, ERBase target)
 	{
 		this.sourceId = source.getUuid();
 		this.targetId = target.getUuid();

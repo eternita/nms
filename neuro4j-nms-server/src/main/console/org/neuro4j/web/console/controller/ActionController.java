@@ -5,7 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicProcessor;
 import org.neuro4j.logic.LogicProcessorFactory;
@@ -45,7 +45,7 @@ public class ActionController {
 			return "console/settings";
 		}		
 
-		Entity e = storage.getEntityByUUID(startNodeId);
+		ERBase e = storage.getById(startNodeId);
 		request.setAttribute("entity", e);
 		
 		return "console/a/init";
@@ -75,7 +75,7 @@ public class ActionController {
 		for (String key : params.keySet())
 			logicContext.put(key, params.get(key));
 		
-		Entity e = storage.getEntityByUUID(startNodeId);
+		ERBase e = storage.getById(startNodeId);
 		try {
 			logicProcessor.action(e, null, storage, logicContext);
 		} catch (Exception e1) {

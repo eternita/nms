@@ -4,27 +4,18 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.neuro4j.core.Entity;
-import org.neuro4j.core.Relation;
+import org.neuro4j.core.ERBase;
 
 
 public class DefaultDecorator implements ViewDecorator {
 
-	public String render(Entity displayedEntity, String groupName, List<Relation> relations, HttpServletRequest request) {
+	public String render(ERBase displayedEntity, String groupName, List<ERBase> relations, HttpServletRequest request) {
 		StringBuffer sb = new StringBuffer();
 
 		
-		for (Relation r : relations)
+		for (ERBase r : relations)
 		{
-    		sb.append("<b><a href='relation-details?storage=" + request.getParameter("storage") + "&vt=graph&uuid=" + r.getUuid() +"'>" + r.getName() + "</a></b><br/>");
-    		sb.append("<br/>");
-		    for (Entity rp : r.getParticipants()) {
-	    		sb.append("<a href='entity-details?storage=" + request.getParameter("storage") + "&vt=graph&eid=" + rp.getUuid() +"'>" + rp.getName() + "</a><br/>");
-	    		sb.append("");
-	    		sb.append("");
-	    		sb.append("");
-		    }
-
+    		sb.append("<b><a href='entity-details?storage=" + request.getParameter("storage") + "&vt=graph&eid=" + r.getUuid() +"'>" + r.getName() + "</a></b><br/>");
     		sb.append("<br/>");
 		}			
 		

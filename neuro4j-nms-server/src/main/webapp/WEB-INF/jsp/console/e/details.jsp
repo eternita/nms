@@ -41,7 +41,7 @@
             </td>
 
 <% 
-Entity entity4tab = (Entity) request.getAttribute("entity");
+ERBase entity4tab = (ERBase) request.getAttribute("entity");
 if (null != entity4tab.getProperty("SWF_BLOCK_CLASS")) { %>
 
             <td width="1px">&nbsp;

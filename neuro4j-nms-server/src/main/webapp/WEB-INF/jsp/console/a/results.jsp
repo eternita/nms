@@ -47,8 +47,8 @@
     </tr>
     
     <%
-        	Set<Entity> stack = (Set<Entity>) logicContext.get("ACTION_STACK");
-            for (Entity actionEntity : stack)
+        	Set<ERBase> stack = (Set<ERBase>) logicContext.get("ACTION_STACK");
+            for (ERBase actionEntity : stack)
             {
         %>
     <tr>

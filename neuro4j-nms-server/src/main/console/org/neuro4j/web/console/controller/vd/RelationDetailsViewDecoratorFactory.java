@@ -6,8 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.neuro4j.core.Entity;
-import org.neuro4j.core.Relation;
+import org.neuro4j.core.ERBase;
 
 
 public class RelationDetailsViewDecoratorFactory {
@@ -16,7 +15,7 @@ public class RelationDetailsViewDecoratorFactory {
 	
 	private static ViewDecorator DEFAULT_DECORATOR = new DefaultDecorator();
 	
-	public static String render(Entity displayedEntity, String groupName, List<Relation> relations, HttpServletRequest request)
+	public static String render(ERBase displayedEntity, String groupName, List<ERBase> relations, HttpServletRequest request)
 	{
 		ViewDecorator d = decorators.get(groupName);
 		if (null == d)
