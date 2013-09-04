@@ -541,12 +541,12 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 //					connectedStack.add(new Path(id));
 //				}
 				
-				for (String id : storageNet.getIds())
+/*				for (String id : storageNet.getIds())
 				{
 					connectedStack.add(new Path(id));
 				}
 
-				break;
+*/				break;
 				
 			default:
 					throw new RuntimeException("Wring ERType " + currentERType);

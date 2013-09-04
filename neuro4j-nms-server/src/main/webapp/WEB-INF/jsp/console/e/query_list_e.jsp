@@ -4,6 +4,8 @@
 
 <%@ page import="net.mlw.vlh.ValueList"%>
 <%@ page import="net.mlw.vlh.ValueListInfo"%>
+<%@ page import="org.neuro4j.web.console.utils.StringUtils"%>
+<%@ page import="org.neuro4j.core.ERBase"%>
 
             <!-- start table with topics --> 
             <% int currentRowIdx = 0; %>    
@@ -46,15 +48,15 @@
                                   <a href="entity-details?storage=${storage}&eid=${e.uuid}"><b>${e.name}</b></a>
 
                                     <br/>
-                                    Relations: <c:forEach items="${e.relations}" var="r">
-                                        <a href="relation-details?storage=${storage}&uuid=${r.uuid}">${r.name}</a> 
+                                    Connected: <c:forEach items="${e.connected}" var="r">
+                                        <a href="entity-details?storage=${storage}&eid=${r.uuid}">${r.name}</a> 
                                     </c:forEach>
                                     <c:if test="${!e.completeLoaded}"> ...</c:if>    
 
                                   <br/>
                                      Properties: 
                                   <%
-                                  Entity en = (Entity) pageContext.getAttribute("e");
+                                  ERBase en = (ERBase) pageContext.getAttribute("e");
                                   %>
                                   id : <%= en.getUuid() %>&nbsp;&nbsp;
                                   <%

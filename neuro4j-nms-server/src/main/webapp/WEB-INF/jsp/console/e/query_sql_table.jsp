@@ -4,6 +4,9 @@
 
 <%@ page import="net.mlw.vlh.ValueList"%>
 <%@ page import="net.mlw.vlh.ValueListInfo"%>
+<%@ page import="java.util.Set"%>
+<%@ page import="org.neuro4j.web.console.utils.StringUtils"%>
+<%@ page import="org.neuro4j.core.ERBase"%>
 
             <!-- start table with topics --> 
             <% int currentRowIdx = 0; %>    
@@ -42,7 +45,7 @@
                 <c:if test="${e_list.valueListInfo.totalNumberOfEntries > 0}">
                    <vlh:row bean="e">
                          <%
-                         Entity en = (Entity) pageContext.getAttribute("e");
+                         ERBase en = (ERBase) pageContext.getAttribute("e");
                          for (String key : headers)
                          {
                              String v = en.getProperty(key);

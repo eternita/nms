@@ -86,20 +86,8 @@
      <c:when test="${'jsplumb' == view}">
          <%@ include file="/WEB-INF/jsp/console/e/query_jsplumb.jsp" %>
      </c:when>     
-     <c:otherwise>
-     
-	    <c:choose>
-         <c:when test="${0 != e_size && 0 == r_size }">
+     <c:otherwise>     
             <%@ include file="/WEB-INF/jsp/console/e/query_list_e.jsp" %>
-         </c:when>
-         <c:when test="${0 == e_size && 0 != r_size }">
-            <%@ include file="/WEB-INF/jsp/console/e/query_list_r.jsp" %>
-         </c:when>
-         <c:otherwise>
-            <%@ include file="/WEB-INF/jsp/console/e/query_list.jsp" %>
-         </c:otherwise>
-        </c:choose>
-     
      </c:otherwise>
 </c:choose>
                 

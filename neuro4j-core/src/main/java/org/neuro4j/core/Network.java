@@ -42,6 +42,12 @@ public class Network implements Serializable {
 		super();
 	}
 
+	public Network query(String q, String[] parameters)  throws NQLException {
+		for (String param : parameters)
+			q = q.replaceFirst("\\?", "'" + param + "'");
+		
+		return query(q);
+	}	
 
 	public Network query(String q) throws NQLException
 	{

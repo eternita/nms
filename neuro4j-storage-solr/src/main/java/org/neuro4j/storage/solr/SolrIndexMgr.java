@@ -154,7 +154,12 @@ public class SolrIndexMgr {
 			for (String id : uuids)
 			{
 				solrServer.deleteById(id);
-				
+			} // for (String id : uuids)
+			
+            solrServer.commit(true, true);
+            
+			for (String id : uuids)
+			{				
 				//start update tails
 		    	SolrQuery solrQuery = new SolrQuery();
 		    	solrQuery.setQuery("connected:(" + id + ")");
@@ -170,8 +175,6 @@ public class SolrIndexMgr {
 	    		}
 
 			} // for (String id : uuids)
-			
-			
 	    	
             solrServer.commit(true, true);
 		} catch (SolrServerException e) {
