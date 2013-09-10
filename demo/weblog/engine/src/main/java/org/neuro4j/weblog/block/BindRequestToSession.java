@@ -1,8 +1,7 @@
 package org.neuro4j.weblog.block;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
-import org.neuro4j.core.Relation;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.CustomBlock;
 import org.neuro4j.logic.swf.FlowExecutionException;
@@ -13,7 +12,7 @@ import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 @ParameterDefinitionList(input={
-							@ParameterDefinition(name="request", isOptional = false, type="org.neuro4j.core.Entity")})
+							@ParameterDefinition(name="request", isOptional = false, type="org.neuro4j.core.ERBase")})
 public class BindRequestToSession extends CustomBlock {
 
 	final static String IN_REQUEST = "request";
@@ -21,7 +20,7 @@ public class BindRequestToSession extends CustomBlock {
 	
 	public int execute(LogicContext ctx) throws FlowExecutionException {
 		
-		Entity request = (Entity) ctx.get(IN_REQUEST);
+		ERBase request = (ERBase) ctx.get(IN_REQUEST);
 		Storage currentStorage = (Storage) ctx.get(CURRENT_STORAGE); 
 		Network net = null;
 		try {
@@ -33,11 +32,11 @@ public class BindRequestToSession extends CustomBlock {
 			
 			if (null == net || net.getSize() == 0)
 			{
-				net = currentStorage.query("INSERT R(id=? name=? r_type=? host=? request-start-time=?)", 
+				net = currentStorage.query("INSERT (id=? name=? r_type=? host=? request-start-time=?)", 
 							new String[]{sessionIdStr, sessionIdStr, "session", request.getProperty("host"), request.getProperty("request-start-time")});
 			}
 			
-			Relation session = (Relation) net.getById(sessionIdStr);
+			ERBase session = (ERBase) net.getById(sessionIdStr);
 			if (null == session)
 				return NEXT;
 
@@ -45,7 +44,7 @@ public class BindRequestToSession extends CustomBlock {
 			if (!request.isConnectedTo(session.getUuid()))
 			{
 				net.add(request);
-				session.addParticipant(request);
+				session.addConnected(request);
 				currentStorage.save(net);
 			}
 			

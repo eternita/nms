@@ -4,7 +4,7 @@ package org.neuro4j.weblog.block;
 import static org.neuro4j.weblog.block.GetRequestById.IN_REQUESTID;
 import static org.neuro4j.weblog.block.GetRequestById.OUT_REQUEST;
 
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.CustomBlock;
@@ -19,7 +19,7 @@ import org.neuro4j.storage.StorageException;
 @ParameterDefinitionList(input={
                                 	@ParameterDefinition(name=IN_REQUESTID, isOptional=false, type= "java.lang.String")},
                          output={
-                         	        @ParameterDefinition(name=OUT_REQUEST, isOptional=false, type= "org.neuro4j.core.Entity")})	
+                         	        @ParameterDefinition(name=OUT_REQUEST, isOptional=false, type= "org.neuro4j.core.ERBase")})	
 public class GetRequestById extends CustomBlock {
     
 	static final String CURRENT_STORAGE = "CURRENT_STORAGE";
@@ -42,7 +42,7 @@ public class GetRequestById extends CustomBlock {
 			if (null == net || net.getSize() == 0)
 				return NEXT;
 			
-			Entity request = (Entity) net.getById(requestId);
+			ERBase request = (ERBase) net.getById(requestId);
 			if (null == request)
 				return NEXT;
 			

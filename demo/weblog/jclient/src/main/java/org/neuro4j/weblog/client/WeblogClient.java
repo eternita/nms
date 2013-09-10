@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 
 import org.neuro4j.NeuroManager;
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Representation;
 import org.neuro4j.storage.NQLException;
@@ -65,7 +65,7 @@ public class WeblogClient {
 			map.putAll(params);
 		
 		String requestId = (String) request.getAttribute("requestId");
-		Entity e = map2entity(requestId, params);
+		ERBase e = map2entity(requestId, params);
 		post(e, content, REQUEST_POST_QUERY);
 		return;
 	}
@@ -78,12 +78,12 @@ public class WeblogClient {
 	
 	public void post(String requestId, Map params, String postQuery, byte[] content)
 	{
-		Entity e = map2entity(requestId, params);
+		ERBase e = map2entity(requestId, params);
 		post(e, content, postQuery);
 		return;
 	}
 	
-	private void post(final Entity entity, final byte[] content, final String postQuery)
+	private void post(final ERBase entity, final byte[] content, final String postQuery)
 	{
 			final Network net = new Network();
 			net.add(entity);
@@ -131,9 +131,9 @@ public class WeblogClient {
 		return storage.query(query);
 	}
 
-	private static Entity map2entity(String id, Map<String, String> map)
+	private static ERBase map2entity(String id, Map<String, String> map)
 	{
-		Entity e = new Entity();
+		ERBase e = new ERBase();
 		
 		if (null != id)
 			e.setUuid(id);

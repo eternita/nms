@@ -13,7 +13,7 @@ n4j.manager.storage=org.neuro4j.storage.solr.SolrStorage
 # start settings for org.neuro4j.storage.solr.SolrStorage
 
 # Solr Server URL 
-n4j.storage.solr.server_url=http://localhost:8080/solr123/expsys-demo
+n4j.storage.solr.server_url=http://localhost:8080/solr123/expsys-demo-1.3.0
 
 # end settings for org.neuro4j.storage.solr.SolrStorage
 ###################################################################

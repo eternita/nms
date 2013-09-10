@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.neuro4j.NetworkUtils;
-import org.neuro4j.core.Entity;
+import org.neuro4j.core.ERBase;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.CustomBlock;
@@ -21,9 +21,9 @@ import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 @ParameterDefinitionList(input={
-                                	@ParameterDefinition(name=IN_REQUEST, isOptional=false, type= "org.neuro4j.core.Entity")},
+                                	@ParameterDefinition(name=IN_REQUEST, isOptional=false, type= "org.neuro4j.core.ERBase")},
 						output={
-						     		@ParameterDefinition(name=OUT_PAGE, isOptional=false, type= "org.neuro4j.core.Entity")})	
+						     		@ParameterDefinition(name=OUT_PAGE, isOptional=false, type= "org.neuro4j.core.ERBase")})	
 
 public class BindRequestToPage extends CustomBlock {
     
@@ -37,30 +37,30 @@ public class BindRequestToPage extends CustomBlock {
     @Override
     public int execute(LogicContext ctx) throws FlowExecutionException {
 		
-    	Entity request = (Entity) ctx.get(IN_REQUEST);
+    	ERBase request = (ERBase) ctx.get(IN_REQUEST);
         
 		Storage currentStorage = (Storage) ctx.get(CURRENT_STORAGE); 
 		Network net = null;
 		try {
 			net = currentStorage.query("select r(name='website_pages')/e()");
 			
-			Set<Entity> pages = net.getEntitiesWithProperty("page_match_pattern");
+			Set<ERBase> pages = net.getWithProperty("page_match_pattern");
 			
 			String urlStr = request.getProperty("request-url");
-			Entity pageTemplate = getPage(pages, urlStr);
+			ERBase pageTemplate = getPage(pages, urlStr);
 			if (null == pageTemplate)
-				pageTemplate = net.getEntityByName("default-page");
+				pageTemplate = net.getFirst("name", "default-page");
 			
 			net = currentStorage.query("select e(page-template-id=? and session-id=?)", 
 					new String[]{"" + pageTemplate.getUuid(), request.getProperty("session-id")});
 			
-			Entity contextPage = null;
+			ERBase contextPage = null;
 			if (null != net && net.getSize() > 0)
-				contextPage = net.getEntityByUUID(net.getEntities()[0]);
+				contextPage = net.getById(net.getIds()[0]);
 					
 			if (null == contextPage)
 			{
-				contextPage = pageTemplate.copyBase();
+				contextPage = pageTemplate.cloneBase();
 				contextPage.setProperty("session-id", request.getProperty("session-id"));
 				contextPage.setProperty("page-template-id", pageTemplate.getUuid());
 			}
@@ -88,9 +88,9 @@ public class BindRequestToPage extends CustomBlock {
 	}
 	
     
-	private Entity getPage (Set<Entity> pages, String urlStr)
+	private ERBase getPage (Set<ERBase> pages, String urlStr)
 	{
-		for (Entity page : pages)
+		for (ERBase page : pages)
 		{
 			String patterns = page.getProperty("page_match_pattern");
 			String[] patternArray = patterns.split("\\|"); 
