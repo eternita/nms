@@ -141,5 +141,7 @@ public class SWFParametersConstants {
 	
 	public static final String VIEW_NODE_TEMPLATE_DYNAMIC_NAME = "SWF_PARAM_VIEW_DYNAMIC_TEMPLATE";
 	
+	public static final String VIEW_NODE_RENDER_TYPE = "SWF_PARAM_VIEW_RENDER_TYPE";
+	
 	public static final String NETWORK_VISIBILITY = "KEY_VISIBILITY";
 }

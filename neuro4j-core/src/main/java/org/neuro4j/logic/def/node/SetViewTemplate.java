@@ -12,6 +12,10 @@ public class SetViewTemplate extends LogicBlock {
 	
 	private final static String VIEW_TEMPLATE = SWFConstants.AC_VIEW_TEMPLATE;
 	
+	private final static String RENDER_ENGINE_KEY = SWFConstants.RENDER_ENGINE_KEY;
+	
+	
+	
 	private String staticTemplateName = null;
 	
 	private String dynamicTemplateName = null;
@@ -37,8 +41,15 @@ public class SetViewTemplate extends LogicBlock {
 		
 		if (null != templateName)
 		{
-			ctx.put(VIEW_TEMPLATE, templateName);			
+			ctx.put(VIEW_TEMPLATE, templateName);
+			
 		}
+		String renderType = getNotEmptyProperty(SWFParametersConstants.VIEW_NODE_RENDER_TYPE);
+		if (renderType == null)
+		{
+			renderType = "jsp";
+		}
+		ctx.put(RENDER_ENGINE_KEY, renderType);		
 		
 		return NEXT;
 	}
