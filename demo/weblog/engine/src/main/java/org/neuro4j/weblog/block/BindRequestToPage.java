@@ -68,18 +68,16 @@ public class BindRequestToPage extends CustomBlock {
 			net = new Network();
 			net.add(contextPage);
 			net.add(request);
-			NetworkUtils.addRelation(net, contextPage, request, "-");
+			NetworkUtils.addRelation(net, contextPage, request, "request-page");
 			
 			currentStorage.save(net);
 			
 			ctx.put(OUT_PAGE, contextPage); 
 			
 		} catch (NQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ERROR;
 		} catch (StorageException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ERROR;
 		}

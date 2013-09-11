@@ -15,6 +15,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import org.neuro4j.mgr.uuid.UUIDMgr;
+
 
 /**
  * 
@@ -45,6 +47,10 @@ public class WeblogFilter implements Filter {
 	{
 		long start = System.currentTimeMillis();
 		
+		String requestId = UUIDMgr.getInstance().createUUIDString();
+		// requestId can be used to post other events during request processing 
+		request.setAttribute("requestId", requestId);
+		
 		chain.doFilter(request, response);
 		
 		// post dynamic request only (no images, css, etc)
@@ -58,6 +64,9 @@ public class WeblogFilter implements Filter {
 			
 			params.put("name", "web request");
 			params.put("exec-time", "" + execTime);
+			params.put("session-id", ((HttpServletRequest) request).getSession().getId());
+			params.put("request-url", getRequestURL((HttpServletRequest) request));
+			
 
 			client.post((HttpServletRequest) request, params, null);
 		}
@@ -66,6 +75,28 @@ public class WeblogFilter implements Filter {
 		return;
 	}
 	
+	private String getRequestURL(HttpServletRequest request)
+	{
+        String requestURL = request.getRequestURL().toString();
+        
+        if ("GET".equals(request.getMethod()))
+        {
+        	// add parameters for storing 
+        	// POST method parameters are not stored because they can be huge (e.g. file upload)
+        	StringBuffer sb = new StringBuffer(requestURL);
+        	Enumeration paramNames = request.getParameterNames();
+        	if (paramNames.hasMoreElements())
+        	{
+        		sb.append("?");
+        	}
+        	while (paramNames.hasMoreElements()){
+        		String name = (String) paramNames.nextElement();
+        		sb.append(name).append("=").append(request.getParameter(name)).append("&");            		
+        	}
+        	requestURL = sb.toString();
+        }	
+        return requestURL;
+	}	
 	/**
 	 * Load properties from file
 	 * 
