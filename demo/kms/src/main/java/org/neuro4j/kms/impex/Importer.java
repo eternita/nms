@@ -50,18 +50,30 @@ public class Importer {
 		ExternalExperience dog = new ExternalExperience();
 		net.add(dog);
 		// post dog Roger's photo
-		Representation r1 = uploadRepresentation("./data/demo-files/dog_roger.jpg");
-		dog.addRepresentation(r1);
+		Representation dogRogerRep = uploadRepresentation("./data/demo-files/dog_roger.jpg");
+		dog.addRepresentation(dogRogerRep);
+		
+		Representation dogHoundRep = uploadRepresentation("./data/demo-files/hound.jpg");
+		dog.addRepresentation(dogHoundRep);
+		
+		Representation dogPoochRep = uploadRepresentation("./data/demo-files/pooch.jpg");
+		dog.addRepresentation(dogPoochRep);
 
-		Utils.connect(net, dog, new Word("Dog", Config.EN));
+		Word dogEn = new Word("Dog", Config.EN);
+		Utils.connect(net, dog, dogEn);
+		Word houndEn = new Word("Hound", Config.EN);
+		Word poochEn = new Word("Pooch", Config.EN);
+		Utils.connect(net, dog, houndEn);
+		Utils.connect(net, dog, poochEn);
+//		Utils.connect(net, dog, new Word("Hound", Config.EN));
 		Utils.connect(net, dog, new Word("Пес", Config.RU));
 		Utils.connect(net, dog, new Word("Кобель", Config.RU));
 		Utils.connect(net, dog, new Word("Псина", Config.RU));
 		Utils.connect(net, dog, new Word("Hund", Config.DE));
 		Utils.connect(net, dog, new Word("Perro", Config.ES));
 		
-		Word dogLabelRu = new Word("Собака", Config.RU);
-		Utils.connect(net, dog, dogLabelRu);
+		Word dogRu = new Word("Собака", Config.RU);
+		Utils.connect(net, dog, dogRu);
 		
 		ExternalExperience atImg = new ExternalExperience();
 		atImg.addRepresentation(uploadRepresentation("./data/demo-files/at.jpg"));
@@ -70,14 +82,23 @@ public class Importer {
 		
 //		Utils.connect(net, atImg, new Word("@", Config.EN));
 		Utils.connect(net, atImg, new Word("At/@", Config.EN));
-		Utils.connect(net, atImg, dogLabelRu);
+		Utils.connect(net, atImg, dogRu);
 		
 		ExternalExperience dogPooch = new ExternalExperience();
-		Utils.connect(net, dogPooch, new Word("Pooch", Config.EN));
+		dogPooch.addRepresentation(dogPoochRep);
+		Utils.connect(net, dogPooch, poochEn);
 		Utils.connect(net, dogPooch, new Word("Mongrel", Config.EN));
 		Utils.connect(net, dogPooch, new Word("Дворняжка", Config.RU));
-		Utils.connect(net, dogPooch, dogLabelRu);
+		Utils.connect(net, dogPooch, dogRu);
+		Utils.connect(net, dogPooch, dogEn);
 
+		ExternalExperience dogHound = new ExternalExperience();
+		dogHound.addRepresentation(dogHoundRep);
+		Utils.connect(net, dogHound, dogEn);
+		Utils.connect(net, dogHound, houndEn);
+		Utils.connect(net, dogHound, dogRu);
+		Utils.connect(net, dogHound, new Word("Гончая", Config.RU));
+		
 		ExternalExperience coin = new ExternalExperience();
 		// add image
 		Representation rubImg = uploadRepresentation("./data/demo-files/1-ruble.jpg");
