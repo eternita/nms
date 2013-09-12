@@ -25,7 +25,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.neuro4j.nms.version>1.2.2-SNAPSHOT</org.neuro4j.nms.version>
+        <org.neuro4j.nms.version>1.2.2</org.neuro4j.nms.version>
     </properties>
 
     <dependencies>
