@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.Storage;
@@ -52,7 +52,7 @@ public class EntitiesController {
 			return "console/settings";
 		}
 
-		ERBase e = getEntity(eid, storage);
+		Connected e = getEntity(eid, storage);
 
 		if (null == e)
 			return "redirect:/query";
@@ -93,11 +93,11 @@ public class EntitiesController {
 			request.setAttribute("storage_error", "Storage is not specified");
 			return "console/settings";
 		}
-		ERBase e = getEntity(eid, storage);
+		Connected e = getEntity(eid, storage);
 		
 		request.setAttribute("entity", e);		
 
-		Map<String, List<ERBase>> groupedRelationMap = e.groupConnectedByName();// NetUtils.groupRelationsByName(e.getRelations()); //  getRelationMapGroupedByType(e);
+		Map<String, List<Connected>> groupedRelationMap = e.groupConnectedByName();// NetUtils.groupRelationsByName(e.getRelations()); //  getRelationMapGroupedByType(e);
 		request.setAttribute("grouped_relation_map", groupedRelationMap);
 		
 		response.setCharacterEncoding("UTF-8");
@@ -105,7 +105,7 @@ public class EntitiesController {
 		return "console/e/graph-details";
 	}
 	
-	private ERBase getEntity(String eid, Storage storage)
+	private Connected getEntity(String eid, Storage storage)
 	{
 		// for details 1 level of expand is enough
 		String queryStr = "select (id='" + eid + "') / [depth='2'] limit " + 
@@ -113,7 +113,7 @@ public class EntitiesController {
 		Network net;
 		try {
 			net = storage.query(queryStr);
-			ERBase e = net.getById(eid);
+			Connected e = net.getById(eid);
 			return e;
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block

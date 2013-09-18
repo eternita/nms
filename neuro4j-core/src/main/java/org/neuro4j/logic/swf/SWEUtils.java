@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.rel.DirectionRelation;
 import org.neuro4j.logic.def.FlowSet;
@@ -79,11 +79,11 @@ public class SWEUtils {
 	 * @param block
 	 * @return
 	 */
-	public static List<ERBase> getOutgoingRelations(ERBase block)
+	public static List<Connected> getOutgoingRelations(Connected block)
 	{
-		List<ERBase> outRelations = new ArrayList<ERBase>();
+		List<Connected> outRelations = new ArrayList<Connected>();
 		
-		for (ERBase r : block.getConnected()) // TODO: rework with (type='relations') ..
+		for (Connected r : block.getConnected()) // TODO: rework with (type='relations') ..
 		{
 			if (block.getUuid().equals(r.getProperty(DirectionRelation.FROM_KEY)))
 				outRelations.add(r);

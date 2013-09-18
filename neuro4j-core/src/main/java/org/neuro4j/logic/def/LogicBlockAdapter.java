@@ -1,13 +1,13 @@
 package org.neuro4j.logic.def;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 
 /**
  * 
  * Implements persistence for CustomBlock inside Network
  *
  */
-public class LogicBlockAdapter extends ERBase {
+public class LogicBlockAdapter extends Connected {
 
 	/**
 	 * 
@@ -15,7 +15,7 @@ public class LogicBlockAdapter extends ERBase {
 	private static final long serialVersionUID = 1L;
 
 	
-	public void init(ERBase entity) 
+	public void init(Connected entity) 
 	{
 	
 		setUuid(entity.getUuid());
@@ -26,7 +26,7 @@ public class LogicBlockAdapter extends ERBase {
 		for (String key : entity.getPropertyKeys())
 			setProperty(key, entity.getProperty(key));
 		
-		for(ERBase r: entity.getConnected()){
+		for(Connected r: entity.getConnected()){
 			addConnected(r);
 		}
 	

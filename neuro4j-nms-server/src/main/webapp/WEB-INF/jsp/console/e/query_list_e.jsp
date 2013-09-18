@@ -5,7 +5,7 @@
 <%@ page import="net.mlw.vlh.ValueList"%>
 <%@ page import="net.mlw.vlh.ValueListInfo"%>
 <%@ page import="org.neuro4j.web.console.utils.StringUtils"%>
-<%@ page import="org.neuro4j.core.ERBase"%>
+<%@ page import="org.neuro4j.core.Connected"%>
 
             <!-- start table with topics --> 
             <% int currentRowIdx = 0; %>    
@@ -56,7 +56,7 @@
                                   <br/>
                                      Properties: 
                                   <%
-                                  ERBase en = (ERBase) pageContext.getAttribute("e");
+                                  Connected en = (Connected) pageContext.getAttribute("e");
                                   %>
                                   id : <%= en.getUuid() %>&nbsp;&nbsp;
                                   <%

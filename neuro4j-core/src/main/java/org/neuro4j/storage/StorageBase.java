@@ -11,7 +11,7 @@ import java.io.OutputStream;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.utils.ClassloaderUtil;
 import org.neuro4j.utils.KVUtils;
@@ -128,9 +128,9 @@ public abstract class StorageBase implements Storage {
 		return;
 	}
 	
-	public ERBase getById(String entityUUID) throws StorageException
+	public Connected getById(String entityUUID) throws StorageException
 	{
-		ERBase e = null;
+		Connected e = null;
 		Network net;
 		try {
 			net = query("select (id=?)", new String[]{entityUUID});

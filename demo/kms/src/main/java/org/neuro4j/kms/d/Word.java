@@ -1,8 +1,8 @@
 package org.neuro4j.kms.d;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 
-public class Word extends ERBase {
+public class Word extends Connected {
 
 	/**
 	 * 

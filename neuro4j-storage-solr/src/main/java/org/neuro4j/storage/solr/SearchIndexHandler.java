@@ -16,7 +16,7 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.StorageException;
 import org.slf4j.Logger;
@@ -107,7 +107,7 @@ public class SearchIndexHandler {
 	}
 
 
-	public static SolrInputDocument createSolrInputDocument(ERBase er)
+	public static SolrInputDocument createSolrInputDocument(Connected er)
 	{
         SolrInputDocument doc = new SolrInputDocument(); 
 
@@ -153,7 +153,7 @@ public class SearchIndexHandler {
 		return (String) doc.getFieldValue(SearchIndexConfiguration.FIELD_UUID);
 	}
 
-	public static void doc2erbase(ERBase er, SolrDocument doc)
+	public static void doc2erbase(Connected er, SolrDocument doc)
 	{
 		er.setUuid((String) doc.getFieldValue(SearchIndexConfiguration.FIELD_UUID));
 		er.setName((String) doc.getFieldValue(SearchIndexConfiguration.FIELD_NAME));
@@ -172,9 +172,9 @@ public class SearchIndexHandler {
 		return;
 	}
 
-	public static ERBase doc2erbase(SolrDocument doc)
+	public static Connected doc2erbase(SolrDocument doc)
 	{
-		ERBase er = new ERBase();
+		Connected er = new Connected();
 		doc2erbase(er, doc);
 		return er;
 	}

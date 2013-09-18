@@ -3,7 +3,7 @@ package org.neuro4j.storage.solr;
 import java.net.URLDecoder;
 import java.util.Properties;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.StorageBase;
@@ -40,7 +40,7 @@ public class SolrStorage extends StorageBase {
 			
 			for (String eid : network.getIds())
 			{
-				ERBase e = network.getById(eid);
+				Connected e = network.getById(eid);
 				if (e.isModified())
 				{
 					siMgr.saveOrUpdate(e);				

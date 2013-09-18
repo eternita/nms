@@ -2,7 +2,7 @@ package org.neuro4j.logic.def;
 
 import java.util.Map;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicProcessor;
@@ -66,7 +66,7 @@ public class DefaultLogicEngine {
 	 */
 	public static LogicContext run(String flow, String startNode, Storage storage, Map<String, Object> params) throws LogicProcessorException
 	{
-		ERBase e = null;
+		Connected e = null;
 		Network net = null;
 		if (-1 < flow.toLowerCase().indexOf("select"))
 		{

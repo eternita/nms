@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.utils.N4JConfig;
 import org.neuro4j.utils.StringUtils;
@@ -30,7 +30,7 @@ public class N4JSQLUtils {
 		
 		for (String id : net.getIds())
 		{
-			ERBase er = net.getById(id);
+			Connected er = net.getById(id);
 			headers.addAll(er.getPropertyKeys());
 		}
 		
@@ -140,7 +140,7 @@ public class N4JSQLUtils {
 		Network net = new Network();
 		
 		// create header
-		ERBase header = new ERBase("n4j_sql_table_header");
+		Connected header = new Connected("n4j_sql_table_header");
 		int cnt = rsmd.getColumnCount();
 		for (int i = 1; i <= cnt; i++)
 		{
@@ -152,7 +152,7 @@ public class N4JSQLUtils {
 		// create rows
 		while (result.next())
 		{
-			ERBase row = new ERBase("n4j_row");
+			Connected row = new Connected("n4j_row");
 			for (int i = 1; i <= cnt; i++)
 			{
 				String key = rsmd.getColumnName(i);
@@ -167,7 +167,7 @@ public class N4JSQLUtils {
 	}
 	
 	
-	public static void addER2Table(Connection conn, ERBase er, String tableName)
+	public static void addER2Table(Connection conn, Connected er, String tableName)
 	{
 		List<String> values = new ArrayList<String>();
 		StringBuffer sb = new StringBuffer();

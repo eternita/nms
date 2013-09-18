@@ -13,7 +13,7 @@ import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.StorageException;
 import org.neuro4j.storage.qp.NQLProcessor;
@@ -65,11 +65,11 @@ public class SolrIndexMgr {
 	}
 	
 
-	public void saveOrUpdate(ERBase... ers)  throws StorageException
+	public void saveOrUpdate(Connected... ers)  throws StorageException
 	{
 	    List<SolrInputDocument> batchDocumentList = new ArrayList<SolrInputDocument>();
 		
-	    for (ERBase er : ers)
+	    for (Connected er : ers)
 	    {
 	        SolrInputDocument doc = SearchIndexHandler.createSolrInputDocument(er);
 	    	batchDocumentList.add(doc);
@@ -103,7 +103,7 @@ public class SolrIndexMgr {
     	return ids;
 	}
 
-	public ERBase getById(String uuid)
+	public Connected getById(String uuid)
 	{
     	SolrQuery solrQuery = new SolrQuery();
 //    	solrQuery.add("fl", "UUID score"); // return all fields
@@ -121,9 +121,9 @@ public class SolrIndexMgr {
 		return null;
 	}
 	
-	public Set<ERBase> getByIds(Set<String> ids)
+	public Set<Connected> getByIds(Set<String> ids)
 	{
-		Set<ERBase> erset = new HashSet<ERBase>();
+		Set<Connected> erset = new HashSet<Connected>();
     	SolrQuery solrQuery = new SolrQuery();
 //    	solrQuery.add("fl", "UUID score"); // return all fields
 
@@ -169,7 +169,7 @@ public class SolrIndexMgr {
 	    		while (iter.hasNext())
 	    		{
 	    			SolrDocument doc = iter.next();
-                    ERBase e = SearchIndexHandler.doc2erbase(doc);
+                    Connected e = SearchIndexHandler.doc2erbase(doc);
                     e.removeConnected(id);
                     saveOrUpdate(e);
 	    		}

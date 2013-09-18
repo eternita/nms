@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
 import org.neuro4j.storage.Storage;
@@ -193,7 +193,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 			reqIds.add(id);
 			if (reqCnt >= OUTPUT_NET_REQUEST_IDS_LIMIT)
 			{
-				for (ERBase er : siMgr.getByIds(reqIds))
+				for (Connected er : siMgr.getByIds(reqIds))
 					outputNet.add(er);
 				
 				reqCnt = 0;
@@ -204,7 +204,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 		// serve last page
 		if (reqIds.size() > 0)
 		{
-			for (ERBase er : siMgr.getByIds(reqIds))
+			for (Connected er : siMgr.getByIds(reqIds))
 				outputNet.add(er);
 		}
 
@@ -270,7 +270,7 @@ public class NQLProcessorSolr extends NQLProcessorBase {
 	}
 	
 
-	public ERBase getById(String id)
+	public Connected getById(String id)
 	{
 		return siMgr.getById(id);
 	}

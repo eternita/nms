@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.solr.common.SolrDocument;
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Path;
 import org.neuro4j.storage.qp.ERType;
 import org.neuro4j.storage.qp.Filter;
@@ -194,7 +194,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
     		goThroughIterator = false;
 			nextDoc = iter.next(); 
 			
-	        ERBase er = SearchIndexHandler.doc2erbase(nextDoc);
+	        Connected er = SearchIndexHandler.doc2erbase(nextDoc);
 			for (Filter f : filterMap.keySet())
 			{
 		        if (f.propertyValue.equals(er.getProperty(f.propertyName)) )
@@ -269,7 +269,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		if (outputNetworkLimit < getCurrentOutputNetSize())
 			return null;
 */		
-        ERBase er = SearchIndexHandler.doc2erbase(nextDoc);
+        Connected er = SearchIndexHandler.doc2erbase(nextDoc);
 		
         nextDoc = null;
         
@@ -287,7 +287,7 @@ public class SolrNQLProcessorStreamQuery extends SolrNQLProcessorStreamBase {
 		return er.getUuid();
 	}	
 	
-	private void updateMatchedPaths(ERBase newERBase)
+	private void updateMatchedPaths(Connected newERBase)
 	{
 		Set<Path> newMatchedPaths = new HashSet<Path>();
 		

@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.LogicBlock;
 import org.neuro4j.logic.swf.FlowExecutionException;
@@ -69,7 +69,7 @@ public class LoopBlock  extends LogicBlock {
 		fctx.removeLoopIterator(this.iteratorKey);
 	}
 
-	public void load(ERBase entity) throws FlowInitializationException
+	public void load(Connected entity) throws FlowInitializationException
 	{
 		super.load(entity);
 		iteratorKey = getNotEmptyProperty(SWFParametersConstants.LOOP_NODE_ITERATOR);

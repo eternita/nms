@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 
 public class EntityXML {
 
@@ -44,7 +44,7 @@ public class EntityXML {
 		this.name = name;
 	}
 
-	public EntityXML(ERBase entity) {
+	public EntityXML(Connected entity) {
 		super();
 		this.uuid = entity.getUuid();
 		this.name = entity.getName();

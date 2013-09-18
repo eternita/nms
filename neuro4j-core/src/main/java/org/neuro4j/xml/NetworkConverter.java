@@ -116,7 +116,7 @@ public class NetworkConverter {
 
 		for (org.neuro4j.xml.internal.EntityXML e : net.getEntities())
 		{
-			org.neuro4j.core.ERBase entity = new org.neuro4j.core.ERBase(e.getName());
+			org.neuro4j.core.Connected entity = new org.neuro4j.core.Connected(e.getName());
 			entity.setUuid(e.getUuid());
 			for (PropertyXML rep : e.getRepresentations())
 				entity.setProperty(rep.getKey(), rep.getValue());
@@ -127,13 +127,13 @@ public class NetworkConverter {
 		// restore connected
 		for (org.neuro4j.xml.internal.EntityXML e : net.getEntities())
 		{
-			org.neuro4j.core.ERBase entity = network.getById(e.getUuid());
+			org.neuro4j.core.Connected entity = network.getById(e.getUuid());
 			
 			if (null != entity)
 			{
 				for (org.neuro4j.xml.internal.RelationTailXML rp : e.getRelations())
 				{
-					org.neuro4j.core.ERBase con = network.getById(rp.getUuid());
+					org.neuro4j.core.Connected con = network.getById(rp.getUuid());
 					if (null != con)
 						entity.addConnected(con);
 				}			

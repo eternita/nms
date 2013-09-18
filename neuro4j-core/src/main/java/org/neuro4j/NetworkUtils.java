@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
 import org.neuro4j.storage.Storage;
@@ -28,7 +28,7 @@ public class NetworkUtils {
 	{
 		for (String eid : net2.getIds())
 		{
-			ERBase e2 = net2.getById(eid);
+			Connected e2 = net2.getById(eid);
 			net1.add(e2);
 		}
 
@@ -57,7 +57,7 @@ public class NetworkUtils {
 		return net2;
 	}
 	
-	public static boolean loadConnected(ERBase er, Storage storage)
+	public static boolean loadConnected(Connected er, Storage storage)
 	{
 		try
 		{
@@ -65,7 +65,7 @@ public class NetworkUtils {
 			{
 				if (null == er.getConnected(rid))
 				{
-					ERBase r = storage.getById(rid); 
+					Connected r = storage.getById(rid); 
 					if (null != r)
 						er.addConnected(r);
 				}
@@ -89,12 +89,12 @@ public class NetworkUtils {
 	 * @param storage
 	 * @return
 	 */
-	public static boolean loadConnected(ERBase er, Network network, Storage storage)
+	public static boolean loadConnected(Connected er, Network network, Storage storage)
 	{
 		return loadConnected(er, network, storage, Integer.MAX_VALUE);
 	}
 	
-	public static boolean loadConnected(ERBase e, Network network, Storage storage, int connectedCountLimit)
+	public static boolean loadConnected(Connected e, Network network, Storage storage, int connectedCountLimit)
 	{
 		try
 		{
@@ -107,7 +107,7 @@ public class NetworkUtils {
 				
 				if (null == e.getConnected(rid))
 				{
-					ERBase r = storage.getById(rid); 
+					Connected r = storage.getById(rid); 
 					if (null != r)
 						network.add(r);
 				}
@@ -121,16 +121,16 @@ public class NetworkUtils {
 		return true;
 	}
 	
-	public static Map<String, List<ERBase>> groupConnectedByName(Set<ERBase> relations)
+	public static Map<String, List<Connected>> groupConnectedByName(Set<Connected> relations)
 	{
-		Map<String, List<ERBase>> groupMap = new HashMap<String, List<ERBase>>();
-		for (ERBase r : relations)
+		Map<String, List<Connected>> groupMap = new HashMap<String, List<Connected>>();
+		for (Connected r : relations)
 		{
 			String rName = r.getName();
-			List<ERBase> rList = groupMap.get(rName);
+			List<Connected> rList = groupMap.get(rName);
 			if (null == rList)
 			{
-				rList = new ArrayList<ERBase>();
+				rList = new ArrayList<Connected>();
 				groupMap.put(rName, rList);
 			}
 			
@@ -162,7 +162,7 @@ public class NetworkUtils {
 	 * @param e2
 	 * @return
 	 */
-	public static boolean isConnectedThroughMediator(ERBase e1, ERBase e2)
+	public static boolean isConnectedThroughMediator(Connected e1, Connected e2)
 	{
 		if (null == e1 || null == e2)
 			return false;
@@ -181,12 +181,12 @@ public class NetworkUtils {
 	
 
 	
-	public static void addRelation(Network net, ERBase b1, ERBase b2, String relation)
+	public static void addRelation(Network net, Connected b1, Connected b2, String relation)
 	{
 		net.add(b1);
 		net.add(b2);
 		
-		ERBase r = new ERBase(
+		Connected r = new Connected(
 				relation, 
 				b1, 
 				b2);
@@ -203,7 +203,7 @@ public class NetworkUtils {
 	 * @param maxDepth
 	 * @return
 	 */
-	public static Path getPath(Network net, ERBase e1, ERBase e2, int maxDepth)
+	public static Path getPath(Network net, Connected e1, Connected e2, int maxDepth)
 	{
 		List<Path> allPaths = new ArrayList<Path>();
 		allPaths.add(new Path(e1.getUuid()));
@@ -218,7 +218,7 @@ public class NetworkUtils {
 		return null;
 	}
 	
-	public static Set<Path> getPaths(Network net, ERBase e1, ERBase e2, int maxDepth)
+	public static Set<Path> getPaths(Network net, Connected e1, Connected e2, int maxDepth)
 	{
 		List<Path> allPaths = new ArrayList<Path>();
 		allPaths.add(new Path(e1.getUuid()));
@@ -240,7 +240,7 @@ public class NetworkUtils {
 		for (Path p : allPaths)
 		{
 			String lastItemId = p.getLast();
-			ERBase lastItem = net.getById(lastItemId);
+			Connected lastItem = net.getById(lastItemId);
 			
 			if (null == lastItem)
 				continue;

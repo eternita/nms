@@ -7,7 +7,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.rel.DirectionRelation;
 import org.neuro4j.logic.ExecutableEntityNotFoundException;
@@ -43,13 +43,13 @@ public class DefaultLogicProcessor implements LogicProcessor
 	 * @return
 	 * @throws SimpleWorkflowException 
 	 */
-	public LogicContext action(ERBase start, Network network, Storage storage, LogicContext logicContext) throws SimpleWorkflowException
+	public LogicContext action(Connected start, Network network, Storage storage, LogicContext logicContext) throws SimpleWorkflowException
 	{
 		if (null == logicContext)
 			throw new RuntimeException("LogicContext must not be null");
 		
-		ERBase nextStep = start; 
-		ERBase currentStep = start; 
+		Connected nextStep = start; 
+		Connected currentStep = start; 
 		while (null != nextStep)
 		{
 			currentStep = nextStep; 
@@ -65,12 +65,12 @@ public class DefaultLogicProcessor implements LogicProcessor
 		return logicContext;
 	}
 	
-	private static ERBase actionImpl(ERBase currentStep, Network network, Storage storage, LogicContext logicContext) throws SimpleWorkflowException
+	private static Connected actionImpl(Connected currentStep, Network network, Storage storage, LogicContext logicContext) throws SimpleWorkflowException
 	{
 		if (null == logicContext)
 			throw new RuntimeException("LogicContext must not be null");
 
-		ERBase nextStep = null;
+		Connected nextStep = null;
 		String className = currentStep.getProperty(SWFConstants.SWF_BLOCK_CLASS);
 
 		if (null != className)
@@ -81,7 +81,7 @@ public class DefaultLogicProcessor implements LogicProcessor
 				logicNode = LogicBlockLoader.getInstance().lookupBlock(currentStep, className);
 				
 				logger.finest("running " + logicNode.getClass().getSimpleName() + " (" +  logicNode.getClass().getCanonicalName() + ")");
-				Set<ERBase> stack = getExecutionStack(logicContext);
+				Set<Connected> stack = getExecutionStack(logicContext);
 				stack.add(currentStep);
 				logicContext.put(SWFConstants.AC_CURRENT_NODE, currentStep);
 
@@ -114,12 +114,12 @@ public class DefaultLogicProcessor implements LogicProcessor
 	}
 	
 
-	private static Set<ERBase> getExecutionStack(LogicContext logicContext)
+	private static Set<Connected> getExecutionStack(LogicContext logicContext)
 	{
-		Set<ERBase> stack = (Set<ERBase>) logicContext.get("ACTION_STACK");
+		Set<Connected> stack = (Set<Connected>) logicContext.get("ACTION_STACK");
 		if (null == stack)
 		{
-			stack = new LinkedHashSet<ERBase>();
+			stack = new LinkedHashSet<Connected>();
 			logicContext.put("ACTION_STACK", stack);
 		}
 		return stack;
@@ -142,7 +142,7 @@ public class DefaultLogicProcessor implements LogicProcessor
 	 * @param e
 	 * @return
 	 */
-	private static Map<String, String> getSWFParameters(ERBase e)
+	private static Map<String, String> getSWFParameters(Connected e)
 	{
 		Map<String, String> params = new HashMap<String, String>();
 		for (String key : e.getPropertyKeys())
@@ -165,11 +165,11 @@ public class DefaultLogicProcessor implements LogicProcessor
 	 * @param currentStep
 	 * @return
 	 */
-	private static ERBase getNext(ERBase currentStep, Network network, Storage storage)
+	private static Connected getNext(Connected currentStep, Network network, Storage storage)
 	{
-		ERBase next = null;
+		Connected next = null;
 //		for (ERBase r : currentStep.getRelations(SWFConstants.NEXT_RELATION_NAME))
-		for (ERBase r : currentStep.getConnected("name", SWFConstants.NEXT_RELATION_NAME))
+		for (Connected r : currentStep.getConnected("name", SWFConstants.NEXT_RELATION_NAME))
 		{
 			if (null != r)
 			{
@@ -177,10 +177,10 @@ public class DefaultLogicProcessor implements LogicProcessor
 				if (null == nextEid) 
 					continue;
 
-				Set<ERBase> rparts = r.getAllConnectedFiltered(currentStep.getUuid());
+				Set<Connected> rparts = r.getAllConnectedFiltered(currentStep.getUuid());
 				if (rparts.size() > 0)
 				{
-					ERBase rp = rparts.iterator().next();
+					Connected rp = rparts.iterator().next();
 					if (nextEid.equals(rp.getUuid()))
 					{
 						next = rp;
@@ -204,9 +204,9 @@ public class DefaultLogicProcessor implements LogicProcessor
 		return next;
 	}
 	
-	private static ERBase getEntityByUUID(String uuid, Network network, Storage storage)
+	private static Connected getEntityByUUID(String uuid, Network network, Storage storage)
 	{
-		ERBase e = null;
+		Connected e = null;
 		
 		// try to resolve from local network
 		if (null != network)

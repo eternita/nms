@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 
 
@@ -33,7 +33,7 @@ public interface Storage {
 	 */
 	public OutputStream getRepresentationOutputStream(String id) throws StorageException;
 	
-	public ERBase getById(String entityUUID) throws StorageException;	
+	public Connected getById(String entityUUID) throws StorageException;	
 
 //	public Relation getRelationByUUID(String relationUUID) throws StorageException;
 	

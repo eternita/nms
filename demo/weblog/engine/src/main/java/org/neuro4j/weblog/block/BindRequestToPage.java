@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.neuro4j.NetworkUtils;
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.CustomBlock;
@@ -37,24 +37,24 @@ public class BindRequestToPage extends CustomBlock {
     @Override
     public int execute(LogicContext ctx) throws FlowExecutionException {
 		
-    	ERBase request = (ERBase) ctx.get(IN_REQUEST);
+    	Connected request = (Connected) ctx.get(IN_REQUEST);
         
 		Storage currentStorage = (Storage) ctx.get(CURRENT_STORAGE); 
 		Network net = null;
 		try {
 			net = currentStorage.query("select r(name='website_pages')/e()");
 			
-			Set<ERBase> pages = net.getWithProperty("page_match_pattern");
+			Set<Connected> pages = net.getWithProperty("page_match_pattern");
 			
 			String urlStr = request.getProperty("request-url");
-			ERBase pageTemplate = getPage(pages, urlStr);
+			Connected pageTemplate = getPage(pages, urlStr);
 			if (null == pageTemplate)
 				pageTemplate = net.getFirst("name", "default-page");
 			
 			net = currentStorage.query("select e(page-template-id=? and session-id=?)", 
 					new String[]{"" + pageTemplate.getUuid(), request.getProperty("session-id")});
 			
-			ERBase contextPage = null;
+			Connected contextPage = null;
 			if (null != net && net.getSize() > 0)
 				contextPage = net.getById(net.getIds()[0]);
 					
@@ -88,9 +88,9 @@ public class BindRequestToPage extends CustomBlock {
 	}
 	
     
-	private ERBase getPage (Set<ERBase> pages, String urlStr)
+	private Connected getPage (Set<Connected> pages, String urlStr)
 	{
-		for (ERBase page : pages)
+		for (Connected page : pages)
 		{
 			String patterns = page.getProperty("page_match_pattern");
 			String[] patternArray = patterns.split("\\|"); 

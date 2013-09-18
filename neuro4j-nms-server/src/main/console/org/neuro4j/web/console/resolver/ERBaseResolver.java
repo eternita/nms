@@ -1,7 +1,7 @@
 package org.neuro4j.web.console.resolver;
 
 import org.neuro4j.NetworkUtils;
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
@@ -33,7 +33,7 @@ public class ERBaseResolver implements EntryResolver {
 	public Object resolve(String id, String language) {
 		
 		try {
-			ERBase e = network.getById(id);
+			Connected e = network.getById(id);
 			if (null == e)
 			{
 				e = storage.getById(id);

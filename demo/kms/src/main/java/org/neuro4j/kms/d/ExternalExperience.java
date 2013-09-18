@@ -1,8 +1,8 @@
 package org.neuro4j.kms.d;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 
-public class ExternalExperience extends ERBase {
+public class ExternalExperience extends Connected {
 
 	/**
 	 * 

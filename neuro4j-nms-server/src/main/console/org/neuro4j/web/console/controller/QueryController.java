@@ -5,7 +5,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.NQLException;
@@ -86,7 +86,7 @@ public class QueryController {
 			}
 		}
 			
-		ERBase header = getSQLTableHeader(net);
+		Connected header = getSQLTableHeader(net);
 
 		String[] entities = net.getIds();
 //		String[] relations = net.getRelations();
@@ -147,7 +147,7 @@ public class QueryController {
 			String startNodeId = request.getParameter("startNodeId");
 			if (null == startNodeId)
 			{
-				ERBase start = net.getFirst("name", "Start");
+				Connected start = net.getFirst("name", "Start");
 				if (null != start)
 					startNodeId = start.getUuid();
 			}
@@ -162,11 +162,11 @@ public class QueryController {
 	}
 
 
-	private ERBase getSQLTableHeader(Network net) {
+	private Connected getSQLTableHeader(Network net) {
 		if (null == net)
 			return null;
 		
-		ERBase header = net.getFirst("name", "n4j_sql_table_header"); //query("select e[name='n4j_sql_table_header']");
+		Connected header = net.getFirst("name", "n4j_sql_table_header"); //query("select e[name='n4j_sql_table_header']");
 
 		if (null != header)
 		{
