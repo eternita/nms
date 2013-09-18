@@ -2,7 +2,7 @@ package org.neuro4j.storage.solr.qp;
 
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Path;
 import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.qp.ERType;
@@ -54,7 +54,7 @@ public class SolrNQLProcessorStreamFilter extends SolrNQLProcessorStreamBase {
 		String id = inputStream.next();
 
 		// resolve by id
-        ERBase er = siMgr.getById(id); 
+        Connected er = siMgr.getById(id); 
         
         filter.filter(er, baseStorage);
 

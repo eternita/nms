@@ -65,7 +65,7 @@
         <td >&nbsp;
         
 			<c:if test="${null != q}">
-			 Queried ${e_size} entities, ${r_size} relations at ${qtime} ms 
+			 Queried ${e_size} entities at ${qtime} ms 
 			</c:if>
         
         </td>

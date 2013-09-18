@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 
 
 public interface ViewDecorator {
 
-	public String render(ERBase displayedEntity, String groupName, List<ERBase> relations, HttpServletRequest request);
+	public String render(Connected displayedEntity, String groupName, List<Connected> relations, HttpServletRequest request);
 	
 }

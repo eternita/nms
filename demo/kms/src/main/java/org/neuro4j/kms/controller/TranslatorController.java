@@ -6,7 +6,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.kms.Config;
 import org.neuro4j.kms.Translator;
@@ -37,7 +37,7 @@ public class TranslatorController {
 		
 		Network net = translator.getTranslationNetwork(q, from);
 		
-		Map<ERBase, Set<String>> translations = translator.translate(net, q, from, to);
+		Map<Connected, Set<String>> translations = translator.translate(net, q, from, to);
 		
 		request.setAttribute("translations", translations);
 		

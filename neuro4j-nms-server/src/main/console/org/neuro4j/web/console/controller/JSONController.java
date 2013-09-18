@@ -13,7 +13,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.nms.server.NMSServerConfig;
 import org.neuro4j.storage.NQLException;
@@ -55,7 +55,7 @@ public class JSONController {
 			
 		}
 		
-		Set<ERBase> eList = new HashSet<ERBase>();
+		Set<Connected> eList = new HashSet<Connected>();
 		Network net = new Network();
 		if (null != query)
 		{ 
@@ -112,15 +112,15 @@ public class JSONController {
 	/*
 	 * does recursive call depends on depth
 	 */
-	private void doDepthView(ERBase e, Collection<ERBase> eList, int depth)
+	private void doDepthView(Connected e, Collection<Connected> eList, int depth)
 	{
 		eList.add(e);
 		if (depth == 1)
 			return;
 
-		for (ERBase r : e.getConnected())
+		for (Connected r : e.getConnected())
 		{
-			for (ERBase rpe : r.getAllConnectedFiltered(e.getUuid()))
+			for (Connected rpe : r.getAllConnectedFiltered(e.getUuid()))
 			{
 				eList.add(rpe);
 
@@ -131,16 +131,16 @@ public class JSONController {
 		return;
 	}
 	
-	private String getNodeType(ERBase e)
+	private String getNodeType(Connected e)
 	{
 		return e.getProperty("N4J_CONSOLE_NODE_TYPE");
 	}
 	
-	private List<Node> adaptNodes(Collection<ERBase> eList, Network net)
+	private List<Node> adaptNodes(Collection<Connected> eList, Network net)
 	{
 		List<Node> nodes = new ArrayList<Node>(eList.size());
-		List<ERBase> dependentEntities = new ArrayList<ERBase>();
-		for (ERBase e : eList)
+		List<Connected> dependentEntities = new ArrayList<Connected>();
+		for (Connected e : eList)
 		{
 			Node n = new Node();
 			if (null != e.getUuid())
@@ -161,7 +161,7 @@ public class JSONController {
 			}
 			n.data.put("$dim", 10);
 			
-			for (ERBase r : e.getConnected())
+			for (Connected r : e.getConnected())
 			{
 				if (null == net.getById(r.getUuid())) // show relations in network only
 					continue;
@@ -186,7 +186,7 @@ public class JSONController {
 		}
 		
 		// update names for denepndent nodes (add depenent nodes without relations)
-		for (ERBase e : dependentEntities)
+		for (Connected e : dependentEntities)
 		{
 			if (!eList.contains(e))
 			{

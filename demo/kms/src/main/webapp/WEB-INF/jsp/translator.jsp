@@ -10,7 +10,7 @@
 		<br/> 
 
  <%
- Map<ERBase, Set<String>> translations = (Map<ERBase, Set<String>>) request.getAttribute("translations"); 
+ Map<Connected, Set<String>> translations = (Map<Connected, Set<String>>) request.getAttribute("translations"); 
  Map<String, Set<String>> reverseTranslations = (Map<String, Set<String>>) request.getAttribute("reverseTranslations"); 
  %>                
 		
@@ -79,7 +79,7 @@
 				    if (null != translations)
 				    {
 				    	int entityCounter = 1;
-						for (ERBase translationEntity : translations.keySet())
+						for (Connected translationEntity : translations.keySet())
 						{
 							%>
 		                    <b><%=entityCounter++ %>.</b>

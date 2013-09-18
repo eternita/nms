@@ -23,7 +23,7 @@ public class NetworkXML {
 	{
 		for (String eid : n.getIds())
 		{
-			org.neuro4j.core.ERBase e = n.getById(eid);
+			org.neuro4j.core.Connected e = n.getById(eid);
 			entities.add(new org.neuro4j.xml.internal.EntityXML(e));
 		}
 		

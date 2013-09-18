@@ -32,7 +32,7 @@ public class Network implements Serializable {
 	private boolean modified = false;
 
 	// id - er
-	private Map<String, ERBase> ideMap = new HashMap<String, ERBase>();
+	private Map<String, Connected> ideMap = new HashMap<String, Connected>();
 	
 	// deleted ER ids - used when persist network
 	private Set<String> deletedEntityIds = new HashSet<String>();
@@ -78,13 +78,13 @@ public class Network implements Serializable {
 		return outNet;		
 	}	
 
-	private void addTail(ERBase... entities)
+	private void addTail(Connected... entities)
 	{
 		
 
-		for (ERBase entity : entities)
+		for (Connected entity : entities)
 		{
-			ERBase current = ideMap.get(entity.getUuid());
+			Connected current = ideMap.get(entity.getUuid());
 			if (null == current)
 			{
 				ideMap.put(entity.getUuid(), entity);
@@ -114,7 +114,7 @@ public class Network implements Serializable {
 		return;
 	}	
 */	
-	public void add(ERBase... items)
+	public void add(Connected... items)
 	{
 		add(true, items);
 		return;
@@ -123,22 +123,22 @@ public class Network implements Serializable {
 
 	public void add(Network net)
 	{
-		for(ERBase er : net.getERBases())
+		for(Connected er : net.getERBases())
 			add(er);		
 		
 		return;
 	}
 	
 	
-	public void add(boolean withConnected, ERBase... ers)
+	public void add(boolean withConnected, Connected... ers)
 	{
 		addTail(ers);
 
-		for (ERBase er : ers)
+		for (Connected er : ers)
 		{
 			for (String connectedID : er.getConnectedKeys())
 			{
-				ERBase connected = ideMap.get(connectedID);
+				Connected connected = ideMap.get(connectedID);
 
 				if (withConnected)
 				{
@@ -163,9 +163,9 @@ public class Network implements Serializable {
 		return;
 	}
 	
-	public void remove(ERBase... items)
+	public void remove(Connected... items)
 	{
-		for(ERBase item : items)
+		for(Connected item : items)
 		{
 			remove(item, false);
 		}
@@ -181,7 +181,7 @@ public class Network implements Serializable {
 	 * @param entity
 	 * @param force
 	 */
-	public void remove(ERBase entity, boolean force)
+	public void remove(Connected entity, boolean force)
 	{
 		
 		if (force)
@@ -189,12 +189,12 @@ public class Network implements Serializable {
 			// delete relations even they were not loaded (may lead to relations with missed entities)
 			for (String rid : entity.getConnectedKeys())
 			{
-				ERBase r = entity.getConnected(rid);
+				Connected r = entity.getConnected(rid);
 				if (null != r)
 					r.removeConnected(entity.getUuid());
 			}
 		} else {
-			for (ERBase r : entity.getAllConnected())
+			for (Connected r : entity.getAllConnected())
 			{
 				r.removeConnected(entity.getUuid());
 			}
@@ -289,14 +289,14 @@ public class Network implements Serializable {
 		return (String[]) ideMap.keySet().toArray(new String[]{});
 	}
 	
-	public Iterator<ERBase> getERBaseIterator()
+	public Iterator<Connected> getERBaseIterator()
 	{
 		return getERBases().iterator();
 	}
 	
-	public Set<ERBase> getERBases()
+	public Set<Connected> getERBases()
 	{
-		Set<ERBase> erids = new HashSet<ERBase>();
+		Set<Connected> erids = new HashSet<Connected>();
 		
 		erids.addAll(ideMap.values());
 		
@@ -316,11 +316,11 @@ public class Network implements Serializable {
 //	}
 
 	
-	public Set<ERBase> getByRegexp(String key, String regexp)
+	public Set<Connected> getByRegexp(String key, String regexp)
 	{
-		Set<ERBase> entities = new HashSet<ERBase>();
+		Set<Connected> entities = new HashSet<Connected>();
 		
-		for (ERBase e : ideMap.values())
+		for (Connected e : ideMap.values())
 		{
 			// CHECK OTHER ID
 			if ("uuid".equalsIgnoreCase(key) && StringUtils.match(e.getUuid(), regexp))
@@ -338,11 +338,11 @@ public class Network implements Serializable {
 		return entities;
 	}
 	
-	public Set<ERBase> getWithProperty(String key)
+	public Set<Connected> getWithProperty(String key)
 	{
-		Set<ERBase> entities = new HashSet<ERBase>();
+		Set<Connected> entities = new HashSet<Connected>();
 		
-		for (ERBase e : ideMap.values())
+		for (Connected e : ideMap.values())
 		{
 			if (e.properties.containsKey(key))
 				entities.add(e);
@@ -358,14 +358,14 @@ public class Network implements Serializable {
 	 * @param value
 	 * @return
 	 */
-	public Set<ERBase> get(String key, String value)
+	public Set<Connected> get(String key, String value)
 	{
 		
 		// get by NAME
 		if ("name".equalsIgnoreCase(key))
 		{
-			Set<ERBase> entities = new HashSet<ERBase>();
-			for (ERBase e : ideMap.values())
+			Set<Connected> entities = new HashSet<Connected>();
+			for (Connected e : ideMap.values())
 			{
 				// if match key & value - return it
 				if (value.equals(e.getName()))
@@ -377,19 +377,19 @@ public class Network implements Serializable {
 			return entities;
 		}
 		
-		Set<ERBase> entities = new HashSet<ERBase>();
+		Set<Connected> entities = new HashSet<Connected>();
 		
 		// get by UUID
 		if ("uuid".equalsIgnoreCase(key))
 		{
-			ERBase e = getById(value);
+			Connected e = getById(value);
 			if (null != e)
 				entities.add(e);
 			return entities;
 		}
 		
 		// get by OTHER PROPERTY
-		for (ERBase e : ideMap.values())
+		for (Connected e : ideMap.values())
 		{
 			if (value.equals(e.getProperty(key)))
 				entities.add(e);
@@ -507,14 +507,14 @@ public class Network implements Serializable {
 	 * @param id
 	 * @return
 	 */
-	public ERBase getById(String id)
+	public Connected getById(String id)
 	{
 		return ideMap.get(id);
 	}
 
 
 	
-	public ERBase getFirst()
+	public Connected getFirst()
 	{
 		if (!ideMap.values().isEmpty())
 			return ideMap.values().iterator().next();
@@ -522,9 +522,9 @@ public class Network implements Serializable {
 		return null;
 	}
 	
-	public ERBase getFirst(String key, String value)
+	public Connected getFirst(String key, String value)
 	{
-		Set<ERBase> erset = get(key, value);
+		Set<Connected> erset = get(key, value);
 		
 		if (erset.size() > 0)
 			return erset.iterator().next();

@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.Storage;
@@ -52,9 +52,9 @@ public class Translator {
 	 * @param to
 	 * @return
 	 */
-	public Map<ERBase, Set<String>> translate(Network network, String word, String from, String to) {
+	public Map<Connected, Set<String>> translate(Network network, String word, String from, String to) {
 		
-		Map<ERBase, Set<String>> m = new HashMap<ERBase, Set<String>>();
+		Map<Connected, Set<String>> m = new HashMap<Connected, Set<String>>();
 
 		try {
 			String query = "select (name=? and language=?)/()/() | select (external-experience='true')";
@@ -62,12 +62,12 @@ public class Translator {
 
 			logger.info("Quering example : \n query='" + query + "' \n output network size: "  + net.getSize() + "\n");
 			
-			for (ERBase translationEntity : net.getERBases())
+			for (Connected translationEntity : net.getERBases())
 			{
 				String queryTranslation = "select (id=?)/()/(language=?) | select (language=?)";
 				Network translNet = network.query(queryTranslation, new String[]{translationEntity.getUuid(), to, to});
 				Set<String> translations = new HashSet<String>();
-				for (ERBase er : translNet.getERBases())
+				for (Connected er : translNet.getERBases())
 				{
 					translations.add(er.getName());
 				}
@@ -93,7 +93,7 @@ public class Translator {
 		try {
 			String query = "select (language=?)";
 			Network net = storage.query(query, new String[]{lang});
-			for (ERBase er : net.getERBases())
+			for (Connected er : net.getERBases())
 			{
 				words.add(er.getName());
 			}
@@ -126,7 +126,7 @@ public class Translator {
 			
 			logger.info("Quering example : \n query='" + query + "' \n output network size: "  + net.getSize() + "\n");
 			
-			for (ERBase er : net.getERBases())
+			for (Connected er : net.getERBases())
 			{
 				// get translations if FROM and TO languages are different
 				if (!from.equals(to))

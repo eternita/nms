@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.rel.DirectionRelation;
 import org.neuro4j.logic.ExecutableEntity;
 import org.neuro4j.logic.LogicContext;
@@ -73,7 +73,7 @@ public abstract class LogicBlock  implements ExecutableEntity {
 		return;
 	}
 
-	public void load(ERBase entity) throws FlowInitializationException {
+	public void load(Connected entity) throws FlowInitializationException {
 		lba.init(entity);
 	}
 	
@@ -84,11 +84,11 @@ public abstract class LogicBlock  implements ExecutableEntity {
 	 * @param relationName
 	 * @return
 	 */
-	private  List<ERBase> getOutgoingRelations(String relationName)
+	private  List<Connected> getOutgoingRelations(String relationName)
 	{
-		List<ERBase> outRelations = new ArrayList<ERBase>(3);
+		List<Connected> outRelations = new ArrayList<Connected>(3);
 		
-		for (ERBase r : lba.getConnected())
+		for (Connected r : lba.getConnected())
 		{
 			if (lba.getUuid().equals(r.getProperty(DirectionRelation.FROM_KEY)))
 			{
@@ -113,17 +113,17 @@ public abstract class LogicBlock  implements ExecutableEntity {
 
 	protected  List<String> getOutgoingRelationsUUID(String relationName)
 	{
-		List<ERBase> outRelations = getOutgoingRelations(relationName);
+		List<Connected> outRelations = getOutgoingRelations(relationName);
 		if (outRelations.isEmpty())
 		{
 			return Collections.emptyList();
 		}
 		
 		List<String> outRelationsUUIDs = new ArrayList<String>(outRelations.size());
-		for (ERBase relation: outRelations)
+		for (Connected relation: outRelations)
 		{
-			 Collection<ERBase> collection = relation.getConnected();
-			 for(ERBase e: collection)
+			 Collection<Connected> collection = relation.getConnected();
+			 for(Connected e: collection)
 			 {
 				 if (!e.getUuid().equals(lba.getUuid()))
 				 {
@@ -136,17 +136,17 @@ public abstract class LogicBlock  implements ExecutableEntity {
 	
 	protected  Map<String, String> getOutgoingRelationsMap()
 	{
-		List<ERBase> outRelations = getOutgoingRelations(null);
+		List<Connected> outRelations = getOutgoingRelations(null);
 		if (outRelations.isEmpty())
 		{
 			return Collections.emptyMap();
 		}
 		
 		Map<String, String> outRelationsMap = new HashMap<String, String>(outRelations.size());
-		for (ERBase relation: outRelations)
+		for (Connected relation: outRelations)
 		{
-			 Collection<ERBase> collection = relation.getConnected();
-			 for(ERBase e: collection)
+			 Collection<Connected> collection = relation.getConnected();
+			 for(Connected e: collection)
 			 {
 				 if (!e.getUuid().equals(lba.getUuid()))
 				 {

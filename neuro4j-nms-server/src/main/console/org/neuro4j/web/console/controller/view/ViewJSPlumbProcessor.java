@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.rel.DirectionRelation;
 
@@ -25,7 +25,7 @@ public class ViewJSPlumbProcessor {
 
 	public LinkedHashSet<ViewComponent> process(String startNodeId) {
 
-		ERBase start = null;
+		Connected start = null;
 		if (startNodeId != null)
 		{
 			start = network.getById(startNodeId);
@@ -50,12 +50,12 @@ public class ViewJSPlumbProcessor {
 	}
 
 	
-	private  void processViewRelations(ViewComponent component, ERBase currentStep, Set<ViewComponent> viewComponents)
+	private  void processViewRelations(ViewComponent component, Connected currentStep, Set<ViewComponent> viewComponents)
 	{
-		List<ERBase> nextEntities = new ArrayList<ERBase>();
+		List<Connected> nextEntities = new ArrayList<Connected>();
 		
-		ERBase next = null;
-		for (ERBase r : currentStep.getConnected())
+		Connected next = null;
+		for (Connected r : currentStep.getConnected())
 		{
 			if (r.getName().equals("belong to"))
 			{
@@ -67,10 +67,10 @@ public class ViewJSPlumbProcessor {
 				if (null == nextEid) 
 					continue;
 
-				Set<ERBase> rparts = r.getAllConnectedFiltered(currentStep.getUuid());
+				Set<Connected> rparts = r.getAllConnectedFiltered(currentStep.getUuid());
 				if (rparts.size() > 0)
 				{
-					ERBase rp = rparts.iterator().next();
+					Connected rp = rparts.iterator().next();
 					if (nextEid.equals(rp.getUuid()))
 					{
 						next = rp;

@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.logging.Logger;
 
 import org.neuro4j.NetworkUtils;
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Representation;
 import org.neuro4j.storage.NQLException;
@@ -69,7 +69,7 @@ public class StorageBuilder {
 	public void postDataFromJava()
 	{
 		Network net = new Network();
-		ERBase roger = new ERBase("Dog Roger");
+		Connected roger = new Connected("Dog Roger");
 		roger.setProperty("age", "3");
 		roger.setProperty("sex", "male");
 		roger.setProperty("color", "brown");
@@ -79,11 +79,11 @@ public class StorageBuilder {
 		Representation r1 = uploadRepresentation("./data/demo-files/dog_roger.jpg");
 		roger.addRepresentation(r1);
 
-		ERBase house = new ERBase("House");
+		Connected house = new Connected("House");
 		house.setProperty("address", "...");
 		house.setProperty("size", "...");
 
-		ERBase john = new ERBase("John");
+		Connected john = new Connected("John");
 		john.setProperty("first_name", "John");
 		john.setProperty("last_name", "Smith");
 		john.setProperty("age", "27");
@@ -91,41 +91,41 @@ public class StorageBuilder {
 		Representation r2 = uploadRepresentation("./data/demo-files/john.jpg");
 		john.addRepresentation(r2);
 		
-		ERBase marry = new ERBase("Marry");
+		Connected marry = new Connected("Marry");
 		marry.setProperty("first_name", "Marry");
 		marry.setProperty("last_name", "Smith");
 		marry.setProperty("age", "25");
 
-		ERBase jane = new ERBase("Jane");
+		Connected jane = new Connected("Jane");
 		jane.setProperty("first_name", "Jane");
 		jane.setProperty("last_name", "Smith");
 		jane.setProperty("age", "23");
 		
-		ERBase mike = new ERBase("Mike");
+		Connected mike = new Connected("Mike");
 		mike.setProperty("first_name", "Mike");
 		mike.setProperty("last_name", "Johnson");
 
-		ERBase brad = new ERBase("Brad");
+		Connected brad = new Connected("Brad");
 		brad.setProperty("first_name", "Brad");
 		brad.setProperty("last_name", "Perterson");
 
-		ERBase jasica = new ERBase("Jasica");
+		Connected jasica = new Connected("Jasica");
 		jasica.setProperty("first_name", "Jasica");
 
 		
-		ERBase hp = new ERBase("HP Company");
+		Connected hp = new Connected("HP Company");
 		hp.setProperty("address", "USA, Idaho, Boise");
 
-		ERBase walmart = new ERBase("Walmart");
+		Connected walmart = new Connected("Walmart");
 		walmart.setProperty("address", "USA, Idaho, Boise");
 
-		ERBase micron = new ERBase("Micron Company");
+		Connected micron = new Connected("Micron Company");
 		micron.setProperty("address", "USA, Idaho, Boise");
 
-		ERBase school = new ERBase("High School");
+		Connected school = new Connected("High School");
 		school.setProperty("address", "USA, Idaho, Boise, XYZ");
 		
-		ERBase coins = new ERBase("Coins");
+		Connected coins = new Connected("Coins");
 
 		
 		NetworkUtils.addRelation(net, roger, house, "live at");
@@ -212,7 +212,7 @@ public class StorageBuilder {
 		try {
 			Network net = storage.query("SELECT (name='John')");
 			
-			ERBase john = net.getFirst();
+			Connected john = net.getFirst();
 
 			logger.info("Example of reading binary data from Network using representations. readBinaryDataFromJava(). ");
 			for (Representation representation : john.getRepresentations())

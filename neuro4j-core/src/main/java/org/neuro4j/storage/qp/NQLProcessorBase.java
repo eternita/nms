@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import org.neuro4j.NetworkUtils;
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
 import org.neuro4j.logic.LogicContext;
@@ -137,7 +137,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		
 		if (null != outputNet)
 		{
-			for (ERBase er : outputNet.getERBases())
+			for (Connected er : outputNet.getERBases())
 				er.setModified(false);
 		}
 			
@@ -288,8 +288,8 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (FIRST_CYCLE == parseCycle)
 			return;
 		
-		Set<ERBase> toRemove = new HashSet<ERBase>();
-		Set<ERBase> checkForRedundancy = new HashSet<ERBase>();
+		Set<Connected> toRemove = new HashSet<Connected>();
+		Set<Connected> checkForRedundancy = new HashSet<Connected>();
 		
 		for (Filter filter : filterSet)
 		{
@@ -312,29 +312,29 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			
 			for (String erid : ids)
 			{
-				ERBase e = outputNet.getById(erid);
+				Connected e = outputNet.getById(erid);
 				int connectionCount = 0;
-				Set<ERBase> connected = e.getConnected(filter.propertyName, filter.propertyValue);
+				Set<Connected> connected = e.getConnected(filter.propertyName, filter.propertyValue);
 
 				// sort by loaded connections from both sides desc
-				Comparator<ERBase> comp = new Comparator<ERBase>() {	
+				Comparator<Connected> comp = new Comparator<Connected>() {	
 					
-					public int compare(ERBase er1, ERBase er2) {
+					public int compare(Connected er1, Connected er2) {
 						Integer size1 = 0, size2 = 0;
 						
-						for (ERBase er : er1.getConnected())
+						for (Connected er : er1.getConnected())
 							size1 += er.getConnected().size();
 						
-						for (ERBase er : er2.getConnected())
+						for (Connected er : er2.getConnected())
 							size2 += er.getConnected().size();
 						
 						return size2.compareTo(size1);
 					};
 				};
-				List<ERBase> connectedSorted = new ArrayList<ERBase>(connected);
+				List<Connected> connectedSorted = new ArrayList<Connected>(connected);
 				Collections.sort(connectedSorted, comp);
 				
-				for (ERBase r : connectedSorted)
+				for (Connected r : connectedSorted)
 				{
 					if (connectionCount >= filter.filterAmount)
 					{
@@ -349,19 +349,19 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		} // for (Filter filter : fSet)
 		
 		
-		for(ERBase er : toRemove)
+		for(Connected er : toRemove)
 			outputNet.remove(er);
 		
 		toRemove.clear();
 		
 		
-		for(ERBase er : checkForRedundancy)
+		for(Connected er : checkForRedundancy)
 		{
 			if (null != er && er.getConnected().size() == 0)
 				toRemove.add(er);
 		}
 		
-		for(ERBase er : toRemove)
+		for(Connected er : toRemove)
 			outputNet.remove(er, true);
 		
 		return; 
@@ -391,7 +391,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			// populate temp table
 			for (String id : this.pipeNet.getIds())
 			{
-				ERBase er = this.pipeNet.getById(id);
+				Connected er = this.pipeNet.getById(id);
 				N4JSQLUtils.addER2Table(conn, er, tableName);
 			}
 
@@ -583,7 +583,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		{
 			String pathEndId = p.getLast();
 			
-			ERBase pathEnd = storageNet.getById(pathEndId);
+			Connected pathEnd = storageNet.getById(pathEndId);
 			
 			if (null == pathEnd)
 				continue;
@@ -635,7 +635,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		
 		for (String eid : srcids)
 		{
-			ERBase src = storageNet.getById(eid);
+			Connected src = storageNet.getById(eid);
 			if (null == src)
 				continue;
 			
@@ -671,13 +671,13 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		
 		for (String eid : srcids)
 		{
-			ERBase src = storageNet.getById(eid);
+			Connected src = storageNet.getById(eid);
 			if (null == src)
 				continue;
 			
 			for (String connectedId : src.getConnectedKeys())
 			{
-				ERBase connected = storageNet.getById(connectedId);
+				Connected connected = storageNet.getById(connectedId);
 				if (null != connected && value.equals(connected.getProperty(key)))
 				{
 //					outnet.add(src.cloneWithConnectedKeys());
@@ -698,7 +698,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		// check / update Paths
 		for (String newERId : newERIds)
 		{
-			ERBase newSubnetERBase = storageNet.getById(newERId);
+			Connected newSubnetERBase = storageNet.getById(newERId);
 			for (Path p : matchedPaths)
 			{
 				if (newMatchedPaths.contains(p)) // one update for path only
@@ -708,7 +708,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 				}
 				
 				String lastId = p.getLast();
-				ERBase lastER = outputNet.getById(lastId); // last er in the path can be virtual 
+				Connected lastER = outputNet.getById(lastId); // last er in the path can be virtual 
 				if (newSubnetERBase.isConnectedTo(lastId)
 						|| (lastER.isVirtual() && lastER.isConnectedTo(newERId))) // 
 				{
@@ -741,11 +741,11 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (FIRST_CYCLE == parseCycle)
 			return;
 		
-		Set<ERBase> currentERs = new HashSet<ERBase>();
+		Set<Connected> currentERs = new HashSet<Connected>();
 		if (null == currentERNetwork)
 		{
 			currentERNetwork = new Network();
-			for (ERBase er : this.pipeNet.getERBases())
+			for (Connected er : this.pipeNet.getERBases())
 			{
 /*				switch (currentERType)
 				{
@@ -762,7 +762,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 				currentERs.add(er);
 			}
 		} else {
-			for (ERBase er : currentERNetwork.getERBases())
+			for (Connected er : currentERNetwork.getERBases())
 				currentERs.add(er);
 		}
 		
@@ -872,8 +872,8 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			depth = Integer.parseInt(depthStr);
 
 			
-			Set<ERBase> currentERs = new HashSet<ERBase>();
-			for (ERBase er : this.pipeNet.getERBases())
+			Set<Connected> currentERs = new HashSet<Connected>();
+			for (Connected er : this.pipeNet.getERBases())
 				currentERs.add(er);
 			
 			for (int i = 0; i < depth; i++)
@@ -930,7 +930,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		// create net from matched paths
 		for (String id : netIds)
 		{
-			ERBase er = this.storageNet.getById(id);
+			Connected er = this.storageNet.getById(id);
 			outputNet.add(er.cloneWithConnectedKeys());
 
 		}
@@ -970,7 +970,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 //					currentERNetwork.add(r.cloneWithConnectedKeys());
 //				}
 
-				for (ERBase r : pipeNet.get(key, value)) {
+				for (Connected r : pipeNet.get(key, value)) {
 				currentERNetwork.add(r.cloneWithConnectedKeys());
 				}
 				break;
@@ -994,7 +994,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 //					currentERNetwork.add(r.cloneWithConnectedKeys());
 //				}
 
-				for (ERBase r : pipeNet.getByRegexp(key, value)) {
+				for (Connected r : pipeNet.getByRegexp(key, value)) {
 					currentERNetwork.add(r.cloneWithConnectedKeys());
 				}
 				break;
@@ -1031,7 +1031,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		if (READ_ONLY_QUERIES)
 			throw new StorageException("Storage is run in read only mode");
 		
-		ERBase er = new ERBase();
+		Connected er = new Connected();
 
 /*		ERType erType = ERType.valueOf(ertype);
 		switch (erType) {
@@ -1080,7 +1080,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		// after update connected are removed from output net (so user will see list in output)
 		Network net4update = new Network();
 		
-		for (ERBase er : updateNet.getERBases())
+		for (Connected er : updateNet.getERBases())
 		{
 			net4update.add(er);
 			for (String key : setProperties.keySet())
@@ -1092,7 +1092,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			
 			if (null != addConnections)
 			{
-				for (ERBase connected : addConnections.getERBases())
+				for (Connected connected : addConnections.getERBases())
 				{
 					net4update.add(connected);
 //					if (er.getClass().equals(connected.getClass()))
@@ -1111,7 +1111,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 			
 			if (null != removeConnections)
 			{
-				for (ERBase connected : removeConnections.getERBases())
+				for (Connected connected : removeConnections.getERBases())
 				{
 					net4update.add(connected);
 					if (er.isConnectedTo(connected.getUuid()))

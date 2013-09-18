@@ -7,7 +7,7 @@
 <%@ page import="java.util.*"%>
 
 <%
-ERBase entity = (ERBase) request.getAttribute("entity");
+Connected entity = (Connected) request.getAttribute("entity");
 %>
 
 <table style="margin-bottom: 3px;" width="100%"  border="0" cellspacing="0" cellpadding="0" class="l r t b">
@@ -61,7 +61,7 @@ ERBase entity = (ERBase) request.getAttribute("entity");
            
           </tr>
             <%
-            Map<String, List<ERBase>> groupedRelationMap = entity.groupConnectedByName();
+            Map<String, List<Connected>> groupedRelationMap = entity.groupConnectedByName();
             for (String groupName : groupedRelationMap.keySet())
             {
                 %>
@@ -69,13 +69,13 @@ ERBase entity = (ERBase) request.getAttribute("entity");
                     <td class="hp"><%= groupName %> (<%= groupedRelationMap.get(groupName).size() %>) </td> 
                   </tr>
                 <%
-                  for (ERBase rel : groupedRelationMap.get(groupName))
+                  for (Connected rel : groupedRelationMap.get(groupName))
                   {
                 %> 
                   <tr>
                     <td class=""><a href="relation-details?storage=${storage}&uuid=<%=rel.getUuid()%>"><%=rel.getName()%></a> 
                         (<%
-                          for (ERBase rp : rel.getConnected())
+                          for (Connected rp : rel.getConnected())
                           {
                         %> 
                           <a href="entity-details?storage=${storage}&eid=<%=rp.getUuid()%>"><%=rp.getName()%></a> 

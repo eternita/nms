@@ -3,19 +3,19 @@ package org.neuro4j.web.console.controller.view;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.logic.swf.SWFConstants;
 
 public  class ViewComponent {
 	
-	ERBase entity;
+	Connected entity;
 
 	int top;
 	int left = 0;
 	
 	Set<ViewRelation> connections = new LinkedHashSet<ViewRelation>();
 	
-	public ViewComponent(ERBase entity)
+	public ViewComponent(Connected entity)
 	{
 		this.entity = entity;
 	}
@@ -55,11 +55,11 @@ public  class ViewComponent {
 		return connections.size();
 	}
 
-	public ERBase getEntity() {
+	public Connected getEntity() {
 		return entity;
 	}
 
-	public void setEntity(ERBase entity) {
+	public void setEntity(Connected entity) {
 		this.entity = entity;
 	}
 	

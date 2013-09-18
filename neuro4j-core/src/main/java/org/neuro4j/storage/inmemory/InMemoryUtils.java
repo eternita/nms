@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 
 public class InMemoryUtils {
@@ -18,7 +18,7 @@ public class InMemoryUtils {
 	 */
 	public static Network andNetworks(Network net1, Network net2)
 	{
-		List<ERBase> e4Removal = new ArrayList<ERBase>();
+		List<Connected> e4Removal = new ArrayList<Connected>();
 		for (String eid : net1.getIds())
 		{
 			if (null == net2.getById(eid))
@@ -26,7 +26,7 @@ public class InMemoryUtils {
 		}
 		
 //		net1.remove(e4Removal.toArray(new Entity[]{}));
-		for (ERBase entity : e4Removal)
+		for (Connected entity : e4Removal)
 			net1.remove(entity, true);
 
 
@@ -53,7 +53,7 @@ public class InMemoryUtils {
 	public static void filterEntities(Network net, String key, String value) {
 		for (String eid : net.getIds())
 		{
-			ERBase e = net.getById(eid);
+			Connected e = net.getById(eid);
 			if (!value.equals(e.getProperty(key)))
 			{
 				net.remove(e, true);
@@ -68,9 +68,9 @@ public class InMemoryUtils {
 	 * @param net
 	 * @param newEntity
 	 */
-	public static void saveOrUpdate(Network net, ERBase newEntity) {
+	public static void saveOrUpdate(Network net, Connected newEntity) {
 		
-		ERBase currentEntity = net.getById(newEntity.getUuid());
+		Connected currentEntity = net.getById(newEntity.getUuid());
 		if (null == currentEntity)
 		{
 			// TODO do not make deep copy - it can lead to object duplications (through entities in relations)
@@ -93,7 +93,7 @@ public class InMemoryUtils {
 			
 			for (String nrid : newEntity.getConnectedKeys())
 			{
-				ERBase currentConnected = currentEntity.getConnected(nrid);
+				Connected currentConnected = currentEntity.getConnected(nrid);
 				if (null == currentConnected)
 				{
 					currentEntity.addConnected(nrid);

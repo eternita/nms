@@ -2,7 +2,7 @@ package org.neuro4j.logic.def.node;
 
 import java.util.List;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.LogicBlock;
 import org.neuro4j.logic.swf.FlowExecutionException;
@@ -21,7 +21,7 @@ public class JoinBlock extends LogicBlock {
 		return NEXT;
 	}
 
-	public synchronized void load(ERBase entity) throws FlowInitializationException {
+	public synchronized void load(Connected entity) throws FlowInitializationException {
 		super.load(entity);
 
 		List<String> nextRelations = getOutgoingRelationsUUID(SWFConstants.NEXT_RELATION_NAME);

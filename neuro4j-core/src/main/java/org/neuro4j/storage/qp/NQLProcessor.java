@@ -3,7 +3,7 @@ package org.neuro4j.storage.qp;
 import java.util.Map;
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
 import org.neuro4j.storage.StorageException;
@@ -122,7 +122,7 @@ public interface NQLProcessor {
 	 * @param id
 	 * @return
 	 */
-	public ERBase getById(String id) throws StorageException;
+	public Connected getById(String id) throws StorageException;
 	
 	
 	public void setMaxOutputNetworkSize(long outputNetworkLimit) throws StorageException;

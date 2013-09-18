@@ -47,9 +47,9 @@
     </tr>
     
     <%
-        	Set<ERBase> stack = (Set<ERBase>) logicContext.get("ACTION_STACK");
-            for (ERBase actionEntity : stack)
-            {
+        	Set<Connected> stack = (Set<Connected>) logicContext.get("ACTION_STACK");
+                    for (Connected actionEntity : stack)
+                    {
         %>
     <tr>
         <td align="left" colspan="2" valign="top" class="b">

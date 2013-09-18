@@ -7,7 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.core.Path;
 import org.neuro4j.storage.qp.ERType;
@@ -18,19 +18,19 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 
 	private Network pipeNet;
 	
-	private Set<ERBase> currentERNetwork;
+	private Set<Connected> currentERNetwork;
 	
 	private int inChunkCounter = 0;
 
 //	private ERType queryType;
 
-	private Iterator<ERBase> iter;
+	private Iterator<Connected> iter;
 	
 	private Map<String, Set<String>> useOnlyAttrMap = new HashMap<String, Set<String>>();
 	
 	private Map<String, Set<String>> ignoreAttrMap = new HashMap<String, Set<String>>();
 	
-	private ERBase next = null;
+	private Connected next = null;
 
 	/**
 	 * output network size limit
@@ -48,7 +48,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 
 	
 	public InMemoryNQLProcessorStreamQuery(
-			Set<ERBase> currentERNetwork,
+			Set<Connected> currentERNetwork,
 			Network pipeNet,
 			Set<Filter> filterSet,
 			ERType queryType, 
@@ -85,7 +85,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	}
 	
 	public InMemoryNQLProcessorStreamQuery(
-			Set<ERBase> currentERNetwork,
+			Set<Connected> currentERNetwork,
 			Network pipeNet,
 			Set<Filter> filterSet,
 			NQLProcessorStream inputStream, 
@@ -194,7 +194,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
     		goThroughIterator = false;
 			next = iter.next(); 
 			
-	        ERBase er = next;
+	        Connected er = next;
 			for (Filter f : filterMap.keySet())
 			{
 		        if (f.propertyValue.equals(er.getProperty(f.propertyName)) )
@@ -251,7 +251,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		return;
 	}
 	
-	private boolean isMatch(ERBase er, String key, Set<String> values)
+	private boolean isMatch(Connected er, String key, Set<String> values)
 	{
 		String erValue = er.getProperty(key);
 		if (null != erValue)
@@ -262,7 +262,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		return false;
 	}
 
-	private boolean isMatch(ERBase er, Map<String, Set<String>> attrMap, boolean defaultt)
+	private boolean isMatch(Connected er, Map<String, Set<String>> attrMap, boolean defaultt)
 	{		
 		boolean match = defaultt;	
     	for (String key : attrMap.keySet())
@@ -304,11 +304,11 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	}
 
 	
-	private Set<ERBase> getERByPreviousIds(Set<String> previousIds)
+	private Set<Connected> getERByPreviousIds(Set<String> previousIds)
 	{
-		Set<ERBase> matchedERs = new HashSet<ERBase>();
+		Set<Connected> matchedERs = new HashSet<Connected>();
 		
-		for (ERBase er : currentERNetwork)
+		for (Connected er : currentERNetwork)
 		{
 			for (String previousId : previousIds)
 			{
@@ -354,7 +354,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 			return null;
 */		
 		
-		ERBase er = next;
+		Connected er = next;
 		
 		next = null;
 		
@@ -372,7 +372,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		return er.getUuid();
 	}	
 	
-	private void updateMatchedPaths(ERBase newERBase)
+	private void updateMatchedPaths(Connected newERBase)
 	{
 		Set<Path> newMatchedPaths = new HashSet<Path>();
 		
@@ -384,7 +384,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 				newMatchedPaths.add(p);
 			
 			String lastId = p.getLast();
-			ERBase lastER = pipeNet.getById(lastId); // last er in the path can be virtual 
+			Connected lastER = pipeNet.getById(lastId); // last er in the path can be virtual 
 			if (newERBase.isConnectedTo(lastId)
 					|| (lastER.isVirtual() && lastER.isConnectedTo(newERBase.getUuid())))  
 			{

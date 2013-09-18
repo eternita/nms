@@ -3,7 +3,7 @@ package org.neuro4j.logic.def;
 import java.util.List;
 import java.util.Set;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicException;
 import org.neuro4j.logic.swf.FlowExecutionException;
@@ -36,7 +36,7 @@ public abstract class CustomBlock extends LogicBlock {
 	}
 	
 	
-	public final void load(ERBase entity) throws FlowInitializationException
+	public final void load(Connected entity) throws FlowInitializationException
 	{
 		 super.load(entity);
 		 init();

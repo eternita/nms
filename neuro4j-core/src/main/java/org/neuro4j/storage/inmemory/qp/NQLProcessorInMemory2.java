@@ -3,7 +3,7 @@ package org.neuro4j.storage.inmemory.qp;
 import java.util.Map;
 
 import org.neuro4j.NetworkUtils;
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
@@ -109,9 +109,9 @@ public class NQLProcessorInMemory2 extends NQLProcessorBase {
 	}
 
 	
-	public ERBase getById(String id) throws StorageException
+	public Connected getById(String id) throws StorageException
 	{
-		ERBase er = this.pipeNet.getById(id);
+		Connected er = this.pipeNet.getById(id);
 		if (null != er)
 			return er.cloneWithConnectedKeys();
 		
@@ -130,7 +130,7 @@ public class NQLProcessorInMemory2 extends NQLProcessorBase {
 		
 		for (String id : outputNet.getIds())
 		{
-			ERBase er = pipeNet.getById(id);
+			Connected er = pipeNet.getById(id);
 			if (!er.isCompleteLoaded())
 				NetworkUtils.loadConnected(er, this.pipeNet, baseStorage);
 			this.pipeNet.remove(er);

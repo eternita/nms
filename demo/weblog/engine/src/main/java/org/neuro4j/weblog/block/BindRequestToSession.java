@@ -1,6 +1,6 @@
 package org.neuro4j.weblog.block;
 
-import org.neuro4j.core.ERBase;
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.def.CustomBlock;
@@ -20,7 +20,7 @@ public class BindRequestToSession extends CustomBlock {
 	
 	public int execute(LogicContext ctx) throws FlowExecutionException {
 		
-		ERBase request = (ERBase) ctx.get(IN_REQUEST);
+		Connected request = (Connected) ctx.get(IN_REQUEST);
 		Storage currentStorage = (Storage) ctx.get(CURRENT_STORAGE); 
 		Network net = null;
 		try {
@@ -36,7 +36,7 @@ public class BindRequestToSession extends CustomBlock {
 							new String[]{sessionIdStr, sessionIdStr, "session", request.getProperty("host"), request.getProperty("request-start-time")});
 			}
 			
-			ERBase session = (ERBase) net.getById(sessionIdStr);
+			Connected session = (Connected) net.getById(sessionIdStr);
 			if (null == session)
 				return NEXT;
 
