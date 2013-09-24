@@ -31,4 +31,5 @@ public class SWFConstants {
 	public final static String QUOTES_SYMBOL = "\"";
 	public final static String NEW_CLASS_SYMBOL_START = "\"(";
 	public final static String NEW_CLASS_SYMBOL_END = ")\"";
+	public static final String RENDER_ENGINE_KEY = "RENDER_ENGINE_KEY";
 }
