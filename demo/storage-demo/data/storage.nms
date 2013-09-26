@@ -1,11 +1,11 @@
-n4j.manager.storage=org.neuro4j.storage.xml.XMLNeuroStorage
+n4j.manager.storage=org.neuro4j.storage.xml.XMLStorage
 
 ###################################################################
-# start settings for org.neuro4j.storage.xml.XMLNeuroStorage
+# start settings for org.neuro4j.storage.xml.XMLStorage
 
 # Path to file with data
 n4j.storage.xml.file_path=/usr/spa/src/neuro4j/nms/demo/storage-demo/data/demo-storage/data/demo_storage.xml
 
 
-# end settings for org.neuro4j.storage.xml.XMLNeuroStorage
+# end settings for org.neuro4j.storage.xml.XMLStorage
 ###################################################################
