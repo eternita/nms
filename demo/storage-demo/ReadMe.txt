@@ -13,7 +13,7 @@ How to use it:
 - open created storage with Neuro4J Studio Network Client.
     - open ./data/storage.mns with Text editor and check/set absolute path to xml file
     - open ./data/storage.mns with Neuro4J NMS Query Editor (Neuro4J NMS Query perspective)
-    - run query: select e() / [depth='1']
+    - run query: select () / [depth='1']
     - you should get something like on screenshot ./data/screenshots/demo-storage-in-nms-client.png
     
 - practice with some NQL queries with your just created network storage. More about querying here: http://www.neuro4j.org/projects/nms/nql

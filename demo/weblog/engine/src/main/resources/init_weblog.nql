@@ -1,9 +1,9 @@
-DELETE R(name='website_pages')/[depth='1'];
+DELETE (name='website_pages')/[depth='1'];
 
-INSERT R(name='website_pages');
+INSERT (name='website_pages');
 
-INSERT E(name='default-page');
+INSERT (name='default-page');
 UPDATE
-+ R(name='website_pages') 
-WHERE E(name='default-page');
++ (name='website_pages') 
+WHERE (name='default-page');
 

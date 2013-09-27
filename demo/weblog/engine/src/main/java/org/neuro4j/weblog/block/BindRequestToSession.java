@@ -12,7 +12,7 @@ import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 @ParameterDefinitionList(input={
-							@ParameterDefinition(name="request", isOptional = false, type="org.neuro4j.core.ERBase")})
+							@ParameterDefinition(name="request", isOptional = false, type="org.neuro4j.core.Connected")})
 public class BindRequestToSession extends CustomBlock {
 
 	final static String IN_REQUEST = "request";
