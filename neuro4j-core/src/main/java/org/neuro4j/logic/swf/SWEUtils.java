@@ -12,7 +12,7 @@ import org.neuro4j.storage.NQLException;
 
 public class SWEUtils {
 	
-	private static final String SELECT_START_NODE_QUERY = "SELECT [SWF_BLOCK_CLASS='org.neuro4j.logic.def.node.StartBlock']";
+	private static final String SELECT_START_NODE_QUERY = "SELECT (SWF_BLOCK_CLASS='org.neuro4j.logic.def.node.StartBlock')/[depth='0']";
 
 	/**
 	 * Returns list with start node ids for the specified flow.
