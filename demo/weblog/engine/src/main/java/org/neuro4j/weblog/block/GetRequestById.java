@@ -19,7 +19,7 @@ import org.neuro4j.storage.StorageException;
 @ParameterDefinitionList(input={
                                 	@ParameterDefinition(name=IN_REQUESTID, isOptional=false, type= "java.lang.String")},
                          output={
-                         	        @ParameterDefinition(name=OUT_REQUEST, isOptional=false, type= "org.neuro4j.core.ERBase")})	
+                         	        @ParameterDefinition(name=OUT_REQUEST, isOptional=false, type= "org.neuro4j.core.Connected")})	
 public class GetRequestById extends CustomBlock {
     
 	static final String CURRENT_STORAGE = "CURRENT_STORAGE";
@@ -37,7 +37,7 @@ public class GetRequestById extends CustomBlock {
 		Storage currentStorage = (Storage) ctx.get(CURRENT_STORAGE); 
 		Network net = null;
 		try {
-			net = currentStorage.query("select e(id=?)", new String[]{requestId});
+			net = currentStorage.query("select (id=?)", new String[]{requestId});
 			
 			if (null == net || net.getSize() == 0)
 				return NEXT;

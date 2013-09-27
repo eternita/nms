@@ -3,11 +3,11 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.neuro4j.examples.weblog</groupId>
+    <groupId>org.neuro4j.examples</groupId>
     <artifactId>parent</artifactId>
-    <version>0.3.0</version>
+    <version>1.3.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Weblog</name>
+    <name>Network Management System Demo applications</name>
     <url>http://neuro4j.org</url>
 
     <repositories>
@@ -19,8 +19,9 @@
     </repositories>  
 
     <modules>
-        <module>jclient</module>
-        <module>engine</module>
+        <module>storage-demo</module>
+        <module>weblog</module>
+        <module>kms</module>
     </modules>
 
     <properties>
@@ -33,13 +34,7 @@
 			<groupId>org.neuro4j</groupId>
 			<artifactId>neuro4j-core</artifactId>
 			<version>${org.neuro4j.nms.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.neuro4j</groupId>
-			<artifactId>neuro4j-nms-jclient</artifactId>
-			<version>${org.neuro4j.nms.version}</version>
-		</dependency>
-	
+		</dependency>	
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -48,10 +43,7 @@
         </dependency>
     </dependencies>
 
-
     <build>
-        <finalName>weblog-${project.artifactId}-${project.version}</finalName>
-
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -63,7 +55,6 @@
                         <target>1.6</target>
                     </configuration>
                 </plugin>
-
             </plugins>
         </pluginManagement>
 

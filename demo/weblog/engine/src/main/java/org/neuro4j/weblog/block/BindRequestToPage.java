@@ -21,9 +21,9 @@ import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageException;
 
 @ParameterDefinitionList(input={
-                                	@ParameterDefinition(name=IN_REQUEST, isOptional=false, type= "org.neuro4j.core.ERBase")},
+                                	@ParameterDefinition(name=IN_REQUEST, isOptional=false, type= "org.neuro4j.core.Connected")},
 						output={
-						     		@ParameterDefinition(name=OUT_PAGE, isOptional=false, type= "org.neuro4j.core.ERBase")})	
+						     		@ParameterDefinition(name=OUT_PAGE, isOptional=false, type= "org.neuro4j.core.Connected")})	
 
 public class BindRequestToPage extends CustomBlock {
     
@@ -42,7 +42,7 @@ public class BindRequestToPage extends CustomBlock {
 		Storage currentStorage = (Storage) ctx.get(CURRENT_STORAGE); 
 		Network net = null;
 		try {
-			net = currentStorage.query("select r(name='website_pages')/e()");
+			net = currentStorage.query("select (name='website_pages')/()");
 			
 			Set<Connected> pages = net.getWithProperty("page_match_pattern");
 			
@@ -51,7 +51,7 @@ public class BindRequestToPage extends CustomBlock {
 			if (null == pageTemplate)
 				pageTemplate = net.getFirst("name", "default-page");
 			
-			net = currentStorage.query("select e(page-template-id=? and session-id=?)", 
+			net = currentStorage.query("select (page-template-id=? and session-id=?)", 
 					new String[]{"" + pageTemplate.getUuid(), request.getProperty("session-id")});
 			
 			Connected contextPage = null;

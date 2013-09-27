@@ -20,7 +20,7 @@ Web app integreation
 
 1. Add weblog-client.jar to your web application's lib directory
 
-2. add weblog-client.properties to you class path. Example in conf-sample/weblog-storage.properties
+2. add weblog-client.properties to you class path. Example in jclient/conf-sample/weblog-storage.properties
 
 3. add filter to your web.xml. You can specify filter config parameters. They will be posted with each request.
 

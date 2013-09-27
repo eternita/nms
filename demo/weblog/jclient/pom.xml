@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.neuro4j.weblog</groupId>
-		<artifactId>weblog</artifactId>
-		<version>0.2.0</version>
+		<groupId>org.neuro4j.examples.weblog</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.3.0</version>
 	</parent>
 	<artifactId>jclient</artifactId>
 
