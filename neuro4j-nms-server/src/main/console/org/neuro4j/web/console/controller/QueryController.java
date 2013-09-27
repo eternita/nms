@@ -74,12 +74,20 @@ public class QueryController {
 				long end = System.currentTimeMillis();
 				request.setAttribute("qtime", end - start);				
 			} catch (NQLException e) {
-				request.setAttribute("nql_error", e.getMessage());
+				String msg = e.getMessage();
+				if (null != e.getCause())
+					msg += " : " +  e.getCause().getMessage();
+				
+				request.setAttribute("nql_error", msg);
 				request.setAttribute("qtime", "0");				
 				logger.error(e.getLocalizedMessage());
 				net = new Network();
 			} catch (Exception e) {
-				request.setAttribute("nql_error", e.getMessage());
+				String msg = e.getMessage();
+				if (null != e.getCause())
+					msg += " : " +  e.getCause().getMessage();
+				
+				request.setAttribute("nql_error", msg);
 				request.setAttribute("qtime", "0");				
 				logger.error("Wrong NQL query " + q, e);
 				net = new Network();

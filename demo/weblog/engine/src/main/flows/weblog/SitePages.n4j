@@ -10,25 +10,36 @@
             </properties>
             <connected/>
         </item>
-        <item name="networkConfig" uuid="kNPAqFYBGhAAAAFAtWT2vlBD">
+        <item name="NEXT" uuid="1qPAqFYBEKMAAAE_yYMN00Qz">
             <properties>
-                <item value="org.neuro4j.logic.def.NetConfig" key="SWF_BLOCK_CLASS"/>
-                <item value="Public" key="KEY_VISIBILITY"/>
+                <item value="UOTAqFYBVpIAAAE_43cN00Qy" key="EndUUID"/>
+                <item value="0, 31, 23, -166|-23, 165, 0, -32|" key="points"/>
+                <item value="aqrAqFYBTywAAAE_GtAN00Qy" key="StartUUID"/>
             </properties>
-            <connected/>
+            <connected>
+                <item uuid="UOTAqFYBVpIAAAE_43cN00Qy"/>
+                <item uuid="aqrAqFYBTywAAAE_GtAN00Qy"/>
+            </connected>
         </item>
         <item name="BatchQueryStorage" uuid="aqrAqFYBTywAAAE_GtAN00Qy">
             <properties>
                 <item value="N4J_CONSOLE_NODE_TYPE" key="N4J_CONSOLE_NODE_TYPE"/>
                 <item value="BatchQueryStorage" key="SWF_BLOCK_CLASS"/>
                 <item value="org.neuro4j.workflow.core.BatchQueryStorage" key="SWF_CUSTOM_CLASS"/>
-                <item value="fileName:&quot;init_exp_sys.nql&quot;" key="Parameter1:IN"/>
+                <item value="fileName:&quot;init_weblog.nql&quot;" key="Parameter1:IN"/>
                 <item value="341" key="y"/>
                 <item value="490" key="x"/>
             </properties>
             <connected>
                 <item uuid="1qPAqFYBEKMAAAE_yYMN00Qz"/>
             </connected>
+        </item>
+        <item name="networkConfig" uuid="iX3AqFYBC0oAAAFBjnC9dWGV">
+            <properties>
+                <item value="org.neuro4j.logic.def.NetConfig" key="SWF_BLOCK_CLASS"/>
+                <item value="Public" key="KEY_VISIBILITY"/>
+            </properties>
+            <connected/>
         </item>
         <item name="Init" uuid="manAqFYBRRMAAAE_kJ4N00Qu">
             <properties>
@@ -40,17 +51,6 @@
             </properties>
             <connected>
                 <item uuid="ZNbAqFYBhF4AAAE_uWIN00Qz"/>
-            </connected>
-        </item>
-        <item name="NEXT" uuid="1qPAqFYBEKMAAAE_yYMN00Qz">
-            <properties>
-                <item value="UOTAqFYBVpIAAAE_43cN00Qy" key="EndUUID"/>
-                <item value="0, 31, 23, -166|-23, 165, 0, -32|" key="points"/>
-                <item value="aqrAqFYBTywAAAE_GtAN00Qy" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="UOTAqFYBVpIAAAE_43cN00Qy"/>
-                <item uuid="aqrAqFYBTywAAAE_GtAN00Qy"/>
             </connected>
         </item>
         <item name="NEXT" uuid="ZNbAqFYBhF4AAAE_uWIN00Qz">

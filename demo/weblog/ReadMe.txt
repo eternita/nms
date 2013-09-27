@@ -15,6 +15,8 @@ Storage setup & config
 	 
 2. Add weblog-engine.jar to storage's lib directory (${STORAGE-HOME/lib})
 
+3. Init storage wiht query: behave(flow='weblog.SitePages-Init')
+
 
 Web app integreation
 
