@@ -142,19 +142,6 @@ public abstract class StorageBase implements Storage {
 		return e;
 	}
 	
-
-//	public Relation getRelationByUUID(String relationUUID) throws StorageException {
-//		Relation r = null;
-//		Network net;
-//		try {
-//			net = query("select r(id=?)", new String[]{relationUUID});
-//			r = net.getRelationByUUID(relationUUID);
-//		} catch (NQLException e) {
-//			e.printStackTrace();
-//		}
-//		return r;
-//	}	
-	
 	/**
 	 * "select e[?] depth 1", new String[]{entityUUID}
 	 * 

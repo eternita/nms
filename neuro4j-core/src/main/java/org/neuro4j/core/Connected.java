@@ -95,6 +95,9 @@ public class Connected extends KVBase implements Serializable {
 	 */
 	protected void addConnectedTail(Connected erBase)
 	{
+		if (!erBase.connected.containsKey(this.getUuid()))
+			erBase.setModified(true);
+			
 		erBase.connected.put(this.getUuid(), this);
 	}
 
@@ -317,7 +320,7 @@ public class Connected extends KVBase implements Serializable {
 	 * 
 	 * @return
 	 */
-	protected Connected copyBase()
+	public Connected copyBase()
 	{
 		Connected clone = cloneBase();
 		
@@ -327,6 +330,11 @@ public class Connected extends KVBase implements Serializable {
 		
 	}
 	
+	/**
+	 * create new java obj with the same id, name, properties
+	 * 
+	 * @return
+	 */
 	public Connected cloneBase()
 	{
 		Connected clone = null;

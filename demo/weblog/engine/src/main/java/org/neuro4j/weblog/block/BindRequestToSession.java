@@ -28,12 +28,12 @@ public class BindRequestToSession extends CustomBlock {
 			if (null == sessionIdStr)
 				return NEXT;
 			
-			net = currentStorage.query("select r(id=?)", new String[]{sessionIdStr});
+			net = currentStorage.query("select (id=?)", new String[]{sessionIdStr});
 			
 			if (null == net || net.getSize() == 0)
 			{
 				net = currentStorage.query("INSERT (id=? name=? r_type=? host=? request-start-time=?)", 
-							new String[]{sessionIdStr, sessionIdStr, "session", request.getProperty("host"), request.getProperty("request-start-time")});
+							new String[]{sessionIdStr, "session", "session", request.getProperty("host"), request.getProperty("request-start-time")});
 			}
 			
 			Connected session = (Connected) net.getById(sessionIdStr);

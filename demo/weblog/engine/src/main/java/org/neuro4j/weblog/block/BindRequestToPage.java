@@ -60,7 +60,7 @@ public class BindRequestToPage extends CustomBlock {
 					
 			if (null == contextPage)
 			{
-				contextPage = pageTemplate.cloneBase();
+				contextPage = pageTemplate.copyBase();
 				contextPage.setProperty("session-id", request.getProperty("session-id"));
 				contextPage.setProperty("page-template-id", pageTemplate.getUuid());
 			}
@@ -68,7 +68,9 @@ public class BindRequestToPage extends CustomBlock {
 			net = new Network();
 			net.add(contextPage);
 			net.add(request);
-			NetworkUtils.addRelation(net, contextPage, request, "request-page");
+			
+			contextPage.addConnected(request);
+//			NetworkUtils.addRelation(net, contextPage, request, "request-page");
 			
 			currentStorage.save(net);
 			
