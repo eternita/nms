@@ -5,6 +5,7 @@
 <%@ page import="net.mlw.vlh.ValueList"%>
 <%@ page import="net.mlw.vlh.ValueListInfo"%>
 <%@ page import="java.util.Set"%>
+<%@ page import="java.util.List"%>
 <%@ page import="org.neuro4j.web.console.utils.StringUtils"%>
 <%@ page import="org.neuro4j.core.Connected"%>
 
@@ -26,7 +27,8 @@
             </table>
             <table width="100%" cellspacing="0" cellpadding="0" border="0" class="l r t b">
                 <%
-                Set<String> headers = (Set<String>) request.getAttribute("header_columns");
+                Set<String> headersSet = (Set<String>) request.getAttribute("header_columns");
+                List<String> headers = StringUtils.orderSQLHeaders(headersSet);
                 %>
                 <tr>
                    <%
@@ -81,10 +83,4 @@
            </c:if>
             </vlh:root>
             <!-- end table with topics -->       
-
-
-
-
-
-
 

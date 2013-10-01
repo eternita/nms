@@ -114,17 +114,8 @@ public class QueryController {
 			
 			request.setAttribute("header_columns", headers);
 
-			
 			GeneralHelper.createVHLList(request, entities, "en", new ERBaseResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
 			view = "table"; // SQL table
-//		} else if (0 == entities.length && 0 != relations.length) {
-//			GeneralHelper.createVHLList(request, relations, "en", new RelationResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "r_list", "_el", LIST_PAGE_SIZE);
-//			view = null; // list view only
-//			
-//		} else if (0 != entities.length && 0 == relations.length) {
-//			GeneralHelper.createVHLList(request, entities, "en", new EntityResolver(storage, net, DISPLAYED_CONNECTED_LIMIT), "e_list", "_el", LIST_PAGE_SIZE);
-//			view = null; // list view only
-//
 		} else {
 			
 			if (net.getSize() > MAX_NETWORK_SIZE_FOR_GRAPH)

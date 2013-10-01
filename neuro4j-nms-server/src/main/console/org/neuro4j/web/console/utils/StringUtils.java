@@ -1,6 +1,10 @@
 package org.neuro4j.web.console.utils;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class StringUtils {
@@ -158,6 +162,52 @@ public class StringUtils {
       
       return outStr.replaceAll("&amp;nbsp;", " ").replaceAll("&nbsp;", " ");
   }
- 
+  
+  /**
+   * Sort headers in order [id, name, connected, other properties]
+   * 
+   * @param headersSet
+   * @return
+   */
+  public static List<String> orderSQLHeaders(Set<String> headersSet)
+  {
+	  List<String> headers = new ArrayList<String>();
+	  headers.addAll(headersSet);
+	  
+	  Collections.sort(headers, new Comparator<String>() {
+		    public int compare(String o1, String o2) {
+
+		    	if ("id".equalsIgnoreCase(o1) && !"id".equalsIgnoreCase(o2))
+		        	return -1;
+		        else if ("id".equalsIgnoreCase(o2) && !"id".equalsIgnoreCase(o1)) 
+		        	return 1;
+		        else if ("id".equalsIgnoreCase(o1) && "id".equalsIgnoreCase(o2)) 
+		        	return 0;
+		        
+		    	if ("name".equalsIgnoreCase(o1) && !"name".equalsIgnoreCase(o2))
+		        	return -1;
+		        else if ("name".equalsIgnoreCase(o2) && !"name".equalsIgnoreCase(o1)) 
+		        	return 1;
+		        else if ("name".equalsIgnoreCase(o1) && "name".equalsIgnoreCase(o2)) 
+		        	return 0;
+
+		    	if ("connected".equalsIgnoreCase(o1) && !"connected".equalsIgnoreCase(o2))
+		        	return -1;
+		        else if ("connected".equalsIgnoreCase(o2) && !"connected".equalsIgnoreCase(o1)) 
+		        	return 1;
+		        else if ("connected".equalsIgnoreCase(o1) && "connected".equalsIgnoreCase(o2)) 
+		        	return 0;
+		    	
+			    else 
+		        {
+				    	return o1.compareTo(o2);
+		        }
+		        
+		        
+		    }
+		});
+	  
+	  return headers;
+  }
 
 }

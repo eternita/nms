@@ -15,6 +15,7 @@ import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
 import org.neuro4j.utils.ClassloaderUtil;
 import org.neuro4j.utils.KVUtils;
+import org.neuro4j.utils.N4JConfig;
 
 public abstract class StorageBase implements Storage {
 
@@ -65,6 +66,15 @@ public abstract class StorageBase implements Storage {
 
 		extendClassLoader(libsDirectory);
 		
+		{ // load JDBC driver for SQL clause. It's required for JREs till 1.6
+			String jdbcClass = N4JConfig.getProperty("n4j.quering.sql.jdbc.driver");
+			try
+			{
+				Class.forName(jdbcClass);
+			} catch (Exception ex) {
+				logger.severe("Can't load JDBC driver (" + jdbcClass + "). Check n4j.quering.sql.jdbc.driver in neuro4j.properties ");
+			}
+		}
 		return;
 	}
 	
