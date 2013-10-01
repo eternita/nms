@@ -11,11 +11,11 @@ import org.neuro4j.logic.LogicProcessor;
 import org.neuro4j.logic.LogicProcessorException;
 import org.neuro4j.logic.LogicProcessorFactory;
 import org.neuro4j.logic.LogicProcessorNotFoundException;
+import org.neuro4j.storage.NQLException;
 import org.neuro4j.storage.Storage;
 import org.neuro4j.storage.StorageConfig;
-import org.neuro4j.storage.StorageFactory;
-import org.neuro4j.storage.StorageNotFoundException;
 import org.neuro4j.storage.StorageException;
+import org.neuro4j.storage.StorageFactory;
 import org.neuro4j.utils.KVUtils;
 
 
@@ -40,7 +40,7 @@ public class NeuroManager  {
 	 * @param configFileName
 	 * @return
 	 */
-	public Storage getStorage(String configFile)
+	public Storage getStorage(String configFile) throws StorageException
 	{
 		Properties props = KVUtils.loadPropertiesFromCodebase(configFile);
 		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
@@ -54,7 +54,7 @@ public class NeuroManager  {
 	 * @param configFileName
 	 * @return
 	 */
-	public Storage getStorage(File configFile)
+	public Storage getStorage(File configFile) throws StorageException
 	{
 		Properties props = KVUtils.loadProperties(configFile);
 		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
@@ -68,7 +68,7 @@ public class NeuroManager  {
 	 * @param configFileStr
 	 * @return
 	 */
-	public Storage getStorage(String storageHomeDirStr, String configFileStr)
+	public Storage getStorage(String storageHomeDirStr, String configFileStr) throws StorageException
 	{
 		File storageHomeDir = new File(storageHomeDirStr);
 		
@@ -86,7 +86,7 @@ public class NeuroManager  {
 	 * @param inputStream
 	 * @return
 	 */
-	public Storage getStorage(InputStream inputStream)
+	public Storage getStorage(InputStream inputStream) throws StorageException
 	{
 		Properties props = KVUtils.loadProperties(inputStream);
 		String storageImpl = props.getProperty(StorageConfig.STORAGE_IMPL_CLASS);
@@ -101,23 +101,22 @@ public class NeuroManager  {
 	 * @param properties
 	 * @return
 	 */
-	public Storage getStorage(String storageImpl, Properties properties)
+	public Storage getStorage(String storageImpl, Properties properties) throws StorageException
 	{
 		Storage storage = storageMap.get(storageImpl);
 		if (null == storage)
 		{
+			storage = StorageFactory.getStorage(storageImpl);
+			storage.init(properties);
+			
+			// run ping query
 			try {
-				storage = StorageFactory.getStorage(storageImpl);
-			} catch (StorageNotFoundException e) {
-				logger.severe("NeuroManager instantiation failed - can't instantiate NeuroStorage. " + e);
-				throw new RuntimeException( "NeuroManager instantiation failed - can't instantiate NeuroStorage. " + e.getMessage());
+				storage.query("SELECT (id='test-ping-during-init')");
+			} catch (NQLException e) {
+				throw new StorageException("Can't run ping query for storage " + storageImpl, e);
 			}
-			try {
-				storage.init(properties);
-				storageMap.put(storageImpl, storage);
-			} catch (StorageException e) {
-				logger.severe("Can't instantiate storage " + storageImpl + " " + e);
-			}
+			
+			storageMap.put(storageImpl, storage);
 		}
 			
 		

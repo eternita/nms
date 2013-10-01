@@ -55,7 +55,11 @@ public class WeblogClient {
 		
 		REQUEST_POST_QUERY = properties.getProperty("org.neuro4j.weblogs.post_flow"); 
 		
-		storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
+		try {
+			storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
+		} catch (StorageException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void post(HttpServletRequest request, Map params, byte[] content)

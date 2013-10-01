@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.neuro4j.NeuroManager;
 import org.neuro4j.storage.Storage;
+import org.neuro4j.storage.StorageException;
 
 public class Main {
 
@@ -14,7 +15,13 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		
-		Storage storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
+		Storage storage;
+		try {
+			storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
+		} catch (StorageException e) {
+			e.printStackTrace();
+			return;
+		}
 
 		StorageBuilder stroageBuilder = new StorageBuilder(storage);
 

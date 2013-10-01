@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.neuro4j.NeuroManager;
 import org.neuro4j.storage.Storage;
+import org.neuro4j.storage.StorageException;
 import org.neuro4j.utils.KVUtils;
 
 public class NMSServerConfig {
@@ -70,8 +71,13 @@ public class NMSServerConfig {
 			File storageHome = new File(nmsHomeDir, storageHomeDir);
 			storageHomeDir = storageHome.getAbsolutePath(); // storage dir (absolute path)
 			
-			Storage storage = NeuroManager.newInstance().getStorage(storageHomeDir, STORAGE_CONFIG_FILE);
-			storageMap.put(storageStr.substring(STORAGE_PREFIX.length()), storage);
+			Storage storage;
+			try {
+				storage = NeuroManager.newInstance().getStorage(storageHomeDir, STORAGE_CONFIG_FILE);
+				storageMap.put(storageStr.substring(STORAGE_PREFIX.length()), storage);
+			} catch (StorageException e) {
+				e.printStackTrace();
+			}
 		}
 		return storageMap;
 	}

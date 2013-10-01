@@ -14,15 +14,19 @@ public class StorageFactory {
 			if (fObj instanceof Storage)
 				return (Storage) fObj;
 				
+			throw new StorageNotFoundException("Storage " + name + " is not instance of Storage. ");
 		} catch (ClassNotFoundException e) {
 			logger.severe(e.getMessage());
+			throw new StorageNotFoundException("Storage " + name + " not found. " + e.getMessage());
 		} catch (InstantiationException e) {
 			logger.severe(e.getMessage());
+			throw new StorageNotFoundException("Storage " + name + " not found. " + e.getMessage());
 		} catch (IllegalAccessException e) {
 			logger.severe(e.getMessage());
+			throw new StorageNotFoundException("Storage " + name + " not found. " + e.getMessage());
 		} catch (Exception e) {
 			logger.severe(e.getMessage());
+			throw new StorageNotFoundException("Storage " + name + " not found. " + e.getMessage());
 		}
-		throw new StorageNotFoundException("Storage " + name + " not found");
 	}
 }

@@ -2,7 +2,7 @@ package org.neuro4j.storage;
 
 import org.neuro4j.core.Constants;
 
-public class StorageNotFoundException extends Exception {
+public class StorageNotFoundException extends StorageException {
 
 	/**
 	 * 

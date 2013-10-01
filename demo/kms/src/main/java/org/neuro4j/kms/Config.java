@@ -5,12 +5,13 @@ import java.util.Map;
 
 import org.neuro4j.NeuroManager;
 import org.neuro4j.storage.Storage;
+import org.neuro4j.storage.StorageException;
 
 public class Config {
 
 	private static final String STORAGE_HOME_DIR = System.getenv().get("NMS_HOME") + "/kms-solr";
 	
-	public static final Storage storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
+	public static Storage storage = null;
 	
 	public static final String EN = "en";
 	
@@ -23,6 +24,11 @@ public class Config {
 	public static final Map<String,String> languages = new LinkedHashMap<String, String>();
 	
 	static {
+		try {
+			storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
+		} catch (StorageException e) {
+			e.printStackTrace();
+		}
 		languages.put(EN, "English");
 		languages.put(RU, "Русский");
 		languages.put(ES, "Español");
