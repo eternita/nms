@@ -47,6 +47,9 @@ public class Main {
 		// import some data about a Roman Respublic's Denarius exported from http://coinshome.net
 		stroageBuilder.importNetwork(new File("./data/demo-files/1_denarius_chn_import.xml"));
 		
+		// import countries (empires) and relations between them exported from http://coinshome.net
+		stroageBuilder.importNetwork(new File("./data/demo-files/chn_countries.xml"));
+
 		stroageBuilder.query("select ()");
 		// network modification example
 		// bind some entities in relations

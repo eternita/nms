@@ -358,17 +358,8 @@ public class NQLParser implements NQLParserConstants {
 
   final public void getFilterExpression() throws ParseException, StorageException {
   Token tFilterSize, tKey, tValue;
-  String erType, sKey, sValue, filterSize;
-    if (jj_2_42(2)) {
-      jj_consume_token(E_LBRACE);
-        erType = "entity";
-    } else if (jj_2_43(2)) {
-      jj_consume_token(R_LBRACE);
-        erType = "relation";
-    } else {
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
+  String sKey, sValue, filterSize;
+    jj_consume_token(LPAREN);
     tKey = jj_consume_token(STRING);
 
     jj_consume_token(EQUALS);
@@ -381,25 +372,25 @@ public class NQLParser implements NQLParserConstants {
           // need to get rid of quotes.
           sValue = tValue.image.substring(1, tValue.image.length() - 1);
         sKey = tKey.image;
-    if (jj_2_44(2)) {
+    if (jj_2_42(2)) {
       jj_consume_token(RBRACE);
-    } else if (jj_2_45(2)) {
+    } else if (jj_2_43(2)) {
       jj_consume_token(RPAREN);
     } else {
       jj_consume_token(-1);
       throw new ParseException();
     }
-    if (jj_2_46(2)) {
+    if (jj_2_44(2)) {
       tFilterSize = jj_consume_token(DIGIT);
-    } else if (jj_2_47(2)) {
+    } else if (jj_2_45(2)) {
       tFilterSize = jj_consume_token(NUMBER);
     } else {
       jj_consume_token(-1);
       throw new ParseException();
     }
       filterSize = tFilterSize.image;
-      nqlProcessor.addFilter(erType, sKey, sValue, Integer.parseInt(filterSize));
-    if (jj_2_48(2)) {
+      nqlProcessor.addFilter(sKey, sValue, Integer.parseInt(filterSize));
+    if (jj_2_46(2)) {
       jj_consume_token(COMMA);
       getFilterExpression();
     } else {
@@ -413,7 +404,7 @@ public class NQLParser implements NQLParserConstants {
     jj_consume_token(LPAREN);
     label_4:
     while (true) {
-      if (jj_2_49(2)) {
+      if (jj_2_47(2)) {
         ;
       } else {
         break label_4;
@@ -430,7 +421,7 @@ public class NQLParser implements NQLParserConstants {
     jj_consume_token(LPAREN);
     label_5:
     while (true) {
-      if (jj_2_50(2)) {
+      if (jj_2_48(2)) {
         ;
       } else {
         break label_5;
@@ -447,10 +438,10 @@ public class NQLParser implements NQLParserConstants {
   int useOnlyDepthLevel = -1;
   Token tKey, tComparator, tValue;
   String sKey, sValue;
-    if (jj_2_53(2)) {
-      if (jj_2_51(2)) {
+    if (jj_2_51(2)) {
+      if (jj_2_49(2)) {
         tUseOnlyDepthLevel = jj_consume_token(DIGIT);
-      } else if (jj_2_52(2)) {
+      } else if (jj_2_50(2)) {
         tUseOnlyDepthLevel = jj_consume_token(NUMBER);
       } else {
         jj_consume_token(-1);
@@ -478,10 +469,10 @@ public class NQLParser implements NQLParserConstants {
   int ignoreDepthLevel = -1;
   Token tKey, tComparator, tValue;
   String sKey, sValue;
-    if (jj_2_56(2)) {
-      if (jj_2_54(2)) {
+    if (jj_2_54(2)) {
+      if (jj_2_52(2)) {
         tIgnoreDepthLevel = jj_consume_token(DIGIT);
-      } else if (jj_2_55(2)) {
+      } else if (jj_2_53(2)) {
         tIgnoreDepthLevel = jj_consume_token(NUMBER);
       } else {
         jj_consume_token(-1);
@@ -510,11 +501,11 @@ public class NQLParser implements NQLParserConstants {
   Network net;
     tKey = jj_consume_token(STRING);
 
-    if (jj_2_57(2)) {
+    if (jj_2_55(2)) {
       tComparator = jj_consume_token(EQUALS);
-    } else if (jj_2_58(2)) {
+    } else if (jj_2_56(2)) {
       tComparator = jj_consume_token(NOTEQUAL);
-    } else if (jj_2_59(2)) {
+    } else if (jj_2_57(2)) {
       tComparator = jj_consume_token(LIKE);
     } else {
       jj_consume_token(-1);
@@ -543,7 +534,7 @@ public class NQLParser implements NQLParserConstants {
   Network net2 = null;
   String operand = null;
     operand = attributeExpressionOperand();
-    if (jj_2_60(2)) {
+    if (jj_2_58(2)) {
       jj_consume_token(LPAREN);
                     // Map params = new HashMap();
                     // Network net =
@@ -557,9 +548,9 @@ public class NQLParser implements NQLParserConstants {
             // don't use return parameter - because it isn't used in InMemoryProcessor. In SolrProcessor is used for brace generation 
             // nqlProcessor.finishERAttributeExpression(new HashMap());
             nqlProcessor.finishERAttributeExpression(null);
-    } else if (jj_2_61(2)) {
+    } else if (jj_2_59(2)) {
       net2 = parseERAttribute();
-    } else if (jj_2_62(2)) {
+    } else if (jj_2_60(2)) {
             Set<Path> connectedStack = nqlProcessor.getDefaultConnectedStack();
       net2 = parseConnected(connectedStack);
     } else {
@@ -580,11 +571,11 @@ public class NQLParser implements NQLParserConstants {
   Token tKey, tComparator, tValue;
   String sKey, sValue;
     tKey = jj_consume_token(STRING);
-    if (jj_2_63(2)) {
+    if (jj_2_61(2)) {
       tComparator = jj_consume_token(EQUALS);
-    } else if (jj_2_64(2)) {
+    } else if (jj_2_62(2)) {
       tComparator = jj_consume_token(NOTEQUAL);
-    } else if (jj_2_65(2)) {
+    } else if (jj_2_63(2)) {
       tComparator = jj_consume_token(LIKE);
     } else {
       jj_consume_token(-1);
@@ -607,12 +598,12 @@ public class NQLParser implements NQLParserConstants {
   final public Network parseConnectedBraceExpression(Set<Path> connectedStack) throws ParseException, StorageException {
   Network net = new Network();
   boolean isEmpty = true;
-    if (jj_2_68(2)) {
-      if (jj_2_66(2)) {
+    if (jj_2_66(2)) {
+      if (jj_2_64(2)) {
         jj_consume_token(LPAREN);
         net = parseConnectedBraceExpression(connectedStack);
         jj_consume_token(RPAREN);
-      } else if (jj_2_67(2)) {
+      } else if (jj_2_65(2)) {
         net = parseConnectedAttribute(connectedStack);
       isEmpty = false;
       System.out.println(" parseConnectedBraceExpression() - > not empty ");
@@ -629,7 +620,7 @@ public class NQLParser implements NQLParserConstants {
     }
     label_6:
     while (true) {
-      if (jj_2_69(2)) {
+      if (jj_2_67(2)) {
         ;
       } else {
         break label_6;
@@ -650,13 +641,13 @@ public class NQLParser implements NQLParserConstants {
   Network net2 = null;
   String operand = null;
     operand = attributeExpressionOperand();
-    if (jj_2_70(2)) {
+    if (jj_2_68(2)) {
       jj_consume_token(LPAREN);
       net2 = parseConnectedBraceExpression(connectedStack);
       jj_consume_token(RPAREN);
-    } else if (jj_2_71(2)) {
+    } else if (jj_2_69(2)) {
       net2 = parseConnectedAttribute(connectedStack);
-    } else if (jj_2_72(2)) {
+    } else if (jj_2_70(2)) {
             nqlProcessor.updateConnectedStack(connectedStack, net1);
       net2 = parseConnected(connectedStack);
     } else {
@@ -686,11 +677,11 @@ public class NQLParser implements NQLParserConstants {
 
 // AND | OR  final public String attributeExpressionOperand() throws ParseException, StorageException {
   String operand = null;
-    if (jj_2_73(2)) {
+    if (jj_2_71(2)) {
       jj_consume_token(AND);
         nqlProcessor.addERAttributeExpression("AND");
         operand = "AND";
-    } else if (jj_2_74(2)) {
+    } else if (jj_2_72(2)) {
       jj_consume_token(OR);
         nqlProcessor.addERAttributeExpression("OR");
         operand = "OR";
@@ -704,7 +695,7 @@ public class NQLParser implements NQLParserConstants {
 
   final public Network parseERBraceExpression() throws ParseException, StorageException {
   Network net1 = null;
-    if (jj_2_75(2)) {
+    if (jj_2_73(2)) {
       jj_consume_token(LPAREN);
             // Map params = new HashMap();
             // Network net =
@@ -718,9 +709,9 @@ public class NQLParser implements NQLParserConstants {
             // don't use return parameter - because it isn't used in InMemoryProcessor. In SolrProcessor is used for brace generation 
             // nqlProcessor.finishERAttributeExpression(new HashMap());
             nqlProcessor.finishERAttributeExpression(null);
-    } else if (jj_2_76(2)) {
+    } else if (jj_2_74(2)) {
       net1 = parseERAttribute();
-    } else if (jj_2_77(2)) {
+    } else if (jj_2_75(2)) {
             Set<Path> connectedStack = nqlProcessor.getDefaultConnectedStack();
       net1 = parseConnected(connectedStack);
     } else {
@@ -729,7 +720,7 @@ public class NQLParser implements NQLParserConstants {
     }
     label_7:
     while (true) {
-      if (jj_2_78(2)) {
+      if (jj_2_76(2)) {
         ;
       } else {
         break label_7;
@@ -750,9 +741,9 @@ public class NQLParser implements NQLParserConstants {
   final public void limit() throws ParseException, StorageException {
   Token tMaxNetworkSize;
     jj_consume_token(LIMIT);
-    if (jj_2_79(2)) {
+    if (jj_2_77(2)) {
       tMaxNetworkSize = jj_consume_token(DIGIT);
-    } else if (jj_2_80(2)) {
+    } else if (jj_2_78(2)) {
       tMaxNetworkSize = jj_consume_token(NUMBER);
     } else {
       jj_consume_token(-1);
@@ -1308,34 +1299,10 @@ public class NQLParser implements NQLParserConstants {
     finally { jj_save(77, xla); }
   }
 
-  private boolean jj_2_79(int xla) {
-    jj_la = xla; jj_lastpos = jj_scanpos = token;
-    try { return !jj_3_79(); }
-    catch(LookaheadSuccess ls) { return true; }
-    finally { jj_save(78, xla); }
-  }
-
-  private boolean jj_2_80(int xla) {
-    jj_la = xla; jj_lastpos = jj_scanpos = token;
-    try { return !jj_3_80(); }
-    catch(LookaheadSuccess ls) { return true; }
-    finally { jj_save(79, xla); }
-  }
-
-  private boolean jj_3_53() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_51()) {
-    jj_scanpos = xsp;
-    if (jj_3_52()) return true;
-    }
-    return false;
-  }
-
   private boolean jj_3R_27() {
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_53()) jj_scanpos = xsp;
+    if (jj_3_51()) jj_scanpos = xsp;
     if (jj_scan_token(STRING)) return true;
     if (jj_scan_token(EQUALS)) return true;
     return false;
@@ -1346,18 +1313,23 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_65() {
+  private boolean jj_3_63() {
     if (jj_scan_token(LIKE)) return true;
     return false;
   }
 
-  private boolean jj_3_64() {
+  private boolean jj_3_62() {
     if (jj_scan_token(NOTEQUAL)) return true;
     return false;
   }
 
-  private boolean jj_3_63() {
+  private boolean jj_3_61() {
     if (jj_scan_token(EQUALS)) return true;
+    return false;
+  }
+
+  private boolean jj_3_76() {
+    if (jj_3R_33()) return true;
     return false;
   }
 
@@ -1366,12 +1338,7 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_78() {
-    if (jj_3R_33()) return true;
-    return false;
-  }
-
-  private boolean jj_3_50() {
+  private boolean jj_3_48() {
     if (jj_3R_27()) return true;
     return false;
   }
@@ -1385,11 +1352,11 @@ public class NQLParser implements NQLParserConstants {
     if (jj_scan_token(STRING)) return true;
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_63()) {
+    if (jj_3_61()) {
     jj_scanpos = xsp;
-    if (jj_3_64()) {
+    if (jj_3_62()) {
     jj_scanpos = xsp;
-    if (jj_3_65()) return true;
+    if (jj_3_63()) return true;
     }
     }
     return false;
@@ -1400,8 +1367,19 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3R_19() {
+    if (jj_scan_token(USE_ONLY)) return true;
+    if (jj_scan_token(LPAREN)) return true;
+    return false;
+  }
+
   private boolean jj_3R_9() {
     if (jj_3R_16()) return true;
+    return false;
+  }
+
+  private boolean jj_3_75() {
+    if (jj_3R_29()) return true;
     return false;
   }
 
@@ -1410,23 +1388,12 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3R_19() {
-    if (jj_scan_token(USE_ONLY)) return true;
-    if (jj_scan_token(LPAREN)) return true;
-    return false;
-  }
-
-  private boolean jj_3_77() {
-    if (jj_3R_29()) return true;
-    return false;
-  }
-
   private boolean jj_3_12() {
     if (jj_3R_17()) return true;
     return false;
   }
 
-  private boolean jj_3_76() {
+  private boolean jj_3_74() {
     if (jj_3R_28()) return true;
     return false;
   }
@@ -1441,12 +1408,12 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_49() {
+  private boolean jj_3_47() {
     if (jj_3R_26()) return true;
     return false;
   }
 
-  private boolean jj_3_62() {
+  private boolean jj_3_60() {
     if (jj_3R_29()) return true;
     return false;
   }
@@ -1462,17 +1429,17 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3_59() {
+    if (jj_3R_28()) return true;
+    return false;
+  }
+
   private boolean jj_3_9() {
     if (jj_3R_15()) return true;
     return false;
   }
 
-  private boolean jj_3_61() {
-    if (jj_3R_28()) return true;
-    return false;
-  }
-
-  private boolean jj_3_45() {
+  private boolean jj_3_43() {
     if (jj_scan_token(RPAREN)) return true;
     return false;
   }
@@ -1482,7 +1449,7 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_75() {
+  private boolean jj_3_73() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_24()) return true;
     return false;
@@ -1501,13 +1468,24 @@ public class NQLParser implements NQLParserConstants {
   private boolean jj_3R_24() {
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_75()) {
+    if (jj_3_73()) {
     jj_scanpos = xsp;
-    if (jj_3_76()) {
+    if (jj_3_74()) {
     jj_scanpos = xsp;
-    if (jj_3_77()) return true;
+    if (jj_3_75()) return true;
     }
     }
+    return false;
+  }
+
+  private boolean jj_3_45() {
+    if (jj_scan_token(NUMBER)) return true;
+    return false;
+  }
+
+  private boolean jj_3_46() {
+    if (jj_scan_token(COMMA)) return true;
+    if (jj_3R_25()) return true;
     return false;
   }
 
@@ -1521,19 +1499,13 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_47() {
-    if (jj_scan_token(NUMBER)) return true;
-    return false;
-  }
-
-  private boolean jj_3_48() {
-    if (jj_scan_token(COMMA)) return true;
-    if (jj_3R_25()) return true;
-    return false;
-  }
-
-  private boolean jj_3_46() {
+  private boolean jj_3_44() {
     if (jj_scan_token(DIGIT)) return true;
+    return false;
+  }
+
+  private boolean jj_3_42() {
+    if (jj_scan_token(RBRACE)) return true;
     return false;
   }
 
@@ -1542,23 +1514,18 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_44() {
-    if (jj_scan_token(RBRACE)) return true;
-    return false;
-  }
-
-  private boolean jj_3_60() {
+  private boolean jj_3_58() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_24()) return true;
     return false;
   }
 
-  private boolean jj_3_74() {
+  private boolean jj_3_72() {
     if (jj_scan_token(OR)) return true;
     return false;
   }
 
-  private boolean jj_3_73() {
+  private boolean jj_3_71() {
     if (jj_scan_token(AND)) return true;
     return false;
   }
@@ -1568,23 +1535,18 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_22() {
-    if (jj_scan_token(STRING)) return true;
-    return false;
-  }
-
   private boolean jj_3R_34() {
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_73()) {
+    if (jj_3_71()) {
     jj_scanpos = xsp;
-    if (jj_3_74()) return true;
+    if (jj_3_72()) return true;
     }
     return false;
   }
 
-  private boolean jj_3R_10() {
-    if (jj_scan_token(LPAREN)) return true;
+  private boolean jj_3_22() {
+    if (jj_scan_token(STRING)) return true;
     return false;
   }
 
@@ -1592,13 +1554,18 @@ public class NQLParser implements NQLParserConstants {
     if (jj_3R_34()) return true;
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_60()) {
+    if (jj_3_58()) {
     jj_scanpos = xsp;
-    if (jj_3_61()) {
+    if (jj_3_59()) {
     jj_scanpos = xsp;
-    if (jj_3_62()) return true;
+    if (jj_3_60()) return true;
     }
     }
+    return false;
+  }
+
+  private boolean jj_3R_10() {
+    if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 
@@ -1642,11 +1609,6 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_43() {
-    if (jj_scan_token(R_LBRACE)) return true;
-    return false;
-  }
-
   private boolean jj_3_4() {
     if (jj_scan_token(INSERT)) return true;
     if (jj_3R_10()) return true;
@@ -1677,8 +1639,9 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_42() {
-    if (jj_scan_token(E_LBRACE)) return true;
+  private boolean jj_3R_29() {
+    if (jj_scan_token(CONNECTED)) return true;
+    if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 
@@ -1704,20 +1667,14 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3R_29() {
-    if (jj_scan_token(CONNECTED)) return true;
+  private boolean jj_3R_25() {
     if (jj_scan_token(LPAREN)) return true;
+    if (jj_scan_token(STRING)) return true;
     return false;
   }
 
-  private boolean jj_3R_25() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_42()) {
-    jj_scanpos = xsp;
-    if (jj_3_43()) return true;
-    }
-    if (jj_scan_token(STRING)) return true;
+  private boolean jj_3_57() {
+    if (jj_scan_token(LIKE)) return true;
     return false;
   }
 
@@ -1726,23 +1683,32 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_59() {
-    if (jj_scan_token(LIKE)) return true;
-    return false;
-  }
-
-  private boolean jj_3_58() {
+  private boolean jj_3_56() {
     if (jj_scan_token(NOTEQUAL)) return true;
     return false;
   }
 
-  private boolean jj_3_57() {
+  private boolean jj_3_55() {
     if (jj_scan_token(EQUALS)) return true;
     return false;
   }
 
   private boolean jj_3_20() {
     if (jj_scan_token(LIMIT)) return true;
+    return false;
+  }
+
+  private boolean jj_3R_28() {
+    if (jj_scan_token(STRING)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_55()) {
+    jj_scanpos = xsp;
+    if (jj_3_56()) {
+    jj_scanpos = xsp;
+    if (jj_3_57()) return true;
+    }
+    }
     return false;
   }
 
@@ -1757,26 +1723,12 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3R_28() {
-    if (jj_scan_token(STRING)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3_57()) {
-    jj_scanpos = xsp;
-    if (jj_3_58()) {
-    jj_scanpos = xsp;
-    if (jj_3_59()) return true;
-    }
-    }
-    return false;
-  }
-
   private boolean jj_3_41() {
     if (jj_3R_25()) return true;
     return false;
   }
 
-  private boolean jj_3_72() {
+  private boolean jj_3_70() {
     if (jj_3R_29()) return true;
     return false;
   }
@@ -1799,12 +1751,12 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_71() {
+  private boolean jj_3_69() {
     if (jj_3R_31()) return true;
     return false;
   }
 
-  private boolean jj_3_70() {
+  private boolean jj_3_68() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_30()) return true;
     if (jj_scan_token(RPAREN)) return true;
@@ -1826,11 +1778,11 @@ public class NQLParser implements NQLParserConstants {
     if (jj_3R_34()) return true;
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_70()) {
+    if (jj_3_68()) {
     jj_scanpos = xsp;
-    if (jj_3_71()) {
+    if (jj_3_69()) {
     jj_scanpos = xsp;
-    if (jj_3_72()) return true;
+    if (jj_3_70()) return true;
     }
     }
     return false;
@@ -1847,23 +1799,23 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3_53() {
+    if (jj_scan_token(NUMBER)) return true;
+    return false;
+  }
+
   private boolean jj_3_17() {
     if (jj_scan_token(LIMIT)) return true;
     return false;
   }
 
-  private boolean jj_3_55() {
-    if (jj_scan_token(NUMBER)) return true;
+  private boolean jj_3_52() {
+    if (jj_scan_token(DIGIT)) return true;
     return false;
   }
 
   private boolean jj_3_16() {
     if (jj_scan_token(STRING)) return true;
-    return false;
-  }
-
-  private boolean jj_3_54() {
-    if (jj_scan_token(DIGIT)) return true;
     return false;
   }
 
@@ -1873,12 +1825,12 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_56() {
+  private boolean jj_3_54() {
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_54()) {
+    if (jj_3_52()) {
     jj_scanpos = xsp;
-    if (jj_3_55()) return true;
+    if (jj_3_53()) return true;
     }
     return false;
   }
@@ -1907,13 +1859,13 @@ public class NQLParser implements NQLParserConstants {
   private boolean jj_3R_26() {
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_56()) jj_scanpos = xsp;
+    if (jj_3_54()) jj_scanpos = xsp;
     if (jj_scan_token(STRING)) return true;
     if (jj_scan_token(EQUALS)) return true;
     return false;
   }
 
-  private boolean jj_3_69() {
+  private boolean jj_3_67() {
     if (jj_3R_32()) return true;
     return false;
   }
@@ -1944,29 +1896,29 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
+  private boolean jj_3_65() {
+    if (jj_3R_31()) return true;
+    return false;
+  }
+
   private boolean jj_3_31() {
     if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 
-  private boolean jj_3_67() {
-    if (jj_3R_31()) return true;
-    return false;
-  }
-
-  private boolean jj_3_66() {
+  private boolean jj_3_64() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_30()) return true;
     if (jj_scan_token(RPAREN)) return true;
     return false;
   }
 
-  private boolean jj_3_68() {
+  private boolean jj_3_66() {
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_66()) {
+    if (jj_3_64()) {
     jj_scanpos = xsp;
-    if (jj_3_67()) return true;
+    if (jj_3_65()) return true;
     }
     return false;
   }
@@ -1990,7 +1942,7 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_80() {
+  private boolean jj_3_78() {
     if (jj_scan_token(NUMBER)) return true;
     return false;
   }
@@ -1998,15 +1950,15 @@ public class NQLParser implements NQLParserConstants {
   private boolean jj_3R_30() {
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_68()) jj_scanpos = xsp;
+    if (jj_3_66()) jj_scanpos = xsp;
     while (true) {
       xsp = jj_scanpos;
-      if (jj_3_69()) { jj_scanpos = xsp; break; }
+      if (jj_3_67()) { jj_scanpos = xsp; break; }
     }
     return false;
   }
 
-  private boolean jj_3_79() {
+  private boolean jj_3_77() {
     if (jj_scan_token(DIGIT)) return true;
     return false;
   }
@@ -2015,15 +1967,20 @@ public class NQLParser implements NQLParserConstants {
     if (jj_scan_token(LIMIT)) return true;
     Token xsp;
     xsp = jj_scanpos;
-    if (jj_3_79()) {
+    if (jj_3_77()) {
     jj_scanpos = xsp;
-    if (jj_3_80()) return true;
+    if (jj_3_78()) return true;
     }
     return false;
   }
 
-  private boolean jj_3_52() {
+  private boolean jj_3_50() {
     if (jj_scan_token(NUMBER)) return true;
+    return false;
+  }
+
+  private boolean jj_3_49() {
+    if (jj_scan_token(DIGIT)) return true;
     return false;
   }
 
@@ -2037,13 +1994,18 @@ public class NQLParser implements NQLParserConstants {
     return false;
   }
 
-  private boolean jj_3_51() {
-    if (jj_scan_token(DIGIT)) return true;
+  private boolean jj_3R_13() {
+    if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 
-  private boolean jj_3R_13() {
-    if (jj_scan_token(LPAREN)) return true;
+  private boolean jj_3_51() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3_49()) {
+    jj_scanpos = xsp;
+    if (jj_3_50()) return true;
+    }
     return false;
   }
 
@@ -2071,7 +2033,7 @@ public class NQLParser implements NQLParserConstants {
    private static void jj_la1_init_1() {
       jj_la1_1 = new int[] {};
    }
-  final private JJCalls[] jj_2_rtns = new JJCalls[80];
+  final private JJCalls[] jj_2_rtns = new JJCalls[78];
   private boolean jj_rescan = false;
   private int jj_gc = 0;
 
@@ -2299,7 +2261,7 @@ public class NQLParser implements NQLParserConstants {
 
   private void jj_rescan_token() {
     jj_rescan = true;
-    for (int i = 0; i < 80; i++) {
+    for (int i = 0; i < 78; i++) {
     try {
       JJCalls p = jj_2_rtns[i];
       do {
@@ -2384,8 +2346,6 @@ public class NQLParser implements NQLParserConstants {
             case 75: jj_3_76(); break;
             case 76: jj_3_77(); break;
             case 77: jj_3_78(); break;
-            case 78: jj_3_79(); break;
-            case 79: jj_3_80(); break;
           }
         }
         p = p.next;

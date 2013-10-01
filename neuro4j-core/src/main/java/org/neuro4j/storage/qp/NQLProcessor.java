@@ -96,7 +96,7 @@ public interface NQLProcessor {
 	
 	
 
-	public void addFilter(String erType, String sKey, String sValue, int filterSize) throws StorageException;
+	public void addFilter(String sKey, String sValue, int filterSize) throws StorageException;
 
 	
 	/**

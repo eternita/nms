@@ -265,14 +265,14 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 	}	
 	
 
-	public void addFilter(String erType, String sKey, String sValue, int filterSize)
+	public void addFilter(String sKey, String sValue, int filterSize)
 	{
 		// function for first parse cycle only
 		if (SECOND_CYCLE == parseCycle)
 			return;
 		
 		Filter filter = new Filter();
-		filter.erType = ERType.valueOf(erType);
+//		filter.erType = ERType.valueOf(erType);
 		filter.propertyName = sKey;
 		filter.propertyValue = sValue;
 		filter.filterAmount = filterSize;
@@ -295,19 +295,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		{
 			String[] ids = null;
 			
-			switch (filter.erType) {
-//			case relation:
-//				ids = outputNet.getEntities();
-//				break;
-
-			case entity:
-//				ids = outputNet.getRelations();
-				ids = outputNet.getIds();
-				break;
-
-			default:
-				break;
-			}
+			ids = outputNet.getIds();
 			
 			
 			for (String erid : ids)

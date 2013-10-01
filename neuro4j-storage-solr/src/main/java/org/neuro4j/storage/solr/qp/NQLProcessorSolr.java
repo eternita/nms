@@ -319,23 +319,9 @@ public class NQLProcessorSolr extends NQLProcessorBase {
     	for (String key : useOnlyAttrMap.keySet())
     	{
     		String qkey = key;
+    		if (!"UUID".equals(key) && !"name".equals(key))
+    			qkey = SearchIndexConfiguration.PROPERTY_PREFIX + key;
 
-/*    		if (key.startsWith("r."))
-    		{
-    			if (queryType != ERType.relation)
-    				continue;
-    			
-    			qkey = key.substring("r.".length());
-    		}
-    		
-    		if (key.startsWith("e."))
-    		{
-    			if (queryType != ERType.entity)
-    				continue;
-    			
-    			qkey = key.substring("e.".length());
-    		}*/
-    		
     		Set<String> values = useOnlyAttrMap.get(key);
     		for (String value : values)
     		{
@@ -360,23 +346,10 @@ public class NQLProcessorSolr extends NQLProcessorBase {
     	for (String key : ignoreAttrMap.keySet())
     	{
     		String qkey = key;
-
-/*    		if (key.startsWith("r."))
-    		{
-    			if (queryType != ERType.relation)
-    				continue;
-    			
-    			qkey = key.substring("r.".length());
-    		}
     		
-    		if (key.startsWith("e."))
-    		{
-    			if (queryType != ERType.entity)
-    				continue;
-    			
-    			qkey = key.substring("e.".length());
-    		}
-*/    		
+    		if (!"UUID".equals(key) && !"name".equals(key))
+    			qkey = SearchIndexConfiguration.PROPERTY_PREFIX + key;
+
     		Set<String> values = ignoreAttrMap.get(key);
     		for (String value : values)
     		{
