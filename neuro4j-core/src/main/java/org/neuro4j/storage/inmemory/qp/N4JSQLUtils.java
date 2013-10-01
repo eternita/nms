@@ -25,7 +25,6 @@ public class N4JSQLUtils {
 		Set<String> headers = new LinkedHashSet<String>();
 		headers.add("id");
 		headers.add("name");
-		headers.add("n4jtype");
 		headers.add("connected");
 		
 		for (String id : net.getIds())
@@ -59,7 +58,7 @@ public class N4JSQLUtils {
 
 	}
 	
-	public static void createTempTable(Connection conn, String tableName, Set<String> headers) // throws SQLException
+	public static void createTempTable(Connection conn, String tableName, Set<String> headers) throws SQLException
 	{
 	
 		Statement st = null;
@@ -87,6 +86,7 @@ public class N4JSQLUtils {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw e;
 		} finally {
 			if (null != st)
 			{
@@ -131,43 +131,58 @@ public class N4JSQLUtils {
 	public static Network queryTempTable(Connection conn, String tableName, String sql) throws SQLException
 	{
 	
-		Statement st = null;
-		st = conn.createStatement();
-		
-		ResultSet result = st.executeQuery(sql);
-		
-		ResultSetMetaData rsmd = result.getMetaData();
 		Network net = new Network();
-		
-		// create header
-		Connected header = new Connected("n4j_sql_table_header");
-		int cnt = rsmd.getColumnCount();
-		for (int i = 1; i <= cnt; i++)
-		{
-			String columnName = rsmd.getColumnName(i);
-			header.setProperty("c." + (i-1), columnName);
-		}
-		net.add(header);
-		
-		// create rows
-		while (result.next())
-		{
-			Connected row = new Connected("n4j_row");
+		Statement st = null;
+		try {
+			st = conn.createStatement();
+			ResultSet result = st.executeQuery(sql);
+			
+			ResultSetMetaData rsmd = result.getMetaData();
+			
+			// create header
+			Connected header = new Connected("n4j_sql_table_header");
+			int cnt = rsmd.getColumnCount();
 			for (int i = 1; i <= cnt; i++)
 			{
-				String key = rsmd.getColumnName(i);
-				String value = result.getString(i);
-				row.setProperty(key, value);
+				String columnName = rsmd.getColumnName(i);
+				header.setProperty("c." + (i-1), columnName);
 			}
+			net.add(header);
 			
-			net.add(row);
+			// create rows
+			while (result.next())
+			{
+				Connected row = new Connected("n4j_row");
+				for (int i = 1; i <= cnt; i++)
+				{
+					String key = rsmd.getColumnName(i);
+					String value = result.getString(i);
+					row.setProperty(key, value);
+				}
+				
+				net.add(row);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if (null != st)
+			{
+				try {
+					st.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}			
+			}
 		}
+		
 		
 		return net;
 	}
 	
 	
-	public static void addER2Table(Connection conn, Connected er, String tableName)
+	public static void addER2Table(Connection conn, Connected er, String tableName) throws SQLException
 	{
 		List<String> values = new ArrayList<String>();
 		StringBuffer sb = new StringBuffer();
@@ -185,7 +200,7 @@ public class N4JSQLUtils {
 		sb.append(" VALUES(");
 		sb.append("'" + er.getUuid() + "'").append(", ");
 		sb.append("'" + er.getName() + "'").append(", ");			
-		sb.append(", ").append("'").append(StringUtils.set2str(er.getConnectedKeys())).append("'");
+		sb.append("'").append(StringUtils.set2str(er.getConnectedKeys())).append("'");
 		
 		for (String val : values)
 		{
@@ -204,6 +219,7 @@ public class N4JSQLUtils {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw e;
 		} finally {
 			if (null != st)
 			{
