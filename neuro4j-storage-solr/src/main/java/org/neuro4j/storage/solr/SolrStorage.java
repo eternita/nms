@@ -74,11 +74,12 @@ public class SolrStorage extends StorageBase {
 			throw new NQLException("Wrong NQL: " + q, e);
 		}
 		
-		// ping Solr
-		if (null == outNet || 0 == outNet.getSize())
-			siMgr.ping();
-
 		return outNet;
+	}
+
+	@Override
+	public void ping() throws StorageException {
+		siMgr.ping();
 	}
 	
 

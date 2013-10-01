@@ -109,12 +109,12 @@ public class NeuroManager  {
 			storage = StorageFactory.getStorage(storageImpl);
 			storage.init(properties);
 			
-			// run ping query
-			try {
-				storage.query("SELECT (id='test-ping-during-init')");
-			} catch (NQLException e) {
-				throw new StorageException("Can't run ping query for storage " + storageImpl, e);
-			}
+//			// run ping query
+//			try {
+//				storage.query("SELECT (id='test-ping-during-init')");
+//			} catch (NQLException e) {
+//				throw new StorageException("Can't run ping query for storage " + storageImpl, e);
+//			}
 			
 			storageMap.put(storageImpl, storage);
 		}

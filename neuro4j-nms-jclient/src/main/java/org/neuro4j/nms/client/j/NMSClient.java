@@ -301,6 +301,11 @@ public class NMSClient extends StorageBase {
 												serverBaseURL + "/api/representation/update", id));
 		return repOutput;
 	}
+
+	@Override
+	public void ping() throws StorageException {
+		query("SELECT (id='test-ping-queiry')");
+	}
 	
 		
 }

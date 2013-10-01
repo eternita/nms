@@ -52,5 +52,10 @@ public class InMemoryStorage extends StorageBase {
 		return instance.query(q);
 
 	}
+
+	@Override
+	public void ping() throws StorageException {
+		// no implementation needed
+	}
 	
 }

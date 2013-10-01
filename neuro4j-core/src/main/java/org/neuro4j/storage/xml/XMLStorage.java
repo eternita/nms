@@ -1,5 +1,6 @@
 package org.neuro4j.storage.xml;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -129,5 +130,11 @@ public class XMLStorage extends InMemoryStorage {
 		return;
 	}	
 	
-		
+
+	@Override
+	public void ping() throws StorageException {
+		File f = new File(this.filePath);
+		if(!f.exists())
+			throw new StorageException("File " + this.filePath + " does not exist");
+	}		
 }

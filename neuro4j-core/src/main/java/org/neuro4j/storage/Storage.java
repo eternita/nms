@@ -13,6 +13,8 @@ public interface Storage {
 	public Properties getConfig();
 	
 	public void init(Properties properties) throws StorageException;
+	
+	public void ping() throws StorageException;
 
 	public boolean save(Network network) throws StorageException;
 
