@@ -303,5 +303,21 @@ public class SolrIndexMgr {
 		return outIds;
 	}
 	
+	/**
+	 * run ping query (UUID:test) to check communications with solr
+	 * 
+	 * @throws SolrServerException
+	 */
+	public void ping() throws StorageException
+	{
+    	SolrQuery solrQuery = new SolrQuery(SearchIndexConfiguration.FIELD_UUID + ":test");
+		try {
+			solrServer.query(solrQuery);
+		} catch (SolrServerException e) {
+			throw new StorageException("Can't run ping query.", e);
+		}
+    	return;
+	}
+	
 
 }

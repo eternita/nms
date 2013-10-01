@@ -71,9 +71,12 @@ public class SolrStorage extends StorageBase {
 	    		logger.warn("Slow Query, QTime " + (end - start) + " ms. q = " + URLDecoder.decode(q) );
 	    	
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			throw new NQLException("Wrong NQL: " + q, e);
 		}
+		
+		// ping Solr
+		if (null == outNet || 0 == outNet.getSize())
+			siMgr.ping();
 
 		return outNet;
 	}

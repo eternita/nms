@@ -66,8 +66,10 @@ public class SearchIndexHandler {
 
 		} catch (SolrServerException e) {
             logger.error("Can't send data to Solr server ", e);
+			throw new StorageException("Can't communicate to Solr.", e);
 		} catch (IOException e) {
             logger.error("Can't send data to Solr server ", e);
+			throw new StorageException("Can't communicate to Solr.", e);
 		}
 		return;
 	}
@@ -78,8 +80,10 @@ public class SearchIndexHandler {
 			logger.info("Commit -> Response" + response);
 		} catch (SolrServerException e) {
             logger.error("Can't commit", e);
+			throw new StorageException("Can't communicate to Solr.", e);
 		} catch (IOException e) {
             logger.error("Can't commit", e);
+			throw new StorageException("Can't communicate to Solr.", e);
 		}
 		return;
 	}
@@ -99,10 +103,12 @@ public class SearchIndexHandler {
         catch (SolrServerException e)
         {
             logger.error("Can't clear index", e);
+			throw new StorageException("Can't communicate to Solr.", e);
         }
         catch (IOException e)
         {
             logger.error("Can't clear index", e);
+			throw new StorageException("Can't communicate to Solr.", e);
         }		
 	}
 
@@ -123,30 +129,6 @@ public class SearchIndexHandler {
     	
     	return doc;		
 	}
-
-//	public static SolrInputDocument createSolrInputDocument(Entity entity)
-//	{
-//        SolrInputDocument doc = createSolrInputDocument((ERBase) entity);
-//
-//    	doc.addField(SearchIndexConfiguration.FIELD_ER_TYPE, SearchIndexConfiguration.ER_TYPE_ENTITY);	
-//
-//    	for (String rid : entity.getRelationsKeys())
-//        	doc.addField(SearchIndexConfiguration.RELATIONS, rid);	
-//    	
-//    	return doc;		
-//	}
-//	
-//	public static SolrInputDocument createSolrInputDocument(Relation relation)
-//	{
-//        SolrInputDocument doc = createSolrInputDocument((ERBase) relation);
-//
-//    	doc.addField(SearchIndexConfiguration.FIELD_ER_TYPE, SearchIndexConfiguration.ER_TYPE_RELATION);	
-//
-//    	for (String rid : relation.getParticipantsKeys())
-//        	doc.addField(SearchIndexConfiguration.ENTITIES, rid);	
-//    	
-//    	return doc;		
-//	}
 	
 	public static String doc2id(SolrDocument doc)
 	{
