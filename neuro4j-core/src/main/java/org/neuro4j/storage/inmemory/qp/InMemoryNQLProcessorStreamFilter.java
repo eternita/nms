@@ -2,19 +2,22 @@ package org.neuro4j.storage.inmemory.qp;
 
 import java.util.Set;
 
+import org.neuro4j.core.Connected;
 import org.neuro4j.core.Path;
 import org.neuro4j.storage.Storage;
-import org.neuro4j.storage.inmemory.qp.InMemoryNQLProcessorStreamBase;
-import org.neuro4j.storage.qp.ERType;
+import org.neuro4j.storage.StorageException;
 import org.neuro4j.storage.qp.NQLProcessorStream;
 import org.neuro4j.storage.qp.QueryProcessorFilter;
+
+
 public class InMemoryNQLProcessorStreamFilter extends InMemoryNQLProcessorStreamBase {
 	
 	private Storage baseStorage = null;
 	private QueryProcessorFilter filter = null;
 
-	public InMemoryNQLProcessorStreamFilter(QueryProcessorFilter filter, Storage baseStorage,
-//			SolrIndexMgr2 siMgr, 
+	public InMemoryNQLProcessorStreamFilter(
+			QueryProcessorFilter filter, 
+			Storage baseStorage,
 			Set<Path> currentMatchedPaths,
 			NQLProcessorStream inputStream) 
 	{
@@ -38,11 +41,6 @@ public class InMemoryNQLProcessorStreamFilter extends InMemoryNQLProcessorStream
 		return inputStream.hasNext();
 	}
 	
-//	public ERType getERQueryType()
-//	{
-//		return inputStream.getERQueryType();
-//	}	
-	
 	public String next() {
 		
 		if (null == inputStream)
@@ -53,11 +51,15 @@ public class InMemoryNQLProcessorStreamFilter extends InMemoryNQLProcessorStream
 		String id = inputStream.next();
 
 		// resolve by id
-//        ERBase er = siMgr.getById(id); 
-        
-//        filter.filter(er, baseStorage);
+		try {
+			Connected er = baseStorage.getById(id);
+			
+	        if (null != er)
+	        	filter.filter(er, baseStorage);
+		} catch (StorageException e) {
+			e.printStackTrace();
+		} 
 
-//		return er.getUuid();
 		return id;
 	}
 

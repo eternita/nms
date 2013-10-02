@@ -22,8 +22,6 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 	
 	private int inChunkCounter = 0;
 
-//	private ERType queryType;
-
 	private Iterator<Connected> iter;
 	
 	private Map<String, Set<String>> useOnlyAttrMap = new HashMap<String, Set<String>>();
@@ -65,23 +63,6 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		for (Filter filter : filterSet)
 			filterMap.put(filter, 0);		
 		
-		if (null == inputStream)
-		{
-			// very first decorator
-//			this.queryType = queryType;
-		} else {
-			// not first decorator
-//			ERType previousQueryType = inputStream.getERQueryType();
-//			switch (previousQueryType)
-//			{
-//			case entity:
-//				this.queryType = ERType.relation;
-//				break;
-//			case relation:
-//				this.queryType = ERType.entity;
-//				break;
-//			}
-		}
 	}
 	
 	public InMemoryNQLProcessorStreamQuery(
@@ -99,11 +80,6 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 		this.useOnlyAttrMap = useOnlyAttrMap;
 		this.ignoreAttrMap = ignoreAttrMap;
 	}
-	
-//	public ERType getERQueryType()
-//	{
-//		return queryType;
-//	}
 	
 	/**
 	 * 
@@ -272,32 +248,7 @@ public class InMemoryNQLProcessorStreamQuery extends InMemoryNQLProcessorStreamB
 			qkey = key;
 			if (isMatch(er, qkey, attrMap.get(key)))
 				return true;
-
-/*    		if (key.startsWith("r.") 
-    				&& queryType == ERType.relation)
-    		{
-    			match = false;
-    			qkey = key.substring("r.".length());
-    			if (isMatch(er, qkey, attrMap.get(key)))
-    				return true;
-    			
-    			
-    		} else if (key.startsWith("e.") 
-    				&& queryType == ERType.entity) 
-    		{
-    			match = false;
-    			qkey = key.substring("e.".length());
-    			if (isMatch(er, qkey, attrMap.get(key)))
-    				return true;
-    			
-    			
-    		} else if (!key.startsWith("e.") && !key.startsWith("r.")) {
-    			match = false;
-    			qkey = key;
-    			if (isMatch(er, qkey, attrMap.get(key)))
-    				return true;
-    		}
-*/    		
+ 		
     	} // for (String key : useOnlyAttrMap.keySet())
 
     	return match;

@@ -945,50 +945,15 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 //		logger.info("-- " + key + comparator + value);
 		if ("=".equals(comparator))
 		{
-			switch (currentERType) 
-			{
-			case entity:
-//				for (Entity e : pipeNet.getEntities(key, value)) {
-//					currentERNetwork.add(e.cloneWithConnectedKeys());
-//				}
-//				break;
-				
-//			case relation:
-//				for (Relation r : pipeNet.getRelations(key, value)) {
-//					currentERNetwork.add(r.cloneWithConnectedKeys());
-//				}
-
-				for (Connected r : pipeNet.get(key, value)) {
+			for (Connected r : pipeNet.get(key, value)) {
 				currentERNetwork.add(r.cloneWithConnectedKeys());
-				}
-				break;
-				
-			default:
-				throw new RuntimeException("Wring ERType " + currentERType);
-			}			
+			}
 		      
 		} else if ("like".equalsIgnoreCase(comparator)) {
 			// process like
-			switch (currentERType) 
-			{
-			case entity:
-//				for (Entity e : pipeNet.getEntitiesByRegexp(key, value)) {
-//					currentERNetwork.add(e.cloneWithConnectedKeys());
-//				}
-//
-//				break;
-//			case relation:
-//				for (Relation r : pipeNet.getRelationsByRegexp(key, value)) {
-//					currentERNetwork.add(r.cloneWithConnectedKeys());
-//				}
-
-				for (Connected r : pipeNet.getByRegexp(key, value)) {
-					currentERNetwork.add(r.cloneWithConnectedKeys());
-				}
-				break;
-			default:
-				throw new RuntimeException("Wring ERType " + currentERType);
-			}			
+			for (Connected r : pipeNet.getByRegexp(key, value)) {
+				currentERNetwork.add(r.cloneWithConnectedKeys());
+			}
 			
 		} else {
 			throw new RuntimeException("Wrong comparator " + comparator);
@@ -996,20 +961,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		
 		return currentERNetwork;
 	}
-
-
-//	protected ERType getOpositeER(ERType in)
-//	{
-//		switch (in)
-//		{
-//		case entity:
-//			return ERType.relation;
-//		case relation:
-//			return ERType.entity;
-//		}
-//		
-//		return in;
-//	}
 
 	public void insert(Map<String, String> params) throws StorageException
 	{
@@ -1021,21 +972,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 		
 		Connected er = new Connected();
 
-/*		ERType erType = ERType.valueOf(ertype);
-		switch (erType) {
-//		case relation:
-//			er = new Relation();
-//			break;
-
-		case entity:
-//			er = new Entity();
-			er = new ERBase();
-			break;
-
-		default:
-			throw new StorageException("Wrong ER type " + ertype);
-		}
-*/		
 		// set properties
 		for (String key : params.keySet())
 			er.setProperty(key, params.get(key));
@@ -1083,17 +1019,7 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 				for (Connected connected : addConnections.getERBases())
 				{
 					net4update.add(connected);
-//					if (er.getClass().equals(connected.getClass()))
-//						throw new StorageException("Wrong UPDATE clause (add connected)");
-					
-/*					if (er instanceof Entity)
-						((Entity) er).addRelation((Relation) connected);
-					
-					else if (er instanceof Relation)
-						((Relation) er).addParticipant((Entity) connected);
-*/					
 					er.addConnected(connected);
-
 				}
 			} // if (null != addConnections)
 			
@@ -1104,12 +1030,6 @@ public abstract class NQLProcessorBase implements NQLProcessor {
 					net4update.add(connected);
 					if (er.isConnectedTo(connected.getUuid()))
 					{
-/*						if (er instanceof Entity)
-							((Entity) er).removeRelation(connected.getUuid());
-						
-						else if (er instanceof Relation)
-							((Relation) er).removeParticipant(connected.getUuid());
-*/						
 						er.removeConnected(connected.getUuid());
 					}
 				}
