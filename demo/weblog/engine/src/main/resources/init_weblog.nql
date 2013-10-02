@@ -3,6 +3,7 @@ DELETE (name='website_pages')/[depth='1'];
 INSERT (name='website_pages');
 
 INSERT (name='default-page');
+
 UPDATE
 + (name='website_pages') 
 WHERE (name='default-page');

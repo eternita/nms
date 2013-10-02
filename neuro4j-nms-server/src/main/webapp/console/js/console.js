@@ -13,15 +13,15 @@ function loadEntity(storage, query, depth, edni) {
 
 	 if (null != edni)
 	 {
-	     loadEntityDetails(storage, query, edni); // query = entity id 
+	     loadEntityDetails(storage, edni); // query = entity id 
 	 }
 	 
 	}
 
-function loadEntityDetails(storage, q, id) {
+function loadEntityDetails(storage, id) {
 	 var req = newXMLHttpRequest();
 	 req.onreadystatechange = getReadyStateHandlerText(req, updateEntityDetails);
-	 req.open("GET", "entity-details-more-data?storage=" + storage + "&q=" + q + "&eid=" + id, true);
+	 req.open("GET", "entity-details-more-data?storage=" + storage + "&eid=" + id, true);
 	 req.send();
 }
 
@@ -185,7 +185,7 @@ function initView(storage, q){
 	        if(!node) return;
 	        
 	        // get details data
-	        loadEntityDetails(storage, q, node.id);
+	        loadEntityDetails(storage, node.id);
         
 	        //set final styles
 	        fd.graph.eachNode(function(n) {
@@ -288,7 +288,7 @@ function initView(storage, q){
 	          duration: 500
 	        });
 	        
-	        loadEntityDetails(storage, q, node.id);
+	        loadEntityDetails(storage, node.id);
 
 //	        // Build the right column relations list.
 //	        // This is done by traversing the clicked node connections.

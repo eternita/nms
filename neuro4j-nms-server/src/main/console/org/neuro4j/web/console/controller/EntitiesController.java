@@ -85,7 +85,7 @@ public class EntitiesController {
 	@RequestMapping("/entity-details-more-data")
 	public String entityGraphDetails(HttpServletRequest request, HttpServletResponse response) throws StorageException {
 		String eid = (String) request.getParameter("eid");
-		RequestUtils.params2attributes(request, "q", "storage");
+		RequestUtils.params2attributes(request, "storage");
 
 		Storage storage = NMSServerConfig.getInstance().getStorage(request.getParameter("storage"));
 		if (null == storage)
@@ -108,7 +108,7 @@ public class EntitiesController {
 	private Connected getEntity(String eid, Storage storage)
 	{
 		// for details 1 level of expand is enough
-		String queryStr = "select (id='" + eid + "') / [depth='2'] limit " + 
+		String queryStr = "select (id='" + eid + "') / [depth='1'] limit " + 
 											NMSServerConfig.getInstance().getProperty("org.neuro4j.nms.console.max_network_size_for_graph"); 
 		Network net;
 		try {

@@ -10,7 +10,7 @@
                 <item uuid="BeEK_j7gVy8AAAE7IiT01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.223-06:00" name="country-previous-next" uuid="BNkK_j7gkA8AAAE7mzv01_ye">
+        <item lastModifiedDate="2013-10-02T11:34:38.710-06:00" name="country-previous-next" uuid="BNkK_j7gkA8AAAE7mzv01_ye">
             <properties>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
                 <item value="eAXBwcI0FHcAAAEp8qMFQTu." key="StartUUID"/>
@@ -118,15 +118,7 @@
                 <item uuid="PT7BwcI0qHYAAAErlP5p2tVU"/>
             </connected>
         </item>
-        <item name="Micron Company" uuid="9sbAqFYB0usAAAFBnPPcT3DG">
-            <properties>
-                <item value="USA, Idaho, Boise" key="address"/>
-            </properties>
-            <connected>
-                <item uuid="x9TAqFYB0voAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.223-06:00" name="country-previous-next" uuid="Z1UK_j7gsj4AAAE7BIj01_ye">
+        <item lastModifiedDate="2013-10-02T11:34:38.710-06:00" name="country-previous-next" uuid="Z1UK_j7gsj4AAAE7BIj01_ye">
             <properties>
                 <item value="afN_AAEBG5AAAAEjW91ucewv" key="EndUUID"/>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
@@ -324,13 +316,13 @@
                 <item uuid="6lwK.GJAkvsAAAEtLanwgI4M"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="50 Kopeck Group" uuid="9X9_AAEB_yEAAAEjpI5ucewv">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="50 Kopeck Group" uuid="9X9_AAEB_yEAAAEjpI5ucewv">
             <properties>
                 <item value="KQB_AAEBOmkAAAEl4rRzfAP9" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="pvcK_j7gQVkAAAE7wub01_yf"/>
             </connected>
         </item>
@@ -348,7 +340,7 @@
             </properties>
             <connected/>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="NVwK.GJAOFQAAAEvLwxXVkos">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="NVwK.GJAOFQAAAEvLwxXVkos">
             <properties>
                 <item value="W_EK.GJAPOIAAAEvHgxXVkos" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
@@ -356,7 +348,7 @@
             <connected>
                 <item uuid="vo4K_j7gK_UAAAE7Gur01_8Y"/>
                 <item uuid="vgEK_j7g2yYAAAE7Vur01_8Y"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="French Fourth Republic (1946-1958)" uuid="0RMK.GJAUgAAAAEtRljOOs3w">
@@ -416,17 +408,6 @@
             </properties>
             <connected/>
         </item>
-        <item name="Marry" uuid="IG3AqFYB0uQAAAFBnPPcT3DG">
-            <properties>
-                <item value="Marry" key="first_name"/>
-                <item value="25" key="age"/>
-                <item value="Smith" key="last_name"/>
-            </properties>
-            <connected>
-                <item uuid="XlDAqFYB0vIAAAFBnPPcT3DG"/>
-                <item uuid="ACfAqFYB0vsAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
         <item name="Senegal" uuid="599_AAEB4xUAAAEjKvFucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -443,7 +424,7 @@
                 <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.224-06:00" name="Tsardom of Russia (1547-1721)" uuid="eAXBwcI0FHcAAAEp8qMFQTu.">
+        <item lastModifiedDate="2013-10-02T11:34:38.711-06:00" name="Tsardom of Russia (1547-1721)" uuid="eAXBwcI0FHcAAAEp8qMFQTu.">
             <properties>
                 <item value="mE7BwcI0gKYAAAEpnh4FQTvE" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -482,6 +463,12 @@
                 <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
             </connected>
         </item>
+        <item name="friends" uuid="E4XAqFYB8fcAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="eZTAqFYB8eoAAAFBIF0luno8"/>
+            </connected>
+        </item>
         <item name="country-previous-next" uuid="QtgK_j7gCQIAAAE7WBH01_ye">
             <properties>
                 <item value="KtsK.GJAb.kAAAEtqqi372ey" key="EndUUID"/>
@@ -513,13 +500,13 @@
                 <item uuid="330K_j7gnm4AAAE7HGv01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="5 Ruble Group" uuid="U2J_AAEBGgIAAAEjZaRucew1">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="5 Ruble Group" uuid="U2J_AAEBGgIAAAEjZaRucew1">
             <properties>
                 <item value="9UV_AAEBwPYAAAEjB6Rucew1" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="8YQK_j7g0h0AAAE7zgf01_yg"/>
             </connected>
         </item>
@@ -538,14 +525,14 @@
                 <item uuid="YQXBwcI0jsoAAAEq1cRDRaSN"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Ruble Group" uuid="E05_AAEBof0AAAEj81Bucew1">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Ruble Group" uuid="E05_AAEBof0AAAEj81Bucew1">
             <properties>
                 <item value="fOt_AAEB.WYAAAEjsVBucew1" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="y8wK_j7gn0wAAAE78BL01_yg"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="oiEK_j7gzfoAAAE7xsX01_ye">
@@ -586,13 +573,6 @@
                 <item uuid="Z61_AAEBZP0AAAEjWdVucewv"/>
             </connected>
         </item>
-        <item name="work at" uuid="x9TAqFYB0voAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="FvfAqFYB0ugAAAFBnPPcT3DG"/>
-                <item uuid="9sbAqFYB0usAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
         <item name="Portugal" uuid="Frl_AAEBJ.gAAAEjTe5ucewv">
             <properties>
                 <item value="u40K.GJAqLgAAAEt6IoVJLRQ" key="CHN_IMG_ID"/>
@@ -610,6 +590,12 @@
                 <item uuid="fPwK_j7gZ0UAAAE7of701_yd"/>
                 <item uuid="MLAK_j7gjBEAAAE7QqT01_ye"/>
                 <item uuid="0s0K_j7gfyIAAAE7cKP01_ye"/>
+            </connected>
+        </item>
+        <item name="live at" uuid="0Y7AqFYB8fIAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="nbfAqFYBq4oAAAFBH10luno8"/>
             </connected>
         </item>
         <item name="China" uuid="1gd_AAEBL58AAAEjOdpucewv">
@@ -641,14 +627,6 @@
                 <item uuid="zXsK_j7g4LcAAAE7SSb01_ye"/>
             </connected>
         </item>
-        <item name="Walmart" uuid="QIfAqFYB0uoAAAFBnPPcT3DG">
-            <properties>
-                <item value="USA, Idaho, Boise" key="address"/>
-            </properties>
-            <connected>
-                <item uuid="etLAqFYB0vgAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
         <item name="country-parent-child" uuid="cAMK_j7ggZwAAAE7NbT01_ye">
             <properties>
                 <item value="q.Z_AAEBMIsAAAEjc95ucewv" key="EndUUID"/>
@@ -678,7 +656,14 @@
                 <item uuid="n9MK_j7g_TIAAAE783j01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.225-06:00" name="Kingdom of Poland (1815-1915)" uuid="UY0K.GJAO1EAAAEuZJy1LiWh">
+        <item name="friends" uuid="5bHAqFYB8fkAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="O9LAqFYB8esAAAFBIF0luno8"/>
+                <item uuid="eZTAqFYB8eoAAAFBIF0luno8"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.712-06:00" name="Kingdom of Poland (1815-1915)" uuid="UY0K.GJAO1EAAAEuZJy1LiWh">
             <properties>
                 <item value="SY4K.GJAxjAAAAEuAPi1LiWk" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -743,6 +728,10 @@
             <connected>
                 <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
             </connected>
+        </item>
+        <item name="interested in" uuid="kNvAqFYB8gAAAAFBIF0luno8">
+            <properties/>
+            <connected/>
         </item>
         <item name="Yemen" uuid="ejF_AAEBYGQAAAEjQPZucewv">
             <properties>
@@ -886,13 +875,13 @@
                 <item uuid="x_R_AAEB2tkAAAEjZttucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="5 Ruble Group" uuid="vXl_AAEBwGcAAAEjDI5ucew1">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="5 Ruble Group" uuid="vXl_AAEBwGcAAAEjDI5ucew1">
             <properties>
                 <item value="lM1_AAEBM.QAAAEjro1ucew1" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="Z4EK_j7gfjoAAAE7Xg701_yg"/>
             </connected>
         </item>
@@ -924,6 +913,13 @@
             <connected>
                 <item uuid="A80K_j7gMJIAAAExQNr14HDT"/>
                 <item uuid="Pah_AAEBjVMAAAEjiXtucewv"/>
+            </connected>
+        </item>
+        <item name="work at" uuid="ysXAqFYB8f8AAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="1gXAqFYB8ewAAAFBIF0luno8"/>
+                <item uuid="oNHAqFYB8ekAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="user-uploaded-coin" uuid="vgEK_j7g2yYAAAE7Vur01_8Y">
@@ -1174,13 +1170,6 @@
             </properties>
             <connected/>
         </item>
-        <item name="country-previous-next" uuid="WWwK_j7gBnkAAAE72Ob01_yd">
-            <properties>
-                <item value="afN_AAEBG5AAAAEjW91ucewv" key="EndUUID"/>
-                <item value="5FgK_j7gC4MAAAEzvSb5lul3" key="StartUUID"/>
-            </properties>
-            <connected/>
-        </item>
         <item name="Protectorate of Cambodia (1863-1887)" uuid="nI0K.GJAu1MAAAEt_My372KU">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -1190,12 +1179,12 @@
                 <item uuid="pTUK_j7ghdsAAAE7jHP01_ye"/>
             </connected>
         </item>
-        <item name="friends" uuid="zfHAqFYB0vYAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="FvfAqFYB0ugAAAFBnPPcT3DG"/>
-                <item uuid="pIHAqFYB0ucAAAFBnPPcT3DG"/>
-            </connected>
+        <item name="country-previous-next" uuid="WWwK_j7gBnkAAAE72Ob01_yd">
+            <properties>
+                <item value="afN_AAEBG5AAAAEjW91ucewv" key="EndUUID"/>
+                <item value="5FgK_j7gC4MAAAEzvSb5lul3" key="StartUUID"/>
+            </properties>
+            <connected/>
         </item>
         <item name="country-parent-child" uuid="MmoK_j7gs_EAAAE7OtT01_ye">
             <properties>
@@ -1217,14 +1206,14 @@
                 <item uuid="44d_AAEBw3sAAAEjDT9ucew5"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="rv8K.GJAHvwAAAEvECmcYVXs">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="rv8K.GJAHvwAAAEvECmcYVXs">
             <properties>
                 <item value="CgIK.GJAD_IAAAEvZiicYVXs" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="btIK_j7gUhsAAAE7drX01_8Y"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="uYIK_j7gO40AAAE7NrX01_8Y"/>
             </connected>
         </item>
@@ -1247,16 +1236,6 @@
                 <item uuid="fPwK_j7gZ0UAAAE7of701_yd"/>
             </connected>
         </item>
-        <item name="country-parent-child" uuid="U0YK_j7gpbMAAAE7lpP01_ye">
-            <properties>
-                <item value="WhnBwcI0ndAAAAErg0vIoCRI" key="EndUUID"/>
-                <item value="Cs5_AAEB1RUAAAEjgutucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="Cs5_AAEB1RUAAAEjgutucewv"/>
-                <item uuid="WhnBwcI0ndAAAAErg0vIoCRI"/>
-            </connected>
-        </item>
         <item name="Portuguese Angola (1575-1975)" uuid="42x_AAEBCucAAAEjQNRucewv">
             <properties>
                 <item value="cGcK.GJAzbEAAAEtPmcVJLR6" key="CHN_IMG_ID"/>
@@ -1265,6 +1244,16 @@
             <connected>
                 <item uuid="5cAK_j7gPLUAAAE7vf701_yd"/>
                 <item uuid="0P4K_j7gm_IAAAE7_j301_ye"/>
+            </connected>
+        </item>
+        <item name="country-parent-child" uuid="U0YK_j7gpbMAAAE7lpP01_ye">
+            <properties>
+                <item value="WhnBwcI0ndAAAAErg0vIoCRI" key="EndUUID"/>
+                <item value="Cs5_AAEB1RUAAAEjgutucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="Cs5_AAEB1RUAAAEjgutucewv"/>
+                <item uuid="WhnBwcI0ndAAAAErg0vIoCRI"/>
             </connected>
         </item>
         <item name="São Tomé and Príncipe (1469 - 1975)" uuid="wNbBwcI0mRAAAAEp5t7.2lDS">
@@ -1308,16 +1297,6 @@
                 <item uuid="d61_AAEBbUoAAAEj0uJucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="1 Denarius Group" uuid="01HBwcI0GGcAAAEmerM6TOhE">
-            <properties>
-                <item value="cLTBwcI02T0AAAEmabM6TOhE" key="CHN_IMG_ID"/>
-                <item value="COIN_GROUP" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
-                <item uuid="DVgK_j7gtAwAAAE7Lbz01_yo"/>
-            </connected>
-        </item>
         <item name="country-previous-next" uuid="oM8K_j7gBwQAAAE7llX01_ye">
             <properties>
                 <item value="xMPBwcI0Vb4AAAEonHkQYxXE" key="EndUUID"/>
@@ -1326,6 +1305,16 @@
             <connected>
                 <item uuid="xMPBwcI0Vb4AAAEonHkQYxXE"/>
                 <item uuid="46PBwcI03QMAAAEngudK7uMJ"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Denarius Group" uuid="01HBwcI0GGcAAAEmerM6TOhE">
+            <properties>
+                <item value="cLTBwcI02T0AAAEmabM6TOhE" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="DVgK_j7gtAwAAAE7Lbz01_yo"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Latvia (1991 - )" uuid="xAx_AAEBBxAAAAEjROducewv">
@@ -1358,15 +1347,6 @@
                 <item uuid="13d_AAEBnh0AAAEjNuRucewv"/>
             </connected>
         </item>
-        <item name="user-contributed-to-coin-definition" uuid="uuUK_j7g4KcAAAE7XOj01_yf">
-            <properties>
-                <item value="5SV_AAEBQ4UAAAEjNJZucewv" key="EndUUID"/>
-                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
-            </connected>
-        </item>
         <item name="country-previous-next" uuid="NSoK_j7gI0cAAAE7lPP01_yd">
             <properties>
                 <item value="CRF_AAEB6iEAAAEjvNNucewv" key="EndUUID"/>
@@ -1377,11 +1357,28 @@
                 <item uuid="CpgK.GJA46sAAAEuoCS1LgaR"/>
             </connected>
         </item>
+        <item name="user-contributed-to-coin-definition" uuid="uuUK_j7g4KcAAAE7XOj01_yf">
+            <properties>
+                <item value="5SV_AAEBQ4UAAAEjNJZucewv" key="EndUUID"/>
+                <item value="cxB_AAEBd7YAAAEj03Nucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
+            </connected>
+        </item>
         <item name="Niue" uuid="pKR_AAEBhhYAAAEjT.xucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
+        </item>
+        <item name="Nigeria" uuid="Cs5_AAEB1RUAAAEjgutucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="U0YK_j7gpbMAAAE7lpP01_ye"/>
+            </connected>
         </item>
         <item name="Kingdom of Scotland (843-1707)" uuid="pDnBwcI0yJEAAAEohpD7lK9v">
             <properties>
@@ -1390,14 +1387,6 @@
             </properties>
             <connected>
                 <item uuid="VM8K_j7gJEQAAAE7kLT01_ye"/>
-            </connected>
-        </item>
-        <item name="Nigeria" uuid="Cs5_AAEB1RUAAAEjgutucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="U0YK_j7gpbMAAAE7lpP01_ye"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="zEkK_j7gjqkAAAE7xIb01_ye">
@@ -1424,16 +1413,6 @@
             </properties>
             <connected/>
         </item>
-        <item name="country-parent-child" uuid="kCMK_j7gyEYAAAE72rX01_ye">
-            <properties>
-                <item value="_lN_AAEBJREAAAEl6ilfe6GG" key="EndUUID"/>
-                <item value="j4N_AAEB7tYAAAEjOeNucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="_lN_AAEBJREAAAEl6ilfe6GG"/>
-                <item uuid="j4N_AAEB7tYAAAEjOeNucewv"/>
-            </connected>
-        </item>
         <item name="Weimar Republic (1918-1933)" uuid="PF7BwcI0qHkAAAEoDHX7lKuf">
             <properties>
                 <item value="Z33BwcI0PocAAAEo7y5K1_MQ" key="CHN_IMG_ID"/>
@@ -1446,14 +1425,24 @@
                 <item uuid="kEsK_j7g4rIAAAE7PCj01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Denarius Group" uuid="n1jBwcI0m8cAAAEmIVBKQNy6">
+        <item name="country-parent-child" uuid="kCMK_j7gyEYAAAE72rX01_ye">
+            <properties>
+                <item value="_lN_AAEBJREAAAEl6ilfe6GG" key="EndUUID"/>
+                <item value="j4N_AAEB7tYAAAEjOeNucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="_lN_AAEBJREAAAEl6ilfe6GG"/>
+                <item uuid="j4N_AAEB7tYAAAEjOeNucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Denarius Group" uuid="n1jBwcI0m8cAAAEmIVBKQNy6">
             <properties>
                 <item value="4NXBwcI0SNIAAAEmRRFKQNy1" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="OuIK_j7gg0AAAAE7g4r01_y2"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Iceland" uuid="Olx_AAEBrd8AAAEjb.Nucewv">
@@ -1485,16 +1474,6 @@
                 <item uuid="MFIK.GJACaIAAAEwRmI.0YCF"/>
             </connected>
         </item>
-        <item name="country-previous-next" uuid="jpcK_j7ggTUAAAE7aAb01_ye">
-            <properties>
-                <item value="hDTBwcI0CIsAAAErSDT4oVGo" key="EndUUID"/>
-                <item value="5NJ_AAEBP.kAAAEjUeBucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="hDTBwcI0CIsAAAErSDT4oVGo"/>
-                <item uuid="5NJ_AAEBP.kAAAEjUeBucewv"/>
-            </connected>
-        </item>
         <item name="German Empire (1871-1918)" uuid="GcAK.GJA5hsAAAEuYv8FioJx">
             <properties>
                 <item value="YzIK.GJAaRMAAAEu190FioJz" key="CHN_IMG_ID"/>
@@ -1504,6 +1483,16 @@
                 <item uuid="MlkK_j7g9QQAAAE7Wij01_ye"/>
                 <item uuid="wbUK_j7gznkAAAE744301_ye"/>
                 <item uuid="leUK_j7g1tIAAAE7kKb01_ye"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="jpcK_j7ggTUAAAE7aAb01_ye">
+            <properties>
+                <item value="hDTBwcI0CIsAAAErSDT4oVGo" key="EndUUID"/>
+                <item value="5NJ_AAEBP.kAAAEjUeBucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="hDTBwcI0CIsAAAErSDT4oVGo"/>
+                <item uuid="5NJ_AAEBP.kAAAEjUeBucewv"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="AyIK_j7g4NEAAAE7UGn01_ye">
@@ -1525,15 +1514,15 @@
                 <item uuid="5mwK_j7g7xMAAAEy.DtKkDXk"/>
             </connected>
         </item>
-        <item name="United Kingdoms of Sweden and Norway (1814-1905)" uuid="kOIK.GJAqRAAAAEuUCK1Lg.d">
+        <item name="African Union" uuid="53PBwcI0GzwAAAErJMFjEBuc">
             <properties>
+                <item value="uF8K.GJA21sAAAEuVK21LgZ9" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
         </item>
-        <item name="African Union" uuid="53PBwcI0GzwAAAErJMFjEBuc">
+        <item name="United Kingdoms of Sweden and Norway (1814-1905)" uuid="kOIK.GJAqRAAAAEuUCK1Lg.d">
             <properties>
-                <item value="uF8K.GJA21sAAAEuVK21LgZ9" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
@@ -1569,6 +1558,12 @@
                 <item uuid="bYsK_j7gZaQAAAE70lD01_ye"/>
             </connected>
         </item>
+        <item name="Roman Greece (146BC-330)" uuid="fz7BwcI0wyoAAAEoZL7ZY4uq">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="coin-related-to-country" uuid="pvcK_j7gQVkAAAE7wub01_yf">
             <properties>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
@@ -1576,7 +1571,7 @@
             </properties>
             <connected/>
         </item>
-        <item name="Roman Greece (146BC-330)" uuid="fz7BwcI0wyoAAAEoZL7ZY4uq">
+        <item name="Malta" uuid="2EF_AAEB35wAAAEjC.pucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
@@ -1592,17 +1587,12 @@
                 <item uuid="55PBwcI0vqEAAAEpfm0FQSZC"/>
             </connected>
         </item>
-        <item name="Malta" uuid="2EF_AAEB35wAAAEjC.pucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
-        <item name="Nicaragua" uuid="slt_AAEBp5EAAAEjpetucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
+        <item name="work at" uuid="vqfAqFYB8f0AAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="O9LAqFYB8esAAAFBIF0luno8"/>
+                <item uuid="P9vAqFYB8e4AAAFBIF0luno8"/>
+            </connected>
         </item>
         <item name="Denmark" uuid="bpd_AAEBGBkAAAEjtNtucewv">
             <properties>
@@ -1613,14 +1603,11 @@
                 <item uuid="r6gK_j7gkkIAAAE7ZIz01_ye"/>
             </connected>
         </item>
-        <item name="user-uploaded-coin" uuid="btIK_j7gUhsAAAE7drX01_8Y">
+        <item name="Nicaragua" uuid="slt_AAEBp5EAAAEjpetucewv">
             <properties>
-                <item value="rv8K.GJAHvwAAAEvECmcYVXs" key="EndUUID"/>
-                <item value="VM5_AAEBK8gAAAElZ.mJ4JO1" key="StartUUID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
-            <connected>
-                <item uuid="VM5_AAEBK8gAAAElZ.mJ4JO1"/>
-            </connected>
+            <connected/>
         </item>
         <item name="Bengal ( - 1947)" uuid="rY9_AAEBG9MAAAEjmF9ucew1">
             <properties>
@@ -1629,6 +1616,15 @@
             <connected>
                 <item uuid="v9AK_j7gauIAAAE7xJX01_ye"/>
                 <item uuid="5ooK_j7gew4AAAE7AOH01_ye"/>
+            </connected>
+        </item>
+        <item name="user-uploaded-coin" uuid="btIK_j7gUhsAAAE7drX01_8Y">
+            <properties>
+                <item value="rv8K.GJAHvwAAAEvECmcYVXs" key="EndUUID"/>
+                <item value="VM5_AAEBK8gAAAElZ.mJ4JO1" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="VM5_AAEBK8gAAAElZ.mJ4JO1"/>
             </connected>
         </item>
         <item name="Guernsey" uuid="SWR_AAEBLLQAAAEjyd5ucewv">
@@ -1653,16 +1649,6 @@
             </properties>
             <connected/>
         </item>
-        <item name="country-parent-child" uuid="bRgK_j7guooAAAE7myL01_ye">
-            <properties>
-                <item value="o8LBwcI03RgAAAEp3_oFQTY5" key="EndUUID"/>
-                <item value="oPB_AAEBY48AAAEj.NVucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="oPB_AAEBY48AAAEj.NVucewv"/>
-                <item uuid="o8LBwcI03RgAAAEp3_oFQTY5"/>
-            </connected>
-        </item>
         <item name="country-parent-child" uuid="aRoK_j7gDdAAAAE7FPH01_yd">
             <properties>
                 <item value="6JzBwcI0LIMAAAEoGSkQYxrZ" key="EndUUID"/>
@@ -1673,14 +1659,14 @@
                 <item uuid="6JzBwcI0LIMAAAEoGSkQYxrZ"/>
             </connected>
         </item>
-        <item name="country-parent-child" uuid="IzkK_j7giwcAAAE7blf01_ye">
+        <item name="country-parent-child" uuid="bRgK_j7guooAAAE7myL01_ye">
             <properties>
-                <item value="w4XBwcI0D6YAAAEpKDwFQRf_" key="EndUUID"/>
-                <item value="x_R_AAEB2tkAAAEjZttucewv" key="StartUUID"/>
+                <item value="o8LBwcI03RgAAAEp3_oFQTY5" key="EndUUID"/>
+                <item value="oPB_AAEBY48AAAEj.NVucewv" key="StartUUID"/>
             </properties>
             <connected>
-                <item uuid="x_R_AAEB2tkAAAEjZttucewv"/>
-                <item uuid="w4XBwcI0D6YAAAEpKDwFQRf_"/>
+                <item uuid="oPB_AAEBY48AAAEj.NVucewv"/>
+                <item uuid="o8LBwcI03RgAAAEp3_oFQTY5"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="lrgK_j7gAMYAAAE7mJn01_ye">
@@ -1693,7 +1679,23 @@
                 <item uuid="dsJ_AAEBV2EAAAEjlOpucewv"/>
             </connected>
         </item>
+        <item name="country-parent-child" uuid="IzkK_j7giwcAAAE7blf01_ye">
+            <properties>
+                <item value="w4XBwcI0D6YAAAEpKDwFQRf_" key="EndUUID"/>
+                <item value="x_R_AAEB2tkAAAEjZttucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="x_R_AAEB2tkAAAEjZttucewv"/>
+                <item uuid="w4XBwcI0D6YAAAEpKDwFQRf_"/>
+            </connected>
+        </item>
         <item name="Sri Lanka/Ceylon" uuid="lnZ_AAEB8hUAAAEjkeZucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="Saint Pierre and Miquelon" uuid="JKt_AAEBiJwAAAEjwO1ucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
@@ -1708,12 +1710,6 @@
                 <item uuid="nI0K.GJAu1MAAAEt_My372KU"/>
                 <item uuid="KtsK.GJAb.kAAAEtqqi372ey"/>
             </connected>
-        </item>
-        <item name="Saint Pierre and Miquelon" uuid="JKt_AAEBiJwAAAEjwO1ucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="coin-related-to-currency" uuid="SUcK_j7gRjEAAAE7Hxr01_yp">
             <properties/>
@@ -1740,12 +1736,6 @@
             </properties>
             <connected>
                 <item uuid="WSrBwcI0vJgAAAEmo8eg6.as"/>
-            </connected>
-        </item>
-        <item name="friends" uuid="guLAqFYB0vUAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="FvfAqFYB0ugAAAFBnPPcT3DG"/>
             </connected>
         </item>
         <item name="United Kingdom (1707 - )" uuid="j2J_AAEB8asAAAEj13pucewv">
@@ -1792,14 +1782,14 @@
                 <item uuid="bpd_AAEBGBkAAAEjtNtucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Denarius Group" uuid=".c_BwcI0wmEAAAEmAME6TOhI">
+        <item lastModifiedDate="2013-10-02T11:34:38.914-06:00" name="1 Denarius Group" uuid=".c_BwcI0wmEAAAEmAME6TOhI">
             <properties>
                 <item value="TtDBwcI0FlEAAAEme8A6TOhI" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
                 <item uuid="Kr8K_j7gwX0AAAE7a7_01_yo"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="3kIK_j7gXW8AAAE7Xsn01_ye">
@@ -1832,6 +1822,14 @@
                 <item uuid="P0p_AAEBrLQAAAEjA.9ucewv"/>
             </connected>
         </item>
+        <item name="Walmart" uuid="4qrAqFYB8e0AAAFBIF0luno8">
+            <properties>
+                <item value="USA, Idaho, Boise" key="address"/>
+            </properties>
+            <connected>
+                <item uuid="X1HAqFYB8fsAAAFBIF0luno8"/>
+            </connected>
+        </item>
         <item name="Order of Malta (1080 - )" uuid="qwx_AAEBq0YAAAEjPapucew4">
             <properties>
                 <item value="bFIK.GJAYQIAAAEtiQ_wgJAH" key="CHN_IMG_ID"/>
@@ -1841,17 +1839,17 @@
                 <item uuid="ANoK_j7gRCAAAAE70q_01_ye"/>
             </connected>
         </item>
-        <item name="coin-related-to-currency" uuid="y8wK_j7gn0wAAAE78BL01_yg">
-            <properties/>
-            <connected>
-                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
-            </connected>
-        </item>
         <item name="Ecuador" uuid="Gc1_AAEBCmMAAAEjVD9ucew0">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
+        </item>
+        <item name="coin-related-to-currency" uuid="y8wK_j7gn0wAAAE78BL01_yg">
+            <properties/>
+            <connected>
+                <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
+            </connected>
         </item>
         <item name="user-contributed-to-coin-definition" uuid="nNIK_j7gGs8AAAE7GF_01_3s">
             <properties>
@@ -1862,12 +1860,6 @@
                 <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
             </connected>
         </item>
-        <item name="friends" uuid="oMDAqFYB0vQAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="pIHAqFYB0ucAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
         <item name="Gdansk  (1454-1793)" uuid="Ll7BwcI0Sc0AAAEotthK1.7O">
             <properties>
                 <item value="oVAK.GJAYvcAAAEu8.UFiqHC" key="CHN_IMG_ID"/>
@@ -1875,17 +1867,6 @@
             </properties>
             <connected>
                 <item uuid="wHEK_j7gUYUAAAE7jR701_ye"/>
-            </connected>
-        </item>
-        <item name="Brad" uuid="pIHAqFYB0ucAAAFBnPPcT3DG">
-            <properties>
-                <item value="Brad" key="first_name"/>
-                <item value="Perterson" key="last_name"/>
-            </properties>
-            <connected>
-                <item uuid="zfHAqFYB0vYAAAFBnPPcT3DG"/>
-                <item uuid="fLjAqFYB0vkAAAFBnPPcT3DG"/>
-                <item uuid="oMDAqFYB0vQAAAFBnPPcT3DG"/>
             </connected>
         </item>
         <item name="coin-belong-to-coin-definition" uuid="uYIK_j7gO40AAAE7NrX01_8Y">
@@ -1900,6 +1881,13 @@
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
+        </item>
+        <item name="live at" uuid="Dt3AqFYB8fEAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="EZzAqFYBsNYAAAFBHV0luno8"/>
+                <item uuid="nbfAqFYBq4oAAAFBH10luno8"/>
+            </connected>
         </item>
         <item name="Delhi Sultanate (1206-1527)" uuid="uQh_AAEBKa0AAAEjXEZucew1">
             <properties>
@@ -1979,6 +1967,12 @@
                 <item uuid="hJkK_j7gcLYAAAE7yfT01_yd"/>
             </connected>
         </item>
+        <item name="Greenland" uuid="r5N_AAEBcbUAAAEjmd9ucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="country-previous-next" uuid="8YUK_j7gkH8AAAE7hsT01_ye">
             <properties>
                 <item value="NLF_AAEBe_0AAAEjctxucewv" key="EndUUID"/>
@@ -1988,12 +1982,6 @@
                 <item uuid="NLF_AAEBe_0AAAEjctxucewv"/>
                 <item uuid="P9V_AAEBt6UAAAEjSnhucewv"/>
             </connected>
-        </item>
-        <item name="Greenland" uuid="r5N_AAEBcbUAAAEjmd9ucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="user-contributed-to-coin-definition" uuid="oxMK_j7g52QAAAE7Al_01_3s">
             <properties>
@@ -2026,13 +2014,13 @@
             </properties>
             <connected/>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="Coin photo" uuid="FCYK.GJAIVwAAAEwH5Ny4bY7">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="FCYK.GJAIVwAAAEwH5Ny4bY7">
             <properties>
                 <item value="tdUK.GJA4HcAAAEwHpNy4bY7" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="NWwK_j7goJoAAAE7vRb01_8Y"/>
             </connected>
         </item>
@@ -2064,13 +2052,13 @@
                 <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="1 Cent Group" uuid="5SV_AAEBQ4UAAAEjNJZucewv">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Cent Group" uuid="5SV_AAEBQ4UAAAEjNJZucewv">
             <properties>
                 <item value="Gy5_AAEB2osAAAEj0pVucewv" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="uuUK_j7g4KcAAAE7XOj01_yf"/>
             </connected>
         </item>
@@ -2090,6 +2078,57 @@
             </properties>
             <connected>
                 <item uuid="g3QK_j7gyusAAAE7Ilj01_ye"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="qGzAqFYB4HEAAAFBCV8luno8" uuid="qGzAqFYB4HEAAAFBCV8luno8">
+            <properties>
+                <item value="coins John interested in" key="desc"/>
+            </properties>
+            <connected>
+                <item uuid="B_Z_AAEBWpoAAAEj8a5ucewv"/>
+                <item uuid="vkEK.GJAqjEAAAEvo6ZNbZcw"/>
+                <item uuid="n1bAqFYBq4sAAAFBH10luno8"/>
+                <item uuid="FCYK.GJAIVwAAAEwH5Ny4bY7"/>
+                <item uuid="TqbBwcI0dzQAAAEm3R86TOhE"/>
+                <item uuid="U2J_AAEBGgIAAAEjZaRucew1"/>
+                <item uuid="dGDBwcI05B8AAAEmzSI6TOhE"/>
+                <item uuid="31LBwcI0ZRkAAAEqY2TXZwEJ"/>
+                <item uuid="jTV_AAEBVxkAAAEjL8Fucewv"/>
+                <item uuid="T0B_AAEBrJQAAAEl4N3sOnUF"/>
+                <item uuid="WNfBwcI0j4IAAAEmMlxKQNy6"/>
+                <item uuid="5SV_AAEBQ4UAAAEjNJZucewv"/>
+                <item uuid="8D_BwcI0I5EAAAEqQ6FDRaSh"/>
+                <item uuid="01HBwcI0GGcAAAEmerM6TOhE"/>
+                <item uuid="E05_AAEBof0AAAEj81Bucew1"/>
+                <item uuid="FX4K_j7gkwIAAAE2S5EKqVrb"/>
+                <item uuid="Xqh_AAEBSwAAAAEju_rAPfNS"/>
+                <item uuid="qk7BwcI0r7kAAAEqRY_XZwB7"/>
+                <item uuid="Cv7BwcI0aqkAAAEm2B86TOhE"/>
+                <item uuid="gybBwcI0zsAAAAEqzhTXZwEW"/>
+                <item uuid="1MR_AAEBUpwAAAEj.rduceww"/>
+                <item uuid="JUbBwcI09a4AAAEozJMYEDvs"/>
+                <item uuid="GALBwcI0wJUAAAEqtehDRaVa"/>
+                <item uuid="aQjBwcI0_G8AAAEmuCo6TOhE"/>
+                <item uuid="SZHBwcI0W68AAAEmhxs6TOhE"/>
+                <item uuid="1wjBwcI01NkAAAEqNkZDRaTW"/>
+                <item uuid="9X9_AAEB_yEAAAEjpI5ucewv"/>
+                <item uuid="p2R_AAEBwuMAAAElAOJMTtxW"/>
+                <item uuid="ovjAqFYB8fAAAAFBIF0luno8"/>
+                <item uuid="NVwK.GJAOFQAAAEvLwxXVkos"/>
+                <item uuid="gffBwcI0k90AAAEnrEsQY_Ex"/>
+                <item uuid="Q_l_AAEBa9sAAAEjK7tucewv"/>
+                <item uuid="vXl_AAEBwGcAAAEjDI5ucew1"/>
+                <item uuid="SEIK.GJA5hEAAAEv6becYZFo"/>
+                <item uuid="AKF_AAEBX08AAAEjM_lucewv"/>
+                <item uuid="n1jBwcI0m8cAAAEmIVBKQNy6"/>
+                <item uuid="5_YK.GJA6wQAAAEwHOWw5kU1"/>
+                <item uuid="rv8K.GJAHvwAAAEvECmcYVXs"/>
+                <item uuid="4AsK_j7gexIAAAE2xiIXRJu8"/>
+                <item uuid="MHN_AAEB6N8AAAElI4A8vl9L"/>
+                <item uuid="6rHBwcI0vSkAAAEmeHo6TOhE"/>
+                <item uuid="kHR_AAEBEu8AAAEl0tU8vl88"/>
+                <item uuid="pf4K.GJAft8AAAEvJMycYY3b"/>
+                <item uuid=".c_BwcI0wmEAAAEmAME6TOhI"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="IxcK_j7gKyQAAAE7XmD01_ye">
@@ -2112,6 +2151,13 @@
                 <item uuid="0RMK.GJAUgAAAAEtRljOOs3w"/>
             </connected>
         </item>
+        <item name="Rhodesia (1965 - 1979)" uuid="dkt_AAEBKAUAAAEjIblucew4">
+            <properties>
+                <item value="QcMK.GJAMnoAAAEtZv.371cV" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="Hellenic Republic (1974 - )" uuid="AAl_AAEBoDwAAAEjdOBucewv">
             <properties>
                 <item value="suQK.GJAauYAAAEtK5y372dT" key="CHN_IMG_ID"/>
@@ -2121,23 +2167,6 @@
                 <item uuid="CZQK_j7gJ88AAAE77Ib01_ye"/>
                 <item uuid="nk0K_j7gS2AAAAE71OX01_yd"/>
                 <item uuid="zEkK_j7gjqkAAAE7xIb01_ye"/>
-            </connected>
-        </item>
-        <item name="Rhodesia (1965 - 1979)" uuid="dkt_AAEBKAUAAAEjIblucew4">
-            <properties>
-                <item value="QcMK.GJAMnoAAAEtZv.371cV" key="CHN_IMG_ID"/>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
-        <item name="country-parent-child" uuid="C8MK_j7gSLsAAAE7uZ_01_ye">
-            <properties>
-                <item value="gVjBwcI0khgAAAEqzcgoKhpf" key="EndUUID"/>
-                <item value="FAp_AAEBsHwAAAEjO9lucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="gVjBwcI0khgAAAEqzcgoKhpf"/>
-                <item uuid="FAp_AAEBsHwAAAEjO9lucewv"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="YQ4K_j7gGTYAAAE7rHb01_ye">
@@ -2150,14 +2179,24 @@
                 <item uuid="o1J_AAEBzuYAAAEjAD9ucexC"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Ruble Group" uuid="AKF_AAEBX08AAAEjM_lucewv">
+        <item name="country-parent-child" uuid="C8MK_j7gSLsAAAE7uZ_01_ye">
+            <properties>
+                <item value="gVjBwcI0khgAAAEqzcgoKhpf" key="EndUUID"/>
+                <item value="FAp_AAEBsHwAAAEjO9lucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="gVjBwcI0khgAAAEqzcgoKhpf"/>
+                <item uuid="FAp_AAEBsHwAAAEjO9lucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Ruble Group" uuid="AKF_AAEBX08AAAEjM_lucewv">
             <properties>
                 <item value="L59_AAEBjY4AAAEl6NJzfAP." key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="BD8K_j7guCwAAAE7M0301_yf"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Turkmenistan (1991 - )" uuid="Ihh_AAEBMbQAAAEjJvNucewv">
@@ -2167,16 +2206,6 @@
             </properties>
             <connected>
                 <item uuid="i4EK_j7gFIkAAAE79q701_ye"/>
-            </connected>
-        </item>
-        <item name="country-previous-next" uuid="bscK_j7g0PwAAAE7rOn01_ye">
-            <properties>
-                <item value="tZ4K.GJAR1YAAAEug1oFiqTW" key="EndUUID"/>
-                <item value="wGJ_AAEBsOgAAAEjBfNucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="tZ4K.GJAR1YAAAEug1oFiqTW"/>
-                <item uuid="wGJ_AAEBsOgAAAEjBfNucewv"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="TdUK_j7grmgAAAE7Atr01_ye">
@@ -2189,7 +2218,17 @@
                 <item uuid="UhbBwcI00UkAAAEniD7f8pBz"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.231-06:00" name="country-previous-next" uuid="s9IK_j7gfgwAAAE7egv01_ye">
+        <item name="country-previous-next" uuid="bscK_j7g0PwAAAE7rOn01_ye">
+            <properties>
+                <item value="tZ4K.GJAR1YAAAEug1oFiqTW" key="EndUUID"/>
+                <item value="wGJ_AAEBsOgAAAEjBfNucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="tZ4K.GJAR1YAAAEug1oFiqTW"/>
+                <item uuid="wGJ_AAEBsOgAAAEjBfNucewv"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.717-06:00" name="country-previous-next" uuid="s9IK_j7gfgwAAAE7egv01_ye">
             <properties>
                 <item value="it_BwcI065UAAAEmP0A6TPGB" key="EndUUID"/>
                 <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="StartUUID"/>
@@ -2236,13 +2275,13 @@
                 <item uuid="0P4K_j7gm_IAAAE7_j301_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="1 Denarius Group" uuid="WNfBwcI0j4IAAAEmMlxKQNy6">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Denarius Group" uuid="WNfBwcI0j4IAAAEmMlxKQNy6">
             <properties>
                 <item value="u_nBwcI0MhgAAAEmaDBKQNu7" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="pY0K_j7gSu0AAAE7vWr01_yr"/>
             </connected>
         </item>
@@ -2269,12 +2308,6 @@
             </properties>
             <connected>
                 <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
-            </connected>
-        </item>
-        <item name="brother-sister" uuid="XlDAqFYB0vIAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="IG3AqFYB0uQAAAFBnPPcT3DG"/>
             </connected>
         </item>
         <item name="Federated Malay States (1895 - 1946)" uuid="6lwK.GJAkvsAAAEtLanwgI4M">
@@ -2311,15 +2344,6 @@
                 <item uuid="ngYK_j7gBS4AAAE7Exv01_ye"/>
             </connected>
         </item>
-        <item name="Khmer Republic (1970-1975)" uuid="WYAK.GJAHkIAAAEtI7G372Kg">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="460K_j7gC58AAAE7snX01_ye"/>
-                <item uuid="2XMK_j7gwyoAAAE7jk701_ye"/>
-            </connected>
-        </item>
         <item name="Reunion" uuid="T7fBwcI0ZGUAAAErN2_4oWOX">
             <properties>
                 <item value="CqrBwcI0NmgAAAErcVr4oWOY" key="CHN_IMG_ID"/>
@@ -2329,14 +2353,13 @@
                 <item uuid="4egK_j7g13sAAAE7YMf01_ye"/>
             </connected>
         </item>
-        <item name="country-previous-next" uuid="8OYK_j7gvAIAAAE7xiX01_ye">
+        <item name="Khmer Republic (1970-1975)" uuid="WYAK.GJAHkIAAAEtI7G372Kg">
             <properties>
-                <item value="P9V_AAEBt6UAAAEjSnhucewv" key="EndUUID"/>
-                <item value="c9MK.GJAIDgAAAEulzzPKEP2" key="StartUUID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="P9V_AAEBt6UAAAEjSnhucewv"/>
-                <item uuid="c9MK.GJAIDgAAAEulzzPKEP2"/>
+                <item uuid="460K_j7gC58AAAE7snX01_ye"/>
+                <item uuid="2XMK_j7gwyoAAAE7jk701_ye"/>
             </connected>
         </item>
         <item name="Grenada (1974 - )" uuid="vYsK_j7gUsUAAAExNpZhTuby">
@@ -2349,12 +2372,15 @@
                 <item uuid="ca0K_j7gZ50AAAE7EPT01_ye"/>
             </connected>
         </item>
-        <item name="Newfoundland and Labrador" uuid="tInBwcI0zuAAAAErGuH4oWOF">
+        <item name="country-previous-next" uuid="8OYK_j7gvAIAAAE7xiX01_ye">
             <properties>
-                <item value="vTvBwcI08d0AAAEr1ev4oWOG" key="CHN_IMG_ID"/>
-                <item value="COUNTRY" key="CHN_TYPE"/>
+                <item value="P9V_AAEBt6UAAAEjSnhucewv" key="EndUUID"/>
+                <item value="c9MK.GJAIDgAAAEulzzPKEP2" key="StartUUID"/>
             </properties>
-            <connected/>
+            <connected>
+                <item uuid="P9V_AAEBt6UAAAEjSnhucewv"/>
+                <item uuid="c9MK.GJAIDgAAAEulzzPKEP2"/>
+            </connected>
         </item>
         <item name="Afghanistan (2001—)" uuid="qufBwcI0qjsAAAEqsX16dNx8">
             <properties>
@@ -2365,11 +2391,19 @@
                 <item uuid="fx8K_j7gpxoAAAE78jD01_ye"/>
             </connected>
         </item>
-        <item name="work at" uuid="fLjAqFYB0vkAAAFBnPPcT3DG">
-            <properties/>
+        <item name="Newfoundland and Labrador" uuid="tInBwcI0zuAAAAErGuH4oWOF">
+            <properties>
+                <item value="vTvBwcI08d0AAAEr1ev4oWOG" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="Laos" uuid="zRF_AAEBNqcAAAEjAuZucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
             <connected>
-                <item uuid="aVPAqFYB0ukAAAFBnPPcT3DG"/>
-                <item uuid="pIHAqFYB0ucAAAFBnPPcT3DG"/>
+                <item uuid="dY4K_j7gl0QAAAE7omX01_ye"/>
             </connected>
         </item>
         <item name="Ruble" uuid="uGp_AAEBgdMAAAEj0H1ucewv">
@@ -2386,20 +2420,23 @@
                 <item uuid="8YQK_j7g0h0AAAE7zgf01_yg"/>
             </connected>
         </item>
-        <item name="Laos" uuid="zRF_AAEBNqcAAAEjAuZucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="dY4K_j7gl0QAAAE7omX01_ye"/>
-            </connected>
-        </item>
         <item name="Saxe-Coburg and Gotha (1826-1920)" uuid="zZwK.GJAWiUAAAEu4pkFioKM">
             <properties>
                 <item value="Sg8K.GJAlYUAAAEuHRgFioKP" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
+        </item>
+        <item name="Brad" uuid="eZTAqFYB8eoAAAFBIF0luno8">
+            <properties>
+                <item value="Brad" key="first_name"/>
+                <item value="Perterson" key="last_name"/>
+            </properties>
+            <connected>
+                <item uuid="5bHAqFYB8fkAAAFBIF0luno8"/>
+                <item uuid="E4XAqFYB8fcAAAFBIF0luno8"/>
+                <item uuid="6czAqFYB8fwAAAFBIF0luno8"/>
+            </connected>
         </item>
         <item name="Spain (1515 - )" uuid="7qN_AAEB6pQAAAEjEt1ucewv">
             <properties>
@@ -2451,6 +2488,15 @@
                 <item uuid="hnbBwcI0wQYAAAEqv7N6dNx4"/>
             </connected>
         </item>
+        <item name="Czech Republic" uuid="Z55_AAEBtW4AAAEjQdtucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="A7sK_j7gxXIAAAE7AmL01_ye"/>
+                <item uuid="cmcK_j7gSTgAAAE77mH01_ye"/>
+            </connected>
+        </item>
         <item name="country-parent-child" uuid="r_MK_j7g3V4AAAE7NFj01_ye">
             <properties>
                 <item value="4jx_AAEBULUAAAElO2s8vl9E" key="EndUUID"/>
@@ -2459,15 +2505,6 @@
             <connected>
                 <item uuid="x_R_AAEB2tkAAAEjZttucewv"/>
                 <item uuid="4jx_AAEBULUAAAElO2s8vl9E"/>
-            </connected>
-        </item>
-        <item name="Czech Republic" uuid="Z55_AAEBtW4AAAEjQdtucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="A7sK_j7gxXIAAAE7AmL01_ye"/>
-                <item uuid="cmcK_j7gSTgAAAE77mH01_ye"/>
             </connected>
         </item>
         <item name="Danish West Indies (1754-1917)" uuid="L3YK.GJAwooAAAEtDmu373b1">
@@ -2484,6 +2521,12 @@
                 <item uuid="I9wK_j7gv3AAAAE7qlL01_ye"/>
             </connected>
         </item>
+        <item name="United Arab Emirates" uuid="pVB_AAEB7WcAAAEj5IVucew4">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="country-previous-next" uuid="6tIK_j7gIyoAAAE7eKr01_ye">
             <properties>
                 <item value="gVZ_AAEBycoAAAEjqXlucewv" key="EndUUID"/>
@@ -2492,12 +2535,6 @@
             <connected>
                 <item uuid="gVZ_AAEBycoAAAEjqXlucewv"/>
             </connected>
-        </item>
-        <item name="United Arab Emirates" uuid="pVB_AAEB7WcAAAEj5IVucew4">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="Republic of Afghanistan (1973 - 1978)" uuid="GPbBwcI06cAAAAEq48B6dNx6">
             <properties>
@@ -2607,6 +2644,14 @@
                 <item uuid="gHUK_j7gWqoAAAE76hj01_ye"/>
             </connected>
         </item>
+        <item name="Syria" uuid="Zat_AAEBMTUAAAEjM8Jucewz">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="D_4K_j7gOWwAAAE74Ar01_yf"/>
+            </connected>
+        </item>
         <item name="country-parent-child" uuid="xuIK_j7gBX0AAAE7rh_01_ye">
             <properties>
                 <item value="gRQK.GJAFyoAAAEtaOLOOs28" key="EndUUID"/>
@@ -2615,14 +2660,6 @@
             <connected>
                 <item uuid="o2V_AAEBoE0AAAEjVHtucewv"/>
                 <item uuid="gRQK.GJAFyoAAAEtaOLOOs28"/>
-            </connected>
-        </item>
-        <item name="Syria" uuid="Zat_AAEBMTUAAAEjM8Jucewz">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="D_4K_j7gOWwAAAE74Ar01_yf"/>
             </connected>
         </item>
         <item name="USSR (1922 - 1991)" uuid="P9V_AAEBt6UAAAEjSnhucewv">
@@ -2656,6 +2693,12 @@
             </properties>
             <connected/>
         </item>
+        <item name="Mayotte" uuid="YFN_AAEBA1kAAAEjYfZucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="country-previous-next" uuid="3XYK_j7g3IgAAAE7ALP01_ye">
             <properties>
                 <item value="iXsK.GJA3RsAAAEtulTOOs3t" key="EndUUID"/>
@@ -2666,20 +2709,14 @@
                 <item uuid="Ps4K.GJAJsQAAAEt1jfOOs3e"/>
             </connected>
         </item>
-        <item name="Mayotte" uuid="YFN_AAEBA1kAAAEjYfZucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="SEIK.GJA5hEAAAEv6becYZFo">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="SEIK.GJA5hEAAAEv6becYZFo">
             <properties>
                 <item value="ZwUK.GJAmKIAAAEvrbecYZFo" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="6XEK_j7gHQMAAAE7oJv01_8Y"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Mexico (1821 - )" uuid="iPAK.GJAg5gAAAEw17U.0YCD">
@@ -2690,6 +2727,14 @@
             <connected>
                 <item uuid="8hIK_j7gbQgAAAE7Wq_01_ye"/>
                 <item uuid="lrgK_j7gAMYAAAE7mJn01_ye"/>
+            </connected>
+        </item>
+        <item name="Micron Company" uuid="P9vAqFYB8e4AAAFBIF0luno8">
+            <properties>
+                <item value="USA, Idaho, Boise" key="address"/>
+            </properties>
+            <connected>
+                <item uuid="vqfAqFYB8f0AAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="2XMK_j7gwyoAAAE7jk701_ye">
@@ -2726,6 +2771,12 @@
                 <item uuid="YQXBwcI0jsoAAAEq1cRDRaSN"/>
             </connected>
         </item>
+        <item name="Boeotia" uuid="h3DBwcI05HwAAAEn3NZ0V3bd">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="Kingdom of Poland (1025-1569)" uuid="6JzBwcI0LIMAAAEoGSkQYxrZ">
             <properties>
                 <item value="uNgK.GJABgwAAAEukErPKEP0" key="CHN_IMG_ID"/>
@@ -2734,22 +2785,6 @@
             <connected>
                 <item uuid="omgK_j7g3R4AAAE7vh701_ye"/>
                 <item uuid="aRoK_j7gDdAAAAE7FPH01_yd"/>
-            </connected>
-        </item>
-        <item name="Boeotia" uuid="h3DBwcI05HwAAAEn3NZ0V3bd">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
-        <item name="Kingdom of the Netherlands" uuid="YS9_AAEBkzIAAAEjZHpucewv">
-            <properties>
-                <item value="um4K.GJA1UkAAAEuvhS1Lik0" key="CHN_IMG_ID"/>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="JXYK_j7gvlwAAAE7Hl_01_ye"/>
-                <item uuid="SgEK_j7gwgsAAAE7Cl_01_ye"/>
             </connected>
         </item>
         <item name="Byzantine Empire (330-1453)" uuid="gVZ_AAEBycoAAAEjqXlucewv">
@@ -2765,14 +2800,14 @@
                 <item uuid="WQoK_j7g0eIAAAE7nAT01_ye"/>
             </connected>
         </item>
-        <item name="country-previous-next" uuid="A3IK_j7ggUwAAAE7J6n01_ye">
+        <item name="Kingdom of the Netherlands" uuid="YS9_AAEBkzIAAAEjZHpucewv">
             <properties>
-                <item value="GPbBwcI06cAAAAEq48B6dNx6" key="EndUUID"/>
-                <item value="otjBwcI0GHoAAAEq9RV6dNxz" key="StartUUID"/>
+                <item value="um4K.GJA1UkAAAEuvhS1Lik0" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="GPbBwcI06cAAAAEq48B6dNx6"/>
-                <item uuid="otjBwcI0GHoAAAEq9RV6dNxz"/>
+                <item uuid="JXYK_j7gvlwAAAE7Hl_01_ye"/>
+                <item uuid="SgEK_j7gwgsAAAE7Cl_01_ye"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="ueUK_j7gT3oAAAE7IE701_ye">
@@ -2782,6 +2817,16 @@
             </properties>
             <connected>
                 <item uuid="Wo7BwcI0MZsAAAEm.Ao6TOqV"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="A3IK_j7ggUwAAAE7J6n01_ye">
+            <properties>
+                <item value="GPbBwcI06cAAAAEq48B6dNx6" key="EndUUID"/>
+                <item value="otjBwcI0GHoAAAEq9RV6dNxz" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="GPbBwcI06cAAAAEq48B6dNx6"/>
+                <item uuid="otjBwcI0GHoAAAEq9RV6dNxz"/>
             </connected>
         </item>
         <item name="Britannic Empire (286-296)" uuid=".YHBwcI0ZVQAAAEnSeB7cIUe">
@@ -2863,13 +2908,14 @@
                 <item uuid="Frl_AAEBJ.gAAAEjTe5ucewv"/>
             </connected>
         </item>
-        <item name="House of Romanov" uuid="Z_vBwcI01XAAAAEs3WXzaoJp">
+        <item name="country-parent-child" uuid="wOEK_j7gIQkAAAE7sHf01_ye">
             <properties>
-                <item value="kBfBwcI0iD4AAAEsolfzaoKr" key="CHN_IMG_ID"/>
-                <item value="DYNASTY" key="CHN_TYPE"/>
+                <item value="CvQK.GJAlsMAAAEuYPu1LiUg" key="EndUUID"/>
+                <item value="5jUK.GJABdcAAAEtGMG371bw" key="StartUUID"/>
             </properties>
             <connected>
-                <item uuid="QkQK_j7gWukAAAE7dmL01_yd"/>
+                <item uuid="CvQK.GJAlsMAAAEuYPu1LiUg"/>
+                <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="3UoK_j7gRuIAAAE7HiP01_ye">
@@ -2882,14 +2928,13 @@
                 <item uuid="oPXBwcI01r0AAAErdXL4oW6I"/>
             </connected>
         </item>
-        <item name="country-parent-child" uuid="wOEK_j7gIQkAAAE7sHf01_ye">
+        <item name="House of Romanov" uuid="Z_vBwcI01XAAAAEs3WXzaoJp">
             <properties>
-                <item value="CvQK.GJAlsMAAAEuYPu1LiUg" key="EndUUID"/>
-                <item value="5jUK.GJABdcAAAEtGMG371bw" key="StartUUID"/>
+                <item value="kBfBwcI0iD4AAAEsolfzaoKr" key="CHN_IMG_ID"/>
+                <item value="DYNASTY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="CvQK.GJAlsMAAAEuYPu1LiUg"/>
-                <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
+                <item uuid="QkQK_j7gWukAAAE7dmL01_yd"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="SeEK_j7g9eQAAAE7Sm_01_ye">
@@ -2908,14 +2953,20 @@
                 <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
             </connected>
         </item>
-        <item name="country-parent-child" uuid="17IK_j7gp74AAAE7RLb01_ye">
+        <item name="Burma" uuid="eXF_AAEBaDwAAAEjkslucew0">
             <properties>
-                <item value="pNTBwcI04zAAAAEnfNB0V3IL" key="EndUUID"/>
-                <item value="j4N_AAEB7tYAAAEjOeNucewv" key="StartUUID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="French Second Republic (1848-1852)" uuid="iXsK.GJA3RsAAAEtulTOOs3t">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="pNTBwcI04zAAAAEnfNB0V3IL"/>
-                <item uuid="j4N_AAEB7tYAAAEjOeNucewv"/>
+                <item uuid="QtgK_j7gCQIAAAE7WBH01_ye"/>
+                <item uuid="3XYK_j7g3IgAAAE7ALP01_ye"/>
+                <item uuid="638K_j7gvtYAAAE7CCD01_ye"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="l0AK_j7gp5MAAAE7txr01_ye">
@@ -2928,21 +2979,15 @@
                 <item uuid=".i7BwcI0sU8AAAErcjZp2tVY"/>
             </connected>
         </item>
-        <item name="French Second Republic (1848-1852)" uuid="iXsK.GJA3RsAAAEtulTOOs3t">
+        <item name="country-parent-child" uuid="17IK_j7gp74AAAE7RLb01_ye">
             <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
+                <item value="pNTBwcI04zAAAAEnfNB0V3IL" key="EndUUID"/>
+                <item value="j4N_AAEB7tYAAAEjOeNucewv" key="StartUUID"/>
             </properties>
             <connected>
-                <item uuid="QtgK_j7gCQIAAAE7WBH01_ye"/>
-                <item uuid="3XYK_j7g3IgAAAE7ALP01_ye"/>
-                <item uuid="638K_j7gvtYAAAE7CCD01_ye"/>
+                <item uuid="pNTBwcI04zAAAAEnfNB0V3IL"/>
+                <item uuid="j4N_AAEB7tYAAAEjOeNucewv"/>
             </connected>
-        </item>
-        <item name="Burma" uuid="eXF_AAEBaDwAAAEjkslucew0">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="country-previous-next" uuid="YFgK_j7gCIcAAAE7hHb01_ye">
             <properties>
@@ -2962,16 +3007,6 @@
                 <item uuid="6KoK_j7gu5EAAAE7iir01_ye"/>
             </connected>
         </item>
-        <item name="country-previous-next" uuid="p0sK_j7g6m8AAAE7zsL01_ye">
-            <properties>
-                <item value="NeJ_AAEBlO4AAAEjwXZucewv" key="EndUUID"/>
-                <item value="P9V_AAEBt6UAAAEjSnhucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="P9V_AAEBt6UAAAEjSnhucewv"/>
-                <item uuid="NeJ_AAEBlO4AAAEjwXZucewv"/>
-            </connected>
-        </item>
         <item name="country-previous-next" uuid="BCQK_j7g2SwAAAE7Nin01_ye">
             <properties>
                 <item value="PjAK.GJAPDwAAAEtRLG372X0" key="EndUUID"/>
@@ -2980,6 +3015,16 @@
             <connected>
                 <item uuid="eEx_AAEBtAoAAAElGsqJ4Hjd"/>
                 <item uuid="PjAK.GJAPDwAAAEtRLG372X0"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="p0sK_j7g6m8AAAE7zsL01_ye">
+            <properties>
+                <item value="NeJ_AAEBlO4AAAEjwXZucewv" key="EndUUID"/>
+                <item value="P9V_AAEBt6UAAAEjSnhucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="P9V_AAEBt6UAAAEjSnhucewv"/>
+                <item uuid="NeJ_AAEBlO4AAAEjwXZucewv"/>
             </connected>
         </item>
         <item name="Suriname" uuid="bNN_AAEBUlIAAAEjb_Fucewv">
@@ -3020,12 +3065,6 @@
             </properties>
             <connected/>
         </item>
-        <item name="Venezuela" uuid="T_N_AAEBFloAAAEjVfVucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
         <item name="Austria " uuid="n2V_AAEBFrsAAAEjutRucewv">
             <properties>
                 <item value="nVIK.GJArVAAAAEuvdMFinyy" key="CHN_IMG_ID"/>
@@ -3038,6 +3077,12 @@
                 <item uuid="UioK_j7g_RcAAAE7_hj01_ye"/>
             </connected>
         </item>
+        <item name="Venezuela" uuid="T_N_AAEBFloAAAEjVfVucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="country-previous-next" uuid="YgoK_j7g9lMAAAE7Wpb01_ye">
             <properties>
                 <item value="d61_AAEBbUoAAAEj0uJucewv" key="EndUUID"/>
@@ -3046,16 +3091,6 @@
             <connected>
                 <item uuid="d61_AAEBbUoAAAEj0uJucewv"/>
                 <item uuid="EA0K.GJAIIcAAAEts4N60p6i"/>
-            </connected>
-        </item>
-        <item name="Kingdom of Afghanistan (1926—1973)" uuid="otjBwcI0GHoAAAEq9RV6dNxz">
-            <properties>
-                <item value="93zBwcI0flgAAAEqvpB6dNx0" key="CHN_IMG_ID"/>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="A3IK_j7ggUwAAAE7J6n01_ye"/>
-                <item uuid="BeEK_j7gVy8AAAE7IiT01_ye"/>
             </connected>
         </item>
         <item name="Austrian Empire (1804-1867)" uuid="V6vBwcI0C4gAAAEn0M1K7uwf">
@@ -3068,6 +3103,16 @@
                 <item uuid="w1IK_j7gX94AAAE7zkX01_ye"/>
             </connected>
         </item>
+        <item name="Kingdom of Afghanistan (1926—1973)" uuid="otjBwcI0GHoAAAEq9RV6dNxz">
+            <properties>
+                <item value="93zBwcI0flgAAAEqvpB6dNx0" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="A3IK_j7ggUwAAAE7J6n01_ye"/>
+                <item uuid="BeEK_j7gVy8AAAE7IiT01_ye"/>
+            </connected>
+        </item>
         <item name="County of Flanders (862-1795)" uuid="o8LBwcI03RgAAAEp3_oFQTY5">
             <properties>
                 <item value="WwLBwcI0b.gAAAEpMfwFQTY9" key="CHN_IMG_ID"/>
@@ -3077,14 +3122,14 @@
                 <item uuid="bRgK_j7guooAAAE7myL01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="GALBwcI0wJUAAAEqtehDRaVa">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="GALBwcI0wJUAAAEqtehDRaVa">
             <properties>
                 <item value="wmHBwcI0_w4AAAEqpOhDRaVa" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="tDUK_j7gW4AAAAE7GCz01__I"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="3hkK_j7g80gAAAE7Gyb01__I"/>
             </connected>
         </item>
@@ -3110,14 +3155,15 @@
             </properties>
             <connected/>
         </item>
-        <item name="Kingdom of Cambodia (1953-1970)" uuid="6CwK.GJAwYAAAAEtiEi372Kd">
+        <item name="Kingdom of France (1815-1830)" uuid="_U4K.GJA3xEAAAEtkWTOOs3q">
             <properties>
-                <item value="z5YK.GJAdgkAAAEt5Eu372Kf" key="CHN_IMG_ID"/>
+                <item value="T.EK.GJA5pYAAAEtFMPOOs3r" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="EYUK_j7gWJMAAAE7St701_yd"/>
-                <item uuid="2XMK_j7gwyoAAAE7jk701_ye"/>
+                <item uuid="q6AK_j7gKzUAAAE72cf01_ye"/>
+                <item uuid="xkoK_j7gZVQAAAE7YNf01_ye"/>
+                <item uuid="yMUK_j7gR18AAAE73mf01_ye"/>
             </connected>
         </item>
         <item name="Australia (1788 - 1931)" uuid="lvAK.GJADVcAAAEuOKG1Lhuc">
@@ -3130,15 +3176,14 @@
                 <item uuid="M24K_j7gwR8AAAE7Mnj01_ye"/>
             </connected>
         </item>
-        <item name="Kingdom of France (1815-1830)" uuid="_U4K.GJA3xEAAAEtkWTOOs3q">
+        <item name="Kingdom of Cambodia (1953-1970)" uuid="6CwK.GJAwYAAAAEtiEi372Kd">
             <properties>
-                <item value="T.EK.GJA5pYAAAEtFMPOOs3r" key="CHN_IMG_ID"/>
+                <item value="z5YK.GJAdgkAAAEt5Eu372Kf" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="q6AK_j7gKzUAAAE72cf01_ye"/>
-                <item uuid="xkoK_j7gZVQAAAE7YNf01_ye"/>
-                <item uuid="yMUK_j7gR18AAAE73mf01_ye"/>
+                <item uuid="EYUK_j7gWJMAAAE7St701_yd"/>
+                <item uuid="2XMK_j7gwyoAAAE7jk701_ye"/>
             </connected>
         </item>
         <item name="Travancore (1102-1949)" uuid="EA0K.GJAIIcAAAEts4N60p6i">
@@ -3156,15 +3201,6 @@
             </properties>
             <connected/>
         </item>
-        <item name="user-contributed-to-coin-definition" uuid="0fQK_j7gKpQAAAE7dWT01_3s">
-            <properties>
-                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="EndUUID"/>
-                <item value="WSrBwcI0vJgAAAEmo8eg6.as" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="WSrBwcI0vJgAAAEmo8eg6.as"/>
-            </connected>
-        </item>
         <item name="country-previous-next" uuid="StEK_j7gn3wAAAE7ZtD01_ye">
             <properties>
                 <item value="P9V_AAEBt6UAAAEjSnhucewv" key="EndUUID"/>
@@ -3173,6 +3209,15 @@
             <connected>
                 <item uuid="P9V_AAEBt6UAAAEjSnhucewv"/>
                 <item uuid="Vax_AAEBjgIAAAEljqneJiFE"/>
+            </connected>
+        </item>
+        <item name="user-contributed-to-coin-definition" uuid="0fQK_j7gKpQAAAE7dWT01_3s">
+            <properties>
+                <item value="TqbBwcI0dzQAAAEm3R86TOhE" key="EndUUID"/>
+                <item value="WSrBwcI0vJgAAAEmo8eg6.as" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="WSrBwcI0vJgAAAEmo8eg6.as"/>
             </connected>
         </item>
         <item name="Denmark-Norway (1536-1814)" uuid="qYvBwcI0KK0AAAEpXVf.2mSB">
@@ -3195,14 +3240,13 @@
                 <item uuid="P.N_AAEB84sAAAEjFeJucewv"/>
             </connected>
         </item>
-        <item name="work at" uuid="etLAqFYB0vgAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="QIfAqFYB0uoAAAFBnPPcT3DG"/>
-                <item uuid="KOfAqFYB0uUAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
         <item name="Guyana" uuid="8_x_AAEBVl0AAAEjLeFucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="Slovenia" uuid="r7F_AAEB35oAAAEjpPBucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
@@ -3216,12 +3260,6 @@
             <connected>
                 <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
             </connected>
-        </item>
-        <item name="Slovenia" uuid="r7F_AAEB35oAAAEjpPBucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="country-previous-next" uuid="CT0K_j7g0cwAAAE79HT01_ye">
             <properties>
@@ -3268,14 +3306,20 @@
                 <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="5 Ruble Group" uuid="Xqh_AAEBSwAAAAEju_rAPfNS">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="5 Ruble Group" uuid="Xqh_AAEBSwAAAAEju_rAPfNS">
             <properties>
                 <item value="N1d_AAEBdkwAAAEjQfrAPfNS" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="2_4K_j7gxN8AAAE7GEr01_yk"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
+            </connected>
+        </item>
+        <item name="friends" uuid="XSjAqFYB8fYAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="oNHAqFYB8ekAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="Southern Rhodesia (1923-1980)" uuid=".4vBwcI0epAAAAErOsJ1A7uo">
@@ -3330,12 +3374,6 @@
             <connected>
                 <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
                 <item uuid="1rgK.GJA5ccAAAEtCcJ60piB"/>
-            </connected>
-        </item>
-        <item name="live at" uuid="qTnAqFYB0u8AAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="honAqFYBNfsAAAFBmvPcT3DG"/>
             </connected>
         </item>
         <item name="Moldova (1991 - )" uuid="ANJ_AAEBTD8AAAEj9educewv">
@@ -3506,7 +3544,7 @@
                 <item uuid="F3EK_j7gyTgAAAE7rFP01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="Cv7BwcI0aqkAAAEm2B86TOhE">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="Cv7BwcI0aqkAAAEm2B86TOhE">
             <properties>
                 <item value="P1PBwcI0Fm8AAAEmyB86TOhE" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
@@ -3514,13 +3552,7 @@
             <connected>
                 <item uuid="XL8K_j7gnREAAAE8gcX01wEJ"/>
                 <item uuid="Pa4K_j7gAsIAAAE8H8301wEJ"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
-            </connected>
-        </item>
-        <item name="work at" uuid="G2rAqFYB0vcAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="aVPAqFYB0ukAAAFBnPPcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Saint Barthélemy" uuid="6RN_AAEBoJUAAAEj6tZucewv">
@@ -3736,7 +3768,7 @@
             </properties>
             <connected/>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.235-06:00" name="country-previous-next" uuid="O0kK_j7gad0AAAE7ADz01_ye">
+        <item lastModifiedDate="2013-10-02T11:34:38.723-06:00" name="country-previous-next" uuid="O0kK_j7gad0AAAE7ADz01_ye">
             <properties>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
                 <item value="3r0K.GJAF.sAAAEuQKEFioBw" key="StartUUID"/>
@@ -3907,6 +3939,12 @@
                 <item uuid="4jx_AAEBULUAAAElO2s8vl9E"/>
             </connected>
         </item>
+        <item name="Fiji" uuid="rgN_AAEBn20AAAEjf91ucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="country-previous-next" uuid="af8K_j7gC3YAAAE7qlr01_ye">
             <properties>
                 <item value="Y2gK.GJA4MwAAAEt1nvwgItQ" key="EndUUID"/>
@@ -3916,12 +3954,6 @@
                 <item uuid="uQh_AAEBKa0AAAEjXEZucew1"/>
                 <item uuid="Y2gK.GJA4MwAAAEt1nvwgItQ"/>
             </connected>
-        </item>
-        <item name="Fiji" uuid="rgN_AAEBn20AAAEjf91ucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="Manchukuo" uuid="XoR_AAEB5AYAAAEj6L5ucewz">
             <properties>
@@ -3984,7 +4016,7 @@
                 <item uuid="DJQK_j7gMwwAAAE7pkr01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.223-06:00" name="Russian Empire (1720-1917)" uuid="sYl_AAEBUxcAAAEjoXhucewv">
+        <item lastModifiedDate="2013-10-02T11:34:38.710-06:00" name="Russian Empire (1720-1917)" uuid="sYl_AAEBUxcAAAEjoXhucewv">
             <properties>
                 <item value="hWjBwcI0nP8AAAEo728hPeO0" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -4011,15 +4043,15 @@
                 <item uuid="44d_AAEBw3sAAAEjDT9ucew5"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="5_YK.GJA6wQAAAEwHOWw5kU1">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="5_YK.GJA6wQAAAEwHOWw5kU1">
             <properties>
                 <item value="mL8K.GJAnWwAAAEwveSw5kU1" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
                 <item uuid="GU0K_j7gB0wAAAE77DH01_8Y"/>
                 <item uuid="lUUK_j7g02cAAAE7FDL01_8Y"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Hungary (1989 - )" uuid="P.N_AAEB84sAAAEjFeJucewv">
@@ -4085,6 +4117,13 @@
             </properties>
             <connected>
                 <item uuid="JFAK.GJAEGsAAAEwbbiw5kUs"/>
+            </connected>
+        </item>
+        <item name="work at" uuid="X1HAqFYB8fsAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="mXvAqFYB8egAAAFBIF0luno8"/>
+                <item uuid="4qrAqFYB8e0AAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="pTUK_j7ghdsAAAE7jHP01_ye">
@@ -4173,7 +4212,7 @@
                 <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.224-06:00" name="country-previous-next" uuid="dEsK_j7gylEAAAE7yUb01_ye">
+        <item lastModifiedDate="2013-10-02T11:34:38.711-06:00" name="country-previous-next" uuid="dEsK_j7gylEAAAE7yUb01_ye">
             <properties>
                 <item value="Vax_AAEBjgIAAAEljqneJiFE" key="EndUUID"/>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
@@ -4302,13 +4341,13 @@
                 <item uuid="cxB_AAEBd7YAAAEj03Nucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Kopeck Group" uuid="kHR_AAEBEu8AAAEl0tU8vl88">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Kopeck Group" uuid="kHR_AAEBEu8AAAEl0tU8vl88">
             <properties>
                 <item value="jfp_AAEBM0gAAAElPktzfAP_" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="Uj4K_j7ggd0AAAE7Lgz01_yg"/>
             </connected>
         </item>
@@ -4340,7 +4379,7 @@
                 <item uuid="NlcK_j7glmcAAAE7wNX01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.225-06:00" name="Polish-Lithuanian Commonwealth (1569-1795)" uuid="o1J_AAEBzuYAAAEjAD9ucexC">
+        <item lastModifiedDate="2013-10-02T11:34:38.711-06:00" name="Polish-Lithuanian Commonwealth (1569-1795)" uuid="o1J_AAEBzuYAAAEjAD9ucexC">
             <properties>
                 <item value="9oYK.GJAncIAAAEuDbXPKEPu" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -4417,6 +4456,14 @@
             </properties>
             <connected>
                 <item uuid="xYwK_j7gDREAAAE78iv01_ye"/>
+            </connected>
+        </item>
+        <item name="High School" uuid="sVTAqFYB8e8AAAFBIF0luno8">
+            <properties>
+                <item value="USA, Idaho, Boise, XYZ" key="address"/>
+            </properties>
+            <connected>
+                <item uuid="WOjAqFYB8f4AAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="Lordship of Ireland (1171-1541)" uuid="LcHBwcI0D4gAAAEoN6r7lK_O">
@@ -4537,14 +4584,14 @@
                 <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="Coin photo" uuid="vkEK.GJAqjEAAAEvo6ZNbZcw">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="vkEK.GJAqjEAAAEvo6ZNbZcw">
             <properties>
                 <item value="PDAK.GJA3ccAAAEvLKZNbZcw" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="s2gK_j7giyUAAAE7oJb01_8Y"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="uUIK_j7gTHEAAAE77GP01_ye">
@@ -4579,7 +4626,7 @@
                 <item uuid="gfvBwcI0pw8AAAEnAL1K7uwN"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.225-06:00" name="country-previous-next" uuid="PxoK_j7gxzMAAAE7ujv01_ye">
+        <item lastModifiedDate="2013-10-02T11:34:38.712-06:00" name="country-previous-next" uuid="PxoK_j7gxzMAAAE7ujv01_ye">
             <properties>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
                 <item value=".i7BwcI0sU8AAAErcjZp2tVY" key="StartUUID"/>
@@ -4599,15 +4646,15 @@
                 <item uuid="Ob4K_j7gz6sAAAE7YGP01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="50 Kopeck Group" uuid="T0B_AAEBrJQAAAEl4N3sOnUF">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="50 Kopeck Group" uuid="T0B_AAEBrJQAAAEl4N3sOnUF">
             <properties>
                 <item value="LoQK.GJAQJcAAAEv_S5XVk4q" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="jjwK_j7gj14AAAE7G3301_1o"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
                 <item uuid="FakK_j7grKMAAAE7Gn301_1o"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Transnistria" uuid="JMjBwcI0K90AAAEmKq0dQQnP">
@@ -4673,14 +4720,14 @@
                 <item uuid="y1R_AAEBLVMAAAEjcexucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="gybBwcI0zsAAAAEqzhTXZwEW">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="gybBwcI0zsAAAAEqzhTXZwEW">
             <properties>
                 <item value="Z0zBwcI0IKkAAAEqvBTXZwEW" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="Y1kK_j7g5QEAAAE81yf01wCn"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Frankish Empire (481-843)" uuid="r4LBwcI0rTYAAAEoge8QYwtt">
@@ -4709,12 +4756,6 @@
             <connected>
                 <item uuid="0CZ_AAEBVmMAAAEj4NRucewv"/>
                 <item uuid="lvAK.GJADVcAAAEuOKG1Lhuc"/>
-            </connected>
-        </item>
-        <item name="friends" uuid="J7TAqFYB0vMAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="zODAqFYB0uYAAAFBnPPcT3DG"/>
             </connected>
         </item>
         <item name="user-contributed-to-coin-definition" uuid="tQ4K_j7gpPcAAAE75Vr01_2T">
@@ -4817,14 +4858,14 @@
                 <item uuid="X0YK_j7gKmoAAAE7mBf01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="5 Kopeck Group" uuid="MHN_AAEB6N8AAAElI4A8vl9L">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="5 Kopeck Group" uuid="MHN_AAEB6N8AAAElI4A8vl9L">
             <properties>
                 <item value="G51_AAEBhjIAAAElQQlzfAP." key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="3XwK_j7gvjQAAAE7HQD01_ym"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Nagorno-Karabakh" uuid="1et_AAEBM18AAAEjbzJucexU">
@@ -4961,6 +5002,17 @@
                 <item uuid="uZDBwcI0mrQAAAEqCAJ6dOg."/>
             </connected>
         </item>
+        <item name="Marry" uuid="PVLAqFYB8ecAAAFBIF0luno8">
+            <properties>
+                <item value="Marry" key="first_name"/>
+                <item value="25" key="age"/>
+                <item value="Smith" key="last_name"/>
+            </properties>
+            <connected>
+                <item uuid="WOjAqFYB8f4AAAFBIF0luno8"/>
+                <item uuid="06rAqFYB8fUAAAFBIF0luno8"/>
+            </connected>
+        </item>
         <item name="Cayman Islands" uuid="Lup_AAEBmd4AAAEjtOVucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -5041,6 +5093,12 @@
                 <item uuid="kqQK_j7gC6gAAAE74FH01_ye"/>
             </connected>
         </item>
+        <item name="Malawi" uuid="0UZ_AAEB5_0AAAEjcepucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="Russia (1991 - )" uuid="NeJ_AAEBlO4AAAEjwXZucewv">
             <properties>
                 <item value="jaEK.GJAxiQAAAEtGdO_p1Ae" key="CHN_IMG_ID"/>
@@ -5050,13 +5108,7 @@
                 <item uuid="p0sK_j7g6m8AAAE7zsL01_ye"/>
             </connected>
         </item>
-        <item name="Malawi" uuid="0UZ_AAEB5_0AAAEjcepucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.227-06:00" name="Finland (1917 - )" uuid="afN_AAEBG5AAAAEjW91ucewv">
+        <item lastModifiedDate="2013-10-02T11:34:38.713-06:00" name="Finland (1917 - )" uuid="afN_AAEBG5AAAAEjW91ucewv">
             <properties>
                 <item value="7.gK_j7gsTMAAAEzr8T5lul2" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -5074,16 +5126,6 @@
             <connected>
                 <item uuid="NK8K_j7g4wQAAAE7FXn01_ye"/>
                 <item uuid="8rwK_j7gD1cAAAE7hCb01_ye"/>
-            </connected>
-        </item>
-        <item name="Jasica" uuid="FvfAqFYB0ugAAAFBnPPcT3DG">
-            <properties>
-                <item value="Jasica" key="first_name"/>
-            </properties>
-            <connected>
-                <item uuid="zfHAqFYB0vYAAAFBnPPcT3DG"/>
-                <item uuid="guLAqFYB0vUAAAFBnPPcT3DG"/>
-                <item uuid="x9TAqFYB0voAAAFBnPPcT3DG"/>
             </connected>
         </item>
         <item name="People's Republic of Albania (1946-1992)" uuid="CpgK.GJA46sAAAEuoCS1LgaR">
@@ -5112,6 +5154,12 @@
             </properties>
             <connected/>
         </item>
+        <item name="Libya" uuid="Hdl_AAEBxAsAAAEjZuducewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="Allied-occupied Germany (1945-1949)" uuid="gk4K.GJAOhoAAAEtVhHJPsia">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -5121,12 +5169,6 @@
                 <item uuid="3UoK_j7gRuIAAAE7HiP01_ye"/>
                 <item uuid="1pgK_j7gm_gAAAE7ngL01_ye"/>
             </connected>
-        </item>
-        <item name="Libya" uuid="Hdl_AAEBxAsAAAEjZuducewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="country-previous-next" uuid="DJQK_j7gMwwAAAE7pkr01_ye">
             <properties>
@@ -5158,7 +5200,7 @@
                 <item uuid="r4LBwcI0rTYAAAEoge8QYwtt"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="1 Denarius Group" uuid="TqbBwcI0dzQAAAEm3R86TOhE">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Denarius Group" uuid="TqbBwcI0dzQAAAEm3R86TOhE">
             <properties>
                 <item value="P1PBwcI0Fm8AAAEmyB86TOhE" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
@@ -5169,8 +5211,8 @@
                 <item uuid="fzkK_j7gnsoAAAE7cVn01_3s"/>
                 <item uuid="XL8K_j7gnREAAAE8gcX01wEJ"/>
                 <item uuid="nNIK_j7gGs8AAAE7GF_01_3s"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
                 <item uuid="MH0K_j7gsR0AAAE7X1n01_3s"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="1bUK_j7guSEAAAE7C1r01_3s"/>
                 <item uuid="uwgK_j7g5b0AAAE7Dlr01_3s"/>
                 <item uuid="oxMK_j7g52QAAAE7Al_01_3s"/>
@@ -5186,7 +5228,14 @@
                 <item uuid="z0cK_j7g03QAAAE7lVr01_2T"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.228-06:00" name="country-previous-next" uuid="aJ4K_j7g44IAAAE7K4701_ye">
+        <item name="live at" uuid="d6PAqFYB8fMAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="nbfAqFYBq4oAAAFBH10luno8"/>
+                <item uuid="mXvAqFYB8egAAAFBIF0luno8"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.714-06:00" name="country-previous-next" uuid="aJ4K_j7g44IAAAE7K4701_ye">
             <properties>
                 <item value="c9MK.GJAIDgAAAEulzzPKEP2" key="EndUUID"/>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
@@ -5212,18 +5261,18 @@
             </properties>
             <connected/>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="Coin photo" uuid="8D_BwcI0I5EAAAEqQ6FDRaSh">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="8D_BwcI0I5EAAAEqQ6FDRaSh">
             <properties>
                 <item value="KUjBwcI0P_0AAAEqMqFDRaSh" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="0tkK_j7gIwAAAAE8SRn01wCL"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="TFgK_j7gR2sAAAE8iAr01wCL"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.228-06:00" name="country-previous-next" uuid="FRIK_j7gg48AAAE74jv01_ye">
+        <item lastModifiedDate="2013-10-02T11:34:38.714-06:00" name="country-previous-next" uuid="FRIK_j7gg48AAAE74jv01_ye">
             <properties>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
                 <item value="o1J_AAEBzuYAAAEjAD9ucexC" key="StartUUID"/>
@@ -5243,20 +5292,20 @@
                 <item uuid="Y2gK.GJA4MwAAAEt1nvwgItQ"/>
             </connected>
         </item>
-        <item name="Ancient India" uuid="oLAK_j7g2RUAAAExLqBhTtaY">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="8DsK_j7gPDoAAAE7wMv01_ye"/>
-            </connected>
-        </item>
         <item name="Al-Andalus (711 - 1492)" uuid="SzIK.GJAx9AAAAEv1hlXVium">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="oV0K_j7gQLIAAAE7UYH01_ye"/>
+            </connected>
+        </item>
+        <item name="Ancient India" uuid="oLAK_j7g2RUAAAExLqBhTtaY">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="8DsK_j7gPDoAAAE7wMv01_ye"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="leUK_j7g1tIAAAE7kKb01_ye">
@@ -5269,9 +5318,12 @@
                 <item uuid="w4XBwcI0D6YAAAEpKDwFQRf_"/>
             </connected>
         </item>
-        <item name="interested in" uuid="PKPAqFYB0v0AAAFBnPPcT3DG">
+        <item name="study at" uuid="WOjAqFYB8f4AAAFBIF0luno8">
             <properties/>
-            <connected/>
+            <connected>
+                <item uuid="sVTAqFYB8e8AAAFBIF0luno8"/>
+                <item uuid="PVLAqFYB8ecAAAFBIF0luno8"/>
+            </connected>
         </item>
         <item name="country-previous-next" uuid="GwsK_j7gbNoAAAE77t701_ye">
             <properties>
@@ -5283,14 +5335,11 @@
                 <item uuid="UhbBwcI00UkAAAEniD7f8pBz"/>
             </connected>
         </item>
-        <item name="country-parent-child" uuid="9I0K_j7gGxcAAAE7Os_01_ye">
-            <properties>
-                <item value="y3HBwcI0uiAAAAEqB016dNj2" key="EndUUID"/>
-                <item value="P0p_AAEBrLQAAAEjA.9ucewv" key="StartUUID"/>
-            </properties>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coins" uuid="ovjAqFYB8fAAAAFBIF0luno8">
+            <properties/>
             <connected>
-                <item uuid="y3HBwcI0uiAAAAEqB016dNj2"/>
-                <item uuid="P0p_AAEBrLQAAAEjA.9ucewv"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
+                <item uuid="kNvAqFYB8gAAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="H94K_j7gI6kAAAE7yx_01_ye">
@@ -5301,6 +5350,16 @@
             <connected>
                 <item uuid="o2V_AAEBoE0AAAEjVHtucewv"/>
                 <item uuid="KtsK.GJAb.kAAAEtqqi372ey"/>
+            </connected>
+        </item>
+        <item name="country-parent-child" uuid="9I0K_j7gGxcAAAE7Os_01_ye">
+            <properties>
+                <item value="y3HBwcI0uiAAAAEqB016dNj2" key="EndUUID"/>
+                <item value="P0p_AAEBrLQAAAEjA.9ucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="y3HBwcI0uiAAAAEqB016dNj2"/>
+                <item uuid="P0p_AAEBrLQAAAEjA.9ucewv"/>
             </connected>
         </item>
         <item name="user-contributed-to-coin-definition" uuid="z0cK_j7g03QAAAE7lVr01_2T">
@@ -5322,12 +5381,6 @@
                 <item uuid="Pa4K_j7gAsIAAAE8H8301wEJ"/>
             </connected>
         </item>
-        <item name="Saint Lucia" uuid="KuQK_j7grmkAAAE04_eyPIAP">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
         <item name="Kingdom of Romania (1881-1947)" uuid="ihDBwcI0ecEAAAEo6LhK1_Os">
             <properties>
                 <item value="JUTBwcI0nyAAAAEoVqpK1_Oz" key="CHN_IMG_ID"/>
@@ -5339,61 +5392,30 @@
                 <item uuid="Ns4K_j7gBAIAAAE7Ilv01_ye"/>
             </connected>
         </item>
+        <item name="Saint Lucia" uuid="KuQK_j7grmkAAAE04_eyPIAP">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="French Guiana" uuid="6iV_AAEBwD8AAAEjmN5ucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="ai7AqFYBzHMAAAFBR_bcT3DG" uuid="ai7AqFYBzHMAAAFBR_bcT3DG">
+        <item name="work at" uuid="azLAqFYB8foAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="1gXAqFYB8ewAAAFBIF0luno8"/>
+            </connected>
+        </item>
+        <item name="Perak" uuid="juAK_j7guFUAAAExx2D14HDR">
             <properties>
-                <item value="coins John interested in" key="desc"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="B_Z_AAEBWpoAAAEj8a5ucewv"/>
-                <item uuid="vkEK.GJAqjEAAAEvo6ZNbZcw"/>
-                <item uuid="BQLAqFYB0u0AAAFBnPPcT3DG"/>
-                <item uuid="FCYK.GJAIVwAAAEwH5Ny4bY7"/>
-                <item uuid="TqbBwcI0dzQAAAEm3R86TOhE"/>
-                <item uuid="U2J_AAEBGgIAAAEjZaRucew1"/>
-                <item uuid="dGDBwcI05B8AAAEmzSI6TOhE"/>
-                <item uuid="31LBwcI0ZRkAAAEqY2TXZwEJ"/>
-                <item uuid="jTV_AAEBVxkAAAEjL8Fucewv"/>
-                <item uuid="T0B_AAEBrJQAAAEl4N3sOnUF"/>
-                <item uuid="WNfBwcI0j4IAAAEmMlxKQNy6"/>
-                <item uuid="5SV_AAEBQ4UAAAEjNJZucewv"/>
-                <item uuid="8D_BwcI0I5EAAAEqQ6FDRaSh"/>
-                <item uuid="z33AqFYBNfwAAAFBmvPcT3DG"/>
-                <item uuid="01HBwcI0GGcAAAEmerM6TOhE"/>
-                <item uuid="E05_AAEBof0AAAEj81Bucew1"/>
-                <item uuid="FX4K_j7gkwIAAAE2S5EKqVrb"/>
-                <item uuid="Xqh_AAEBSwAAAAEju_rAPfNS"/>
-                <item uuid="qk7BwcI0r7kAAAEqRY_XZwB7"/>
-                <item uuid="Cv7BwcI0aqkAAAEm2B86TOhE"/>
-                <item uuid="gybBwcI0zsAAAAEqzhTXZwEW"/>
-                <item uuid="1MR_AAEBUpwAAAEj.rduceww"/>
-                <item uuid="JUbBwcI09a4AAAEozJMYEDvs"/>
-                <item uuid="GALBwcI0wJUAAAEqtehDRaVa"/>
-                <item uuid="aQjBwcI0_G8AAAEmuCo6TOhE"/>
-                <item uuid="SZHBwcI0W68AAAEmhxs6TOhE"/>
-                <item uuid="1wjBwcI01NkAAAEqNkZDRaTW"/>
-                <item uuid="9X9_AAEB_yEAAAEjpI5ucewv"/>
-                <item uuid="p2R_AAEBwuMAAAElAOJMTtxW"/>
-                <item uuid="NVwK.GJAOFQAAAEvLwxXVkos"/>
-                <item uuid="gffBwcI0k90AAAEnrEsQY_Ex"/>
-                <item uuid="Q_l_AAEBa9sAAAEjK7tucewv"/>
-                <item uuid="vXl_AAEBwGcAAAEjDI5ucew1"/>
-                <item uuid="SEIK.GJA5hEAAAEv6becYZFo"/>
-                <item uuid="AKF_AAEBX08AAAEjM_lucewv"/>
-                <item uuid="n1jBwcI0m8cAAAEmIVBKQNy6"/>
-                <item uuid="rv8K.GJAHvwAAAEvECmcYVXs"/>
-                <item uuid="5_YK.GJA6wQAAAEwHOWw5kU1"/>
-                <item uuid="4AsK_j7gexIAAAE2xiIXRJu8"/>
-                <item uuid="MHN_AAEB6N8AAAElI4A8vl9L"/>
-                <item uuid="6rHBwcI0vSkAAAEmeHo6TOhE"/>
-                <item uuid="kHR_AAEBEu8AAAEl0tU8vl88"/>
-                <item uuid="pf4K.GJAft8AAAEvJMycYY3b"/>
-                <item uuid=".c_BwcI0wmEAAAEmAME6TOhI"/>
+                <item uuid="CVQK_j7g2WcAAAE7Wyb01_ye"/>
             </connected>
         </item>
         <item name="user-contributed-to-coin-definition" uuid="M0UK_j7gS34AAAE7hkT01_7H">
@@ -5403,14 +5425,6 @@
             </properties>
             <connected>
                 <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
-            </connected>
-        </item>
-        <item name="Perak" uuid="juAK_j7guFUAAAExx2D14HDR">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="CVQK_j7g2WcAAAE7Wyb01_ye"/>
             </connected>
         </item>
         <item name="Гвинея,Республика" uuid="dmjBwcI0SigAAAErO0v4oWZB">
@@ -5471,7 +5485,7 @@
             </properties>
             <connected/>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="1 Ruble Group" uuid="B_Z_AAEBWpoAAAEj8a5ucewv">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Ruble Group" uuid="B_Z_AAEBWpoAAAEj8a5ucewv">
             <properties>
                 <item value="r6jBwcI0F1wAAAEoUz37lK.U" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
@@ -5486,9 +5500,9 @@
                 <item uuid="iwQK_j7g6LYAAAE7CFn01_2T"/>
                 <item uuid="vo4K_j7gK_UAAAE7Gur01_8Y"/>
                 <item uuid="U3MK_j7gncMAAAE7VFj01_8F"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
                 <item uuid="4MsK_j7g6LUAAAE7CFn01_2T"/>
                 <item uuid="GU0K_j7gB0wAAAE77DH01_8Y"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="JeAK_j7gswIAAAE7pVn01_2T"/>
                 <item uuid="04oK_j7g6YMAAAE7hVr01_2T"/>
                 <item uuid="IoQK_j7gssQAAAE7Lln01_2T"/>
@@ -5571,17 +5585,17 @@
                 <item uuid="Frl_AAEBJ.gAAAEjTe5ucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="10 Ruble Group" uuid="1MR_AAEBUpwAAAEj.rduceww">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="10 Ruble Group" uuid="1MR_AAEBUpwAAAEj.rduceww">
             <properties>
                 <item value="ETt_AAEBCesAAAElxjSJ4JPW" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="IvIK_j7gSm0AAAE7URD01_yg"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.229-06:00" name="Крымское ханство (1441 - 1783)" uuid=".i7BwcI0sU8AAAErcjZp2tVY">
+        <item lastModifiedDate="2013-10-02T11:34:38.715-06:00" name="Крымское ханство (1441 - 1783)" uuid=".i7BwcI0sU8AAAErcjZp2tVY">
             <properties>
                 <item value="oIgK.GJAFp0AAAEt_8B60pUs" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -5592,11 +5606,11 @@
                 <item uuid="PxoK_j7gxzMAAAE7ujv01_ye"/>
             </connected>
         </item>
-        <item name="Ethiopia" uuid="9Wl_AAEBMjsAAAEjNd1ucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
+        <item name="friends" uuid="jcbAqFYB8fgAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="O9LAqFYB8esAAAFBIF0luno8"/>
+            </connected>
         </item>
         <item name="Saint Helena (1981 - )" uuid="pmh_AAEBXuIAAAEjg_Bucewv">
             <properties>
@@ -5606,6 +5620,12 @@
             <connected>
                 <item uuid="fCoK_j7gdnAAAAE7WS301_ye"/>
             </connected>
+        </item>
+        <item name="Ethiopia" uuid="9Wl_AAEBMjsAAAEjNd1ucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
         </item>
         <item name="Namibia" uuid="mPJ_AAEBiwMAAAEj.Opucewv">
             <properties>
@@ -5640,6 +5660,13 @@
                 <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
             </connected>
         </item>
+        <item name="work at" uuid="6czAqFYB8fwAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="1gXAqFYB8ewAAAFBIF0luno8"/>
+                <item uuid="eZTAqFYB8eoAAAFBIF0luno8"/>
+            </connected>
+        </item>
         <item name="country-previous-next" uuid="2VgK_j7gfmIAAAE7rID01_ye">
             <properties>
                 <item value="73AK.GJA5LYAAAEuYUC1LgaD" key="EndUUID"/>
@@ -5670,16 +5697,6 @@
                 <item uuid="73AK.GJA5LYAAAEuYUC1LgaD"/>
             </connected>
         </item>
-        <item name="country-previous-next" uuid="v9AK_j7gauIAAAE7xJX01_ye">
-            <properties>
-                <item value="d61_AAEBbUoAAAEj0uJucewv" key="EndUUID"/>
-                <item value="rY9_AAEBG9MAAAEjmF9ucew1" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="rY9_AAEBG9MAAAEjmF9ucew1"/>
-                <item uuid="d61_AAEBbUoAAAEj0uJucewv"/>
-            </connected>
-        </item>
         <item name="Numidia (202BC - 46BC)" uuid="9ZLBwcI0jugAAAEoBwzZY4vl">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -5688,14 +5705,14 @@
                 <item uuid="StcK_j7gZBUAAAE7_Bf01_ye"/>
             </connected>
         </item>
-        <item name="country-previous-next" uuid="Q7sK_j7g_hEAAAE7ZG701_ye">
+        <item name="country-previous-next" uuid="v9AK_j7gauIAAAE7xJX01_ye">
             <properties>
-                <item value="1CPBwcI0KZ0AAAErRXj4oVhb" key="EndUUID"/>
-                <item value="41jBwcI02C8AAAErxXT4oVwU" key="StartUUID"/>
+                <item value="d61_AAEBbUoAAAEj0uJucewv" key="EndUUID"/>
+                <item value="rY9_AAEBG9MAAAEjmF9ucew1" key="StartUUID"/>
             </properties>
             <connected>
-                <item uuid="1CPBwcI0KZ0AAAErRXj4oVhb"/>
-                <item uuid="41jBwcI02C8AAAErxXT4oVwU"/>
+                <item uuid="rY9_AAEBG9MAAAEjmF9ucew1"/>
+                <item uuid="d61_AAEBbUoAAAEj0uJucewv"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="ENsK_j7gZMYAAAE7W3j01_ye">
@@ -5708,14 +5725,24 @@
                 <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="4AsK_j7gexIAAAE2xiIXRJu8">
+        <item name="country-previous-next" uuid="Q7sK_j7g_hEAAAE7ZG701_ye">
+            <properties>
+                <item value="1CPBwcI0KZ0AAAErRXj4oVhb" key="EndUUID"/>
+                <item value="41jBwcI02C8AAAErxXT4oVwU" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="1CPBwcI0KZ0AAAErRXj4oVhb"/>
+                <item uuid="41jBwcI02C8AAAErxXT4oVwU"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="4AsK_j7gexIAAAE2xiIXRJu8">
             <properties>
                 <item value="1QkK_j7gzz4AAAE2hCQXRJu8" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="U3MK_j7gncMAAAE7VFj01_8F"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Apollonia (Illyria)" uuid="VmbBwcI0tfIAAAEnFZ17cIod">
@@ -5754,6 +5781,12 @@
                 <item uuid="AmYK_j7gDzAAAAE7qMr01_ye"/>
             </connected>
         </item>
+        <item name="Cocos (Keeling) Islands" uuid="ymp_AAEB0ZwAAAEjvthucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="country-parent-child" uuid="8DsK_j7gPDoAAAE7wMv01_ye">
             <properties>
                 <item value="PuoK_j7gelIAAAE5DFauUkIE" key="EndUUID"/>
@@ -5764,27 +5797,11 @@
                 <item uuid="PuoK_j7gelIAAAE5DFauUkIE"/>
             </connected>
         </item>
-        <item name="Cocos (Keeling) Islands" uuid="ymp_AAEB0ZwAAAEjvthucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
         <item name="Kiribati" uuid="PqZ_AAEBmW8AAAEjwuRucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
-        </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="Coin photo" uuid="31LBwcI0ZRkAAAEqY2TXZwEJ">
-            <properties>
-                <item value="M.PBwcI0KBMAAAEqUGTXZwEJ" key="CHN_IMG_ID"/>
-                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
-                <item uuid="7BUK_j7g_OEAAAE8MCr01wCn"/>
-            </connected>
         </item>
         <item name="country-previous-next" uuid="F3EK_j7gyTgAAAE7rFP01_ye">
             <properties>
@@ -5796,11 +5813,14 @@
                 <item uuid="xbPBwcI01JkAAAEnkDLf8pB4"/>
             </connected>
         </item>
-        <item name="study at" uuid="ACfAqFYB0vsAAAFBnPPcT3DG">
-            <properties/>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="31LBwcI0ZRkAAAEqY2TXZwEJ">
+            <properties>
+                <item value="M.PBwcI0KBMAAAEqUGTXZwEJ" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
+            </properties>
             <connected>
-                <item uuid="5KzAqFYB0uwAAAFBnPPcT3DG"/>
-                <item uuid="IG3AqFYB0uQAAAFBnPPcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
+                <item uuid="7BUK_j7g_OEAAAE8MCr01wCn"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="Ns4K_j7gBAIAAAE7Ilv01_ye">
@@ -5850,7 +5870,13 @@
                 <item uuid="oiEK_j7gzfoAAAE7xsX01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.230-06:00" name="Second Polish Republic (1918 - 1939)" uuid="c9MK.GJAIDgAAAEulzzPKEP2">
+        <item name="Vanuatu" uuid="LRF_AAEBDlwAAAEj3vVucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.716-06:00" name="Second Polish Republic (1918 - 1939)" uuid="c9MK.GJAIDgAAAEulzzPKEP2">
             <properties>
                 <item value="zbwK.GJAEDUAAAEuVzHPKEP5" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -5865,12 +5891,6 @@
                 <item uuid="aJ4K_j7g44IAAAE7K4701_ye"/>
                 <item uuid="4u4K_j7gqasAAAE7OEX01_ye"/>
             </connected>
-        </item>
-        <item name="Vanuatu" uuid="LRF_AAEBDlwAAAEj3vVucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="country-previous-next" uuid="i4EK_j7gFIkAAAE79q701_ye">
             <properties>
@@ -5888,6 +5908,12 @@
             </properties>
             <connected/>
         </item>
+        <item name="Marshall Islands" uuid="xCx_AAEBjhsAAAEjo.hucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="user-contributed-to-coin-definition" uuid="t0sK_j7g7pgAAAE7E1v01_2T">
             <properties>
                 <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
@@ -5896,12 +5922,6 @@
             <connected>
                 <item uuid="TgJ_AAEBApAAAAEluFmqTkXP"/>
             </connected>
-        </item>
-        <item name="Marshall Islands" uuid="xCx_AAEBjhsAAAEjo.hucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="country-previous-next" uuid="3PEK_j7gi2MAAAE7Skz01_ye">
             <properties>
@@ -5913,13 +5933,13 @@
                 <item uuid="wg9_AAEB6QQAAAEj6ZtucexE"/>
             </connected>
         </item>
-        <item name="Finland (1150 - 1809)" uuid="l5MK_j7gSeQAAAEzaib5lul7">
+        <item name="French Polynesia" uuid="0Z1_AAEBnooAAAEjEu1ucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
         </item>
-        <item name="French Polynesia" uuid="0Z1_AAEBnooAAAEjEu1ucewv">
+        <item name="Finland (1150 - 1809)" uuid="l5MK_j7gSeQAAAEzaib5lul7">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
@@ -5935,12 +5955,6 @@
                 <item uuid="mRB_AAEB.OYAAAEjKdxucewv"/>
             </connected>
         </item>
-        <item name="Dominica" uuid="bOh_AAEBlOwAAAEj3ttucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
         <item name="Vichy France (1940-1944)" uuid="x.HBwcI0t7cAAAEq3wN6dM5N">
             <properties>
                 <item value="XdbBwcI0xjQAAAEr7lz4oVjw" key="CHN_IMG_ID"/>
@@ -5952,13 +5966,11 @@
                 <item uuid="nzEK_j7gWG4AAAE7yMj01_ye"/>
             </connected>
         </item>
-        <item name="Cook Islands" uuid="889_AAEBVgMAAAEjq9lucewv">
+        <item name="Dominica" uuid="bOh_AAEBlOwAAAEj3ttucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
-            <connected>
-                <item uuid="MeYK_j7giRMAAAE7KFr01_ye"/>
-            </connected>
+            <connected/>
         </item>
         <item name="Palau" uuid="m_R_AAEB6iQAAAEjeO5ucewv">
             <properties>
@@ -5966,14 +5978,12 @@
             </properties>
             <connected/>
         </item>
-        <item name="country-parent-child" uuid="MYsK_j7gZAAAAAE7mh_01_ye">
+        <item name="Cook Islands" uuid="889_AAEBVgMAAAEjq9lucewv">
             <properties>
-                <item value="0RMK.GJAUgAAAAEtRljOOs3w" key="EndUUID"/>
-                <item value="o2V_AAEBoE0AAAEjVHtucewv" key="StartUUID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="0RMK.GJAUgAAAAEtRljOOs3w"/>
-                <item uuid="o2V_AAEBoE0AAAEjVHtucewv"/>
+                <item uuid="MeYK_j7giRMAAAE7KFr01_ye"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="1pgK_j7gm_gAAAE7ngL01_ye">
@@ -5984,6 +5994,16 @@
             <connected>
                 <item uuid="4jx_AAEBULUAAAElO2s8vl9E"/>
                 <item uuid="gk4K.GJAOhoAAAEtVhHJPsia"/>
+            </connected>
+        </item>
+        <item name="country-parent-child" uuid="MYsK_j7gZAAAAAE7mh_01_ye">
+            <properties>
+                <item value="0RMK.GJAUgAAAAEtRljOOs3w" key="EndUUID"/>
+                <item value="o2V_AAEBoE0AAAEjVHtucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="0RMK.GJAUgAAAAEtRljOOs3w"/>
+                <item uuid="o2V_AAEBoE0AAAEjVHtucewv"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="VyoK_j7gUuQAAAE7kqn01_ye">
@@ -6050,16 +6070,6 @@
                 <item uuid="PjAK.GJAPDwAAAEtRLG372X0"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.230-06:00" name="Russian Soviet Federative Socialist Republic  (1917-1922)" uuid="Vax_AAEBjgIAAAEljqneJiFE">
-            <properties>
-                <item value="E63BwcI0ij0AAAEsTXHzaoJl" key="CHN_IMG_ID"/>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="StEK_j7gn3wAAAE7ZtD01_ye"/>
-                <item uuid="dEsK_j7gylEAAAE7yUb01_ye"/>
-            </connected>
-        </item>
         <item name="country-previous-next" uuid="G5cK_j7g7rcAAAE7UM301_ye">
             <properties>
                 <item value="oQrBwcI0hwEAAAEnsA7f8pBg" key="EndUUID"/>
@@ -6070,15 +6080,19 @@
                 <item uuid="xbPBwcI01JkAAAEnkDLf8pB4"/>
             </connected>
         </item>
-        <item name="coin-belong-to-coin-definition" uuid="8wgK_j7gEa0AAAE84ZH01wAu">
+        <item lastModifiedDate="2013-10-02T11:34:38.716-06:00" name="Russian Soviet Federative Socialist Republic  (1917-1922)" uuid="Vax_AAEBjgIAAAEljqneJiFE">
             <properties>
-                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
-                <item value="1wjBwcI01NkAAAEqNkZDRaTW" key="StartUUID"/>
+                <item value="E63BwcI0ij0AAAEsTXHzaoJl" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
-            <connected/>
+            <connected>
+                <item uuid="StEK_j7gn3wAAAE7ZtD01_ye"/>
+                <item uuid="dEsK_j7gylEAAAE7yUb01_ye"/>
+            </connected>
         </item>
-        <item name="Tunisia" uuid="ZXd_AAEBeV4AAAEjR_Nucewv">
+        <item name="South Korea" uuid="l7vBwcI0UyUAAAEr429bGgI.">
             <properties>
+                <item value="vBDBwcI03ncAAAErX0hbGgI_" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
@@ -6092,32 +6106,18 @@
                 <item uuid="0kAK_j7gCNEAAAE7cLz01_ye"/>
             </connected>
         </item>
-        <item name="South Korea" uuid="l7vBwcI0UyUAAAEr429bGgI.">
+        <item name="Tunisia" uuid="ZXd_AAEBeV4AAAEjR_Nucewv">
             <properties>
-                <item value="vBDBwcI03ncAAAErX0hbGgI_" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
         </item>
-        <item name="HP Company" uuid="aVPAqFYB0ukAAAFBnPPcT3DG">
+        <item name="coin-belong-to-coin-definition" uuid="8wgK_j7gEa0AAAE84ZH01wAu">
             <properties>
-                <item value="USA, Idaho, Boise" key="address"/>
+                <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="EndUUID"/>
+                <item value="1wjBwcI01NkAAAEqNkZDRaTW" key="StartUUID"/>
             </properties>
-            <connected>
-                <item uuid="mCHAqFYB0vwAAAFBnPPcT3DG"/>
-                <item uuid="fLjAqFYB0vkAAAFBnPPcT3DG"/>
-                <item uuid="G2rAqFYB0vcAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
-        <item name="Mike" uuid="zODAqFYB0uYAAAFBnPPcT3DG">
-            <properties>
-                <item value="Mike" key="first_name"/>
-                <item value="Johnson" key="last_name"/>
-            </properties>
-            <connected>
-                <item uuid="J7TAqFYB0vMAAAFBnPPcT3DG"/>
-                <item uuid="mCHAqFYB0vwAAAFBnPPcT3DG"/>
-            </connected>
+            <connected/>
         </item>
         <item name="Dutch Malacca (1641 - 1824)" uuid="9D4K.GJAlHYAAAEtepLwgI7Z">
             <properties>
@@ -6140,13 +6140,13 @@
                 <item uuid="1gTBwcI09BEAAAEq_jxD96jg"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Denarius Group" uuid="aQjBwcI0_G8AAAEmuCo6TOhE">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Denarius Group" uuid="aQjBwcI0_G8AAAEmuCo6TOhE">
             <properties>
                 <item value="DjbBwcI0q5gAAAEmpSo6TOhE" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="TI0K_j7gbsoAAAE7lkD01_yr"/>
             </connected>
         </item>
@@ -6193,13 +6193,6 @@
                 <item uuid="d1gK_j7gYycAAAE7gJ701_ye"/>
             </connected>
         </item>
-        <item name="live at" uuid="Uf_AqFYB0vAAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="KOfAqFYB0uUAAAFBnPPcT3DG"/>
-                <item uuid="honAqFYBNfsAAAFBmvPcT3DG"/>
-            </connected>
-        </item>
         <item name="Germany" uuid="x_R_AAEB2tkAAAEjZttucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -6229,6 +6222,12 @@
                 <item uuid="8YUK_j7gkH8AAAE7hsT01_ye"/>
             </connected>
         </item>
+        <item name="Serbia" uuid="8Dx_AAEB2sYAAAEjJu9ucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="Federation of Malaya (1948 - 1963)" uuid="s58K.GJARwoAAAEtdPjwgI35">
             <properties>
                 <item value="SPwK.GJA5n0AAAEtHQ3wgI38" key="CHN_IMG_ID"/>
@@ -6240,19 +6239,13 @@
                 <item uuid="vdYK_j7gi3EAAAE7aHn01_ye"/>
             </connected>
         </item>
-        <item name="Serbia" uuid="8Dx_AAEB2sYAAAEjJu9ucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Denarius Group" uuid="6rHBwcI0vSkAAAEmeHo6TOhE">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Denarius Group" uuid="6rHBwcI0vSkAAAEmeHo6TOhE">
             <properties>
                 <item value="447BwcI0.tkAAAEmZno6TOhE" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="SUcK_j7gRjEAAAE7Hxr01_yp"/>
             </connected>
         </item>
@@ -6274,17 +6267,6 @@
                 <item uuid="Z61_AAEBZP0AAAEjWdVucewv"/>
             </connected>
         </item>
-        <item name="gcoins" uuid="YQXBwcI0jsoAAAEq1cRDRaSN">
-            <properties>
-                <item value="bQnBwcI09xwAAAEqP.tDRaSY" key="CHN_IMG_ID"/>
-                <item value="USER" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="tDUK_j7gW4AAAAE7GCz01__I"/>
-                <item uuid="0tkK_j7gIwAAAAE8SRn01wCL"/>
-                <item uuid="0CEK_j7g76QAAAE80pr01wAu"/>
-            </connected>
-        </item>
         <item name="States of Germany" uuid="Tc_BwcI0734AAAEpXFYFQReL">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -6294,23 +6276,15 @@
                 <item uuid="zIMK_j7gq2IAAAE7lD701_ye"/>
             </connected>
         </item>
-        <item name="country-previous-next" uuid="a7sK_j7g75IAAAE7zkr01_ye">
+        <item name="gcoins" uuid="YQXBwcI0jsoAAAEq1cRDRaSN">
             <properties>
-                <item value="w4XBwcI0D6YAAAEpKDwFQRf_" key="EndUUID"/>
-                <item value="3r0K.GJAF.sAAAEuQKEFioBw" key="StartUUID"/>
+                <item value="bQnBwcI09xwAAAEqP.tDRaSY" key="CHN_IMG_ID"/>
+                <item value="USER" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="w4XBwcI0D6YAAAEpKDwFQRf_"/>
-            </connected>
-        </item>
-        <item name="country-parent-child" uuid="qsoK_j7gaR8AAAE7kHn01_ye">
-            <properties>
-                <item value="mPvBwcI0n4UAAAErod5jEBux" key="EndUUID"/>
-                <item value="5jUK.GJABdcAAAEtGMG371bw" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="mPvBwcI0n4UAAAErod5jEBux"/>
-                <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
+                <item uuid="tDUK_j7gW4AAAAE7GCz01__I"/>
+                <item uuid="0tkK_j7gIwAAAAE8SRn01wCL"/>
+                <item uuid="0CEK_j7g76QAAAE80pr01wAu"/>
             </connected>
         </item>
         <item name="West Germany (1949-1990)" uuid="Q8J_AAEBhIsAAAEjBnpucew4">
@@ -6324,11 +6298,23 @@
                 <item uuid="tUIK_j7gcbMAAAE7PFf01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="Coins" uuid="BQLAqFYB0u0AAAFBnPPcT3DG">
-            <properties/>
+        <item name="country-parent-child" uuid="qsoK_j7gaR8AAAE7kHn01_ye">
+            <properties>
+                <item value="mPvBwcI0n4UAAAErod5jEBux" key="EndUUID"/>
+                <item value="5jUK.GJABdcAAAEtGMG371bw" key="StartUUID"/>
+            </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
-                <item uuid="PKPAqFYB0v0AAAFBnPPcT3DG"/>
+                <item uuid="mPvBwcI0n4UAAAErod5jEBux"/>
+                <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
+            </connected>
+        </item>
+        <item name="country-previous-next" uuid="a7sK_j7g75IAAAE7zkr01_ye">
+            <properties>
+                <item value="w4XBwcI0D6YAAAEpKDwFQRf_" key="EndUUID"/>
+                <item value="3r0K.GJAF.sAAAEuQKEFioBw" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="w4XBwcI0D6YAAAEpKDwFQRf_"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="FIcK_j7gRycAAAE7Mpv01_ye">
@@ -6341,15 +6327,15 @@
                 <item uuid="iQ3BwcI0RA0AAAEpa8oFQTaJ"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="1 Denarius Group" uuid="dGDBwcI05B8AAAEmzSI6TOhE">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Denarius Group" uuid="dGDBwcI05B8AAAEmzSI6TOhE">
             <properties>
                 <item value="EnrBwcI0Ze8AAAEmuCI6TOhE" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="qYIK_j7gFqYAAAE7EEX01_yg"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
                 <item uuid="ERIK_j7geoAAAAE7nEX01_yg"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="GmQK_j7g9DgAAAE73kT01_yg"/>
             </connected>
         </item>
@@ -6375,6 +6361,17 @@
             </properties>
             <connected>
                 <item uuid="oKYK_j7gDDQAAAE77G301_ye"/>
+            </connected>
+        </item>
+        <item name="House" uuid="nbfAqFYBq4oAAAFBH10luno8">
+            <properties>
+                <item value="..." key="address"/>
+                <item value="..." key="size"/>
+            </properties>
+            <connected>
+                <item uuid="0Y7AqFYB8fIAAAFBIF0luno8"/>
+                <item uuid="Dt3AqFYB8fEAAAFBIF0luno8"/>
+                <item uuid="d6PAqFYB8fMAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="CZQK_j7gJ88AAAE77Ib01_ye">
@@ -6496,16 +6493,6 @@
                 <item uuid="q.Z_AAEBMIsAAAEjc95ucewv"/>
             </connected>
         </item>
-        <item name="country-parent-child" uuid="peAK_j7gmvQAAAE7_tj01_ye">
-            <properties>
-                <item value="Zw0K_j7gUbQAAAExV.VhTub1" key="EndUUID"/>
-                <item value="q.Z_AAEBMIsAAAEjc95ucewv" key="StartUUID"/>
-            </properties>
-            <connected>
-                <item uuid="Zw0K_j7gUbQAAAExV.VhTub1"/>
-                <item uuid="q.Z_AAEBMIsAAAEjc95ucewv"/>
-            </connected>
-        </item>
         <item name="country-parent-child" uuid="00UK_j7gw3YAAAE7u3j01_ye">
             <properties>
                 <item value="_.HBwcI0qbgAAAErBg91A7u2" key="EndUUID"/>
@@ -6514,6 +6501,16 @@
             <connected>
                 <item uuid="_.HBwcI0qbgAAAErBg91A7u2"/>
                 <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
+            </connected>
+        </item>
+        <item name="country-parent-child" uuid="peAK_j7gmvQAAAE7_tj01_ye">
+            <properties>
+                <item value="Zw0K_j7gUbQAAAExV.VhTub1" key="EndUUID"/>
+                <item value="q.Z_AAEBMIsAAAEjc95ucewv" key="StartUUID"/>
+            </properties>
+            <connected>
+                <item uuid="Zw0K_j7gUbQAAAExV.VhTub1"/>
+                <item uuid="q.Z_AAEBMIsAAAEjc95ucewv"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="dD0K_j7gvegAAAE7XDD01_ye">
@@ -6588,7 +6585,7 @@
                 <item uuid="uGp_AAEBgdMAAAEj0H1ucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.232-06:00" name="country-parent-child" uuid="TbEK_j7grZwAAAE7mOT01_ye">
+        <item lastModifiedDate="2013-10-02T11:34:38.718-06:00" name="country-parent-child" uuid="TbEK_j7grZwAAAE7mOT01_ye">
             <properties>
                 <item value="UY0K.GJAO1EAAAEuZJy1LiWh" key="EndUUID"/>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
@@ -6610,6 +6607,15 @@
                 <item uuid="SgEK_j7gwgsAAAE7Cl_01_ye"/>
             </connected>
         </item>
+        <item name="Belgian Congo (1908-1960)" uuid="gVjBwcI0khgAAAEqzcgoKhpf">
+            <properties>
+                <item value="qJjBwcI0bbsAAAEqB5AoKhp6" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="C8MK_j7gSLsAAAE7uZ_01_ye"/>
+            </connected>
+        </item>
         <item name="country-previous-next" uuid="wbUK_j7gznkAAAE744301_ye">
             <properties>
                 <item value="c9MK.GJAIDgAAAEulzzPKEP2" key="EndUUID"/>
@@ -6620,31 +6626,12 @@
                 <item uuid="c9MK.GJAIDgAAAEulzzPKEP2"/>
             </connected>
         </item>
-        <item name="Belgian Congo (1908-1960)" uuid="gVjBwcI0khgAAAEqzcgoKhpf">
-            <properties>
-                <item value="qJjBwcI0bbsAAAEqB5AoKhp6" key="CHN_IMG_ID"/>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="C8MK_j7gSLsAAAE7uZ_01_ye"/>
-            </connected>
-        </item>
         <item name="Helen" uuid="VM5_AAEBK8gAAAElZ.mJ4JO1">
             <properties>
                 <item value="USER" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="btIK_j7gUhsAAAE7drX01_8Y"/>
-            </connected>
-        </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="qk7BwcI0r7kAAAEqRY_XZwB7">
-            <properties>
-                <item value="Ld3BwcI07ngAAAEq747XZwB7" key="CHN_IMG_ID"/>
-                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
-                <item uuid="WbgK_j7g_QwAAAE8iCz01wCn"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="I9wK_j7gv3AAAAE7qlL01_ye">
@@ -6657,13 +6644,14 @@
                 <item uuid="RR4K.GJA3qQAAAEvY6f8kqe4"/>
             </connected>
         </item>
-        <item name="coin-related-to-person" uuid="FakK_j7grKMAAAE7Gn301_1o">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="qk7BwcI0r7kAAAEqRY_XZwB7">
             <properties>
-                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
-                <item value="T0B_AAEBrJQAAAEl4N3sOnUF" key="StartUUID"/>
+                <item value="Ld3BwcI07ngAAAEq747XZwB7" key="CHN_IMG_ID"/>
+                <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
+                <item uuid="WbgK_j7g_QwAAAE8iCz01wCn"/>
             </connected>
         </item>
         <item name="Kyrgyzstan (1991 - )" uuid=".DN_AAEBjJcAAAEjwa5ucexG">
@@ -6675,12 +6663,14 @@
                 <item uuid="dQYK_j7gG0MAAAE7umj01_ye"/>
             </connected>
         </item>
-        <item name="coin-related-to-country" uuid="qfwK_j7gnOEAAAE7Ni701_yg">
+        <item name="coin-related-to-person" uuid="FakK_j7grKMAAAE7Gn301_1o">
             <properties>
-                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
-                <item value="SZHBwcI0W68AAAEmhxs6TOhE" key="StartUUID"/>
+                <item value="k0B_AAEBSgcAAAEjCHRucewv" key="EndUUID"/>
+                <item value="T0B_AAEBrJQAAAEl4N3sOnUF" key="StartUUID"/>
             </properties>
-            <connected/>
+            <connected>
+                <item uuid="k0B_AAEBSgcAAAEjCHRucewv"/>
+            </connected>
         </item>
         <item name="country-previous-next" uuid="b_MK_j7g0l8AAAE7WWb01_ye">
             <properties>
@@ -6692,9 +6682,22 @@
                 <item uuid="GPbBwcI06cAAAAEq48B6dNx6"/>
             </connected>
         </item>
+        <item name="coin-related-to-country" uuid="qfwK_j7gnOEAAAE7Ni701_yg">
+            <properties>
+                <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
+                <item value="SZHBwcI0W68AAAEmhxs6TOhE" key="StartUUID"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="Kingdom of Jerusalem (1099-1291)" uuid="CacK.GJAte8AAAEt0hu_p04d">
             <properties>
                 <item value="56EK.GJAGgMAAAEt2RVdXerd" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
+        <item name="New Caledonia" uuid="x6d_AAEBcb0AAAEjHetucewv">
+            <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
@@ -6708,12 +6711,6 @@
                 <item uuid="j2J_AAEB8asAAAEj13pucewv"/>
                 <item uuid="UhbBwcI00UkAAAEniD7f8pBz"/>
             </connected>
-        </item>
-        <item name="New Caledonia" uuid="x6d_AAEBcb0AAAEjHetucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="Liechtenstein" uuid="M6F_AAEBqssAAAEjbuZucewv">
             <properties>
@@ -6731,16 +6728,6 @@
                 <item uuid="eEx_AAEBtAoAAAElGsqJ4Hjd"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="15 Kopeck Group" uuid="Q_l_AAEBa9sAAAEjK7tucewv">
-            <properties>
-                <item value="sPt_AAEB7BgAAAEjQblucewv" key="CHN_IMG_ID"/>
-                <item value="COIN_GROUP" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
-                <item uuid="uUgK_j7g0Q8AAAE7oOr01_yf"/>
-            </connected>
-        </item>
         <item name="country-parent-child" uuid="n04K_j7gPy4AAAE7FMj01_ye">
             <properties>
                 <item value="XP_BwcI0EjMAAAEplR0FQRzG" key="EndUUID"/>
@@ -6749,6 +6736,28 @@
             <connected>
                 <item uuid="o2V_AAEBoE0AAAEjVHtucewv"/>
                 <item uuid="XP_BwcI0EjMAAAEplR0FQRzG"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="15 Kopeck Group" uuid="Q_l_AAEBa9sAAAEjK7tucewv">
+            <properties>
+                <item value="sPt_AAEB7BgAAAEjQblucewv" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
+                <item uuid="uUgK_j7g0Q8AAAE7oOr01_yf"/>
+            </connected>
+        </item>
+        <item name="Jane" uuid="mXvAqFYB8egAAAFBIF0luno8">
+            <properties>
+                <item value="Jane" key="first_name"/>
+                <item value="23" key="age"/>
+                <item value="Smith" key="last_name"/>
+            </properties>
+            <connected>
+                <item uuid="0urAqFYB8fQAAAFBIF0luno8"/>
+                <item uuid="X1HAqFYB8fsAAAFBIF0luno8"/>
+                <item uuid="d6PAqFYB8fMAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="D_4K_j7gOWwAAAE74Ar01_yf">
@@ -6761,6 +6770,12 @@
                 <item uuid="Zat_AAEBMTUAAAEjM8Jucewz"/>
             </connected>
         </item>
+        <item name="Honduras" uuid="XAZ_AAEB3IMAAAEjo.Fucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
+        </item>
         <item name="country-parent-child" uuid="91kK_j7ggsUAAAE76R_01_ye">
             <properties>
                 <item value="cxPBwcI00dYAAAEpHh0FQRzT" key="EndUUID"/>
@@ -6770,12 +6785,6 @@
                 <item uuid="cxPBwcI00dYAAAEpHh0FQRzT"/>
                 <item uuid="o2V_AAEBoE0AAAEjVHtucewv"/>
             </connected>
-        </item>
-        <item name="Honduras" uuid="XAZ_AAEB3IMAAAEjo.Fucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="Poland" uuid="Cch_AAEBgBYAAAEjnu1ucewv">
             <properties>
@@ -6802,7 +6811,7 @@
             </properties>
             <connected/>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.233-06:00" name="Finland (1809 - 1917)" uuid="5FgK_j7gC4MAAAEzvSb5lul3">
+        <item lastModifiedDate="2013-10-02T11:34:38.719-06:00" name="Finland (1809 - 1917)" uuid="5FgK_j7gC4MAAAEzvSb5lul3">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
@@ -6853,13 +6862,13 @@
                 <item uuid="paAK_j7gq1QAAAE7ejX01_ye"/>
             </connected>
         </item>
-        <item name="Bolivia" uuid="Lw5_AAEBivcAAAEjYtducewv">
+        <item name="Thailand" uuid="lSB_AAEBP6QAAAEjhvJucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
         </item>
-        <item name="Thailand" uuid="lSB_AAEBP6QAAAEjhvJucewv">
+        <item name="Bolivia" uuid="Lw5_AAEBivcAAAEjYtducewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
@@ -6885,12 +6894,13 @@
                 <item uuid="x.HBwcI0t7cAAAEq3wN6dM5N"/>
             </connected>
         </item>
-        <item name="High School" uuid="5KzAqFYB0uwAAAFBnPPcT3DG">
+        <item name="Belarus (1991 - )" uuid="951_AAEB75AAAAEjTNhucewv">
             <properties>
-                <item value="USA, Idaho, Boise, XYZ" key="address"/>
+                <item value="PoEK.GJAITwAAAEtZMW_p1Ao" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ACfAqFYB0vsAAAFBnPPcT3DG"/>
+                <item uuid="Tc8K_j7gNI4AAAE7moP01_ye"/>
             </connected>
         </item>
         <item name="Grand Duchy of Baden (1806-1918)" uuid="33wK.GJAdXQAAAEuBsu.sLEj">
@@ -6900,15 +6910,6 @@
             </properties>
             <connected>
                 <item uuid="zIMK_j7gq2IAAAE7lD701_ye"/>
-            </connected>
-        </item>
-        <item name="Belarus (1991 - )" uuid="951_AAEB75AAAAEjTNhucewv">
-            <properties>
-                <item value="PoEK.GJAITwAAAEtZMW_p1Ao" key="CHN_IMG_ID"/>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="Tc8K_j7gNI4AAAE7moP01_ye"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="MlkK_j7g9QQAAAE7Wij01_ye">
@@ -6921,18 +6922,18 @@
                 <item uuid="GcAK.GJA5hsAAAEuYv8FioJx"/>
             </connected>
         </item>
+        <item name="coin-related-to-currency" uuid="DVgK_j7gtAwAAAE7Lbz01_yo">
+            <properties/>
+            <connected>
+                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
+            </connected>
+        </item>
         <item name="coin-related-to-country" uuid="4MsK_j7g6LUAAAE7CFn01_2T">
             <properties>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="EndUUID"/>
                 <item value="B_Z_AAEBWpoAAAEj8a5ucewv" key="StartUUID"/>
             </properties>
             <connected/>
-        </item>
-        <item name="coin-related-to-currency" uuid="DVgK_j7gtAwAAAE7Lbz01_yo">
-            <properties/>
-            <connected>
-                <item uuid="spvBwcI0CO8AAAEnaA1D7z2c"/>
-            </connected>
         </item>
         <item name="Navanagar (1570 - 1850)" uuid="PuoK_j7gelIAAAE5DFauUkIE">
             <properties>
@@ -6952,23 +6953,23 @@
                 <item uuid="2OJ_AAEBKBoAAAEj.FVucew1"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="25 Kopeck Group" uuid="JUbBwcI09a4AAAEozJMYEDvs">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="25 Kopeck Group" uuid="JUbBwcI09a4AAAEozJMYEDvs">
             <properties>
                 <item value="ssEK.GJAfXUAAAEvbklXVkom" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
                 <item uuid="M0UK_j7gS34AAAE7hkT01_7H"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="1wjBwcI01NkAAAEqNkZDRaTW">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="1wjBwcI01NkAAAEqNkZDRaTW">
             <properties>
                 <item value="nv7BwcI02CAAAAEqJkZDRaTW" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="0CEK_j7g76QAAAE80pr01wAu"/>
                 <item uuid="8wgK_j7gEa0AAAE84ZH01wAu"/>
             </connected>
@@ -6983,6 +6984,14 @@
                 <item uuid="Frl_AAEBJ.gAAAEjTe5ucewv"/>
             </connected>
         </item>
+        <item name="Greco-Bactrian Kingdom (256BC-125BC)" uuid="xMPBwcI0Vb4AAAEonHkQYxXE">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="oM8K_j7gBwQAAAE7llX01_ye"/>
+            </connected>
+        </item>
         <item name="country-previous-next" uuid="vzsK_j7gDwcAAAE7HIT01_ye">
             <properties>
                 <item value="9D4K.GJAlHYAAAEtepLwgI7Z" key="EndUUID"/>
@@ -6993,37 +7002,15 @@
                 <item uuid="9D4K.GJAlHYAAAEtepLwgI7Z"/>
             </connected>
         </item>
-        <item name="Greco-Bactrian Kingdom (256BC-125BC)" uuid="xMPBwcI0Vb4AAAEonHkQYxXE">
+        <item name="Jasica" uuid="O9LAqFYB8esAAAFBIF0luno8">
             <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
+                <item value="Jasica" key="first_name"/>
             </properties>
             <connected>
-                <item uuid="oM8K_j7gBwQAAAE7llX01_ye"/>
+                <item uuid="5bHAqFYB8fkAAAFBIF0luno8"/>
+                <item uuid="jcbAqFYB8fgAAAFBIF0luno8"/>
+                <item uuid="vqfAqFYB8f0AAAFBIF0luno8"/>
             </connected>
-        </item>
-        <item name="live at" uuid="ZYXAqFYB0u4AAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="honAqFYBNfsAAAFBmvPcT3DG"/>
-                <item uuid="t1rAqFYBiN0AAAFBl_PcT3DG"/>
-            </connected>
-        </item>
-        <item name="House" uuid="honAqFYBNfsAAAFBmvPcT3DG">
-            <properties>
-                <item value="..." key="address"/>
-                <item value="..." key="size"/>
-            </properties>
-            <connected>
-                <item uuid="qTnAqFYB0u8AAAFBnPPcT3DG"/>
-                <item uuid="ZYXAqFYB0u4AAAFBnPPcT3DG"/>
-                <item uuid="Uf_AqFYB0vAAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
-        <item name="Guam" uuid="K4F_AAEB4t0AAAEj4uBucewv">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
         </item>
         <item name="Kievan Rus' (862 - 1240)" uuid="2zfBwcI02YEAAAEs.RfD8DxW">
             <properties>
@@ -7033,6 +7020,12 @@
             <connected>
                 <item uuid="paAK_j7gq1QAAAE7ejX01_ye"/>
             </connected>
+        </item>
+        <item name="Guam" uuid="K4F_AAEB4t0AAAEj4uBucewv">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
         </item>
         <item name="user-uploaded-coin" uuid="0tkK_j7gIwAAAAE8SRn01wCL">
             <properties>
@@ -7053,21 +7046,7 @@
                 <item uuid="X3gK.GJA_ZcAAAEtASLwgI7S"/>
             </connected>
         </item>
-        <item name="Dog Roger" uuid="t1rAqFYBiN0AAAFBl_PcT3DG">
-            <properties>
-                <item value="terrier" key="breed"/>
-                <item value="byte[]" key="representation.0.type"/>
-                <item value="male" key="sex"/>
-                <item value="brown" key="color"/>
-                <item value="3" key="age"/>
-                <item value="30126" key="representation.0.size"/>
-                <item value="lF_AqFYBiN4AAAFBl_PcT3DG" key="representation.0.uuid"/>
-            </properties>
-            <connected>
-                <item uuid="ZYXAqFYB0u4AAAFBnPPcT3DG"/>
-            </connected>
-        </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.233-06:00" name="Roman Empire (27BC-395)" uuid="it_BwcI065UAAAEmP0A6TPGB">
+        <item lastModifiedDate="2013-10-02T11:34:38.720-06:00" name="Roman Empire (27BC-395)" uuid="it_BwcI065UAAAEmP0A6TPGB">
             <properties>
                 <item value="ZOPBwcI0hCkAAAEoBeITYXH6" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -7079,15 +7058,6 @@
                 <item uuid="s9IK_j7gfgwAAAE7egv01_ye"/>
             </connected>
         </item>
-        <item name="Virgin Islands" uuid="axB_AAEBmp8AAAEjCO9ucew2">
-            <properties>
-                <item value="K40K.GJAdIIAAAEw..w.0YBz" key="CHN_IMG_ID"/>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="5msK_j7gFCEAAAE70Rn01_ye"/>
-            </connected>
-        </item>
         <item name="São Tomé and Príncipe (1975 - )" uuid="vAwK.GJAo38AAAEtrFcVJLRc">
             <properties>
                 <item value="Ce4K.GJART0AAAEtuioVJLRf" key="CHN_IMG_ID"/>
@@ -7095,6 +7065,15 @@
             </properties>
             <connected>
                 <item uuid="2tUK_j7gp8UAAAE7QfD01_ye"/>
+            </connected>
+        </item>
+        <item name="Virgin Islands" uuid="axB_AAEBmp8AAAEjCO9ucew2">
+            <properties>
+                <item value="K40K.GJAdIIAAAEw..w.0YBz" key="CHN_IMG_ID"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="5msK_j7gFCEAAAE70Rn01_ye"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="LlgK_j7gRNcAAAE7aqT01_ye">
@@ -7107,13 +7086,6 @@
                 <item uuid="Frl_AAEBJ.gAAAEjTe5ucewv"/>
             </connected>
         </item>
-        <item name="work at" uuid="mCHAqFYB0vwAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="aVPAqFYB0ukAAAFBnPPcT3DG"/>
-                <item uuid="zODAqFYB0uYAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
         <item name="country-previous-next" uuid="Tc8K_j7gNI4AAAE7moP01_ye">
             <properties>
                 <item value="951_AAEB75AAAAEjTNhucewv" key="EndUUID"/>
@@ -7124,7 +7096,7 @@
                 <item uuid="P9V_AAEBt6UAAAEjSnhucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.234-06:00" name="country-parent-child" uuid="NJsK_j7gwyQAAAE7fTv01_ye">
+        <item lastModifiedDate="2013-10-02T11:34:38.720-06:00" name="country-parent-child" uuid="NJsK_j7gwyQAAAE7fTv01_ye">
             <properties>
                 <item value="5FgK_j7gC4MAAAEzvSb5lul3" key="EndUUID"/>
                 <item value="sYl_AAEBUxcAAAEjoXhucewv" key="StartUUID"/>
@@ -7133,6 +7105,12 @@
                 <item uuid="sYl_AAEBUxcAAAEjoXhucewv"/>
                 <item uuid="5FgK_j7gC4MAAAEzvSb5lul3"/>
             </connected>
+        </item>
+        <item name="San Marino" uuid=".sx_AAEBgO0AAAEj1mDAPfM4">
+            <properties>
+                <item value="COUNTRY" key="CHN_TYPE"/>
+            </properties>
+            <connected/>
         </item>
         <item name="Second Hellenic Republic  (1924 - 1935)" uuid="5mwK_j7g7xMAAAEy.DtKkDXk">
             <properties>
@@ -7144,20 +7122,14 @@
                 <item uuid="dakK_j7gj4AAAAE7fEL01_ye"/>
             </connected>
         </item>
-        <item name="San Marino" uuid=".sx_AAEBgO0AAAEj1mDAPfM4">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
-            </properties>
-            <connected/>
-        </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="15 Kopeck Group" uuid="jTV_AAEBVxkAAAEjL8Fucewv">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="15 Kopeck Group" uuid="jTV_AAEBVxkAAAEjL8Fucewv">
             <properties>
                 <item value="sIh_AAEB9osAAAEjQr9ucewv" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="HMsK_j7gkGwAAAE71uv01_yf"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="UOAK_j7g_pgAAAE7UFf01_ye">
@@ -7203,14 +7175,14 @@
                 <item uuid="d61_AAEBbUoAAAEj0uJucewv"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="Coin photo" uuid="FX4K_j7gkwIAAAE2S5EKqVrb">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="Coin photo" uuid="FX4K_j7gkwIAAAE2S5EKqVrb">
             <properties>
                 <item value="pkoK_j7gMTkAAAE24JEKqVrb" key="CHN_IMG_ID"/>
                 <item value="COIN_INSTANCE" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="fZIK_j7gbfkAAAE7RFn01_8F"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="Vietnam" uuid="n_B_AAEBuHcAAAEjMnlucewv">
@@ -7222,6 +7194,16 @@
                 <item uuid="eyEK_j7g_54AAAE72B301_ye"/>
             </connected>
         </item>
+        <item name="HP Company" uuid="1gXAqFYB8ewAAAFBIF0luno8">
+            <properties>
+                <item value="USA, Idaho, Boise" key="address"/>
+            </properties>
+            <connected>
+                <item uuid="ysXAqFYB8f8AAAFBIF0luno8"/>
+                <item uuid="azLAqFYB8foAAAFBIF0luno8"/>
+                <item uuid="6czAqFYB8fwAAAFBIF0luno8"/>
+            </connected>
+        </item>
         <item name="Sweden" uuid="PiV_AAEBJtgAAAEjKvBucewv">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -7230,22 +7212,22 @@
                 <item uuid="MmoK_j7gs_EAAAE7OtT01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Penny Group" uuid="p2R_AAEBwuMAAAElAOJMTtxW">
-            <properties>
-                <item value="4Fx_AAEBfpIAAAElxkNMTtxV" key="CHN_IMG_ID"/>
-                <item value="COIN_GROUP" key="CHN_TYPE"/>
-            </properties>
-            <connected>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
-                <item uuid="FOsK_j7gpvIAAAE73W_01_6u"/>
-            </connected>
-        </item>
         <item name="Empire of Brazil (1822-1889)" uuid="uYgK.GJAV_gAAAEt_MO1Lvap">
             <properties>
                 <item value="DXgK.GJAc5MAAAEtDaW1Lvaq" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Penny Group" uuid="p2R_AAEBwuMAAAElAOJMTtxW">
+            <properties>
+                <item value="4Fx_AAEBfpIAAAElxkNMTtxV" key="CHN_IMG_ID"/>
+                <item value="COIN_GROUP" key="CHN_TYPE"/>
+            </properties>
+            <connected>
+                <item uuid="FOsK_j7gpvIAAAE73W_01_6u"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
+            </connected>
         </item>
         <item name="country-parent-child" uuid="YQUK_j7gamcAAAE79fD01_yd">
             <properties>
@@ -7257,28 +7239,16 @@
                 <item uuid="Cch_AAEBgBYAAAEjnu1ucewv"/>
             </connected>
         </item>
-        <item name="Jane" uuid="KOfAqFYB0uUAAAFBnPPcT3DG">
+        <item name="Sierra Leone" uuid="8Ed_AAEBGGcAAAEj417APfM4">
             <properties>
-                <item value="Jane" key="first_name"/>
-                <item value="23" key="age"/>
-                <item value="Smith" key="last_name"/>
+                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
-            <connected>
-                <item uuid="0N7AqFYB0vEAAAFBnPPcT3DG"/>
-                <item uuid="etLAqFYB0vgAAAFBnPPcT3DG"/>
-                <item uuid="Uf_AqFYB0vAAAAFBnPPcT3DG"/>
-            </connected>
+            <connected/>
         </item>
         <item name="coin-related-to-country" uuid="GmQK_j7g9DgAAAE73kT01_yg">
             <properties>
                 <item value="hGjBwcI0zoYAAAEmV4oNrT2Z" key="EndUUID"/>
                 <item value="dGDBwcI05B8AAAEmzSI6TOhE" key="StartUUID"/>
-            </properties>
-            <connected/>
-        </item>
-        <item name="Sierra Leone" uuid="8Ed_AAEBGGcAAAEj417APfM4">
-            <properties>
-                <item value="COUNTRY" key="CHN_TYPE"/>
             </properties>
             <connected/>
         </item>
@@ -7308,6 +7278,12 @@
             <connected>
                 <item uuid="NFTBwcI0_qQAAAErJIqtcqBh"/>
                 <item uuid="HQnBwcI0MRQAAAEo.PAlMP3_"/>
+            </connected>
+        </item>
+        <item name="brother-sister" uuid="06rAqFYB8fUAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="PVLAqFYB8ecAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="Albania" uuid="CRF_AAEB6iEAAAEjvNNucewv">
@@ -7423,27 +7399,6 @@
                 <item uuid="Sv0K_j7gdNMAAAE7k_n01_yd"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.453-06:00" name="John" uuid="z33AqFYBNfwAAAFBmvPcT3DG">
-            <properties>
-                <item value="John" key="first_name"/>
-                <item value="byte[]" key="representation.0.type"/>
-                <item value="27" key="age"/>
-                <item value="Smith" key="last_name"/>
-                <item value="28136" key="representation.0.size"/>
-                <item value="DhnAqFYBNf0AAAFBmvPcT3DG" key="representation.0.uuid"/>
-            </properties>
-            <connected>
-                <item uuid="qTnAqFYB0u8AAAFBnPPcT3DG"/>
-                <item uuid="J7TAqFYB0vMAAAFBnPPcT3DG"/>
-                <item uuid="0N7AqFYB0vEAAAFBnPPcT3DG"/>
-                <item uuid="guLAqFYB0vUAAAFBnPPcT3DG"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
-                <item uuid="XlDAqFYB0vIAAAFBnPPcT3DG"/>
-                <item uuid="oMDAqFYB0vQAAAFBnPPcT3DG"/>
-                <item uuid="PKPAqFYB0v0AAAFBnPPcT3DG"/>
-                <item uuid="G2rAqFYB0vcAAAFBnPPcT3DG"/>
-            </connected>
-        </item>
         <item name="Мозамбик,Республика" uuid="tlrBwcI0FkMAAAEr.BEjLZJh">
             <properties>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -7469,7 +7424,7 @@
                 <item uuid="xKrBwcI0iiMAAAErkavIoCRM"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Denarius Group" uuid="SZHBwcI0W68AAAEmhxs6TOhE">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Denarius Group" uuid="SZHBwcI0W68AAAEmhxs6TOhE">
             <properties>
                 <item value="lqnBwcI0JJgAAAEmZhs6TOhE" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
@@ -7477,8 +7432,22 @@
             <connected>
                 <item uuid="3UoK_j7grigAAAE7_C701_yg"/>
                 <item uuid="_7UK_j7g20EAAAE7VC701_yg"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
                 <item uuid="qfwK_j7gnOEAAAE7Ni701_yg"/>
+            </connected>
+        </item>
+        <item name="Dog Roger" uuid="EZzAqFYBsNYAAAFBHV0luno8">
+            <properties>
+                <item value="terrier" key="breed"/>
+                <item value="byte[]" key="representation.0.type"/>
+                <item value="male" key="sex"/>
+                <item value="brown" key="color"/>
+                <item value="3" key="age"/>
+                <item value="30126" key="representation.0.size"/>
+                <item value="bYjAqFYBsNcAAAFBHV0luno8" key="representation.0.uuid"/>
+            </properties>
+            <connected>
+                <item uuid="Dt3AqFYB8fEAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="g3QK_j7gyusAAAE7Ilj01_ye">
@@ -7583,6 +7552,16 @@
             </properties>
             <connected/>
         </item>
+        <item name="Mike" uuid="oNHAqFYB8ekAAAFBIF0luno8">
+            <properties>
+                <item value="Mike" key="first_name"/>
+                <item value="Johnson" key="last_name"/>
+            </properties>
+            <connected>
+                <item uuid="ysXAqFYB8f8AAAFBIF0luno8"/>
+                <item uuid="XSjAqFYB8fYAAAFBIF0luno8"/>
+            </connected>
+        </item>
         <item name="Kingdom of Greece (1832-1924)" uuid="0XIK_j7gJkUAAAEymRNKkBDc">
             <properties>
                 <item value="ZuIK_j7gkZYAAAEyOfZKkBD4" key="CHN_IMG_ID"/>
@@ -7590,6 +7569,27 @@
             </properties>
             <connected>
                 <item uuid="NxsK_j7gqn0AAAE7ztz01_yd"/>
+            </connected>
+        </item>
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="John" uuid="n1bAqFYBq4sAAAFBH10luno8">
+            <properties>
+                <item value="John" key="first_name"/>
+                <item value="byte[]" key="representation.0.type"/>
+                <item value="27" key="age"/>
+                <item value="Smith" key="last_name"/>
+                <item value="28136" key="representation.0.size"/>
+                <item value="pfrAqFYBq4wAAAFBH10luno8" key="representation.0.uuid"/>
+            </properties>
+            <connected>
+                <item uuid="0Y7AqFYB8fIAAAFBIF0luno8"/>
+                <item uuid="0urAqFYB8fQAAAFBIF0luno8"/>
+                <item uuid="azLAqFYB8foAAAFBIF0luno8"/>
+                <item uuid="XSjAqFYB8fYAAAFBIF0luno8"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
+                <item uuid="E4XAqFYB8fcAAAFBIF0luno8"/>
+                <item uuid="kNvAqFYB8gAAAAFBIF0luno8"/>
+                <item uuid="jcbAqFYB8fgAAAFBIF0luno8"/>
+                <item uuid="06rAqFYB8fUAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="Gambia" uuid="Jf5_AAEBaTAAAAEj0N9ucewv">
@@ -7764,14 +7764,14 @@
                 <item uuid="uzd_AAEBNqcAAAEj_89ucew3"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="30 Kopeck / 2 Zloty Group" uuid="pf4K.GJAft8AAAEvJMycYY3b">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="30 Kopeck / 2 Zloty Group" uuid="pf4K.GJAft8AAAEvJMycYY3b">
             <properties>
                 <item value="tnF_AAEBm3oAAAEl6XhzfAP." key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="CusK_j7gFmIAAAE7dE_01_7T"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="Ss4K_j7gN04AAAE7SFj01_ye">
@@ -7921,15 +7921,21 @@
                 <item uuid="5jUK.GJABdcAAAEtGMG371bw"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.454-06:00" name="1 Ruble Group" uuid="gffBwcI0k90AAAEnrEsQY_Ex">
+        <item lastModifiedDate="2013-10-02T11:34:38.913-06:00" name="1 Ruble Group" uuid="gffBwcI0k90AAAEnrEsQY_Ex">
             <properties>
                 <item value="wQvBwcI0uKAAAAEnio0QY_EK" key="CHN_IMG_ID"/>
                 <item value="COIN_GROUP" key="CHN_TYPE"/>
             </properties>
             <connected>
                 <item uuid="tSQK_j7gCO0AAAE7bH_01_2Y"/>
-                <item uuid="ai7AqFYBzHMAAAFBR_bcT3DG"/>
                 <item uuid="aP4K_j7gCO4AAAE7bH_01_2Y"/>
+                <item uuid="qGzAqFYB4HEAAAFBCV8luno8"/>
+            </connected>
+        </item>
+        <item name="married" uuid="0urAqFYB8fQAAAFBIF0luno8">
+            <properties/>
+            <connected>
+                <item uuid="mXvAqFYB8egAAAFBIF0luno8"/>
             </connected>
         </item>
         <item name="country-previous-next" uuid="V5YK_j7gQRkAAAE7VC701_ye">
@@ -7975,7 +7981,7 @@
             </properties>
             <connected/>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.236-06:00" name="Roman Republic (509BC-27BC)" uuid="hGjBwcI0zoYAAAEmV4oNrT2Z">
+        <item lastModifiedDate="2013-10-02T11:34:38.723-06:00" name="Roman Republic (509BC-27BC)" uuid="hGjBwcI0zoYAAAEmV4oNrT2Z">
             <properties>
                 <item value="MaQK.GJAtbcAAAEtbaq372cr" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -7984,7 +7990,7 @@
                 <item uuid="s9IK_j7gfgwAAAE7egv01_ye"/>
             </connected>
         </item>
-        <item lastModifiedDate="2013-09-30T15:29:49.236-06:00" name="Grand Duchy of Lithuania (1236 - 1791)" uuid="3r0K.GJAF.sAAAEuQKEFioBw">
+        <item lastModifiedDate="2013-10-02T11:34:38.723-06:00" name="Grand Duchy of Lithuania (1236 - 1791)" uuid="3r0K.GJAF.sAAAEuQKEFioBw">
             <properties>
                 <item value="bOYK.GJAQEoAAAEudOkFioBy" key="CHN_IMG_ID"/>
                 <item value="COUNTRY" key="CHN_TYPE"/>
@@ -7993,12 +7999,6 @@
                 <item uuid="0bsK_j7gJcsAAAE7oB701_ye"/>
                 <item uuid="a7sK_j7g75IAAAE7zkr01_ye"/>
                 <item uuid="O0kK_j7gad0AAAE7ADz01_ye"/>
-            </connected>
-        </item>
-        <item name="married" uuid="0N7AqFYB0vEAAAFBnPPcT3DG">
-            <properties/>
-            <connected>
-                <item uuid="KOfAqFYB0uUAAAFBnPPcT3DG"/>
             </connected>
         </item>
         <item name="country-parent-child" uuid="ZY8K_j7gHiAAAAE7Rvv01_yd">
