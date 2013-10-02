@@ -12,7 +12,7 @@ import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.neuro4j.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.beanutils.PropertyUtils;
 import org.neuro4j.logic.swf.SWFConstants;
 
 public class LogicContext {
