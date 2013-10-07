@@ -17,7 +17,7 @@
 
   <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>webapp.root.n4jconsole</param-value>
+        <param-value>webapp.root.n4jconsole.1.3.0</param-value>
   </context-param>
 
   <context-param>
