@@ -434,13 +434,8 @@
    
    <field name="name"  type="string"  indexed="true"  stored="true" multiValued="false" required="false"/>
 
-   <field name="er_type"  type="string"  indexed="true"  stored="true" multiValued="false" required="false"/>
-
-   <!-- relation ids for entity -->
-   <field name="relations"  type="string"  indexed="true"  stored="true" multiValued="true" required="false"/>
-
-   <!-- entity ids for relation (relation parts) -->
-   <field name="entities"  type="string"  indexed="true"  stored="true" multiValued="true" required="false"/>
+   <!-- connected ids -->
+   <field name="connected"  type="string"  indexed="true"  stored="true" multiValued="true" required="false"/>
 
    <dynamicField name="pr_*"  type="string"  indexed="true"  stored="true"/>
  
