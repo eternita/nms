@@ -28,3 +28,7 @@
 /spring-webmvc-3.0.5.RELEASE.jar
 /standard-1.1.2.jar
 /wstx-asl-3.2.7.jar
+/neuro4j-core-1.3.0.jar
+/neuro4j-logic-web-1.3.0.jar
+/neuro4j-storage-solr-1.3.0.jar
+/neuro4j-workflow-common-1.3.0.jar
