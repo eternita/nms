@@ -1,4 +1,4 @@
-The project (storage-demo) is created to be a code samples list.
+The project (storage-demo) is created to provide basic understanding for Network database.
 
 Requirements: 
 - install Neuro4J Studio (It's Eclipse based UI). More here: http://www.neuro4j.org/f/welcome-downloads 

@@ -2,6 +2,7 @@ package org.neuro4j.kms.impex;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.logging.Logger;
 
 import org.neuro4j.core.Network;
@@ -167,11 +168,13 @@ public class Importer {
 	{
 		Representation representation = new Representation();
 		try {
-			byte[] fileBytes = getFileData(fileName);
-			if (null == fileBytes)
-				logger.severe("Can't read " + fileName);
+//			byte[] fileBytes = getFileData(fileName);
+//			if (null == fileBytes)
+//				logger.severe("Can't read " + fileName);
+//			representation.setData(storage, fileBytes);
 			
-			representation.setData(storage, fileBytes);
+			InputStream is = this.getClass().getClassLoader().getResourceAsStream(fileName);
+			representation.setData(storage, is);
 			
 			return representation;
 		} catch (Exception e1) {

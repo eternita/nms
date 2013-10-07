@@ -124,7 +124,7 @@
 
 	<build>
 		<outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
-		<finalName>wsd</finalName>
+		<finalName>kms</finalName>
 
 		<resources>
 			<resource>

@@ -25,7 +25,7 @@ public class Config {
 	
 	static {
 		try {
-			storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage.properties");
+			storage = NeuroManager.newInstance().getStorage(STORAGE_HOME_DIR, "storage_edit.properties");
 		} catch (StorageException e) {
 			e.printStackTrace();
 		}

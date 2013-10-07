@@ -45,7 +45,7 @@
 				    if (null != translations && translations.size() > 0)
 				    {
 				    	%>
-			    		<a target="_blank" href="/n4j-nms/query?vt=graph&storage=kms&q=select (name='${q}' and language='${from}')/[depth='8']">View Network</a>
+			    		<a target="_blank" href="/n4j-nms/query?vt=graph&storage=kms&q=select (name='${q}' and language='${from}')/[depth='8']">View Data Model Network</a>
 				    	<%
 				    }
    				 %>
