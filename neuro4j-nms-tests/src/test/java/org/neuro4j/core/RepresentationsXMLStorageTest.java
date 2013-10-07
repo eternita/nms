@@ -48,7 +48,7 @@ public class RepresentationsXMLStorageTest {
 			e1.printStackTrace();
 		}
 
-		ERBase entity = new ERBase("test entity with bin representation");
+		Connected entity = new Connected("test entity with bin representation");
 		entity.addRepresentation(r1);
 		net.add(entity);
 
@@ -63,7 +63,7 @@ public class RepresentationsXMLStorageTest {
 		// read reps from storage
 		net = storage.query("select (id=?)", new String[]{eid});
 		
-		ERBase entity2 = net.getById(eid);
+		Connected entity2 = net.getById(eid);
 		
 		Set<Representation> reps = entity2.getRepresentations();
 		
@@ -94,7 +94,7 @@ public class RepresentationsXMLStorageTest {
 		representation.setData(storage, representationNetwork);
 
 
-		ERBase entity = new ERBase("test entity with net representation");
+		Connected entity = new Connected("test entity with net representation");
 		entity.addRepresentation(representation);
 		net.add(entity);
 
@@ -105,7 +105,7 @@ public class RepresentationsXMLStorageTest {
 		// read reps from storage
 		net = storage.query("select (id=?)", new String[]{eid});
 		
-		ERBase entity2 = net.getById(eid);
+		Connected entity2 = net.getById(eid);
 		
 		Set<Representation> reps = entity2.getRepresentations();
 		
