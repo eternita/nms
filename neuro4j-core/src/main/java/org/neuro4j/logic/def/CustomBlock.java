@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.neuro4j.core.Connected;
+import org.neuro4j.core.log.Logger;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicException;
 import org.neuro4j.logic.swf.FlowExecutionException;
@@ -82,7 +83,11 @@ public abstract class CustomBlock extends LogicBlock {
 		for(ParameterDefinition parameter: parameters)
 		{
 			String name = parameter.name();
+			
+			Logger.debug(this, "Processing input parameter: name - {} , type - {})", name, parameter.type());
+			
 			doMapping(ctx, name, SWFParametersConstants.CUSTOM_BLOCK_INPUT_PARAMETER_PREFIX);
+			
 			Object obj = ctx.get(name);
 			if (!parameter.isOptional())
 			{			
@@ -138,14 +143,23 @@ public abstract class CustomBlock extends LogicBlock {
 				if (mappedValue != null && mappedValue.startsWith(originalName))
 				{
 					String[] splittedValue = SWEUtils.getMappedParameters(mappedValue);
-					Object obj = ctx.get(splittedValue[1]);
-					ctx.put(originalName, obj);
+					
+					Logger.debug(this, "Mapping parameter: {} to  {})", splittedValue[1], originalName);
+					
+					evaluateParameterValue(splittedValue[1], splittedValue[0], ctx);
+					
+					
+//					Object obj = ctx.get(splittedValue[1]);
+//					ctx.put(originalName, obj);
 				}
 
 			}
 		}
 
 	}
+	
+	
+
 	
 	private String doOutMapping(LogicContext ctx, String originalName, String prefix)
 	{
@@ -208,6 +222,12 @@ public abstract class CustomBlock extends LogicBlock {
 				throw new FlowExecutionException("Wrong parameter type. Expected type: " + className + " actual type: " + obj.getClass().getCanonicalName());
 			} 
 		} catch (ClassNotFoundException e) {
+			
+			if(className.contains(" "))
+			{
+				Logger.error(this, "Class's name {} contains whitespace - please check your parameter with name: {}.", className, parameterDefinition.name());
+			}
+			
 			throw new FlowExecutionException(e);
 		}
 

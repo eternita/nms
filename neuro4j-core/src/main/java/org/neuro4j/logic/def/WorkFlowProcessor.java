@@ -3,10 +3,11 @@ package org.neuro4j.logic.def;
 import java.util.LinkedHashSet;
 import java.util.Properties;
 import java.util.Set;
-import java.util.logging.Logger;
+
 
 import org.neuro4j.core.Connected;
 import org.neuro4j.core.Network;
+import org.neuro4j.core.log.Logger;
 import org.neuro4j.core.rel.DirectionRelation;
 import org.neuro4j.logic.ExecutableEntityNotFoundException;
 import org.neuro4j.logic.LogicContext;
@@ -21,7 +22,6 @@ import org.neuro4j.storage.StorageException;
 public class WorkFlowProcessor implements LogicProcessor
 {
 
-	private static final Logger logger = Logger.getLogger(WorkFlowProcessor.class.getName());
 	
 	public WorkFlowProcessor() {
 		super();
@@ -32,21 +32,19 @@ public class WorkFlowProcessor implements LogicProcessor
 	}
 	
 
-	public LogicContext action(Connected start, Network network, Storage storage, LogicContext logicContext) throws FlowExecutionException
+	public LogicContext action(Connected step, Network network, Storage storage, LogicContext logicContext) throws FlowExecutionException
 	{
 		if (null == logicContext)
 			throw new RuntimeException("LogicContext must not be null");
 		
-		Connected nextStep = start; 
-		Connected currentStep = start; 
-		while (null != nextStep)
+		
+		while (null != step)
 		{
-			currentStep = nextStep; 
 
 			// reload from storage to have fresh 'relations' in case of remote storage (TODO: rework for performance)
-			currentStep = getEntityByUUID(currentStep.getUuid(), network, storage);
+			step = getEntityByUUID(step.getUuid(), network, storage);
 			
-			nextStep = actionImpl(currentStep, network, storage, logicContext); 
+			step = actionImpl(step, network, storage, logicContext); 
 
 		} // while (null != nextStep)
 		
@@ -57,6 +55,7 @@ public class WorkFlowProcessor implements LogicProcessor
 	private static Connected actionImpl(Connected currentStep, Network network, Storage storage, LogicContext logicContext) throws FlowExecutionException
 	{
 		if (null == logicContext)
+			
 			throw new FlowExecutionException("LogicContext must not be null");
 
 		Connected nextStep = null;
@@ -69,12 +68,19 @@ public class WorkFlowProcessor implements LogicProcessor
 			try {
 				logicNode = LogicBlockLoader.getInstance().lookupBlock(currentStep, className);
 				
-				logger.finest("running " + logicNode.getClass().getSimpleName() + " (" +  logicNode.getClass().getCanonicalName() + ")");
+				
+				
 				Set<Connected> stack = getExecutionStack(logicContext);
 				stack.add(currentStep);
 				logicContext.put(SWFConstants.AC_CURRENT_NODE, currentStep);
-
+				
+				long startTime = System.currentTimeMillis();
+				
+				Logger.debug(WorkFlowProcessor.class, "		Running: {} ({})", logicNode.getClass().getSimpleName(), logicNode.getClass().getCanonicalName());
+				
 				logicNode.process(logicContext);
+				
+				Logger.debug(WorkFlowProcessor.class, "		Finished: ({}ms) {}", System.currentTimeMillis() - startTime, logicNode.getClass().getSimpleName());
 				
 			} catch (ExecutableEntityNotFoundException e1) {
 				throw new FlowExecutionException(e1.getCause());
@@ -92,6 +98,12 @@ public class WorkFlowProcessor implements LogicProcessor
 
 		if (null == nextStep)
 			nextStep = getNext(currentStep, network, storage);
+		
+		if (nextStep != null)
+		{
+			Logger.debug(WorkFlowProcessor.class, "Next step: {} ({})", nextStep.getName(), nextStep.getUuid());	
+		}
+		
 		
 		return nextStep;
 	}
@@ -133,7 +145,7 @@ public class WorkFlowProcessor implements LogicProcessor
 	private static Connected getNext(Connected currentStep, Network network, Storage storage)
 	{
 		Connected next = null;
-//		for (ERBase r : currentStep.getRelations(SWFConstants.NEXT_RELATION_NAME))
+		
 		for (Connected r : currentStep.getConnected("name", SWFConstants.NEXT_RELATION_NAME))
 		{
 			if (null != r)
@@ -159,10 +171,10 @@ public class WorkFlowProcessor implements LogicProcessor
 						break;
 					}
 				} else {
-					logger.finest(currentStep.getName() + " -> " + SWFConstants.NEXT_RELATION_NAME + " - > ??? (not specified)");
+					Logger.debug(WorkFlowProcessor.class, "{} -> {} - > ??? (not specified)", currentStep.getName(), SWFConstants.NEXT_RELATION_NAME);
 				}
 			} else {
-				logger.finest(currentStep.getName() + " has no relation " + SWFConstants.NEXT_RELATION_NAME);
+				Logger.debug(WorkFlowProcessor.class, " {} has no relation {}",currentStep.getName(), SWFConstants.NEXT_RELATION_NAME);
 			}
 		} // for (Relation r : currentStep.getRelations(NEXT_RELATION_NAME))
 		
@@ -183,7 +195,7 @@ public class WorkFlowProcessor implements LogicProcessor
 		try {
 			e = storage.getById(uuid);
 		} catch (StorageException e1) {
-			logger.fine("Can't load entity with id " + uuid + " " + e1.getMessage());
+			Logger.error(WorkFlowProcessor.class, "Can't load entity with id " + uuid, e1);
 		}
 		
 		return e;

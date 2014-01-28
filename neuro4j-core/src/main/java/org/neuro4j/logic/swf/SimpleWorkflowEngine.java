@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.neuro4j.core.Network;
+import org.neuro4j.core.log.Logger;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicProcessor;
 import org.neuro4j.logic.LogicProcessorException;
@@ -26,6 +27,8 @@ public class SimpleWorkflowEngine {
 	
 	private static final String FLOW_FILE_EXTENSION = ".n4j";
 	
+	
+	
 	// flow cache
 	private static Map<String, FlowSet> flowCache = Collections.synchronizedMap(new HashMap<String,FlowSet>());
 
@@ -35,7 +38,7 @@ public class SimpleWorkflowEngine {
 		try {
 			logicProcessor = LogicProcessorFactory.getLogicProcessor("org.neuro4j.logic.def.WorkFlowProcessor");
 		} catch (LogicProcessorNotFoundException e) {
-			e.printStackTrace();
+			Logger.error(SimpleWorkflowEngine.class, "Error during initializing logic processor", e);
 		}		
 	}
 	
@@ -57,9 +60,19 @@ public class SimpleWorkflowEngine {
 		String flowName = fArr[0];
 		String startNode = fArr[1];
 		
+		LogicContext logicContext = null;
+		
+		Logger.debug(SimpleWorkflowEngine.class, "Loading flow: {}.", flowName);
+		
+		try 
+		{
+			
 		FlowSet net = loadFlow(flowName); 
+		
 		if (null == net)
 			throw new FlowExecutionException("Flow '" + flowName + "' can't be loaded");
+		
+		Logger.debug(SimpleWorkflowEngine.class, "Loaded flow: {}.", flowName);
 		
 		StartNodeAdapter startNodeAdapter = net.getStartNodeAdapter(startNode);
 		if (null == startNodeAdapter)
@@ -73,7 +86,7 @@ public class SimpleWorkflowEngine {
 			throw new FlowExecutionException("Node '" + startNodeAdapter.getName() + "' is not public");
 		}
 
-		LogicContext logicContext = new LogicContext();
+		logicContext = new LogicContext();
 		if (null != params)
 		{
 			for (String key : params.keySet())
@@ -82,12 +95,15 @@ public class SimpleWorkflowEngine {
 		
 		logicContext.pushPackage(net.getFlowPackage());
 		
-		try {
+		
 			logicProcessor.action(startNodeAdapter.getEntity(), net.getNetwork(), null, logicContext);
 			
 			logicContext.popPackage();
 			
 		} catch (LogicProcessorException e1) {
+			
+			Logger.error(SimpleWorkflowEngine.class, e1.getMessage(), e1);
+			
 			throw new FlowExecutionException(e1.getMessage());
 		}	
 		

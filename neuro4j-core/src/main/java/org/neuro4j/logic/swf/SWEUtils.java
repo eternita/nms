@@ -102,7 +102,13 @@ public class SWEUtils {
         	if (s != null && s.length > 1)
         	{
         		splitted[0] = s[0];
-        		splitted[1] = s[1];
+        		if (s[1].equals("null"))
+        		{
+            		splitted[1] = s[0];
+        		} else {
+            		splitted[1] = s[1];        			
+        		}
+
         	} else if (s != null && s.length == 1)
         	{
         		splitted[0] = s[0];
@@ -113,5 +119,7 @@ public class SWEUtils {
 		return splitted;
 	}
 	
+	
+
 
 }

@@ -124,7 +124,12 @@ public class CallByFlowNameBlock extends LogicBlock {
 		{
 			ctx.setNextRelation(nextActionUUID);
 		} else {
-			throw new FlowExecutionException("CallByFlowName node: Next Action is unknown.");
+			
+			if (ctx.get(SWFConstants.RENDER_ENGINE_KEY) == null)
+			{
+				throw new FlowExecutionException("CallByFlowName node: Next Action is unknown.");	
+			}
+			
 		}
 		
 		return NEXT;

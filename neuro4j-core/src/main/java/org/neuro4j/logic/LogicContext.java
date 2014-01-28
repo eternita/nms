@@ -9,19 +9,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 import org.apache.commons.beanutils.PropertyUtils;
+import org.neuro4j.core.log.Logger;
 import org.neuro4j.logic.swf.SWFConstants;
 
 public class LogicContext {
+	
 	
 	private HashMap<String, Object> parameters = new HashMap<String, Object>();
 	private HashMap<String, Iterator> loopIterator = null;
 	private Stack<String> packages = new Stack<String>();
 	
-	private static final Logger logger = Logger.getLogger(LogicContext.class.getName());
+
 	
 	public LogicContext() {
 		super();
@@ -45,10 +46,11 @@ public class LogicContext {
 		{
 			return null;
 		}
+		key = key.trim();
 		
 		if(key.startsWith(SWFConstants.QUOTES_SYMBOL) && key.endsWith(SWFConstants.QUOTES_SYMBOL))
 		{
-			return key.replace(SWFConstants.QUOTES_SYMBOL, "");
+			return key.substring(1, key.length()-1);
 		}
 		if (key.contains("."))
 		{
@@ -62,11 +64,11 @@ public class LogicContext {
 					obj = PropertyUtils.getProperty(obj, utilKey);
 					return obj;
 				} catch (IllegalAccessException e) {
-					logger.log(Level.SEVERE, e.getMessage());
+					Logger.error(this, e.getMessage(), e);
 				} catch (InvocationTargetException e) {
-					logger.log(Level.SEVERE, e.getMessage());
+					Logger.error(this, e.getMessage(), e);
 				} catch (NoSuchMethodException e) {
-					logger.log(Level.SEVERE, e.getMessage());
+					Logger.error(this, e.getMessage(), e);
 				}
 			} else {
 				return null;

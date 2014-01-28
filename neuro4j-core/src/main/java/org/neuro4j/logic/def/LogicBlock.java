@@ -6,15 +6,18 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
+
+import org.apache.commons.beanutils.ConstructorUtils;
 import org.neuro4j.core.Connected;
+import org.neuro4j.core.log.Logger;
 import org.neuro4j.core.rel.DirectionRelation;
 import org.neuro4j.logic.ExecutableEntity;
 import org.neuro4j.logic.LogicContext;
 import org.neuro4j.logic.LogicException;
 import org.neuro4j.logic.swf.FlowExecutionException;
 import org.neuro4j.logic.swf.FlowInitializationException;
+import org.neuro4j.logic.swf.SWEUtils;
 import org.neuro4j.logic.swf.SWFConstants;
 
 public abstract class LogicBlock  implements ExecutableEntity {
@@ -24,7 +27,6 @@ public abstract class LogicBlock  implements ExecutableEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	protected final transient Logger logger = Logger.getLogger(getClass().getName());
 	
 	protected LogicBlockAdapter lba = null;
 	
@@ -170,6 +172,63 @@ public abstract class LogicBlock  implements ExecutableEntity {
 
 	abstract public int execute(LogicContext ctx) throws FlowExecutionException;
 
+    protected final  void evaluateParameterValue(String source, String target, LogicContext ctx)
+    {
+    	Object obj = null;
+		
+		// 1) if null
+		if (SWFConstants.NULL_VALUE.equalsIgnoreCase(source))
+		{
+			ctx.put(target, null);
+			return;
+
+	    // 2) if create new class expression	
+		} else  if(source.startsWith(SWFConstants.NEW_CLASS_SYMBOL_START) && source.endsWith(SWFConstants.NEW_CLASS_SYMBOL_END)) {
+			
+			source = source.replace(SWFConstants.QUOTES_SYMBOL, "").replace("(", "").replace(")", "");
+			
+			obj = createNewInstance(source);
+			
+			ctx.put(target, obj);
+			return;
+		}
+
+		
+		String[] parts = source.split("\\+");
+		
+		// if concatenated string
+	    if (parts.length > 1)
+	    {
+	    	String stringValue = "";
+	    	
+			for (String src: parts)
+			{
+				stringValue += (String)ctx.get(src);			 			
+			}
+			obj = stringValue;
+			
+	    } else {
+	    	obj = ctx.get(source);
+	    }
+
+
+		ctx.put(target, obj);
 	
+    }
+    
+    
+	private Object createNewInstance(String clazzName) {
+		Class<?> beanClass = null;
+		Object beanInstance = null;
+		try {
+			beanClass = Class.forName(clazzName);
+			beanInstance = ConstructorUtils.invokeConstructor(beanClass, null);
+		} catch (Exception e) {
+			Logger.error(SWEUtils.class, e.getMessage(), e);			
+		}
+
+		return beanInstance;
+
+	}
 	
 }
