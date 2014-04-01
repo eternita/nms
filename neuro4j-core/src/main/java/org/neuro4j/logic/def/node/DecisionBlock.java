@@ -103,7 +103,12 @@ public class DecisionBlock extends LogicBlock {
 		case LESS:
 			decisionValue = fctx.get(decisionKey);			
 			compValue = getComparisonValue(fctx);
-
+			
+			if (compValue == null){
+				fctx.setNextRelation(falseExit);
+				break;
+			}
+			
 	         numberValue = ((Number)decisionValue).doubleValue();
 	         numberCompareValue = new Double((String)compValue).doubleValue();
 			
@@ -117,7 +122,10 @@ public class DecisionBlock extends LogicBlock {
 		case GREATER:
 			decisionValue = fctx.get(decisionKey);			
 			compValue = getComparisonValue(fctx);
-
+			if (compValue == null){
+				fctx.setNextRelation(falseExit);
+				break;
+			}
 	         numberValue = ((Number)decisionValue).doubleValue();
 	         numberCompareValue = new Double((String)compValue).doubleValue();
 			

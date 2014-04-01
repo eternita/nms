@@ -68,7 +68,7 @@ public abstract class CustomBlock extends LogicBlock {
 		} else {
 			if (errorExit == null)
 			{
-				throw new FlowExecutionException("CustomBlock: Error connector not defined.");
+				throw new FlowExecutionException("CustomBlock " + getName() + ": Error connector not defined.");
 			}
 			context.setNextRelation(errorExit);
 		}
@@ -102,7 +102,7 @@ public abstract class CustomBlock extends LogicBlock {
 		
 		if (mainExit == null)
 		{
-			throw new FlowExecutionException("CustomBlock: Connector not defined.");
+			throw new FlowExecutionException("CustomBlock " + getName() + ": Connector not defined.");
 		}
 	}
 	
@@ -147,10 +147,7 @@ public abstract class CustomBlock extends LogicBlock {
 					Logger.debug(this, "Mapping parameter: {} to  {})", splittedValue[1], originalName);
 					
 					evaluateParameterValue(splittedValue[1], splittedValue[0], ctx);
-					
-					
-//					Object obj = ctx.get(splittedValue[1]);
-//					ctx.put(originalName, obj);
+
 				}
 
 			}
@@ -161,8 +158,8 @@ public abstract class CustomBlock extends LogicBlock {
 	
 
 	
-	private String doOutMapping(LogicContext ctx, String originalName, String prefix)
-	{
+	private String doOutMapping(LogicContext ctx, String originalName, String prefix) {
+		
 		Set<String> parameterKeys = lba.getPropertyKeys();
 		
 		for (String key: parameterKeys)
@@ -204,7 +201,7 @@ public abstract class CustomBlock extends LogicBlock {
 		{
 			if (!parameterDefinition.isOptional())
 			{
-				throw new FlowExecutionException("Type should be not empty for mandatory parameter");
+				throw new FlowExecutionException("Type should be not empty for mandatory parameter" + parameterDefinition.name() + "(" + getName() +")");
 			}
 			return;
 			
@@ -219,7 +216,8 @@ public abstract class CustomBlock extends LogicBlock {
 			
 			if (!cl.isAssignableFrom(obj.getClass()))
 			{
-				throw new FlowExecutionException("Wrong parameter type. Expected type: " + className + " actual type: " + obj.getClass().getCanonicalName());
+				StringBuffer message = new StringBuffer("Wrong parameter type for ").append(parameterDefinition.name()).append("( ").append(getName()).append(" ). Expected type: ").append(className).append(" actual type: ").append(obj.getClass().getCanonicalName());
+				throw new FlowExecutionException(message.toString());
 			} 
 		} catch (ClassNotFoundException e) {
 			
@@ -233,8 +231,11 @@ public abstract class CustomBlock extends LogicBlock {
 
 	}
 	
-	protected void init() throws FlowInitializationException
-	{
+	/**
+	 * Initializes custom block.
+	 * @throws FlowInitializationException
+	 */
+	protected void init() throws FlowInitializationException {
 		
 	}
 

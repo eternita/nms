@@ -7,9 +7,8 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrRequest.METHOD;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.neuro4j.core.log.Logger;
 import org.neuro4j.utils.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Iterates over Solr query - send multiple queries (iterate over pages) if request return more then PAGE_SIZE
@@ -30,7 +29,7 @@ public class SolrIterator<SolrDocument> implements Iterator<SolrDocument> {
 	
 //	private final int QUERIED_ROWS_LIMIT = 10000; 
 
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+	
 	
 	private SolrServer solrServer = null;
 	
@@ -102,7 +101,8 @@ public class SolrIterator<SolrDocument> implements Iterator<SolrDocument> {
         		queryResponse = solrServer.query(solrQuery);
         		
         	String sq = solrQuery.getQuery();
-        	logger.info("QTime " + (System.currentTimeMillis() - start) + " ms. "  + queryResponse.getResults().size() + " docs. q = " + StringUtils.getShortStr(URLDecoder.decode(sq), 100) + " " + sq.length() + " chars " );
+        	
+        	Logger.debug(this, "QTime {} ms. {} docs. q = {} {} chars ",  new Object[]{(System.currentTimeMillis() - start), queryResponse.getResults().size(), StringUtils.getShortStr(URLDecoder.decode(sq), 100), sq.length()});
         	
 //        	if (queryResponse.getResults().getNumFound() > MAX_QUERIED_ROWS)
 //        		throw new RuntimeException("Solr response has too much rows:" + queryResponse.getResults().getNumFound() + ", max is " + MAX_QUERIED_ROWS); 
@@ -116,7 +116,7 @@ public class SolrIterator<SolrDocument> implements Iterator<SolrDocument> {
         {
         	e.printStackTrace();
         	String q = solrQuery.getQuery();
-        	logger.error(" Error executing Solr query q = " + URLDecoder.decode(q), e);
+        	Logger.error(this, " Error executing Solr query q = {}", URLDecoder.decode(q), e);
     		
 //        	query2file(q);
         } 

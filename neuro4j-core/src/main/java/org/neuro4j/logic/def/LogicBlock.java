@@ -217,7 +217,12 @@ public abstract class LogicBlock  implements ExecutableEntity {
     }
     
     
-	private Object createNewInstance(String clazzName) {
+	/**
+	 * Creates new instance of parameter
+	 * @param clazzName  class name
+	 * @return created object.
+	 */
+	private static Object createNewInstance(String clazzName) {
 		Class<?> beanClass = null;
 		Object beanInstance = null;
 		try {
@@ -229,6 +234,14 @@ public abstract class LogicBlock  implements ExecutableEntity {
 
 		return beanInstance;
 
+	}
+	
+	/**
+	 * Returns name of the block
+	 * @return name
+	 */
+	protected String getName() {
+		return lba.getName();
 	}
 	
 }

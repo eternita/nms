@@ -29,13 +29,6 @@ public class CallBlock extends LogicBlock {
 		lba.setProperty(SWFConstants.N4J_CONSOLE_NODE_TYPE, "star"); 
 	}
 
-//	public void validate(LogicContext ctx) throws LogicException
-//	{
-//		checkContextParameter(ctx, SWFConstants.AC_NEURO_STORAGE);
-//		checkContextParameter(ctx, SWFConstants.AC_LOGIC_PROCESSOR);
-//		return;
-//	}
-//	
 
 	public int execute(LogicContext ctx)
 			throws FlowExecutionException {

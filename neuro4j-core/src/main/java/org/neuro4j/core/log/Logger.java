@@ -3,6 +3,8 @@ package org.neuro4j.core.log;
 import org.slf4j.LoggerFactory;
 
 public class Logger {
+	
+	 public static final String PERFORMANCE_FLOWS = "PERFORMANCE_FLOWS";
 
 	  public static void error(Object category, String msg, Object[] params)
 	  {
@@ -69,6 +71,7 @@ public class Logger {
 	      getLogger(category).debug(msg, params);
 	    }
 	  }
+	  
 	  
 	  public static void debug(Object category, String msg, Object param1)
 	  {
